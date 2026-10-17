@@ -232,54 +232,66 @@ const SORT={new:()=>0,val:(a,b)=>val(b)-val(a),unit:(a,b)=>b.price-a.price,pl:(a
 const sortbar=()=>`<div style="margin:0 0 10px"><select onchange="so=this.value;render()" style="padding:10px 12px;font-size:13px;font-weight:700">${[['new','並び替え：登録が新しい順'],['val','評価額が高い順'],['unit','相場（単価）が高い順'],['pl','損益が大きい順'],['series','シリーズ・パック順'],['name','名前順']].map(o=>`<option value="${o[0]}" ${so==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div>`;
 function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;save();render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
 function pvw(s){open_(`<div class="hd"><b>カード写真</b><button class="ib" onclick="close_()">✕</button></div><img src="${s}" style="width:100%;border-radius:12px">`)}
-let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0;
-fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),s})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
+let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
+fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
 const cimg=x=>x.img||(x.s&&x.s.r?`https://assets.tcgdex.net/ja/${x.s.r}/${x.s.id}/${x.l}/low.webp`:'');
 function cand(){
  const b=$('#cd');if(!b)return;
- const q=$('#fn').value.trim(),no=$('#fo').value.trim().split('/')[0].replace(/^0+/,'');
- if(F.g!=='poke'||(!q&&!no)){b.innerHTML='';return}
+ const q=$('#fn').value.trim();
+ const rawNo=$('#fo').value.trim();
  const seq=++PKSEARCH;
- const local=PKI.filter(x=>(!q||x.n.toLowerCase().includes(q.toLowerCase()))&&(!no||x.l.replace(/^0+/,'')===no)).slice(0,30);
- if(local.length){PKR=local;b.innerHTML=renderPKR(local);return}
- if(!q){b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">番号だけでは候補を取得できません。カード名も入力してください。</div>';return}
- b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カードデータを検索中…</div>';
+ // Never reuse a previous card number to filter a new name search.
+ if(q && q!==PKLASTNAME){PKLASTNAME=q;}
+ if(F.g!=='poke'){b.innerHTML='';return}
+ if(!q){PKR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を入力すると候補が表示されます。番号だけの検索は候補が混ざりやすいため、カード名から検索してください。</div>';return}
+ b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を検索中…</div>';
+ const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
+ const nq=norm(q);
+ const local=PKI.filter(x=>norm(x.n).includes(nq)).map(x=>({...x,local:true,setName:x.s?.n||'',setSeries:x.s?.r||''}));
  fetch('https://api.tcgdex.net/v2/ja/cards?name='+encodeURIComponent(q)).then(r=>{if(!r.ok)throw Error('API '+r.status);return r.json()}).then(rows=>{
   if(seq!==PKSEARCH||!$('#cd'))return;
   if(!Array.isArray(rows))throw Error('unexpected response');
   const mapped=rows.map(d=>({n:d.name||'',l:String(d.localId||''),img:d.image?d.image+'/low.webp':'',live:true,setId:d.id||'',setName:d.set?.name||'',setSeries:d.set?.serie?.name||''}));
-  const filtered=mapped.filter(x=>(!no||x.l.replace(/^0+/,'')===no));
-  PKR=filtered.slice(0,30);
-  b.innerHTML=PKR.length?renderPKR(PKR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">候補が見つかりません。別の名前で検索するか、手入力できます。</div>';
- }).catch(()=>{if(seq===PKSEARCH&&$('#cd'))b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カードデータに接続できません。GitHubのActionsでデータ更新を実行するか、カード名・番号を手入力してください。</div>'});
+  // Remove unrelated fuzzy matches; exact/substring matches only, with name similarity first.
+  const all=[...mapped,...local].filter(x=>norm(x.n).includes(nq));
+  const seen=new Set();
+  PKR=all.filter(x=>{const k=(x.setId||x.s?.id||'')+'|'+x.l+'|'+norm(x.n);if(seen.has(k))return false;seen.add(k);return true})
+    .sort((a,b)=>(norm(a.n)===nq?0:1)-(norm(b.n)===nq?0:1)||a.n.localeCompare(b.n,'ja')).slice(0,50);
+  b.innerHTML=PKR.length?renderPKR(PKR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致する候補がありません。名前を短くするか、カード名を確認してください。</div>';
+ }).catch(()=>{
+  if(seq!==PKSEARCH||!$('#cd'))return;
+  const seen=new Set();PKR=local.filter(x=>{const k=(x.s?.id||'')+'|'+x.l+'|'+norm(x.n);if(seen.has(k))return false;seen.add(k);return true}).slice(0,50);
+  b.innerHTML=PKR.length?renderPKR(PKR)+'<div style="font-size:11px;color:var(--mu);margin-top:6px">オンライン検索に接続できないため、保存済みデータのみ表示しています。</div>':'<div style="font-size:11px;color:var(--mu);margin-top:6px">検索に接続できません。時間をおいて再試行するか、カード情報を手入力してください。</div>';
+ });
 }
-function renderPKR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:240px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickc(${i})">${cimg(x)?`<img class="th" style="width:36px;height:50px" src="${cimg(x)}" onerror="this.style.visibility='hidden'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}</div><div style="font-size:11px;color:var(--mu)">${x.l}${x.setName?' ・ '+x.setName:''}</div></div></div>`).join('')}</div>`}
+function renderPKR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickc(${i})">${cimg(x)?`<img class="th" style="width:36px;height:50px" src="${cimg(x)}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}</div><div style="font-size:11px;color:var(--mu)">${x.l}${x.setName?' ・ '+x.setName:''}</div></div></div>`).join('')}</div>`}
 async function pickc(i){
  const x=PKR[i];if(!x)return;
- const b=$('#cd');
- if(x.live&&x.setId){
-  b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">シリーズ・レアリティ・番号を確認中…</div>';
+ const b=$('#cd');const selectedName=x.n;
+ // Clear stale fields first so a missing value from this card cannot inherit the last card's value.
+ $('#fn').value=selectedName;$('#fo').value='';F.r='';F.img='';
+ const rr=$('#rr');if(rr)rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));
+ const p=$('#pv');if(p){p.removeAttribute('src');p.style.display='none'}
+ let detail=x;
+ if(x.setId){
+  b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">選択したカードの詳細を確認中…</div>';
   try{
    const r=await fetch('https://api.tcgdex.net/v2/ja/cards/'+encodeURIComponent(x.setId));
-   if(r.ok){const d=await r.json();
-    x.n=d.name||x.n;x.l=String(d.localId||x.l);x.img=d.image?d.image+'/low.webp':x.img;
-    x.setName=d.set?.name||x.setName||'';x.rarity=d.rarity||'';
-    const cc=d.set?.cardCount?.official||d.set?.cardCount?.total||d.set?.cardCount;
-    x.cardNo=x.l+(cc?'/'+cc:'');
+   if(r.ok){const d=await r.json();detail={...x,...d,n:d.name||x.n,l:String(d.localId??x.l),img:d.image?d.image+'/low.webp':x.img,setName:d.set?.name||x.setName||'',setSeries:d.set?.serie?.name||x.setSeries||'',rarity:d.rarity||''};
+    const count=d.set?.cardCount?.official||d.set?.cardCount?.total;
+    detail.cardNo=String(d.localId??x.l)+(count?'/'+count:'');
    }
-  }catch(e){/* Keep the search result; manual correction remains available. */}
+  }catch(e){/* Keep selected card data, never reuse another card's number or rarity. */}
  }
- $('#fn').value=x.n;
- $('#fo').value=x.cardNo||x.l;
- const sel=$('#fs');
- const setName=x.setName||(x.s&&x.s.n)||'';
+ $('#fn').value=detail.n||selectedName;
+ $('#fo').value=detail.cardNo||String(detail.localId??detail.l??'');
+ const sel=$('#fs');const setName=detail.setName||(detail.s&&detail.s.n)||'';
  const option=[...sel.options].find(o=>o.text.trim()===setName||o.text.includes(setName));
- if(option){sel.value=option.value;$('#fs2').style.display='none'}
- else if(setName){sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=setName}
- if(x.rarity){F.r=x.rarity;const rr=$('#rr');if(rr){rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el.textContent.trim()===F.r));if(![...rr.querySelectorAll('.chip')].some(el=>el.textContent.trim()===F.r)){rr.insertAdjacentHTML('beforeend',`<button class="chip on" onclick="F.r=this.textContent;document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b===this))">${x.rarity}</button>`)}}}
- F.img=x.img||cimg(x)||'';
- const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
- b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${x.rarity?' ・ '+x.rarity:''} ・ ${$('#fo').value}</div>`;
+ if(option){sel.value=option.value;$('#fs2').style.display='none'}else if(setName){sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=setName}
+ if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
+ F.img=detail.img||cimg(detail)||'';
+ if(p&&F.img){p.src=F.img;p.style.display='block'}
+ b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${detail.rarity?' ・ '+detail.rarity:' ・ レアリティ情報なし'} ・ ${$('#fo').value||'カード番号情報なし'}</div>`;
 }
 const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=cand;$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
 $('#fab').onclick=()=>add();
