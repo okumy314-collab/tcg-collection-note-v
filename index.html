@@ -247,21 +247,39 @@ function cand(){
  fetch('https://api.tcgdex.net/v2/ja/cards?name='+encodeURIComponent(q)).then(r=>{if(!r.ok)throw Error('API '+r.status);return r.json()}).then(rows=>{
   if(seq!==PKSEARCH||!$('#cd'))return;
   if(!Array.isArray(rows))throw Error('unexpected response');
-  const mapped=rows.map(d=>({n:d.name||'',l:String(d.localId||''),img:d.image?d.image+'/low.webp':'',live:true,setId:d.id||'',setName:d.set?.name||'',setSeries:d.set?.serie?.id||''}));
+  const mapped=rows.map(d=>({n:d.name||'',l:String(d.localId||''),img:d.image?d.image+'/low.webp':'',live:true,setId:d.id||'',setName:d.set?.name||'',setSeries:d.set?.serie?.name||''}));
   const filtered=mapped.filter(x=>(!no||x.l.replace(/^0+/,'')===no));
   PKR=filtered.slice(0,30);
   b.innerHTML=PKR.length?renderPKR(PKR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">候補が見つかりません。別の名前で検索するか、手入力できます。</div>';
  }).catch(()=>{if(seq===PKSEARCH&&$('#cd'))b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カードデータに接続できません。GitHubのActionsでデータ更新を実行するか、カード名・番号を手入力してください。</div>'});
 }
 function renderPKR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:240px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickc(${i})">${cimg(x)?`<img class="th" style="width:36px;height:50px" src="${cimg(x)}" onerror="this.style.visibility='hidden'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}</div><div style="font-size:11px;color:var(--mu)">${x.l}${x.setName?' ・ '+x.setName:''}</div></div></div>`).join('')}</div>`}
-function pickc(i){
+async function pickc(i){
  const x=PKR[i];if(!x)return;
- $('#fn').value=x.n;$('#fo').value=x.l;
+ const b=$('#cd');
+ if(x.live&&x.setId){
+  b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">シリーズ・レアリティ・番号を確認中…</div>';
+  try{
+   const r=await fetch('https://api.tcgdex.net/v2/ja/cards/'+encodeURIComponent(x.setId));
+   if(r.ok){const d=await r.json();
+    x.n=d.name||x.n;x.l=String(d.localId||x.l);x.img=d.image?d.image+'/low.webp':x.img;
+    x.setName=d.set?.name||x.setName||'';x.rarity=d.rarity||'';
+    const cc=d.set?.cardCount?.official||d.set?.cardCount?.total||d.set?.cardCount;
+    x.cardNo=x.l+(cc?'/'+cc:'');
+   }
+  }catch(e){/* Keep the search result; manual correction remains available. */}
+ }
+ $('#fn').value=x.n;
+ $('#fo').value=x.cardNo||x.l;
  const sel=$('#fs');
- if(x.live){const o=[...sel.options].find(o=>o.text.includes(x.setName));if(o)sel.value=o.value;else{sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.setName||'（セット名を入力）'}F.img=x.img||'';}
- else{const t=x.s;$('#fo').value=x.l+'/'+t.t;const o=[...sel.options].find(o=>{const z=o.text.replace(/\(.*$/,'');return z&&(t.n.includes(z)||z.includes(t.n))});if(o)sel.value=o.value;else{sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=t.n}F.img=cimg(x)}
+ const setName=x.setName||(x.s&&x.s.n)||'';
+ const option=[...sel.options].find(o=>o.text.trim()===setName||o.text.includes(setName));
+ if(option){sel.value=option.value;$('#fs2').style.display='none'}
+ else if(setName){sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=setName}
+ if(x.rarity){F.r=x.rarity;const rr=$('#rr');if(rr){rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el.textContent.trim()===F.r));if(![...rr.querySelectorAll('.chip')].some(el=>el.textContent.trim()===F.r)){rr.insertAdjacentHTML('beforeend',`<button class="chip on" onclick="F.r=this.textContent;document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b===this))">${x.rarity}</button>`)}}}
+ F.img=x.img||cimg(x)||'';
  const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
- $('#cd').innerHTML='<div style="font-size:11px;color:var(--up);margin-top:6px">✓ カード候補を選択しました</div>';
+ b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${x.rarity?' ・ '+x.rarity:''} ・ ${$('#fo').value}</div>`;
 }
 const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=cand;$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
 $('#fab').onclick=()=>add();
