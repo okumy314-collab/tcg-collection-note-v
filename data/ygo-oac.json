@@ -5,11 +5,11 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "partial_verified",
-  "note": "All 100 card names and collector numbers are populated. Rarity variants for YAC1-JP026–JP070 have been cross-checked against the YAC1 set entries in the community-maintained yaml-yugi dataset. This is a secondary reference and should be periodically compared with Konami's official database.",
+  "note": "All 100 card names and collector numbers are populated. Rarity variants for YAC1-JP026–JP070 have been cross-checked against the current published YAC1 rarity lists and the community-maintained yaml-yugi dataset; conflicting entries were reconciled against the newer checklist. This is secondary-source verification and should be periodically compared with Konami's official database.",
   "sources": [
-    "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
-    "https://ocg-card.com/list/yac1/",
     "https://www.yugioh-card.com/japan/products/yac1/",
+    "https://ocg-card.com/list/yac1/",
+    "https://samuraiswordtokyo.com/blogs/news/yu-gi-oh-original-artwork-collection-yac1-japanese-box",
     "https://github.com/DawnbrandBots/yaml-yugi/tree/312be377b876af4fe3fadc69fac2367adf765cb2/data/cards"
   ],
   "cards": [
@@ -432,10 +432,11 @@
       "baseRarity": "スーパーレア",
       "variants": [
         "スーパーレア",
-        "シークレットレア"
+        "シークレットレア",
+        "コレクターズレア"
       ],
       "verified": true,
-      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "source": "YAC1 set rarity list cross-check (secondary sources)",
       "variantStatus": "cross_checked_yac1_setlist"
     },
     {
