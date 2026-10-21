@@ -3,8 +3,8 @@
   "productCode": "YAC1",
   "releaseDate": "2026-09-26",
   "totalCardTypes": 100,
-  "datasetStatus": "100_card_names_and_rarity_variants_populated",
-  "note": "Collector numbers and card names are listed for all 100 types. Rarity variants follow the published YAC1 rarity list. Verify any individual printing/serial details against the official database where needed.",
+  "datasetStatus": "100_card_names_and_numbers; rarity_variants_provisional_except_manga-style",
+  "note": "All 100 card names and collector numbers are populated. Base rarity follows official product counts (25 UR, 45 SR, 30 UR MANGA-STYLE). Finish variants for regular UR/SR cards are provisional and should not be used as definitive per-card data until cross-checked with official card database. MANGA-STYLE finish variants follow official product description.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999&sess=1",
@@ -23,7 +23,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -38,7 +38,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -53,7 +53,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -68,7 +68,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -83,7 +83,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -98,7 +98,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -113,7 +113,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -128,7 +128,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -143,7 +143,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -158,7 +158,7 @@
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -170,7 +170,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -182,7 +182,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -194,7 +194,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -206,7 +206,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -218,7 +218,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -230,7 +230,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -242,7 +242,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -254,7 +254,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -266,7 +266,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -278,7 +278,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -290,7 +290,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -302,7 +302,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -314,7 +314,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -326,7 +326,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -338,7 +338,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -350,7 +350,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -362,7 +362,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -374,7 +374,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -386,7 +386,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -398,7 +398,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -410,7 +410,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -422,7 +422,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -434,7 +434,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -446,7 +446,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -458,7 +458,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -470,7 +470,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -482,7 +482,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -494,7 +494,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -506,7 +506,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -518,7 +518,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -530,7 +530,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -542,7 +542,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -553,7 +553,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -564,7 +564,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -576,7 +576,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -588,7 +588,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -600,7 +600,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -612,7 +612,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -625,7 +625,7 @@
         "UL",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -637,7 +637,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -649,7 +649,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -660,7 +660,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -673,7 +673,7 @@
         "UL",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -685,7 +685,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -696,7 +696,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -709,7 +709,7 @@
         "UL",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -722,7 +722,7 @@
         "UL",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -733,7 +733,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -744,7 +744,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -757,7 +757,7 @@
         "UL",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -769,7 +769,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -782,7 +782,7 @@
         "CR",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -795,7 +795,7 @@
         "UL",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -807,7 +807,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -819,7 +819,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -830,7 +830,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -841,7 +841,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -853,7 +853,7 @@
         "SE",
         "CR"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -864,7 +864,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
@@ -876,7 +876,7 @@
         "SE",
         "PSE"
       ],
-      "variantDetailsVerified": true,
+      "variantDetailsVerified": false,
       "verifiedNameAndNumber": true
     },
     {
