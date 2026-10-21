@@ -1,0 +1,1264 @@
+{
+  "title": "遊☆戯☆王 ORIGINAL ARTWORK COLLECTION",
+  "productCode": "YAC1",
+  "releaseDate": "2026-09-26",
+  "cardCount": 100,
+  "note": "Card names and numbering transcribed from published checklist. Verify variant availability per card against official database before using variant lists as definitive.",
+  "sources": [
+    "https://www.yugioh-card.com/japan/products/yac1/",
+    "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999&sess=1",
+    "https://appget.com/oripa/original-artwork-collection-prize-item/"
+  ],
+  "cards": [
+    {
+      "cardNumber": "YAC1-JP001",
+      "name": "業火の魔神エクゾディア",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP002",
+      "name": "完全なる羽化－究極完全態・グレート・モス",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP003",
+      "name": "ハーピィ・レディ－華麗なる分身－",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP004",
+      "name": "神を超えたしもべ－青眼の究極竜",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP005",
+      "name": "機械龍－リボルバー・ドラゴン",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP006",
+      "name": "幻想の邪眼－サクリファイス",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP007",
+      "name": "死の世界の支配者－ダーク・ネクロフィア",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP008",
+      "name": "稲妻の戦士－ギルフォード・ザ・ライトニング",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP009",
+      "name": "波動の超魔導剣士－ブラック・パラディン",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP010",
+      "name": "沈黙の闘者－サイレント・マジシャン",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR",
+        "UR Overframe",
+        "PSE Overframe"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP011",
+      "name": "罰ゲーム「ＧＲＥＥＤ－欲望の幻像－」",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP012",
+      "name": "ゾンバイア",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP013",
+      "name": "魔の龍札－土龍",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP014",
+      "name": "魔の龍札－金龍",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP015",
+      "name": "スーパークリティカル",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP016",
+      "name": "環境適応力",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP017",
+      "name": "香水戦術",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP018",
+      "name": "闇魔導の覇王",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP019",
+      "name": "属性反発作用",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP020",
+      "name": "デューカー・ツイン・ソード",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP021",
+      "name": "閃光の封殺剣",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP022",
+      "name": "暗黒魔族ギルファー・デーモン－暗黒魔炎葬",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP023",
+      "name": "鋼鉄の騎士 ギア・フリード",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP024",
+      "name": "マジックカード「エネミーコントローラー」",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP025",
+      "name": "魂への引導",
+      "baseRarity": "UR",
+      "variants": [
+        "UR",
+        "SE",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP026",
+      "name": "カオス・ソルジャー",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP027",
+      "name": "レッドアイズ・ブラックフルメタルドラゴン",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP028",
+      "name": "心宿りし青眼竜",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP029",
+      "name": "千年の眠りから覚めし原人",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP030",
+      "name": "破壊竜ガンドラＧ",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP031",
+      "name": "黒き魔術師－ブラック・マジシャン",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP032",
+      "name": "真紅眼の鋼爪竜",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP033",
+      "name": "鋼炎の剣士",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP034",
+      "name": "千年の宝を守りしゴーレム",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP035",
+      "name": "魔術師の弟子－ブラック・マジシャン・ガール",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP036",
+      "name": "大翼のバフォメット",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP037",
+      "name": "千年王朝の盾",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP038",
+      "name": "幻爪の王ガゼル",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP039",
+      "name": "磁石の戦士ε",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP040",
+      "name": "トリコロール・ガジェット",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP041",
+      "name": "サイレント・マジシャン・ゼロ",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP042",
+      "name": "マジシャンズ・ロッド",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP043",
+      "name": "電磁石の戦士β",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP044",
+      "name": "鋼鉄の幻想師",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP045",
+      "name": "イリュージョン・オブ・カオス",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP046",
+      "name": "幻の召喚神エクゾディア",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP047",
+      "name": "幻想魔獣キマイラ",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP048",
+      "name": "滅びの黒魔術師",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP049",
+      "name": "ハーピィ・レディ・SC",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP050",
+      "name": "青き眼の精霊",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP051",
+      "name": "滅びの爆裂疾風弾",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP052",
+      "name": "師弟の絆",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP053",
+      "name": "黒・魔・導・爆・裂・破",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP054",
+      "name": "仲間の絆",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP055",
+      "name": "千年の十字",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP056",
+      "name": "青眼龍轟臨",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP057",
+      "name": "黒・爆・裂・破・魔・導",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP058",
+      "name": "魂のしもべ",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP059",
+      "name": "黒魔術の秘儀",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP060",
+      "name": "合成獣融合",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP061",
+      "name": "時の沈黙－ターン・サイレンス",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP062",
+      "name": "未来への沈黙",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP063",
+      "name": "マジックカード「死者蘇生」",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP064",
+      "name": "ティマイオスの眼光",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP065",
+      "name": "光の霊堂",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP066",
+      "name": "石版の神殿",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP067",
+      "name": "黒の魔導陣",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP068",
+      "name": "光の黄金櫃",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP069",
+      "name": "怒りの業火 エクゾード・フレイム",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP070",
+      "name": "メタル化・強化反射装甲",
+      "baseRarity": "SR",
+      "variants": [
+        "SR",
+        "SE",
+        "UL",
+        "CR",
+        "PSE"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP071",
+      "name": "ブラック・マジシャン（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP072",
+      "name": "真紅眼の黒竜（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP073",
+      "name": "青眼の白龍（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP074",
+      "name": "ホーリー・エルフ（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP075",
+      "name": "ベビードラゴン（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP076",
+      "name": "砦を守る翼竜（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP077",
+      "name": "ワイト（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP078",
+      "name": "二頭を持つキング・レックス（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP079",
+      "name": "闇・道化師のサギー（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP080",
+      "name": "暗黒騎士ガイア（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP081",
+      "name": "幻想師・ノー・フェイス（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP082",
+      "name": "ハーピィ・レディ（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP083",
+      "name": "逆転の女神（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP084",
+      "name": "デビルゾア（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP085",
+      "name": "人造人間－サイコ・ショッカー（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP086",
+      "name": "インセクト女王（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP087",
+      "name": "バスター・ブレイダー（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP088",
+      "name": "リバイバルスライム（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP089",
+      "name": "伝説のフィッシャーマン（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP090",
+      "name": "ブレイドナイト（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP091",
+      "name": "溶岩魔神ラヴァ・ゴーレム（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP092",
+      "name": "マシュマロン（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP093",
+      "name": "光の護封剣（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP094",
+      "name": "ハーピィの羽根帚（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP095",
+      "name": "スケープ・ゴート（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP096",
+      "name": "融合（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP097",
+      "name": "デビルズ・サンクチュアリ（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP098",
+      "name": "聖なるバリア －ミラーフォース－（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP099",
+      "name": "魔法の筒（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    },
+    {
+      "cardNumber": "YAC1-JP100",
+      "name": "現世と冥界の逆転（MANGA-STYLE）",
+      "baseRarity": "UR",
+      "variants": [
+        "UR MANGA-STYLE color",
+        "UR MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome"
+      ],
+      "rarityVerified": false
+    }
+  ]
+}
