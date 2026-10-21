@@ -1,15 +1,6 @@
 name: validate-one-piece-data
 
 on:
-  push:
-    branches:
-      - feature/japanese-one-piece-card-data
-    paths:
-      - "scripts/fetch-op.mjs"
-      - ".github/workflows/update-data.yml"
-      - ".github/workflows/validate-one-piece-data.yml"
-      - "index.html"
-      - "data/ygo-oac.json"
   pull_request:
     paths:
       - "scripts/fetch-op.mjs"
