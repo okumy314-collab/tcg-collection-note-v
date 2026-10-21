@@ -131,6 +131,20 @@ jobs:
           if (data.variantChecksPending !== 0) {
             throw new Error('未照合レアリティが残っています: ' + data.variantChecksPending);
           }
+          const rarityCounts = Object.fromEntries(
+            ['アルティメットレア', 'コレクターズレア', 'プリズマティックシークレットレア']
+              .map(rarity => [rarity, superRareCards.filter(card => card.variants.includes(rarity)).length])
+          );
+          const expectedRarityCounts = {
+            'アルティメットレア': 14,
+            'コレクターズレア': 14,
+            'プリズマティックシークレットレア': 13
+          };
+          for (const [rarity, expected] of Object.entries(expectedRarityCounts)) {
+            if (rarityCounts[rarity] !== expected) {
+              throw new Error(rarity + 'の収録数が一致しません: ' + rarityCounts[rarity] + '/' + expected);
+            }
+          }
           console.log('遊戯王データ検証成功:', data.knownCards, '/', data.totalCardTypes, '件。状態:', data.datasetStatus);
           NODE
 
