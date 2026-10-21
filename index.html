@@ -233,6 +233,7 @@ const sortbar=()=>`<div style="margin:0 0 10px"><select onchange="so=this.value;
 function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;save();render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
 function pvw(s){open_(`<div class="hd"><b>カード写真</b><button class="ib" onclick="close_()">✕</button></div><img src="${s}" style="width:100%;border-radius:12px">`)}
 let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
+let YGOI=[];fetch('data/ygo-oac.json').then(r=>{if(!r.ok)throw Error('data/ygo-oac.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.cards))YGOI=j.cards}).catch(()=>{});
 fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
 const cimg=x=>x.img||(x.s&&x.s.r?`https://assets.tcgdex.net/ja/${x.s.r}/${x.s.id}/${x.l}/low.webp`:'');
 let OPI=[],OPR=[],OPSEARCH=0,OP_READY=false,OP_ERROR=false;
@@ -274,7 +275,14 @@ function cand(){
  // Never reuse a previous card number to filter a new name search.
  if(q && q!==PKLASTNAME){PKLASTNAME=q;}
  if(F.g==='op'){candOP();return}
- if(F.g!=='poke'){b.innerHTML='';return}
+ if(F.g==='ygo'){
+  const nq=norm(q);
+  const rows=YGOI.filter(x=>norm(x.name).includes(nq)).slice(0,50).map(x=>({n:x.name,l:x.cardNumber,cardNo:x.cardNumber,rarity:x.baseRarity,setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',verifiedNameAndNumber:x.verifiedNameAndNumber}));
+  PKR=rows;
+  b.innerHTML=rows.length?renderPKR(rows):'<div style="font-size:11px;color:var(--mu);margin-top:6px">候補を読み込み中、または一致するカードがありません。少し待って再入力してください。</div>';
+  return;
+}
+if(F.g!=='poke'){b.innerHTML='';return}
  if(!q){PKR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を入力すると候補が表示されます。番号だけの検索は候補が混ざりやすいため、カード名から検索してください。</div>';return}
  b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を検索中…</div>';
  const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
