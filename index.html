@@ -289,10 +289,16 @@ function cand(){
   return;
 }
 if(F.g!=='poke'){b.innerHTML='';return}
- if(!q){PKR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を入力すると候補が表示されます。番号だけの検索は候補が混ざりやすいため、カード名から検索してください。</div>';return}
+ const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'');
+ const nq=norm(q),nNo=norm(rawNo);
+ if(!q&&nNo){
+  const localByNo=PKI.filter(x=>norm(x.l).includes(nNo)||norm(x.setId).includes(nNo)).map(x=>({...x,local:true,setName:x.s?.n||'',setSeries:x.s?.r||''})).slice(0,50);
+  PKR=localByNo;
+  b.innerHTML=PKR.length?renderPKR(PKR)+(PKI_READY?'':'<div style="font-size:11px;color:var(--mu);margin-top:6px">カードデータを読み込み中…</div>'):'<div style="font-size:11px;color:var(--mu);margin-top:6px">保存済みデータに一致する番号がありません。カード名でも検索できます。</div>';
+  return;
+ }
+ if(!q){PKR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名またはカード番号を入力すると候補が表示されます。</div>';return}
  b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を検索中…</div>';
- const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
- const nq=norm(q);
  const local=PKI.filter(x=>norm(x.n).includes(nq)).map(x=>({...x,local:true,setName:x.s?.n||'',setSeries:x.s?.r||''}));
  fetch('https://api.tcgdex.net/v2/ja/cards?name='+encodeURIComponent(q)).then(r=>{if(!r.ok)throw Error('API '+r.status);return r.json()}).then(rows=>{
   if(seq!==PKSEARCH||!$('#cd'))return;
