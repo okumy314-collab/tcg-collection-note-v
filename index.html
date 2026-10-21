@@ -247,7 +247,7 @@ function candOP(){
  const q=$('#fn').value.trim(),rawNo=$('#fo').value.trim(),seq=++OPSEARCH;
  if(!q&&!rawNo){OPR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名またはカード番号を入力すると候補が表示されます。</div>';return}
  if(!OP_READY){b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">ワンピースのカードデータを読み込み中…</div>';return}
- const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'');
+ const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
  const nq=norm(q),nNo=norm(rawNo);
  OPR=OPI.filter(x=>nNo?norm(x.no).includes(nNo):(nq&&(norm(x.n).includes(nq)||norm(x.no).includes(nq))))
   .sort((a,b)=>(nNo?0:(norm(a.n)===nq?0:1)-(norm(b.n)===nq?0:1))||a.no.localeCompare(b.no,'ja')).slice(0,50);
@@ -289,7 +289,7 @@ function cand(){
   return;
 }
 if(F.g!=='poke'){b.innerHTML='';return}
- const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'');
+ const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
  const nq=norm(q),nNo=norm(rawNo);
  if(nNo){
   const localByNo=PKI.filter(x=>norm(x.l).includes(nNo)||norm(x.setId).includes(nNo)).map(x=>({...x,local:true,setName:x.s?.n||'',setSeries:x.s?.r||''})).slice(0,50);
