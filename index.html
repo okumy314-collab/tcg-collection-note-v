@@ -233,7 +233,7 @@ const sortbar=()=>`<div style="margin:0 0 10px"><select onchange="so=this.value;
 function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;save();render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
 function pvw(s){open_(`<div class="hd"><b>カード写真</b><button class="ib" onclick="close_()">✕</button></div><img src="${s}" style="width:100%;border-radius:12px">`)}
 let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
-let YGOI=[],YGO_READY=false;fetch('data/ygo-oac.json').then(r=>{if(!r.ok)throw Error('data/ygo-oac.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.cards))YGOI=j.cards;YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()}).catch(()=>{YGO_READY=true});
+let YGOI=[],YGO_READY=false,YGO_ERROR=false;fetch('data/ygo-oac.json').then(r=>{if(!r.ok)throw Error('data/ygo-oac.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.cards))YGOI=j.cards;else throw Error('invalid YGO data');YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()}).catch(()=>{YGO_ERROR=true;YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()});
 fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
 const cimg=x=>x.img||(x.s&&x.s.r?`https://assets.tcgdex.net/ja/${x.s.r}/${x.s.id}/${x.l}/low.webp`:'');
 let OPI=[],OPR=[],OPSEARCH=0,OP_READY=false,OP_ERROR=false;
@@ -280,7 +280,8 @@ function cand(){
   const nq=normYgo(q);
   const rows=YGOI.filter(x=>normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)).slice(0,50).map(x=>({n:x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:x.variants||[],setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',verifiedNameAndNumber:x.verified}));
   PKR=rows;
-  b.innerHTML=rows.length?renderPKR(rows):(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin-top:6px">遊戯王カードデータを読み込み中…</div>':'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致するカードがありません。カード名またはYAC1-JP番号を確認してください。</div>');
+  const ygoNotice=YGO_ERROR?'<div style="font-size:11px;color:var(--dn);margin:6px 0">遊戯王データを読み込めませんでした。通信環境を確認して再読み込みしてください。</div>':(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin:6px 0">遊戯王カードデータを読み込み中…</div>':`<div style="font-size:11px;color:var(--mu);margin:6px 0">ORIGINAL ARTWORK COLLECTION：確認済み ${YGOI.length} / 100種類。未確認カードは候補に表示していません。</div>`);
+  b.innerHTML=ygoNotice+(rows.length?renderPKR(rows):(YGO_READY&&!YGO_ERROR?'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致するカードがありません。カード名またはYAC1-JP番号を確認してください。</div>':''));
   return;
 }
 if(F.g!=='poke'){b.innerHTML='';return}
