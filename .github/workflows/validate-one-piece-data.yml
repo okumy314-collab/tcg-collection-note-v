@@ -110,6 +110,27 @@ jobs:
               throw new Error('確認済みカード番号が見つかりません: ' + number);
             }
           }
+          const superRareCards = data.cards.filter(card => {
+            const match = /^YAC1-JP(0[2-6][0-9]|070)$/.exec(card.cardNumber || '');
+            return Boolean(match);
+          });
+          if (superRareCards.length !== 45) {
+            throw new Error('YAC1-JP026〜JP070の45種類がそろっていません');
+          }
+          for (const card of superRareCards) {
+            if (card.variantStatus !== 'cross_checked_yac1_setlist') {
+              throw new Error('レアリティ照合状態が未完了です: ' + card.cardNumber);
+            }
+            if (!card.variants.includes('スーパーレア') || !card.variants.includes('シークレットレア')) {
+              throw new Error('基本レアリティが不足しています: ' + card.cardNumber);
+            }
+            if (card.variants.length < 2 || card.variants.some(v => typeof v !== 'string' || !v.trim())) {
+              throw new Error('レアリティ仕様の形式が不正です: ' + card.cardNumber);
+            }
+          }
+          if (data.variantChecksPending !== 0) {
+            throw new Error('未照合レアリティが残っています: ' + data.variantChecksPending);
+          }
           console.log('遊戯王データ検証成功:', data.knownCards, '/', data.totalCardTypes, '件。状態:', data.datasetStatus);
           NODE
 
