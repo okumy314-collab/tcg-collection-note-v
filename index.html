@@ -270,7 +270,8 @@ function cand(){
  const seq=++PKSEARCH;
  // Never reuse a previous card number to filter a new name search.
  if(q && q!==PKLASTNAME){PKLASTNAME=q;}
- if(F.g==='op'){candOP();return}\n if(F.g!=='poke'){b.innerHTML='';return}
+ if(F.g==='op'){candOP();return}
+ if(F.g!=='poke'){b.innerHTML='';return}
  if(!q){PKR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を入力すると候補が表示されます。番号だけの検索は候補が混ざりやすいため、カード名から検索してください。</div>';return}
  b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を検索中…</div>';
  const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
