@@ -111,7 +111,7 @@ jobs:
             }
           }
           const superRareCards = data.cards.filter(card => {
-            const match = /^YAC1-JP(0[2-6][0-9]|070)$/.exec(card.cardNumber || '');
+            const match = /^YAC1-JP(02[6-9]|0[3-6][0-9]|070)$/.exec(card.cardNumber || '');
             return Boolean(match);
           });
           if (superRareCards.length !== 45) {
