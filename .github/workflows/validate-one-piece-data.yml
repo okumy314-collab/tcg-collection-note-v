@@ -1,0 +1,51 @@
+name: validate-one-piece-data
+
+on:
+  pull_request:
+    paths:
+      - "scripts/fetch-op.mjs"
+      - ".github/workflows/update-data.yml"
+      - ".github/workflows/validate-one-piece-data.yml"
+      - "index.html"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check updater syntax
+        run: node --check scripts/fetch-op.mjs
+
+      - name: Generate Japanese One Piece card data
+        run: node scripts/fetch-op.mjs
+
+      - name: Validate generated data
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const data = JSON.parse(readFileSync('data/op.json', 'utf8'));
+          if (!Array.isArray(data.cards) || data.cards.length < 200) {
+            throw new Error('カードデータが空、または件数不足です');
+          }
+          const card = data.cards.find(x => x[0] === 'OP01-001');
+          if (!card || card[1] !== 'ロロノア・ゾロ') {
+            throw new Error('日本語カード名の検証に失敗しました');
+          }
+          if (!card[3].startsWith('https://www.onepiece-cardgame.com/images/cardlist/card/')) {
+            throw new Error('公式カード画像URLの検証に失敗しました');
+          }
+          if (!data.cards.every(x => x.length === 7 && x[0] && x[1] && x[2] && x[3])) {
+            throw new Error('データ項目の形式が不正です');
+          }
+          console.log('検証成功:', data.cards.length, '件');
+          console.log('サンプル:', card[0], card[1], card[2]);
+          NODE
