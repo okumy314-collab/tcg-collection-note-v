@@ -281,7 +281,8 @@ function cand(){
   const searchText=Boolean(nq||nNo);
   const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,50).map(x=>({n:x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:x.variants||[],setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',verifiedNameAndNumber:x.verified})):[];
   PKR=rows;
-  const ygoNotice=YGO_ERROR?'<div style="font-size:11px;color:var(--dn);margin:6px 0">遊戯王データを読み込めませんでした。通信環境を確認して再読み込みしてください。</div>':(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin:6px 0">遊戯王カードデータを読み込み中…</div>':`<div style="font-size:11px;color:var(--mu);margin:6px 0">ORIGINAL ARTWORK COLLECTION：確認済み ${YGOI.length} / 100種類。未確認カードは候補に表示していません。</div>`);
+  const pendingVariants=YGOI.filter(x=>x.variantStatus==='needs_crosscheck').length;
+  const ygoNotice=YGO_ERROR?'<div style="font-size:11px;color:var(--dn);margin:6px 0">遊戯王データを読み込めませんでした。通信環境を確認して再読み込みしてください。</div>':(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin:6px 0">遊戯王カードデータを読み込み中…</div>':`<div style="font-size:11px;color:var(--mu);margin:6px 0">ORIGINAL ARTWORK COLLECTION：カード情報 ${YGOI.length} / 100種類を登録済み。レアリティ仕様 ${pendingVariants}種類は照合中です。</div>`);
   const ygoPrompt=searchText?'':'<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名またはカード番号を入力すると候補が表示されます。</div>';
   b.innerHTML=ygoNotice+ygoPrompt+(rows.length?renderPKR(rows):(searchText&&YGO_READY&&!YGO_ERROR?'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致するカードがありません。カード名またはYAC1-JP番号を確認してください。</div>':''));
   return;
