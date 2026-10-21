@@ -25,6 +25,17 @@ jobs:
       - name: Check updater syntax
         run: node --check scripts/fetch-op.mjs
 
+      - name: Check app script syntax
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          const html = readFileSync('index.html', 'utf8');
+          const scripts = [...html.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/gi)];
+          if (!scripts.length) throw new Error('index.html のスクリプトが見つかりません');
+          writeFileSync('/tmp/tcg-app-check.js', scripts.map(x => x[1]).join('\\n'));
+          NODE
+          node --check /tmp/tcg-app-check.js
+
       - name: Generate Japanese One Piece card data
         run: node scripts/fetch-op.mjs
 
