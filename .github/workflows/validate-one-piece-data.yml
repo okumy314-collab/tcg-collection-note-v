@@ -87,6 +87,7 @@ jobs:
             throw new Error('データ状態が明示されていません');
           }
           const ids = new Set();
+          const cardNumbers = new Set();
           for (const card of data.cards) {
             if (!card.id || !card.name || !Array.isArray(card.variants) || !card.variants.length) {
               throw new Error('カード情報の必須項目が不足しています');
@@ -95,6 +96,13 @@ jobs:
             ids.add(card.id);
             if (card.cardNumber && !/^YAC1-JP\d{3}$/.test(card.cardNumber)) {
               throw new Error('カード番号の形式が不正です: ' + card.cardNumber);
+            }
+            if (card.cardNumber && cardNumbers.has(card.cardNumber)) {
+              throw new Error('カード番号が重複しています: ' + card.cardNumber);
+            }
+            if (card.cardNumber) cardNumbers.add(card.cardNumber);
+            if (card.verified !== true) {
+              throw new Error('未確認カードが確認済みデータに混在しています: ' + card.id);
             }
           }
           for (const number of ['YAC1-JP004', 'YAC1-JP009']) {
