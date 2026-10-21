@@ -5,12 +5,11 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "partial_verified",
-  "note": "All 100 card names and collector numbers have been populated. The 30 MANGA-STYLE cards have their four finish variants recorded. Finish variants for YAC1-JP026–JP070 remain flagged for per-card cross-check; treat this as a completed 100-card index, not a fully verified rarity master yet.",
+  "note": "All 100 card names and collector numbers are recorded. The 45 Super Rare card finish variants (YAC1-JP026–JP070) have been populated from the published checklist. MANGA-STYLE variants are listed separately; Ultra Rare variants YAC1-JP001–JP025 are maintained from their product/card checklist records.",
   "sources": [
-    "https://www.yugioh-card.com/japan/products/yac1/",
-    "https://www.yugioh-card.com/japan/event/regulation/tcg/",
     "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
-    "https://ocg-card.com/list/yac1/"
+    "https://ocg-card.com/list/yac1/",
+    "https://www.yugioh-card.com/japan/products/yac1/"
   ],
   "cards": [
     {
@@ -395,8 +394,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP027",
@@ -410,8 +408,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP028",
@@ -425,8 +422,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP029",
@@ -440,8 +436,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP030",
@@ -455,8 +450,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP031",
@@ -470,8 +464,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP032",
@@ -485,8 +478,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP033",
@@ -500,8 +492,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP034",
@@ -515,8 +506,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP035",
@@ -530,8 +520,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP036",
@@ -541,12 +530,11 @@
       "variants": [
         "スーパーレア",
         "シークレットレア",
-        "コレクターズレア"
+        "アルティメットレア"
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP037",
@@ -560,8 +548,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP038",
@@ -575,8 +562,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP039",
@@ -585,12 +571,12 @@
       "baseRarity": "スーパーレア",
       "variants": [
         "スーパーレア",
-        "シークレットレア"
+        "シークレットレア",
+        "アルティメットレア"
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP040",
@@ -604,8 +590,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP041",
@@ -619,8 +604,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP042",
@@ -634,8 +618,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP043",
@@ -644,13 +627,11 @@
       "baseRarity": "スーパーレア",
       "variants": [
         "スーパーレア",
-        "シークレットレア",
-        "プリズマティックシークレットレア"
+        "シークレットレア"
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP044",
@@ -663,8 +644,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP045",
@@ -678,8 +658,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP046",
@@ -693,8 +672,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP047",
@@ -708,8 +686,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP048",
@@ -723,8 +700,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP049",
@@ -739,8 +715,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP050",
@@ -754,8 +729,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP051",
@@ -764,12 +738,12 @@
       "baseRarity": "スーパーレア",
       "variants": [
         "スーパーレア",
-        "シークレットレア"
+        "シークレットレア",
+        "アルティメットレア"
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP052",
@@ -782,8 +756,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP053",
@@ -793,13 +766,11 @@
       "variants": [
         "スーパーレア",
         "シークレットレア",
-        "アルティメットレア",
-        "プリズマティックシークレットレア"
+        "アルティメットレア"
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP054",
@@ -813,8 +784,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP055",
@@ -827,8 +797,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP056",
@@ -843,8 +812,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP057",
@@ -859,8 +827,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP058",
@@ -873,8 +840,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP059",
@@ -887,8 +853,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP060",
@@ -902,8 +867,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP061",
@@ -917,8 +881,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP062",
@@ -933,8 +896,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP063",
@@ -949,8 +911,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP064",
@@ -964,8 +925,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP065",
@@ -974,12 +934,12 @@
       "baseRarity": "スーパーレア",
       "variants": [
         "スーパーレア",
-        "シークレットレア"
+        "シークレットレア",
+        "プリズマティックシークレットレア"
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP066",
@@ -992,8 +952,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP067",
@@ -1006,8 +965,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP068",
@@ -1021,8 +979,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP069",
@@ -1035,8 +992,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP070",
@@ -1050,8 +1006,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "needs_crosscheck",
-      "note": "Card name and collector number recorded; finish variants still need per-card cross-check against the published rarity list."
+      "variantStatus": "verified_from_published_checklist"
     },
     {
       "id": "YAC1-JP071",
@@ -1534,6 +1489,6 @@
       "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     }
   ],
-  "variantChecksPending": 45,
+  "variantChecksPending": 0,
   "nameNumberRecords": 100
 }
