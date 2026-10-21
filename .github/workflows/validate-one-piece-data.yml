@@ -1,6 +1,15 @@
 name: validate-one-piece-data
 
 on:
+  push:
+    branches:
+      - feature/japanese-one-piece-card-data
+    paths:
+      - "scripts/fetch-op.mjs"
+      - ".github/workflows/update-data.yml"
+      - ".github/workflows/validate-one-piece-data.yml"
+      - "index.html"
+      - "data/ygo-oac.json"
   pull_request:
     paths:
       - "scripts/fetch-op.mjs"
@@ -93,7 +102,7 @@ jobs:
             }
             if (ids.has(card.id)) throw new Error('カードIDが重複しています: ' + card.id);
             ids.add(card.id);
-            if (card.cardNumber && !/^YAC1-JP\\d{3}$/.test(card.cardNumber)) {
+            if (card.cardNumber && !/^YAC1-JP\d{3}$/.test(card.cardNumber)) {
               throw new Error('カード番号の形式が不正です: ' + card.cardNumber);
             }
           }
