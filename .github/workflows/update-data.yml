@@ -1,6 +1,14 @@
 name: update-card-data
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "fetch-poke.mjs"
+      - "scripts/fetch-op.mjs"
+      - ".github/workflows/update-data.yml"
   workflow_dispatch:
   schedule:
     - cron: "0 18 * * 0"
