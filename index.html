@@ -96,7 +96,11 @@ const cost=c=>(c.paid??c.base)*c.qty,val=c=>c.price*c.qty;
 const tot=a=>({q:a.reduce((x,c)=>x+c.qty,0),k:a.length,v:a.reduce((x,c)=>x+val(c),0),c:a.reduce((x,c)=>x+cost(c),0)});
 function snap(){const d=new Date().toISOString().slice(0,10),v=tot(S.cards).v,l=S.hist[S.hist.length-1];if(l&&l.d===d)l.v=v;else S.hist.push({d,v})}
 const pl=(v,c)=>{const d=v-c,p=c?d/c*100:0;return `<span class="${d>=0?'up':'dn'}">${d>=0?'+':''}${yen(d)} (${d>=0?'+':''}${p.toFixed(1)}%)</span>`};
-const u=(g,i)=>GN[g].s[i][1];const link=(g,c,i)=>u(g,i)+encodeURIComponent(((c.name||'')+' '+(c.no||'')).trim());
+const u=(g,i)=>GN[g].s[i][1];
+const link=(g,c,i)=>{
+ const query=[c.name,c.no,c.rarity].map(v=>String(v||'').trim()).filter(Boolean).join(' ');
+ return u(g,i)+encodeURIComponent(query);
+};
 function chart(){
  const h=S.hist.slice(-30);if(h.length<2)return `<div class="empty">データが貯まるとここに推移グラフが表示されます</div>`;
  const W=320,H=130,P=6,mx=Math.max(...h.map(x=>x.v)),mn=Math.min(...h.map(x=>x.v)),r=(mx-mn)||1;
@@ -150,7 +154,13 @@ function add(){
  setTimeout(()=>$('#fn').focus(),150)}
 function keep(){['fs','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value});F.fs=F.fr=undefined}
 function stp(d){F.q=Math.max(1,F.q+d);$('#fq').textContent=F.q}
-function fq(i){const c={name:$('#fn').value,no:$('#fo').value};window.open(link(F.g,c,i),'_blank')}
+function fq(i){
+ const name=$('#fn')?.value?.trim()||'';
+ if(!name){toast('先にカード候補を選択してください');return}
+ const c={name,no:$('#fo')?.value?.trim()||'',rarity:F.r||$('#fr')?.value?.trim()||''};
+ const url=link(F.g,c,i);
+ window.open(url,'_blank','noopener');
+}
 function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
  const p=+$('#fp').value||0,c={id:Date.now()+'',g:F.g,series:$('#fs').value,rarity:$('#fr').value,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p};
