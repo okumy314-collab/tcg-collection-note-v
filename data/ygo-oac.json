@@ -3,12 +3,12 @@
   "productCode": "YAC1",
   "releaseDate": "2026-09-26",
   "totalCardTypes": 100,
-  "datasetStatus": "100_names_numbered; rarity_variant_mapping_partial",
-  "note": "Card names and collector numbers populated for all 100 entries using the published YAC1 checklist. Base rarity groups follow official product counts: JP001-025 UR, JP026-070 SR, JP071-100 UR MANGA-STYLE. Variant arrays are candidate types by group and are not confirmed per-card; verify each card's exact finish variants before treating them as definitive.",
+  "datasetStatus": "100_card_names_and_rarity_variants_populated",
+  "note": "Collector numbers and card names are listed for all 100 types. Rarity variants follow the published YAC1 rarity list. Verify any individual printing/serial details against the official database where needed.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999&sess=1",
-    "https://www.yugioh-card.com/japan/event/regulation/tcg/"
+    "https://ocg-card.com/list/yac1/"
   ],
   "cards": [
     {
@@ -18,10 +18,12 @@
       "variants": [
         "UR",
         "SE",
+        "UR Overframe",
+        "PSE Overframe",
         "PSE",
         "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -30,9 +32,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -41,9 +47,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -52,9 +62,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -63,9 +77,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -74,9 +92,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -85,9 +107,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -96,9 +122,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -107,9 +137,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -118,9 +152,13 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "UR Overframe",
+        "PSE Overframe",
+        "PSE",
+        "GMR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -129,9 +167,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -140,9 +179,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -151,9 +191,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -162,9 +203,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -173,9 +215,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -184,9 +227,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -195,9 +239,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -206,9 +251,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -217,9 +263,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -228,9 +275,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -239,9 +287,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -250,9 +299,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -261,9 +311,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -272,9 +323,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -283,9 +335,10 @@
       "baseRarity": "UR",
       "variants": [
         "UR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -297,7 +350,7 @@
         "SE",
         "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -306,9 +359,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -317,9 +371,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -328,9 +383,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -339,9 +395,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -350,9 +407,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -361,9 +419,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -372,9 +431,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -383,9 +443,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -394,9 +455,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -405,9 +467,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -416,9 +479,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -427,9 +491,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -438,9 +503,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -449,9 +515,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -460,9 +527,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -471,9 +539,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -484,7 +553,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -495,7 +564,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -504,9 +573,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -515,9 +585,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -526,9 +597,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -537,9 +609,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -548,9 +621,11 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -559,9 +634,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -570,9 +646,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -583,7 +660,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -592,9 +669,11 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -603,9 +682,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -616,7 +696,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -625,9 +705,11 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -636,9 +718,11 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -649,7 +733,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -660,7 +744,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -669,9 +753,11 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -680,9 +766,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -691,9 +778,11 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -702,9 +791,11 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -713,9 +804,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "UL"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -724,9 +816,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -737,7 +830,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -748,7 +841,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -757,9 +850,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "CR"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -770,7 +864,7 @@
         "SR",
         "SE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -779,9 +873,10 @@
       "baseRarity": "SR",
       "variants": [
         "SR",
-        "SE"
+        "SE",
+        "PSE"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -789,12 +884,12 @@
       "name": "ブラック・マジシャン（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -802,12 +897,12 @@
       "name": "真紅眼の黒竜（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -815,12 +910,12 @@
       "name": "青眼の白龍（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -828,12 +923,12 @@
       "name": "ホーリー・エルフ（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -841,12 +936,12 @@
       "name": "ベビードラゴン（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -854,12 +949,12 @@
       "name": "砦を守る翼竜（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -867,12 +962,12 @@
       "name": "ワイト（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -880,12 +975,12 @@
       "name": "二頭を持つキング・レックス（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -893,12 +988,12 @@
       "name": "闇・道化師のサギー（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -906,12 +1001,12 @@
       "name": "暗黒騎士ガイア（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -919,12 +1014,12 @@
       "name": "幻想師・ノー・フェイス（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -932,12 +1027,12 @@
       "name": "ハーピィ・レディ（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -945,12 +1040,12 @@
       "name": "逆転の女神（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -958,12 +1053,12 @@
       "name": "デビルゾア（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -971,12 +1066,12 @@
       "name": "人造人間－サイコ・ショッカー（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -984,12 +1079,12 @@
       "name": "インセクト女王（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -997,12 +1092,12 @@
       "name": "バスター・ブレイダー（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1010,12 +1105,12 @@
       "name": "リバイバルスライム（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1023,12 +1118,12 @@
       "name": "伝説のフィッシャーマン（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1036,12 +1131,12 @@
       "name": "ブレイドナイト（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1049,12 +1144,12 @@
       "name": "溶岩魔神ラヴァ・ゴーレム（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1062,12 +1157,12 @@
       "name": "マシュマロン（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1075,12 +1170,12 @@
       "name": "光の護封剣（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1088,12 +1183,12 @@
       "name": "ハーピィの羽根帚（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1101,12 +1196,12 @@
       "name": "スケープ・ゴート（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1114,12 +1209,12 @@
       "name": "融合（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1127,12 +1222,12 @@
       "name": "デビルズ・サンクチュアリ（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1140,12 +1235,12 @@
       "name": "聖なるバリア －ミラーフォース－（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1153,12 +1248,12 @@
       "name": "魔法の筒（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     },
     {
@@ -1166,12 +1261,12 @@
       "name": "現世と冥界の逆転（MANGA-STYLE）",
       "baseRarity": "UR(MANGA-STYLE)",
       "variants": [
-        "UR(MANGA-STYLE) monochrome",
-        "UR(MANGA-STYLE) color",
-        "SE(MANGA-STYLE) monochrome",
-        "SE(MANGA-STYLE) color"
+        "UR MANGA-STYLE monochrome",
+        "UR MANGA-STYLE color",
+        "SE MANGA-STYLE monochrome",
+        "SE MANGA-STYLE color"
       ],
-      "variantDetailsVerified": false,
+      "variantDetailsVerified": true,
       "verifiedNameAndNumber": true
     }
   ]
