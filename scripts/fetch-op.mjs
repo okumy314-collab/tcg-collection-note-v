@@ -14,7 +14,7 @@ async function getJson(url) {
   return response.json();
 }
 
-function normalize(card, packTitle) {
+function normalize(card, packTitle, path) {
   const number = String(card.id ?? '').trim();
   const name = String(card.name ?? '').trim();
   const rarity = String(card.rarity ?? '').trim();
@@ -67,7 +67,7 @@ async function main() {
         const packId = String(card.pack_id ?? path.split('/')[2] ?? '');
         const pack = packs[packId];
         const packTitle = pack?.title_parts?.title || pack?.raw_title || packId;
-        return normalize(card, packTitle);
+        return normalize(card, packTitle, path);
       } catch (error) {
         console.warn(`カードを読み込めませんでした: ${path}: ${error.message}`);
         return null;
