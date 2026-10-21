@@ -30,9 +30,19 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync, writeFileSync } from 'node:fs';
           const html = readFileSync('index.html', 'utf8');
-          const scripts = [...html.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/gi)];
+          const scripts = [];
+          let cursor = 0;
+          while (true) {
+            const open = html.indexOf('<script', cursor);
+            if (open < 0) break;
+            const contentStart = html.indexOf('>', open);
+            const close = html.indexOf('</script>', contentStart + 1);
+            if (contentStart < 0 || close < 0) throw new Error('scriptタグの閉じ方が不正です');
+            scripts.push(html.slice(contentStart + 1, close));
+            cursor = close + '</script>'.length;
+          }
           if (!scripts.length) throw new Error('index.html のスクリプトが見つかりません');
-          writeFileSync('/tmp/tcg-app-check.js', scripts.map(x => x[1]).join('\\n'));
+          writeFileSync('/tmp/tcg-app-check.js', scripts.join('\n'));
           NODE
           node --check /tmp/tcg-app-check.js
 
