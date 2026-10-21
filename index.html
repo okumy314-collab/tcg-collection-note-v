@@ -276,8 +276,9 @@ function cand(){
  if(q && q!==PKLASTNAME){PKLASTNAME=q;}
  if(F.g==='op'){candOP();return}
  if(F.g==='ygo'){
-  const nq=norm(q);
-  const rows=YGOI.filter(x=>norm(x.name).includes(nq)).slice(0,50).map(x=>({n:x.name,l:x.cardNumber,cardNo:x.cardNumber,rarity:x.baseRarity,setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',verifiedNameAndNumber:x.verifiedNameAndNumber}));
+  const normYgo=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'');
+  const nq=normYgo(q);
+  const rows=YGOI.filter(x=>normYgo(x.name).includes(nq)).slice(0,50).map(x=>({n:x.name,l:x.cardNumber,cardNo:x.cardNumber,rarity:x.baseRarity,setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',verifiedNameAndNumber:x.verifiedNameAndNumber}));
   PKR=rows;
   b.innerHTML=rows.length?renderPKR(rows):'<div style="font-size:11px;color:var(--mu);margin-top:6px">候補を読み込み中、または一致するカードがありません。少し待って再入力してください。</div>';
   return;
