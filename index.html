@@ -278,7 +278,7 @@ function cand(){
  if(F.g==='ygo'){
   const normYgo=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
   const nq=normYgo(q);
-  const rows=YGOI.filter(x=>normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)).slice(0,50).map(x=>({n:x.name,l:x.cardNumber,cardNo:x.cardNumber,rarity:x.baseRarity,setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',verifiedNameAndNumber:x.verifiedNameAndNumber}));
+  const rows=YGOI.filter(x=>normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)).slice(0,50).map(x=>({n:x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:x.variants||[],setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',verifiedNameAndNumber:x.verified}));
   PKR=rows;
   b.innerHTML=rows.length?renderPKR(rows):(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin-top:6px">遊戯王カードデータを読み込み中…</div>':'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致するカードがありません。カード名またはYAC1-JP番号を確認してください。</div>');
   return;
@@ -311,7 +311,7 @@ async function pickc(i){
  const b=$('#cd');const selectedName=x.n;
  // Clear stale fields first so a missing value from this card cannot inherit the last card's value.
  $('#fn').value=selectedName;$('#fo').value='';F.r='';F.img='';
- const rr=$('#rr');if(rr)rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));
+ const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));}
  const p=$('#pv');if(p){p.removeAttribute('src');p.style.display='none'}
  let detail=x;
  if(x.setId){
@@ -329,10 +329,13 @@ async function pickc(i){
  const sel=$('#fs');const setName=detail.setName||(detail.s&&detail.s.n)||'';
  const option=[...sel.options].find(o=>o.text.trim()===setName||o.text.includes(setName));
  if(option){sel.value=option.value;$('#fs2').style.display='none'}else if(setName){sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=setName}
- if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
+ if(F.g==='ygo'&&Array.isArray(detail.variants)&&detail.variants.length&&rr){
+  F.r=detail.variants[0];
+  detail.variants.forEach((variant,index)=>{const chip=document.createElement('button');chip.className='chip'+(index===0?' on':'');chip.textContent=variant;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=variant;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)});
+ }else if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
  F.img=detail.img||cimg(detail)||'';
  if(p&&F.img){p.src=F.img;p.style.display='block'}
- b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${detail.rarity?' ・ '+detail.rarity:' ・ レアリティ情報なし'} ・ ${$('#fo').value||'カード番号情報なし'}</div>`;
+ b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${F.r?' ・ '+F.r:' ・ レアリティを選択'} ・ ${$('#fo').value||'カード番号未掲載'}</div>`;
 }
 const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=cand;$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
 $('#fab').onclick=()=>add();
