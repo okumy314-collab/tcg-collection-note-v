@@ -5,11 +5,12 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "partial_verified",
-  "note": "All 100 card names and collector numbers are recorded. The 45 Super Rare card finish variants (YAC1-JP026–JP070) have been populated from the published checklist. MANGA-STYLE variants are listed separately; Ultra Rare variants YAC1-JP001–JP025 are maintained from their product/card checklist records.",
+  "note": "All 100 card names and collector numbers are populated. Rarity variants for YAC1-JP026–JP070 have been cross-checked against the YAC1 set entries in the community-maintained yaml-yugi dataset. This is a secondary reference and should be periodically compared with Konami's official database.",
   "sources": [
     "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
     "https://ocg-card.com/list/yac1/",
-    "https://www.yugioh-card.com/japan/products/yac1/"
+    "https://www.yugioh-card.com/japan/products/yac1/",
+    "https://github.com/DawnbrandBots/yaml-yugi/tree/312be377b876af4fe3fadc69fac2367adf765cb2/data/cards"
   ],
   "cards": [
     {
@@ -393,8 +394,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP027",
@@ -407,8 +408,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP028",
@@ -421,8 +422,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP029",
@@ -431,12 +432,11 @@
       "baseRarity": "スーパーレア",
       "variants": [
         "スーパーレア",
-        "シークレットレア",
-        "コレクターズレア"
+        "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP030",
@@ -449,8 +449,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP031",
@@ -463,8 +463,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP032",
@@ -477,8 +477,8 @@
         "プリズマティックシークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP033",
@@ -491,8 +491,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP034",
@@ -505,8 +505,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP035",
@@ -519,8 +519,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP036",
@@ -533,8 +533,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP037",
@@ -547,8 +547,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP038",
@@ -561,8 +561,8 @@
         "プリズマティックシークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP039",
@@ -575,8 +575,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP040",
@@ -589,8 +589,8 @@
         "プリズマティックシークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP041",
@@ -603,8 +603,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP042",
@@ -617,8 +617,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP043",
@@ -630,8 +630,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP044",
@@ -643,8 +643,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP045",
@@ -657,8 +657,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP046",
@@ -671,8 +671,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP047",
@@ -685,8 +685,8 @@
         "プリズマティックシークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP048",
@@ -699,8 +699,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP049",
@@ -710,12 +710,12 @@
       "variants": [
         "スーパーレア",
         "シークレットレア",
-        "アルティメットレア",
-        "プリズマティックシークレットレア"
+        "プリズマティックシークレットレア",
+        "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP050",
@@ -728,8 +728,8 @@
         "プリズマティックシークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP051",
@@ -742,8 +742,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP052",
@@ -755,8 +755,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP053",
@@ -769,8 +769,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP054",
@@ -783,8 +783,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP055",
@@ -796,8 +796,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP056",
@@ -807,12 +807,12 @@
       "variants": [
         "スーパーレア",
         "シークレットレア",
-        "アルティメットレア",
-        "プリズマティックシークレットレア"
+        "プリズマティックシークレットレア",
+        "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP057",
@@ -822,12 +822,12 @@
       "variants": [
         "スーパーレア",
         "シークレットレア",
-        "アルティメットレア",
-        "プリズマティックシークレットレア"
+        "プリズマティックシークレットレア",
+        "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP058",
@@ -839,8 +839,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP059",
@@ -852,8 +852,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP060",
@@ -866,8 +866,8 @@
         "プリズマティックシークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP061",
@@ -880,8 +880,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP062",
@@ -891,12 +891,12 @@
       "variants": [
         "スーパーレア",
         "シークレットレア",
-        "コレクターズレア",
-        "プリズマティックシークレットレア"
+        "プリズマティックシークレットレア",
+        "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP063",
@@ -906,12 +906,12 @@
       "variants": [
         "スーパーレア",
         "シークレットレア",
-        "アルティメットレア",
-        "プリズマティックシークレットレア"
+        "プリズマティックシークレットレア",
+        "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP064",
@@ -924,8 +924,8 @@
         "アルティメットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP065",
@@ -938,8 +938,8 @@
         "プリズマティックシークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP066",
@@ -951,8 +951,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP067",
@@ -964,8 +964,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP068",
@@ -978,8 +978,8 @@
         "コレクターズレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP069",
@@ -991,8 +991,8 @@
         "シークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP070",
@@ -1005,8 +1005,8 @@
         "プリズマティックシークレットレア"
       ],
       "verified": true,
-      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_checklist"
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
     },
     {
       "id": "YAC1-JP071",
