@@ -3,11 +3,13 @@
   "productCode": "YAC1",
   "releaseDate": "2026-09-26",
   "totalCardTypes": 100,
-  "knownCards": 17,
+  "knownCards": 32,
   "datasetStatus": "partial_verified",
-  "note": "Only the 17 cards shown on the currently available published checklist are included. The remaining 83 types are intentionally omitted until reliable names and numbers are published/verified; do not infer missing card names or collector numbers. Manga-Style variants have no collector number displayed in the source list.",
+  "note": "Verified records only. All 30 MANGA-STYLE cards (YAC1-JP071–JP100) are now included with official card numbers and four finish variants; numbered main set records are included only when verified. The remaining unlisted main-set cards are intentionally not guessed.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
+    "https://www.yugioh-card.com/japan/event/regulation/tcg/",
+    "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
     "https://ocg-card.com/list/yac1/"
   ],
   "cards": [
@@ -42,11 +44,11 @@
       "source": "published card list"
     },
     {
-      "id": "YAC1-ART-001",
-      "cardNumber": "",
+      "id": "YAC1-JP071",
+      "cardNumber": "YAC1-JP071",
       "name": "ブラック・マジシャン（MANGA-STYLE）",
       "baseName": "ブラック・マジシャン",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -54,15 +56,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-002",
-      "cardNumber": "",
+      "id": "YAC1-JP072",
+      "cardNumber": "YAC1-JP072",
       "name": "真紅眼の黒竜（MANGA-STYLE）",
       "baseName": "真紅眼の黒竜",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -70,15 +72,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-003",
-      "cardNumber": "",
+      "id": "YAC1-JP073",
+      "cardNumber": "YAC1-JP073",
       "name": "青眼の白龍（MANGA-STYLE）",
       "baseName": "青眼の白龍",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -86,15 +88,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-004",
-      "cardNumber": "",
+      "id": "YAC1-JP074",
+      "cardNumber": "YAC1-JP074",
       "name": "ホーリー・エルフ（MANGA-STYLE）",
       "baseName": "ホーリー・エルフ",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -102,15 +104,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-005",
-      "cardNumber": "",
+      "id": "YAC1-JP075",
+      "cardNumber": "YAC1-JP075",
       "name": "ベビードラゴン（MANGA-STYLE）",
       "baseName": "ベビードラゴン",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -118,15 +120,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-006",
-      "cardNumber": "",
+      "id": "YAC1-JP076",
+      "cardNumber": "YAC1-JP076",
       "name": "砦を守る翼竜（MANGA-STYLE）",
       "baseName": "砦を守る翼竜",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -134,15 +136,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-007",
-      "cardNumber": "",
+      "id": "YAC1-JP077",
+      "cardNumber": "YAC1-JP077",
       "name": "ワイト（MANGA-STYLE）",
       "baseName": "ワイト",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -150,15 +152,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-008",
-      "cardNumber": "",
+      "id": "YAC1-JP078",
+      "cardNumber": "YAC1-JP078",
       "name": "二頭を持つキング・レックス（MANGA-STYLE）",
       "baseName": "二頭を持つキング・レックス",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -166,15 +168,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-009",
-      "cardNumber": "",
+      "id": "YAC1-JP079",
+      "cardNumber": "YAC1-JP079",
       "name": "闇・道化師のサギー（MANGA-STYLE）",
       "baseName": "闇・道化師のサギー",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -182,15 +184,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-010",
-      "cardNumber": "",
+      "id": "YAC1-JP080",
+      "cardNumber": "YAC1-JP080",
       "name": "暗黒騎士ガイア（MANGA-STYLE）",
       "baseName": "暗黒騎士ガイア",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -198,15 +200,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-011",
-      "cardNumber": "",
+      "id": "YAC1-JP081",
+      "cardNumber": "YAC1-JP081",
       "name": "幻想師・ノー・フェイス（MANGA-STYLE）",
       "baseName": "幻想師・ノー・フェイス",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -214,15 +216,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-012",
-      "cardNumber": "",
+      "id": "YAC1-JP082",
+      "cardNumber": "YAC1-JP082",
       "name": "ハーピィ・レディ（MANGA-STYLE）",
       "baseName": "ハーピィ・レディ",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -230,15 +232,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-013",
-      "cardNumber": "",
+      "id": "YAC1-JP083",
+      "cardNumber": "YAC1-JP083",
       "name": "逆転の女神（MANGA-STYLE）",
       "baseName": "逆転の女神",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -246,15 +248,47 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-014",
-      "cardNumber": "",
+      "id": "YAC1-JP084",
+      "cardNumber": "YAC1-JP084",
+      "name": "デビルゾア（MANGA-STYLE）",
+      "baseName": "デビルゾア",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP085",
+      "cardNumber": "YAC1-JP085",
+      "name": "人造人間－サイコ・ショッカー（MANGA-STYLE）",
+      "baseName": "人造人間－サイコ・ショッカー",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP086",
+      "cardNumber": "YAC1-JP086",
       "name": "インセクト女王（MANGA-STYLE）",
       "baseName": "インセクト女王",
-      "baseRarity": "MANGA-STYLE",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -262,15 +296,15 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     },
     {
-      "id": "YAC1-ART-015",
-      "cardNumber": "",
-      "name": "ブレイドナイト（MANGA-STYLE）",
-      "baseName": "ブレイドナイト",
-      "baseRarity": "MANGA-STYLE",
+      "id": "YAC1-JP087",
+      "cardNumber": "YAC1-JP087",
+      "name": "バスター・ブレイダー（MANGA-STYLE）",
+      "baseName": "バスター・ブレイダー",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
       "variants": [
         "ウルトラレア（モノクロ）",
         "ウルトラレア（カラー）",
@@ -278,8 +312,216 @@
         "シークレットレア（カラー）"
       ],
       "verified": true,
-      "source": "published card list",
-      "note": "Published list does not show a collector number for this artwork variant."
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP088",
+      "cardNumber": "YAC1-JP088",
+      "name": "リバイバルスライム（MANGA-STYLE）",
+      "baseName": "リバイバルスライム",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP089",
+      "cardNumber": "YAC1-JP089",
+      "name": "伝説のフィッシャーマン（MANGA-STYLE）",
+      "baseName": "伝説のフィッシャーマン",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP090",
+      "cardNumber": "YAC1-JP090",
+      "name": "ブレイドナイト（MANGA-STYLE）",
+      "baseName": "ブレイドナイト",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP091",
+      "cardNumber": "YAC1-JP091",
+      "name": "溶岩魔神ラヴァ・ゴーレム（MANGA-STYLE）",
+      "baseName": "溶岩魔神ラヴァ・ゴーレム",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP092",
+      "cardNumber": "YAC1-JP092",
+      "name": "マシュマロン（MANGA-STYLE）",
+      "baseName": "マシュマロン",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP093",
+      "cardNumber": "YAC1-JP093",
+      "name": "光の護封剣（MANGA-STYLE）",
+      "baseName": "光の護封剣",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP094",
+      "cardNumber": "YAC1-JP094",
+      "name": "ハーピィの羽根帚（MANGA-STYLE）",
+      "baseName": "ハーピィの羽根帚",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP095",
+      "cardNumber": "YAC1-JP095",
+      "name": "スケープ・ゴート（MANGA-STYLE）",
+      "baseName": "スケープ・ゴート",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP096",
+      "cardNumber": "YAC1-JP096",
+      "name": "融合（MANGA-STYLE）",
+      "baseName": "融合",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP097",
+      "cardNumber": "YAC1-JP097",
+      "name": "デビルズ・サンクチュアリ（MANGA-STYLE）",
+      "baseName": "デビルズ・サンクチュアリ",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP098",
+      "cardNumber": "YAC1-JP098",
+      "name": "聖なるバリア －ミラーフォース－（MANGA-STYLE）",
+      "baseName": "聖なるバリア －ミラーフォース－",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP099",
+      "cardNumber": "YAC1-JP099",
+      "name": "魔法の筒（MANGA-STYLE）",
+      "baseName": "魔法の筒",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP100",
+      "cardNumber": "YAC1-JP100",
+      "name": "現世と冥界の逆転（MANGA-STYLE）",
+      "baseName": "現世と冥界の逆転",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     }
   ]
 }
