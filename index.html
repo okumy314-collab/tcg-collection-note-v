@@ -256,6 +256,10 @@ function candOP(){
  if(OP_ERROR)b.innerHTML+='<div style="font-size:11px;color:var(--mu);margin-top:6px">保存済みデータを読み込めません。データ更新後に再試行してください。</div>';
 }
 function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${x.rarity}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
+function selectedPricePanel(extra=''){
+ const G=GN[F.g],name=$('#fn')?.value?.trim()||'',no=$('#fo')?.value?.trim()||'';
+ return `<div style="font-size:12px;color:var(--up);margin-top:8px">✓ 選択済み：${name}${no?' ・ '+no:''}${F.r?' ・ '+F.r:''}${extra?' ・ '+extra:''}</div><div style="font-size:11px;color:var(--mu);margin:8px 0 5px">このカードの相場を検索</div><div class="row">${G.s.map((shop,i)=>`<button class="btn sm" onclick="fq(${i})">${shop[0]}で相場検索</button>`).join('')}</div>`;
+}
 function pickOP(i){
  const x=OPR[i];if(!x)return;
  const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=x.rarity+(x.parallel?'（パラレル）':'');F.img=x.img||'';
@@ -266,7 +270,7 @@ function pickOP(i){
  else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
  const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));const selectedRarity=F.r;let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===selectedRarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=selectedRarity;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
  const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
- b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み ・ ${x.no} ・ ${x.rarity}${x.parallel?' ・ パラレル':''}</div>`;
+ b.innerHTML=selectedPricePanel(x.parallel?'パラレル':'');
 }
 function cand(){
  const b=$('#cd');if(!b)return;
@@ -346,7 +350,7 @@ async function pickc(i){
  }else if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
  F.img=detail.img||cimg(detail)||'';
  if(p&&F.img){p.src=F.img;p.style.display='block'}
- b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${F.r?' ・ '+F.r:' ・ レアリティを選択'} ・ ${$('#fo').value||'カード番号未掲載'}</div>`;
+ b.innerHTML=selectedPricePanel(setName);
 }
 const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{$('#fo').value='';cand()};$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
 $('#fab').onclick=()=>add();
