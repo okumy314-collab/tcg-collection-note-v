@@ -244,14 +244,15 @@ fetch('data/op.json').then(r=>{if(!r.ok)throw Error('data/op.json '+r.status);re
 const opSeries=no=>{const m=String(no||'').match(/^(OP|EB|PRB|ST|P)(?:-)?(\d{1,2})/i);return m?(m[1].toUpperCase()==='P'?'プロモ':m[1].toUpperCase()==='ST'?'スタートデッキ':m[1].toUpperCase()+'-'+m[2].padStart(2,'0')):''};
 function candOP(){
  const b=$('#cd');if(!b)return;
- const q=$('#fn').value.trim(),seq=++OPSEARCH;
- if(!q){OPR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を入力すると候補が表示されます。</div>';return}
+ const q=$('#fn').value.trim(),rawNo=$('#fo').value.trim(),seq=++OPSEARCH;
+ if(!q&&!rawNo){OPR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名またはカード番号を入力すると候補が表示されます。</div>';return}
  if(!OP_READY){b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">ワンピースのカードデータを読み込み中…</div>';return}
- const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
- const nq=norm(q);
- OPR=OPI.filter(x=>norm(x.n).includes(nq)).sort((a,b)=>(norm(a.n)===nq?0:1)-(norm(b.n)===nq?0:1)||a.no.localeCompare(b.no,'ja')).slice(0,50);
+ const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'');
+ const nq=norm(q),nNo=norm(rawNo);
+ OPR=OPI.filter(x=>nNo?norm(x.no).includes(nNo):(nq&&(norm(x.n).includes(nq)||norm(x.no).includes(nq))))
+  .sort((a,b)=>(nNo?0:(norm(a.n)===nq?0:1)-(norm(b.n)===nq?0:1))||a.no.localeCompare(b.no,'ja')).slice(0,50);
  if(seq!==OPSEARCH)return;
- b.innerHTML=OPR.length?renderOPR(OPR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致する候補がありません。名前を短くするか、カード名を確認してください。</div>';
+ b.innerHTML=OPR.length?renderOPR(OPR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致する候補がありません。カード名またはカード番号を確認してください。</div>';
  if(OP_ERROR)b.innerHTML+='<div style="font-size:11px;color:var(--mu);margin-top:6px">保存済みデータを読み込めません。データ更新後に再試行してください。</div>';
 }
 function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${x.rarity}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
@@ -341,7 +342,7 @@ async function pickc(i){
  if(p&&F.img){p.src=F.img;p.style.display='block'}
  b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${F.r?' ・ '+F.r:' ・ レアリティを選択'} ・ ${$('#fo').value||'カード番号未掲載'}</div>`;
 }
-const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=cand;$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
+const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{if(F.g!=='poke')$('#fo').value='';cand()};$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
 $('#fab').onclick=()=>add();
 render();
 </script></body></html>
