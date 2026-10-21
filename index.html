@@ -257,8 +257,11 @@ function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px
 function pickOP(i){
  const x=OPR[i];if(!x)return;
  const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=x.rarity;F.img=x.img||'';
- const ss=$('#fs'),series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);
- if(option){ss.value=option.value;$('#fs2').style.display='none'}else if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}
+ const ss=$('#fs');
+ // Preserve the exact Japanese pack title from the master data, including newer sets
+ // that are not yet listed in the app's manually maintained dropdown.
+ if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}
+ else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
  const rr=$('#rr');if(rr){rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===x.rarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=x.rarity;chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
  const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
  b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み ・ ${x.no} ・ ${x.rarity}${x.parallel?' ・ パラレル':''}</div>`;
