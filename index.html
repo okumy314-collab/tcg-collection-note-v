@@ -258,13 +258,13 @@ function candOP(){
 function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${x.rarity}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
 function pickOP(i){
  const x=OPR[i];if(!x)return;
- const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=x.rarity;F.img=x.img||'';
+ const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=x.rarity+(x.parallel?'（パラレル）':'');F.img=x.img||'';
  const ss=$('#fs');
  // Preserve the exact Japanese pack title from the master data, including newer sets
  // that are not yet listed in the app's manually maintained dropdown.
  if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}
  else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
- const rr=$('#rr');if(rr){rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===x.rarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=x.rarity;chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
+ const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));const selectedRarity=F.r;let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===selectedRarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=selectedRarity;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
  const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
  b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み ・ ${x.no} ・ ${x.rarity}${x.parallel?' ・ パラレル':''}</div>`;
 }
@@ -291,7 +291,7 @@ function cand(){
 if(F.g!=='poke'){b.innerHTML='';return}
  const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'');
  const nq=norm(q),nNo=norm(rawNo);
- if(!q&&nNo){
+ if(nNo){
   const localByNo=PKI.filter(x=>norm(x.l).includes(nNo)||norm(x.setId).includes(nNo)).map(x=>({...x,local:true,setName:x.s?.n||'',setSeries:x.s?.r||''})).slice(0,50);
   PKR=localByNo;
   b.innerHTML=PKR.length?renderPKR(PKR)+(PKI_READY?'':'<div style="font-size:11px;color:var(--mu);margin-top:6px">カードデータを読み込み中…</div>'):'<div style="font-size:11px;color:var(--mu);margin-top:6px">保存済みデータに一致する番号がありません。カード名でも検索できます。</div>';
@@ -348,7 +348,7 @@ async function pickc(i){
  if(p&&F.img){p.src=F.img;p.style.display='block'}
  b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${F.r?' ・ '+F.r:' ・ レアリティを選択'} ・ ${$('#fo').value||'カード番号未掲載'}</div>`;
 }
-const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{if(F.g!=='poke')$('#fo').value='';cand()};$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
+const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{$('#fo').value='';cand()};$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
 $('#fab').onclick=()=>add();
 render();
 </script></body></html>
