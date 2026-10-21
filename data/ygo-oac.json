@@ -1,0 +1,366 @@
+{
+  "title": "遊☆戯☆王 ORIGINAL ARTWORK COLLECTION",
+  "productCode": "YAC1",
+  "releaseDate": "2026-09-26",
+  "totalCardTypes": 100,
+  "datasetStatus": "partial_verified",
+  "note": "Verified starter dataset only. Remaining YAC1-JP002–025 and YAC1-JP027–070 must be filled from official card database before claiming full coverage. MANGA-STYLE variants are separate finish/art variants, not different base card names.",
+  "sources": [
+    "https://www.yugioh-card.com/japan/products/yac1/",
+    "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999&sess=1",
+    "https://www.yugioh-card.com/japan/event/regulation/tcg/"
+  ],
+  "cards": [
+    {
+      "cardNumber": "YAC1-JP001",
+      "name": "業火の魔神エクゾディア",
+      "rarities": [
+        "UR",
+        "SE",
+        "PSE",
+        "GMR"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP026",
+      "name": "カオス・ソルジャー",
+      "rarities": [
+        "SR",
+        "SE",
+        "UL"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP071",
+      "name": "ブラック・マジシャン（MANGA-STYLE）",
+      "baseName": "ブラック・マジシャン",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP072",
+      "name": "真紅眼の黒竜（MANGA-STYLE）",
+      "baseName": "真紅眼の黒竜",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP073",
+      "name": "青眼の白龍（MANGA-STYLE）",
+      "baseName": "青眼の白龍",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP074",
+      "name": "ホーリー・エルフ（MANGA-STYLE）",
+      "baseName": "ホーリー・エルフ",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP075",
+      "name": "ベビードラゴン（MANGA-STYLE）",
+      "baseName": "ベビードラゴン",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP076",
+      "name": "砦を守る翼竜（MANGA-STYLE）",
+      "baseName": "砦を守る翼竜",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP077",
+      "name": "ワイト（MANGA-STYLE）",
+      "baseName": "ワイト",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP078",
+      "name": "二頭を持つキング・レックス（MANGA-STYLE）",
+      "baseName": "二頭を持つキング・レックス",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP079",
+      "name": "闇・道化師のサギー（MANGA-STYLE）",
+      "baseName": "闇・道化師のサギー",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP080",
+      "name": "暗黒騎士ガイア（MANGA-STYLE）",
+      "baseName": "暗黒騎士ガイア",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP081",
+      "name": "幻想師・ノー・フェイス（MANGA-STYLE）",
+      "baseName": "幻想師・ノー・フェイス",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP082",
+      "name": "ハーピィ・レディ（MANGA-STYLE）",
+      "baseName": "ハーピィ・レディ",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP083",
+      "name": "逆転の女神（MANGA-STYLE）",
+      "baseName": "逆転の女神",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP084",
+      "name": "デビルゾア（MANGA-STYLE）",
+      "baseName": "デビルゾア",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP085",
+      "name": "人造人間－サイコ・ショッカー（MANGA-STYLE）",
+      "baseName": "人造人間－サイコ・ショッカー",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP086",
+      "name": "インセクト女王（MANGA-STYLE）",
+      "baseName": "インセクト女王",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP087",
+      "name": "バスター・ブレイダー（MANGA-STYLE）",
+      "baseName": "バスター・ブレイダー",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP088",
+      "name": "リバイバルスライム（MANGA-STYLE）",
+      "baseName": "リバイバルスライム",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP089",
+      "name": "伝説のフィッシャーマン（MANGA-STYLE）",
+      "baseName": "伝説のフィッシャーマン",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP090",
+      "name": "ブレイドナイト（MANGA-STYLE）",
+      "baseName": "ブレイドナイト",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP091",
+      "name": "溶岩魔神ラヴァ・ゴーレム（MANGA-STYLE）",
+      "baseName": "溶岩魔神ラヴァ・ゴーレム",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP092",
+      "name": "マシュマロン（MANGA-STYLE）",
+      "baseName": "マシュマロン",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP093",
+      "name": "光の護封剣（MANGA-STYLE）",
+      "baseName": "光の護封剣",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP094",
+      "name": "ハーピィの羽根帚（MANGA-STYLE）",
+      "baseName": "ハーピィの羽根帚",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP095",
+      "name": "スケープ・ゴート（MANGA-STYLE）",
+      "baseName": "スケープ・ゴート",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP096",
+      "name": "融合（MANGA-STYLE）",
+      "baseName": "融合",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP097",
+      "name": "デビルズ・サンクチュアリ（MANGA-STYLE）",
+      "baseName": "デビルズ・サンクチュアリ",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP098",
+      "name": "聖なるバリア －ミラーフォース－（MANGA-STYLE）",
+      "baseName": "聖なるバリア －ミラーフォース－",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP099",
+      "name": "魔法の筒（MANGA-STYLE）",
+      "baseName": "魔法の筒",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    },
+    {
+      "cardNumber": "YAC1-JP100",
+      "name": "現世と冥界の逆転（MANGA-STYLE）",
+      "baseName": "現世と冥界の逆転",
+      "rarities": [
+        "UR(MANGA-STYLE)",
+        "SE(MANGA-STYLE color)",
+        "SE(MANGA-STYLE monochrome)"
+      ],
+      "verified": true
+    }
+  ]
+}
