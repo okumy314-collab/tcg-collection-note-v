@@ -235,6 +235,34 @@ function pvw(s){open_(`<div class="hd"><b>カード写真</b><button class="ib" 
 let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
 fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
 const cimg=x=>x.img||(x.s&&x.s.r?`https://assets.tcgdex.net/ja/${x.s.r}/${x.s.id}/${x.l}/low.webp`:'');
+let OPI=[],OPR=[],OPSEARCH=0,OP_READY=false,OP_ERROR=false;
+fetch('data/op.json').then(r=>{if(!r.ok)throw Error('data/op.json '+r.status);return r.json()}).then(j=>{
+ if(j&&Array.isArray(j.cards))OPI=j.cards.map(a=>({no:String(a[0]||''),n:String(a[1]||''),rarity:String(a[2]||''),img:String(a[3]||''),parallel:Number(a[4]||0),packId:String(a[5]||''),packName:String(a[6]||'')}));
+ OP_READY=true;
+}).catch(()=>{OP_ERROR=true;OP_READY=true});
+const opSeries=no=>{const m=String(no||'').match(/^(OP|EB|PRB|ST|P)(?:-)?(\\d{1,2})/i);return m?(m[1].toUpperCase()==='P'?'プロモ':m[1].toUpperCase()==='ST'?'スタートデッキ':m[1].toUpperCase()+'-'+m[2].padStart(2,'0')):''};
+function candOP(){
+ const b=$('#cd');if(!b)return;
+ const q=$('#fn').value.trim(),seq=++OPSEARCH;
+ if(!q){OPR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を入力すると候補が表示されます。</div>';return}
+ if(!OP_READY){b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">ワンピースのカードデータを読み込み中…</div>';return}
+ const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'');
+ const nq=norm(q);
+ OPR=OPI.filter(x=>norm(x.n).includes(nq)).sort((a,b)=>(norm(a.n)===nq?0:1)-(norm(b.n)===nq?0:1)||a.no.localeCompare(b.no,'ja')).slice(0,50);
+ if(seq!==OPSEARCH)return;
+ b.innerHTML=OPR.length?renderOPR(OPR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致する候補がありません。名前を短くするか、カード名を確認してください。</div>';
+ if(OP_ERROR)b.innerHTML+='<div style="font-size:11px;color:var(--mu);margin-top:6px">保存済みデータを読み込めません。データ更新後に再試行してください。</div>';
+}
+function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${x.rarity}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
+function pickOP(i){
+ const x=OPR[i];if(!x)return;
+ const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=x.rarity;F.img=x.img||'';
+ const ss=$('#fs'),series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);
+ if(option){ss.value=option.value;$('#fs2').style.display='none'}else if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}
+ const rr=$('#rr');if(rr){rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===x.rarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=x.rarity;chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
+ const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
+ b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み ・ ${x.no} ・ ${x.rarity}${x.parallel?' ・ パラレル':''}</div>`;
+}
 function cand(){
  const b=$('#cd');if(!b)return;
  const q=$('#fn').value.trim();
@@ -242,7 +270,7 @@ function cand(){
  const seq=++PKSEARCH;
  // Never reuse a previous card number to filter a new name search.
  if(q && q!==PKLASTNAME){PKLASTNAME=q;}
- if(F.g!=='poke'){b.innerHTML='';return}
+ if(F.g==='op'){candOP();return}\n if(F.g!=='poke'){b.innerHTML='';return}
  if(!q){PKR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を入力すると候補が表示されます。番号だけの検索は候補が混ざりやすいため、カード名から検索してください。</div>';return}
  b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を検索中…</div>';
  const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
