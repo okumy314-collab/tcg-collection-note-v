@@ -7,6 +7,7 @@ on:
       - ".github/workflows/update-data.yml"
       - ".github/workflows/validate-one-piece-data.yml"
       - "index.html"
+      - "data/ygo-oac.json"
   workflow_dispatch:
 
 permissions:
@@ -69,4 +70,31 @@ jobs:
           }
           console.log('検証成功:', data.cards.length, '件');
           console.log('サンプル:', card[0], card[1], card[2]);
+          NODE
+
+      - name: Validate Yu-Gi-Oh ORIGINAL ARTWORK COLLECTION data
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const data = JSON.parse(readFileSync('data/ygo-oac.json', 'utf8'));
+          if (!Array.isArray(data.cards) || data.knownCards !== data.cards.length) {
+            throw new Error('遊戯王データの件数と配列が一致しません');
+          }
+          if (data.totalCardTypes !== 100 || data.knownCards > data.totalCardTypes) {
+            throw new Error('遊戯王データの全種類数が不正です');
+          }
+          const ids = new Set();
+          for (const card of data.cards) {
+            if (!card.id || !card.name || !Array.isArray(card.variants) || !card.variants.length) {
+              throw new Error('カード情報の必須項目が不足しています');
+            }
+            if (ids.has(card.id)) throw new Error('カードIDが重複しています: ' + card.id);
+            ids.add(card.id);
+          }
+          for (const number of ['YAC1-JP004', 'YAC1-JP009']) {
+            if (!data.cards.some(card => card.cardNumber === number)) {
+              throw new Error('確認済みカード番号が見つかりません: ' + number);
+            }
+          }
+          console.log('遊戯王データ検証成功:', data.knownCards, '/', data.totalCardTypes, '件（部分収録）');
           NODE
