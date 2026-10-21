@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "partial_verified",
-  "note": "All 100 card names and collector numbers are populated from published YAC1 card lists. The 30 MANGA-STYLE cards have their four official finish variants recorded. Main-set finish variants for YAC1-JP026–JP070 are provisional and explicitly flagged for per-card cross-check; do not treat those variant arrays as fully verified yet.",
+  "note": "All 100 card names and collector numbers have been populated. The 30 MANGA-STYLE cards have their four finish variants recorded. Finish variants for YAC1-JP026–JP070 remain flagged for per-card cross-check; treat this as a completed 100-card index, not a fully verified rarity master yet.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://www.yugioh-card.com/japan/event/regulation/tcg/",
@@ -1533,5 +1533,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
     }
-  ]
+  ],
+  "variantChecksPending": 45,
+  "nameNumberRecords": 100
 }
