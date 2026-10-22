@@ -15,7 +15,7 @@ from urllib.parse import urljoin
 
 DATA_PATH = Path("data/ygo-oac.json")
 USER_AGENT = "Mozilla/5.0 (compatible; YAC1ImageReviewCollector/1.0)"
-MAX_PAGES_PER_CARD = 6
+MAX_PAGES_PER_CARD = 12
 TIMEOUT_SECONDS = 15
 IMAGE_EXT = re.compile(r"\.(?:jpe?g|png|webp)(?:[?#]|$)", re.I)
 META_TAG = re.compile(r"<meta\b[^>]*>", re.I)
@@ -46,9 +46,19 @@ def extract_images(page_url, body):
         value = a.get("content", "")
         if key in {"og:image", "og:image:url", "twitter:image", "twitter:image:src"} and value:
             found.append((urljoin(page_url, value), "meta:" + key))
+    # Parse JSON-LD product image values, common on commerce pages.
+    for match in re.finditer(r'"image"\s*:\s*(\[[^\]]*\]|"[^"]+")', body, re.I):
+        try:
+            value = json.loads(match.group(1))
+            values = value if isinstance(value, list) else [value]
+            for item in values:
+                if isinstance(item, str):
+                    found.append((urljoin(page_url, html.unescape(item)), "jsonld:image"))
+        except (ValueError, TypeError):
+            pass
     for tag in IMG_TAG.findall(body):
         a = attrs(tag)
-        value = a.get("data-src") or a.get("data-original") or a.get("src") or ""
+        value = a.get("data-src") or a.get("data-original") or a.get("data-lazy-src") or a.get("data-zoom-image") or a.get("src") or ""
         if not value:
             continue
         absolute = urljoin(page_url, value)
@@ -64,7 +74,7 @@ def extract_images(page_url, body):
         if url.startswith(("https://", "http://")) and url not in seen:
             seen.add(url)
             unique.append({"imageUrl": url, "extractionSource": source})
-    return unique[:12]
+    return unique[:20]
 
 def walk_urls(value):
     if isinstance(value, str):
