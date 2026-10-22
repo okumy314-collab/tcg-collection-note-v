@@ -46,7 +46,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23566",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_cid_verified"
     },
     {
       "id": "YAC1-JP003",
