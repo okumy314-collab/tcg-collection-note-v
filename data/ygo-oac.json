@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. Official image URLs are retained only where the matching card's individual official Konami database page confirms the CID. Confirmed cards: YAC1-JP001, YAC1-JP002, YAC1-JP003, YAC1-JP015, YAC1-JP017, YAC1-JP018, YAC1-JP019, YAC1-JP021, YAC1-JP022, YAC1-JP023, YAC1-JP024, YAC1-JP025, YAC1-JP026, YAC1-JP027, YAC1-JP028, YAC1-JP029, YAC1-JP030, YAC1-JP031. All other cards remain without image URLs until individually verified; do not infer CIDs from collector-number sequence.",
+  "note": "All 100 card names and collector numbers are populated. Official image URLs are retained only where the individual official Konami card page confirms the CID. Confirmed cards: YAC1-JP001, YAC1-JP002, YAC1-JP003, YAC1-JP015, YAC1-JP017, YAC1-JP018, YAC1-JP019, YAC1-JP021, YAC1-JP022, YAC1-JP023, YAC1-JP024, YAC1-JP025, YAC1-JP026, YAC1-JP027, YAC1-JP028, YAC1-JP029, YAC1-JP030, YAC1-JP031, YAC1-JP032, YAC1-JP034. Remaining cards have no image URL until individually verified; do not infer CIDs from collector-number sequence.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -533,7 +533,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21162",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_cid_confirmed"
     },
     {
       "id": "YAC1-JP033",
@@ -561,7 +564,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20181",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_cid_confirmed"
     },
     {
       "id": "YAC1-JP035",
