@@ -47,6 +47,26 @@ jobs:
           NODE
           node --check /tmp/tcg-app-check.js
 
+      - name: Validate shared search, pack dropdown, and registration wiring
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const html = readFileSync('index.html', 'utf8');
+          const checks = [
+            ['dynamic pack dropdown is used in registration', html.includes('<select id="fs">${packOpts(F.g)}</select>')],
+            ['pack dropdown includes loaded card master data', html.includes("loadedPacks=g==='poke'?PKI.map") && html.includes("g==='op'?OPI.map") && html.includes("g==='ygo'?YGOI.map")],
+            ['custom pack name can be entered', html.includes('function togglePackCustom()') && html.includes('id="fs2"')],
+            ['registration persists exact pack name', html.includes('pack:selectedPack') && html.includes('series:selectedPack')],
+            ['registration persists selected card image', html.includes("img:F.img||''")],
+            ['selected card opens shop-specific search', html.includes('function selectedPricePanel(') && html.includes('function fq(i)') && html.includes('window.open(url')],
+            ['Yu-Gi-Oh OAC appears in series options', html.includes('ORIGINAL ARTWORK COLLECTION (OAC)')],
+            ['One Piece card master is loaded from local data', html.includes("fetch('data/op.json')")],
+            ['card number search exists for all three titles', html.includes('function candOP()') && html.includes('normYgo(x.cardNumber).includes(nNo)') && html.includes('localByNo=PKI.filter')]
+          ];
+          const failed = checks.filter(([, ok]) => !ok);
+          for (const [name, ok] of checks) console.log((ok ? 'PASS ' : 'FAIL ') + name);
+          if (failed.length) throw new Error(failed.length + ' app integration checks failed');
+          NODE
       - name: Generate Japanese One Piece card data
         run: node scripts/fetch-op.mjs
 
@@ -80,8 +100,8 @@ jobs:
           if (!Array.isArray(data.cards) || data.knownCards !== data.cards.length) {
             throw new Error('遊戯王データの件数と配列が一致しません');
           }
-          if (data.totalCardTypes !== 100 || data.knownCards > data.totalCardTypes) {
-            throw new Error('遊戯王データの全種類数が不正です');
+          if (data.totalCardTypes !== 100 || data.knownCards !== 100 || data.cards.length !== 100) {
+            throw new Error('遊戯王OAC全100種類がそろっていません');
           }
           if (!['partial_verified', 'verified_full_list'].includes(data.datasetStatus)) {
             throw new Error('データ状態が明示されていません');
