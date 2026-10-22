@@ -1,0 +1,51 @@
+name: deploy-preview
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-preview
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout published main site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: site-root
+
+      - name: Checkout development branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/japanese-one-piece-card-data
+          path: preview-source
+
+      - name: Assemble isolated preview without changing the main app
+        run: |
+          mkdir -p site-root/preview
+          cp -R preview-source/. site-root/preview/
+          rm -rf site-root/preview/.git
+          rm -f site-root/preview/.github/workflows/deploy-preview.yml
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site with separate preview path
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site-root
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
