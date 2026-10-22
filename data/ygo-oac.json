@@ -4,8 +4,8 @@
   "releaseDate": "2026-09-26",
   "totalCardTypes": 100,
   "knownCards": 100,
-  "datasetStatus": "partial_verified",
-  "note": "All 100 card names and collector numbers are populated. Rarity variants for YAC1-JP026–JP070 have been cross-checked against the current published YAC1 rarity lists and the community-maintained yaml-yugi dataset; conflicting entries were reconciled against the newer checklist. This is secondary-source verification and should be periodically compared with Konami's official database.",
+  "datasetStatus": "images_url_candidates_100",
+  "note": "All 100 card names and collector numbers are populated. Image URLs for all 100 entries are populated using the official Konami image endpoint; the first two CIDs are corroborated by an external card database, while sequential CIDs for the remaining cards are candidates and must be checked in the app before being treated as verified. Rarity data remains secondary-source verified.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -29,8 +29,8 @@
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23565",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_cid_verified"
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "cid_confirmed_by_external_database"
     },
     {
       "id": "YAC1-JP002",
@@ -48,8 +48,8 @@
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23566",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_cid_verified"
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "cid_confirmed_by_external_database"
     },
     {
       "id": "YAC1-JP003",
@@ -65,7 +65,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23567",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP004",
@@ -81,7 +84,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23568",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP005",
@@ -97,7 +103,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23569",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP006",
@@ -113,7 +122,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23570",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP007",
@@ -129,7 +141,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23571",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP008",
@@ -145,7 +160,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23572",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP009",
@@ -161,7 +179,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23573",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP010",
@@ -177,7 +198,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23574",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP011",
@@ -191,7 +215,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23575",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP012",
@@ -205,7 +232,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23576",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP013",
@@ -219,7 +249,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23577",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP014",
@@ -233,7 +266,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23578",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP015",
@@ -247,7 +283,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23579",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP016",
@@ -261,7 +300,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23580",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP017",
@@ -275,7 +317,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23581",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP018",
@@ -289,7 +334,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23582",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP019",
@@ -303,7 +351,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23583",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP020",
@@ -317,7 +368,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23584",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP021",
@@ -331,7 +385,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23585",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP022",
@@ -345,7 +402,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23586",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP023",
@@ -359,7 +419,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23587",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP024",
@@ -373,7 +436,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23588",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP025",
@@ -387,7 +453,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23589",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP026",
@@ -401,7 +470,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23590",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP027",
@@ -415,7 +487,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23591",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP028",
@@ -429,7 +504,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23592",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP029",
@@ -443,7 +521,10 @@
       ],
       "verified": true,
       "source": "YAC1 set rarity list cross-check (secondary sources)",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23593",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP030",
@@ -457,7 +538,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23594",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP031",
@@ -471,7 +555,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23595",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP032",
@@ -485,7 +572,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23596",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP033",
@@ -499,7 +589,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23597",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP034",
@@ -513,7 +606,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23598",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP035",
@@ -527,7 +623,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23599",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP036",
@@ -541,7 +640,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23600",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP037",
@@ -555,7 +657,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23601",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP038",
@@ -569,7 +674,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23602",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP039",
@@ -583,7 +691,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23603",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP040",
@@ -597,7 +708,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23604",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP041",
@@ -611,7 +725,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23605",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP042",
@@ -625,7 +742,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23606",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP043",
@@ -638,7 +758,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23607",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP044",
@@ -651,7 +774,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23608",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP045",
@@ -665,7 +791,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23609",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP046",
@@ -679,7 +808,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23610",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP047",
@@ -693,7 +825,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23611",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP048",
@@ -707,7 +842,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23612",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP049",
@@ -722,7 +860,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23613",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP050",
@@ -736,7 +877,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23614",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP051",
@@ -750,7 +894,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23615",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP052",
@@ -763,7 +910,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23616",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP053",
@@ -777,7 +927,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23617",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP054",
@@ -791,7 +944,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23618",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP055",
@@ -804,7 +960,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23619",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP056",
@@ -819,7 +978,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23620",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP057",
@@ -834,7 +996,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23621",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP058",
@@ -847,7 +1012,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23622",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP059",
@@ -860,7 +1028,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23623",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP060",
@@ -874,7 +1045,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23624",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP061",
@@ -888,7 +1062,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23625",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP062",
@@ -903,7 +1080,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23626",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP063",
@@ -918,7 +1098,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23627",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP064",
@@ -932,7 +1115,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23628",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP065",
@@ -946,7 +1132,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23629",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP066",
@@ -959,7 +1148,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23630",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP067",
@@ -972,7 +1164,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23631",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP068",
@@ -986,7 +1181,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23632",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP069",
@@ -999,7 +1197,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23633",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP070",
@@ -1013,7 +1214,10 @@
       ],
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
-      "variantStatus": "cross_checked_yac1_setlist"
+      "variantStatus": "cross_checked_yac1_setlist",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23634",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP071",
@@ -1029,7 +1233,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23635",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP072",
@@ -1045,7 +1252,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23636",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP073",
@@ -1061,7 +1271,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23637",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP074",
@@ -1077,7 +1290,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23638",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP075",
@@ -1093,7 +1309,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23639",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP076",
@@ -1109,7 +1328,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23640",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP077",
@@ -1125,7 +1347,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23641",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP078",
@@ -1141,7 +1366,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23642",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP079",
@@ -1157,7 +1385,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23643",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP080",
@@ -1173,7 +1404,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23644",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP081",
@@ -1189,7 +1423,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23645",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP082",
@@ -1205,7 +1442,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23646",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP083",
@@ -1221,7 +1461,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23647",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP084",
@@ -1237,7 +1480,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23648",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP085",
@@ -1253,7 +1499,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23649",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP086",
@@ -1269,7 +1518,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23650",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP087",
@@ -1285,7 +1537,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23651",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP088",
@@ -1301,7 +1556,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23652",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP089",
@@ -1317,7 +1575,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23653",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP090",
@@ -1333,7 +1594,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23654",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP091",
@@ -1349,7 +1613,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23655",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP092",
@@ -1365,7 +1632,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23656",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP093",
@@ -1381,7 +1651,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23657",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP094",
@@ -1397,7 +1670,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23658",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP095",
@@ -1413,7 +1689,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23659",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP096",
@@ -1429,7 +1708,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23660",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP097",
@@ -1445,7 +1727,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23661",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP098",
@@ -1461,7 +1746,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23662",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP099",
@@ -1477,7 +1765,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23663",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     },
     {
       "id": "YAC1-JP100",
@@ -1493,7 +1784,10 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23664",
+      "imageSource": "Konami official card database image endpoint",
+      "imageStatus": "sequential_cid_candidate_needs_display_check"
     }
   ],
   "variantChecksPending": 0,
