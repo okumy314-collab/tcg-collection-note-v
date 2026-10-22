@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "MANGA-STYLE JP071-JP100 now link to the official YAC1 product page and a retailer photo catalog with variant names. retailerVariantEvidence records specific variants observed in search-indexed catalog results; it is not proof of an exact direct image URL. Exact image assets still need extraction and visual verification. User confirmed YAC1-JP063 image is correct; keep its URL unchanged.",
+  "note": "All 100 card names and collector numbers remain. Added exact retailer product pages for MANGA-STYLE variants: JP071, JP072, JP080, JP092, JP096. These pages identify the correct YAC1 variant, but direct image assets are not yet assigned. User-confirmed JP063 image remains unchanged. Never substitute generic artwork for exact variants.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1206,7 +1206,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified.",
+      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation.",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4041",
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
@@ -1215,10 +1215,12 @@
       "variantImageReferences": {
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "secretMono": "https://dp00013984.shop-pro.jp/?pid=193687063",
+        "retailerProductTitle": "ブラック・マジシャン MANGA-STYLE シークレット"
       },
       "retailerVariantEvidence": [],
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending"
+      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending"
     },
     {
       "id": "YAC1-JP072",
@@ -1234,7 +1236,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified.",
+      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation.",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4088",
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
@@ -1243,12 +1245,14 @@
       "variantImageReferences": {
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "secretColor": "https://dp00013984.shop-pro.jp/?pid=193687124",
+        "retailerProductTitle": "真紅眼の黒竜 カラーMANGA-STYLE シークレット"
       },
       "retailerVariantEvidence": [
         "モノクロ・ウルトラレア"
       ],
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending"
+      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending"
     },
     {
       "id": "YAC1-JP073",
@@ -1479,11 +1483,11 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Retailer pages explicitly identify YAC1-JP080 and the exact MANGA-STYLE variant: color Secret Rare and monochrome Ultra Rare. Direct image asset has not been validated/extracted; imageUrl remains empty until checked. Do not substitute generic Gaia art.",
+      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
-        "secretColor": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416245",
+        "secretColor": "https://dp00013984.shop-pro.jp/?pid=193687095",
         "productPage": "https://cardstack.jp/yugioh-card/yac1-jp080/",
         "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416425",
         "colorSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416245",
@@ -1496,9 +1500,12 @@
         "ultraMonochrome": "https://www.ka-nabell.com/?act=sell_detail&category=&genre=1&id=100416515&lang=&supply=&type=1",
         "officialSetCardList": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
-        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal"
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "ultraColor": "https://dp00013984.shop-pro.jp/?pid=193687094",
+        "ultraMono": "https://dp00013984.shop-pro.jp/?pid=193687092",
+        "retailerProductTitle": "暗黒騎士ガイア MANGA-STYLE バリエーション"
       },
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending",
       "retailerVariantEvidence": []
     },
     {
@@ -1845,7 +1852,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork.",
+      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -1854,9 +1861,11 @@
         "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "secretColor": "https://dp00013984.shop-pro.jp/index.php?pid=193687082",
+        "retailerProductTitle": "マシュマロン カラーMANGA-STYLE シークレット"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending",
       "retailerVariantEvidence": [
         "モノクロ・ウルトラレア"
       ]
@@ -1966,7 +1975,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork.",
+      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -1975,9 +1984,11 @@
         "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "secretColor": "https://dp00013984.shop-pro.jp/?pid=193687153",
+        "retailerProductTitle": "融合 カラーMANGA-STYLE シークレット"
       },
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending",
       "retailerVariantEvidence": []
     },
     {
