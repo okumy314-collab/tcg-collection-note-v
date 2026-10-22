@@ -1609,7 +1609,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation.",
+      "note": "Exact YAC1-JP080 variant evidence added from CardStack, カーナベル, and eスターボックス. User previously reported a wrong Gaia image, so imageUrl intentionally remains empty until the exact card image asset can be identified.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -1632,10 +1632,25 @@
         "retailerProductTitle": "暗黒騎士ガイア MANGA-STYLE バリエーション"
       },
       "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
-      "retailerVariantEvidence": [
-        "暗黒騎士ガイア",
-        "モノクロ版YAC1-MANGA-STYLE"
-      ],
+      "retailerVariantEvidence": {
+        "0": "暗黒騎士ガイア",
+        "1": "モノクロ版YAC1-MANGA-STYLE",
+        "cardStackMangaStyle": {
+          "url": "https://cardstack.jp/yugioh-card/yac1-jp080/",
+          "evidence": "Catalog identifies YAC1-JP080 as 暗黒騎士ガイア MANGA-STYLE and shows multiple rarity listings.",
+          "status": "variant_catalog_confirmed_direct_art_image_url_pending"
+        },
+        "kaNabellColorSecret": {
+          "url": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416245",
+          "evidence": "Product title identifies 暗黒騎士ガイア（カラー版） MANGA-STYLE シークレットレア and serial YAC1-JP080.",
+          "status": "variant_name_and_card_number_confirmed_direct_art_image_url_pending"
+        },
+        "eStarBoxMonoSecret": {
+          "url": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "evidence": "Catalog lists 暗黒騎士ガイア（漫画白黒） under YAC1-JP080.",
+          "status": "monochrome_variant_confirmed_direct_art_image_url_pending"
+        }
+      },
       "variantCatalogReferences": {
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
