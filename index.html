@@ -98,7 +98,7 @@ function snap(){const d=new Date().toISOString().slice(0,10),v=tot(S.cards).v,l=
 const pl=(v,c)=>{const d=v-c,p=c?d/c*100:0;return `<span class="${d>=0?'up':'dn'}">${d>=0?'+':''}${yen(d)} (${d>=0?'+':''}${p.toFixed(1)}%)</span>`};
 const u=(g,i)=>GN[g].s[i][1];
 const link=(g,c,i)=>{
- const query=[c.name,c.no,c.rarity].map(v=>String(v||'').trim()).filter(Boolean).join(' ');
+ const query=String(c.name||'').trim();
  return u(g,i)+encodeURIComponent(query);
 };
 function chart(){
@@ -289,7 +289,7 @@ function candOP(){
 function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${x.rarity}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
 function selectedPricePanel(extra=''){
  const G=GN[F.g],name=$('#fn')?.value?.trim()||'',no=$('#fo')?.value?.trim()||'';
- return `<div style="font-size:12px;color:var(--up);margin-top:8px">✓ 選択済み：${name}${no?' ・ '+no:''}${F.r?' ・ '+F.r:''}${extra?' ・ '+extra:''}</div><div style="font-size:11px;color:var(--mu);margin:8px 0 5px">このカードの相場を検索</div><div class="row">${G.s.map((shop,i)=>`<button class="btn sm" onclick="fq(${i})">${shop[0]}で相場検索</button>`).join('')}</div>`;
+ return `<div style="font-size:12px;color:var(--up);margin-top:8px">✓ 選択済み：${name}${no?' ・ '+no:''}${F.r?' ・ '+F.r:''}${extra?' ・ '+extra:''}</div>`;
 }
 function pickOP(i){
  const x=OPR[i];if(!x)return;
@@ -317,7 +317,8 @@ function cand(){
   const normYgo=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
   const nq=normYgo(q), nNo=normYgo(rawNo);
   const searchText=Boolean(nq||nNo);
-  const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,50).map(x=>({n:x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:x.variants||[],setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',verifiedNameAndNumber:x.verified})):[];
+  const shortYgoRarity=v=>{const key=String(v||'').replace(/（オーバーフレーム）/g,' OF');return ({'ノーマル':'N','レア':'R','スーパーレア':'SR','ウルトラレア':'UR','アルティメットレア':'UL','シークレットレア':'SE','プリズマティックシークレットレア':'PSE','コレクターズレア':'CR','クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR','ウルトラレア OF':'UR OF','シークレットレア OF':'SE OF','プリズマティックシークレットレア OF':'PSE OF'}[key]||key)};
+  const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,50).map(x=>({n:x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:(x.variants||[]).map(shortYgoRarity),setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:x.imageUrl||x.img||'',verifiedNameAndNumber:x.verified})):[];
   PKR=rows;
   const pendingVariants=YGOI.filter(x=>x.variantStatus==='needs_crosscheck').length;
   const ygoNotice=YGO_ERROR?'<div style="font-size:11px;color:var(--dn);margin:6px 0">遊戯王データを読み込めませんでした。通信環境を確認して再読み込みしてください。</div>':(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin:6px 0">遊戯王カードデータを読み込み中…</div>':`<div style="font-size:11px;color:var(--mu);margin:6px 0">ORIGINAL ARTWORK COLLECTION：カード情報 ${YGOI.length} / 100種類を登録済み。レアリティ仕様 ${pendingVariants}種類は照合中です。</div>`);
@@ -342,9 +343,14 @@ if(F.g!=='poke'){b.innerHTML='';return}
   if(!Array.isArray(rows))throw Error('unexpected response');
   const mapped=rows.map(d=>({n:d.name||'',l:String(d.localId||''),img:d.image?d.image+'/low.webp':'',live:true,setId:d.id||'',setName:d.set?.name||'',setSeries:d.set?.serie?.name||''}));
   // Remove unrelated fuzzy matches; exact/substring matches only, with name similarity first.
-  const all=[...mapped,...local].filter(x=>norm(x.n).includes(nq));
-  const seen=new Set();
-  PKR=all.filter(x=>{const k=(x.setId||x.s?.id||'')+'|'+x.l+'|'+norm(x.n);if(seen.has(k))return false;seen.add(k);return true})
+  const all=[...local,...mapped].filter(x=>norm(x.n).includes(nq));
+  const byCard=new Map();
+  for(const x of all){
+    const key=norm(x.n)+'|'+String(x.l||'');
+    const prev=byCard.get(key);
+    byCard.set(key,prev?{...x,...prev,n:prev.n||x.n,l:prev.l||x.l,img:prev.img||x.img,setName:prev.setName||x.setName,setSeries:prev.setSeries||x.setSeries,setId:prev.setId||x.setId,s:prev.s||x.s}:x);
+  }
+  PKR=[...byCard.values()]
     .sort((a,b)=>(norm(a.n)===nq?0:1)-(norm(b.n)===nq?0:1)||a.n.localeCompare(b.n,'ja')).slice(0,50);
   b.innerHTML=PKR.length?renderPKR(PKR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致する候補がありません。名前を短くするか、カード名を確認してください。</div>';
  }).catch(()=>{
@@ -353,7 +359,7 @@ if(F.g!=='poke'){b.innerHTML='';return}
   b.innerHTML=PKR.length?renderPKR(PKR)+'<div style="font-size:11px;color:var(--mu);margin-top:6px">オンライン検索に接続できないため、保存済みデータのみ表示しています。</div>':'<div style="font-size:11px;color:var(--mu);margin-top:6px">検索に接続できません。時間をおいて再試行するか、カード情報を手入力してください。</div>';
  });
 }
-function renderPKR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickc(${i})">${cimg(x)?`<img class="th" style="width:36px;height:50px" src="${cimg(x)}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}</div><div style="font-size:11px;color:var(--mu)">${x.l}${x.setName?' ・ '+x.setName:''}</div></div></div>`).join('')}</div>`}
+function renderPKR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer">${cimg(x)?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${cimg(x)}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}</div><div style="font-size:11px;color:var(--mu)">${x.l}${x.setName?' ・ '+x.setName:''}</div></div></div>`).join('')}</div>`}
 async function pickc(i){
  const x=PKR[i];if(!x)return;
  const b=$('#cd');const selectedName=x.n;
