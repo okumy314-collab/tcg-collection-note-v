@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. Official image URLs are retained where the matching card is individually confirmed in Konami's official card database. YAC1-JP003 through YAC1-JP020 are confirmed except YAC1-JP001 and YAC1-JP002, whose CID candidates still require individual confirmation. Do not infer CIDs from collector-number sequence.",
+  "note": "All 100 card names and collector numbers are populated. Only individually supported image URLs are retained: YAC1-JP003 and YAC1-JP017. Other cards remain without image URLs until their individual official Konami card database CID is verified. Do not infer CIDs from collector-number sequence.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -27,10 +27,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23565",
-      "imageSource": "Konami official card database",
-      "imageStatus": "cid_candidate_not_individually_verified"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP002",
@@ -46,10 +43,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23566",
-      "imageSource": "Konami official card database",
-      "imageStatus": "cid_candidate_not_individually_verified"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP003",
@@ -84,10 +78,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23568",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP005",
@@ -103,10 +94,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23569",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP006",
@@ -122,10 +110,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23570",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP007",
@@ -141,10 +126,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23571",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP008",
@@ -160,10 +142,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23572",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP009",
@@ -179,10 +158,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23573",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP010",
@@ -198,10 +174,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23574",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP011",
@@ -215,10 +188,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23575",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP012",
@@ -232,10 +202,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23576",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP013",
@@ -249,10 +216,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23577",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP014",
@@ -266,10 +230,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23578",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP015",
@@ -283,10 +244,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23579",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP016",
@@ -300,10 +258,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23580",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP017",
@@ -334,10 +289,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23582",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP019",
@@ -351,10 +303,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23583",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP020",
@@ -368,10 +317,7 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23584",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "variantStatus": "verified_from_published_list"
     },
     {
       "id": "YAC1-JP021",
