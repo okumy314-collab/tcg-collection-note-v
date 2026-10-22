@@ -1627,9 +1627,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Exact YAC1-JP080 variant evidence added from CardStack, カーナベル, and eスターボックス. User previously reported a wrong Gaia image, so imageUrl intentionally remains empty until the exact card image asset can be identified. Verified product listing title and YAC1 number for 2 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted. Added current listing for YAC1-JP080 (カラー/ウルトラ) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Added current listing for YAC1-JP080 (モノクロ/ウルトラ) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl.",
+      "note": "Exact YAC1-JP080 variant evidence added from CardStack, カーナベル, and eスターボックス. User previously reported a wrong Gaia image, so imageUrl intentionally remains empty until the exact card image asset can be identified. Verified product listing title and YAC1 number for 2 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted. Added current listing for YAC1-JP080 (カラー/ウルトラ) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Added current listing for YAC1-JP080 (モノクロ/ウルトラ) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Temporary display image added for user review (カラー版・シークレット候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "secretColor": "https://dp00013984.shop-pro.jp/?pid=193687095",
         "productPage": "https://cardstack.jp/yugioh-card/yac1-jp080/",
@@ -1965,7 +1965,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://img08.shop-pro.jp/PA01034/747/product/193687095.jpg?cmsp_timestamp=20260926182830",
+      "imageSource": "https://dp00013984.shop-pro.jp/?pid=193687095",
+      "imageCandidateVariant": "カラー版・シークレット候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP081",
@@ -1981,9 +1985,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -2206,7 +2210,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP081.jpg",
+      "imageSource": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416518",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "asset_path_pattern_candidate"
     },
     {
       "id": "YAC1-JP082",
@@ -2222,9 +2230,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP082; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP082; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -2448,7 +2456,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0328.jpg",
+      "imageSource": "https://www.c-labo-online.jp/product/416348",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP083",
@@ -2464,9 +2476,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP083; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP083; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. Temporary display image added for user review (カラー版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -2690,7 +2702,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0269.jpg",
+      "imageSource": "https://www.c-labo-online.jp/product/416353",
+      "imageCandidateVariant": "カラー版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP084",
@@ -2706,9 +2722,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP084; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP084; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -2917,7 +2933,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 5
+      "imageCandidateSourcePageCount": 5,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP084.jpg",
+      "imageSource": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "asset_path_pattern_candidate"
     },
     {
       "id": "YAC1-JP085",
@@ -2933,9 +2953,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted. CardStack variant-specific catalog reference added for YAC1-JP085; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted. CardStack variant-specific catalog reference added for YAC1-JP085; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (カラー版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -3158,7 +3178,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP085c.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593925",
+      "imageCandidateVariant": "カラー版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP086",
@@ -3174,9 +3198,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP086; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP086; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. Temporary display image added for user review (カラー版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -3400,7 +3424,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0272.jpg",
+      "imageSource": "https://www.c-labo-online.jp/product/411612",
+      "imageCandidateVariant": "カラー版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP087",
@@ -3416,9 +3444,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted. CardStack variant-specific catalog reference added for YAC1-JP087; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted. CardStack variant-specific catalog reference added for YAC1-JP087; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -3634,7 +3662,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP087.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593955",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP088",
@@ -3650,9 +3682,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP088; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP088; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -3855,7 +3887,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 5
+      "imageCandidateSourcePageCount": 5,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP088.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593975",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "asset_path_pattern_candidate"
     },
     {
       "id": "YAC1-JP089",
@@ -3871,9 +3907,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP089; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP089; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -4106,7 +4142,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0335.jpg",
+      "imageSource": "https://www.c-labo-online.jp/product/411675",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP090",
@@ -4122,9 +4162,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP090; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP090; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -4333,7 +4373,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 5
+      "imageCandidateSourcePageCount": 5,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP090.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594015",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "asset_path_pattern_candidate"
     },
     {
       "id": "YAC1-JP091",
@@ -4349,9 +4393,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP091; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP091; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. Temporary display image added for user review (モノクロ版・シークレット候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -4559,7 +4603,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 5
+      "imageCandidateSourcePageCount": 5,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP091b.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594040",
+      "imageCandidateVariant": "モノクロ版・シークレット候補",
+      "imageCandidateConfidence": "asset_path_pattern_candidate"
     },
     {
       "id": "YAC1-JP092",
@@ -4575,9 +4623,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Exact YAC1-JP092 retailer listings have been checked: DMM Myca titles identify MANGA-STYLE color secret, color ultra, and monochrome secret variants. These are visual references only; direct image URL is not yet extracted and user previously flagged an incorrect Marshmallon image, so imageUrl remains empty pending exact asset validation. CardStack variant-specific catalog reference added for YAC1-JP092; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Verified product listing title and YAC1 number for 3 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted. Added current listing for YAC1-JP092 (モノクロ/シークレット) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Added current listing for YAC1-JP092 (モノクロ/シークレット) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl.",
+      "note": "Exact YAC1-JP092 retailer listings have been checked: DMM Myca titles identify MANGA-STYLE color secret, color ultra, and monochrome secret variants. These are visual references only; direct image URL is not yet extracted and user previously flagged an incorrect Marshmallon image, so imageUrl remains empty pending exact asset validation. CardStack variant-specific catalog reference added for YAC1-JP092; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Verified product listing title and YAC1 number for 3 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted. Added current listing for YAC1-JP092 (モノクロ/シークレット) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Added current listing for YAC1-JP092 (モノクロ/シークレット) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Temporary display image added for user review (モノクロ版・シークレット候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "officialCardDatabase": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=6000&ope=2&request_locale=ja",
         "mangaColorSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416314",
@@ -4702,7 +4750,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP092b.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594060",
+      "imageCandidateVariant": "モノクロ版・シークレット候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP093",
@@ -4718,9 +4770,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Specific retailer pages for YAC1 MANGA-STYLE variants added as visual references; direct image URL still pending, so this is not counted as an image URL. Added 2 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP093; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Specific retailer pages for YAC1 MANGA-STYLE variants added as visual references; direct image URL still pending, so this is not counted as an image URL. Added 2 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP093; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -4956,7 +5008,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP093.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594075",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP094",
@@ -4972,9 +5028,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 3 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP094; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 3 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP094; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (カラー版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -5204,7 +5260,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP094c.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594105",
+      "imageCandidateVariant": "カラー版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP095",
@@ -5220,9 +5280,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 3 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP095; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 3 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP095; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (カラー版・シークレット候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -5470,7 +5530,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP095d.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594130",
+      "imageCandidateVariant": "カラー版・シークレット候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP096",
@@ -5486,9 +5550,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation. Added 1 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP096; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation. Added 1 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP096; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (カラー版・シークレット候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -5783,7 +5847,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://img08.shop-pro.jp/PA01034/747/product/193687153.jpg?cmsp_timestamp=20261002181043",
+      "imageSource": "https://dp00013984.shop-pro.jp/?pid=193687153",
+      "imageCandidateVariant": "カラー版・シークレット候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP097",
@@ -5799,9 +5867,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 2 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP097; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 2 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP097; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -6033,7 +6101,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP097.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594155",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP098",
@@ -6049,9 +6121,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 1 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP098; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 1 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP098; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -6285,7 +6357,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP098.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594175",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP099",
@@ -6301,9 +6377,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 2 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP099; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 2 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP099; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Temporary display image added for user review (カラー版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -6535,7 +6611,11 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP099c.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594205",
+      "imageCandidateVariant": "カラー版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     },
     {
       "id": "YAC1-JP100",
@@ -6551,9 +6631,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Specific retailer pages for YAC1 MANGA-STYLE variants added as visual references; direct image URL still pending, so this is not counted as an image URL. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted. CardStack variant-specific catalog reference added for YAC1-JP100; use for visual comparison only. It is a product page, not a direct image URL. Verified product listing title and YAC1 number for 2 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Specific retailer pages for YAC1 MANGA-STYLE variants added as visual references; direct image URL still pending, so this is not counted as an image URL. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted. CardStack variant-specific catalog reference added for YAC1-JP100; use for visual comparison only. It is a product page, not a direct image URL. Verified product listing title and YAC1 number for 2 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Temporary display image added for user review (モノクロ版・ウルトラ候補). Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "candidate_image_unverified",
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
@@ -6789,15 +6869,20 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 6
+      "imageCandidateSourcePageCount": 6,
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP100.jpg",
+      "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594215",
+      "imageCandidateVariant": "モノクロ版・ウルトラ候補",
+      "imageCandidateConfidence": "product_page_image_extracted"
     }
   ],
   "variantChecksPending": 0,
   "nameNumberRecords": 100,
   "imageCandidateCollection": {
-    "purpose": "Review-only candidate image URLs extracted from existing retailer references; these do not count as confirmed imageUrl values.",
+    "purpose": "All remaining YAC1 cards now have temporary direct-image candidates for visual review. Candidate images are not confirmed exact variants.",
     "script": "scripts/collect-ygo-image-candidates.py",
     "cardsUpdatedThisRun": 21,
-    "fetchFailuresThisRun": 25
+    "fetchFailuresThisRun": 25,
+    "lastManualPromotion": "Remaining 21 YAC1-JP080 through YAC1-JP100 populated with candidate imageUrl values; user review required."
   }
 }
