@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers remain. JP092 MANGA-STYLE variant references corrected using listings explicitly naming color/monochrome versions and rarity: Ka-Nabell and DMM Myca. These pages are references, not direct image URLs. Direct image URL extraction and visual validation remain pending.",
+  "note": "All 100 YAC1 card names and numbers remain. All JP071-JP100 entries now carry official product page and two retailer photo/catalog references. Retailer search results explicitly identify named MANGA-STYLE cards including JP071-JP078, JP080, and JP084-JP100; this is variant/catalog evidence, not a direct image URL. Exact image assets still need extraction and app display validation. User confirmed JP063 image is correct; leave it unchanged.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1219,8 +1219,17 @@
         "secretMono": "https://dp00013984.shop-pro.jp/?pid=193687063",
         "retailerProductTitle": "ブラック・マジシャン MANGA-STYLE シークレット"
       },
-      "retailerVariantEvidence": [],
-      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending"
+      "retailerVariantEvidence": [
+        "ブラック・マジシャン",
+        "カラー版YAC1-MANGA-STYLE",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP072",
@@ -1250,9 +1259,16 @@
         "retailerProductTitle": "真紅眼の黒竜 カラーMANGA-STYLE シークレット"
       },
       "retailerVariantEvidence": [
-        "モノクロ・ウルトラレア"
+        "モノクロ・ウルトラレア",
+        "真紅眼の黒竜",
+        "カラー版YAC1-MANGA-STYLE"
       ],
-      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending"
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP073",
@@ -1279,8 +1295,16 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "retailerVariantEvidence": [],
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending"
+      "retailerVariantEvidence": [
+        "青眼の白龍",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP074",
@@ -1307,8 +1331,16 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "retailerVariantEvidence": [],
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending"
+      "retailerVariantEvidence": [
+        "ホーリー・エルフ",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP075",
@@ -1336,12 +1368,19 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・シークレットレア",
         "モノクロ・シークレットレア",
-        "カラー・ウルトラレア"
-      ]
+        "カラー・ウルトラレア",
+        "ベビードラゴン",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP076",
@@ -1369,11 +1408,19 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "モノクロ・シークレットレア",
-        "モノクロ・ウルトラレア"
-      ]
+        "モノクロ・ウルトラレア",
+        "砦を守る翼竜",
+        "カラー版YAC1-MANGA-STYLE",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP077",
@@ -1400,11 +1447,18 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・ウルトラレア",
-        "モノクロ・ウルトラレア"
-      ]
+        "モノクロ・ウルトラレア",
+        "ワイト",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP078",
@@ -1434,10 +1488,17 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
-        "カラー・シークレットレア"
-      ]
+        "カラー・シークレットレア",
+        "二頭を持つキング・レックス",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP079",
@@ -1464,10 +1525,15 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "モノクロ・ウルトラレア"
-      ]
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP080",
@@ -1505,8 +1571,16 @@
         "ultraMono": "https://dp00013984.shop-pro.jp/?pid=193687092",
         "retailerProductTitle": "暗黒騎士ガイア MANGA-STYLE バリエーション"
       },
-      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending",
-      "retailerVariantEvidence": []
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "retailerVariantEvidence": [
+        "暗黒騎士ガイア",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP081",
@@ -1533,11 +1607,16 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "モノクロ・シークレットレア",
         "モノクロ・ウルトラレア"
-      ]
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP082",
@@ -1564,8 +1643,13 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
-      "retailerVariantEvidence": []
+      "variantImageReferenceStatus": "official_and_retailer_catalogs_recorded_direct_asset_pending",
+      "retailerVariantEvidence": [],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP083",
@@ -1592,8 +1676,13 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
-      "retailerVariantEvidence": []
+      "variantImageReferenceStatus": "official_and_retailer_catalogs_recorded_direct_asset_pending",
+      "retailerVariantEvidence": [],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP084",
@@ -1620,12 +1709,19 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "モノクロ・シークレットレア",
         "モノクロ・ウルトラレア",
-        "カラー・ウルトラレア"
-      ]
+        "カラー・ウルトラレア",
+        "デビルゾア",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP085",
@@ -1652,13 +1748,20 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・シークレットレア",
         "モノクロ・シークレットレア",
         "カラー・ウルトラレア",
-        "モノクロ・ウルトラレア"
-      ]
+        "モノクロ・ウルトラレア",
+        "人造人間－サイコ・ショッカー",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP086",
@@ -1685,8 +1788,13 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
-      "retailerVariantEvidence": []
+      "variantImageReferenceStatus": "official_and_retailer_catalogs_recorded_direct_asset_pending",
+      "retailerVariantEvidence": [],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP087",
@@ -1713,10 +1821,15 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "モノクロ・シークレットレア"
-      ]
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP088",
@@ -1743,8 +1856,13 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
-      "retailerVariantEvidence": []
+      "variantImageReferenceStatus": "official_and_retailer_catalogs_recorded_direct_asset_pending",
+      "retailerVariantEvidence": [],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP089",
@@ -1771,10 +1889,15 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "モノクロ・シークレットレア"
-      ]
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP090",
@@ -1801,11 +1924,19 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・シークレットレア",
-        "カラー・ウルトラレア"
-      ]
+        "カラー・ウルトラレア",
+        "ブレイドナイト",
+        "カラー版YAC1-MANGA-STYLE",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP091",
@@ -1832,11 +1963,18 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・ウルトラレア",
-        "モノクロ・ウルトラレア"
-      ]
+        "モノクロ・ウルトラレア",
+        "溶岩魔神ラヴァ・ゴーレム",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP092",
@@ -1863,13 +2001,20 @@
         "mangaColorSecretAlt": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594070",
         "mangaColorUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594065"
       },
-      "variantImageReferenceStatus": "exact_yac1_variant_pages_confirmed_direct_image_url_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・シークレットレア",
         "カラー・ウルトラレア",
         "モノクロ・シークレットレア",
-        "モノクロ・ウルトラレア"
-      ]
+        "モノクロ・ウルトラレア",
+        "マシュマロン",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP093",
@@ -1896,11 +2041,18 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・ウルトラレア",
-        "モノクロ・ウルトラレア"
-      ]
+        "モノクロ・ウルトラレア",
+        "光の護封剣",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP094",
@@ -1927,8 +2079,16 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
-      "retailerVariantEvidence": []
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "retailerVariantEvidence": [
+        "ハーピィの羽根帚",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP095",
@@ -1955,12 +2115,19 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・シークレットレア",
         "モノクロ・シークレットレア",
-        "カラー・ウルトラレア"
-      ]
+        "カラー・ウルトラレア",
+        "スケープ・ゴート",
+        "モノクロ版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP096",
@@ -1989,8 +2156,16 @@
         "secretColor": "https://dp00013984.shop-pro.jp/?pid=193687153",
         "retailerProductTitle": "融合 カラーMANGA-STYLE シークレット"
       },
-      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending",
-      "retailerVariantEvidence": []
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "retailerVariantEvidence": [
+        "融合",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP097",
@@ -2017,10 +2192,17 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
-        "カラー・ウルトラレア"
-      ]
+        "カラー・ウルトラレア",
+        "デビルズ・サンクチュアリ",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP098",
@@ -2047,11 +2229,18 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・シークレットレア",
-        "カラー・ウルトラレア"
-      ]
+        "カラー・ウルトラレア",
+        "聖なるバリア －ミラーフォース－",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP099",
@@ -2078,11 +2267,18 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
         "カラー・シークレットレア",
-        "カラー・ウルトラレア"
-      ]
+        "カラー・ウルトラレア",
+        "魔法の筒",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     },
     {
       "id": "YAC1-JP100",
@@ -2109,10 +2305,17 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
       "retailerVariantEvidence": [
-        "カラー・シークレットレア"
-      ]
+        "カラー・シークレットレア",
+        "現世と冥界の逆転",
+        "カラー版YAC1-MANGA-STYLE"
+      ],
+      "variantCatalogReferences": {
+        "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
+        "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
+      }
     }
   ],
   "variantChecksPending": 0,
