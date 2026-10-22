@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. Image URLs are retained where individual official Konami card pages support the CID. MANGA-STYLE entries may point to the official card's regular artwork rather than the exact YAC1 variant; such entries are explicitly marked official_card_page_confirmed_artwork_variant_unverified and must not be treated as verified YAC1 art. Confirmed standard card CIDs include JP062, JP063, JP067, JP068, and JP069.",
+  "note": "All 100 card names and collector numbers are populated. The 30 MANGA-STYLE cards (YAC1-JP071 to JP100) each have four documented variants: Ultra Rare monochrome/color and Secret Rare monochrome/color. Exact variant artwork is not verified for the 5 entries currently linked to ordinary official card database images; those are marked variant-unverified. The remaining 25 are marked exact_manga_style_image_pending. Do not substitute ordinary card artwork for MANGA-STYLE art.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1194,11 +1194,12 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified.",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4041",
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
-      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4041&ope=2&request_locale=ja"
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4041&ope=2&request_locale=ja",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
     },
     {
       "id": "YAC1-JP072",
@@ -1214,11 +1215,12 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified.",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4088",
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
-      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4088&ope=2&request_locale=ja"
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4088&ope=2&request_locale=ja",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
     },
     {
       "id": "YAC1-JP073",
@@ -1234,11 +1236,12 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified.",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4007",
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
-      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4007&ope=2&request_locale=ja"
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4007&ope=2&request_locale=ja",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
     },
     {
       "id": "YAC1-JP074",
@@ -1254,11 +1257,12 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified.",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4008",
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
-      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4008&ope=2&request_locale=ja"
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4008&ope=2&request_locale=ja",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
     },
     {
       "id": "YAC1-JP075",
@@ -1274,7 +1278,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP076",
@@ -1290,7 +1296,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP077",
@@ -1306,7 +1314,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP078",
@@ -1322,11 +1332,12 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified.",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4038",
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
-      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4038&ope=2&request_locale=ja"
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4038&ope=2&request_locale=ja",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
     },
     {
       "id": "YAC1-JP079",
@@ -1342,7 +1353,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP080",
@@ -1358,7 +1371,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP081",
@@ -1374,7 +1389,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP082",
@@ -1390,7 +1407,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP083",
@@ -1406,7 +1425,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP084",
@@ -1422,7 +1443,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP085",
@@ -1438,7 +1461,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP086",
@@ -1454,7 +1479,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP087",
@@ -1470,7 +1497,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP088",
@@ -1486,7 +1515,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP089",
@@ -1502,7 +1533,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP090",
@@ -1518,7 +1551,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP091",
@@ -1534,7 +1569,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP092",
@@ -1550,7 +1587,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP093",
@@ -1566,7 +1605,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP094",
@@ -1582,7 +1623,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP095",
@@ -1598,7 +1641,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP096",
@@ -1614,7 +1659,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP097",
@@ -1630,7 +1677,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP098",
@@ -1646,7 +1695,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP099",
@@ -1662,7 +1713,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     },
     {
       "id": "YAC1-JP100",
@@ -1678,7 +1731,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "imageStatus": "exact_manga_style_image_pending"
     }
   ],
   "variantChecksPending": 0,
