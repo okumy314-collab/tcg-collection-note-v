@@ -114,17 +114,25 @@ jobs:
             }
             if (ids.has(card.id)) throw new Error('カードIDが重複しています: ' + card.id);
             ids.add(card.id);
-            if (card.cardNumber && !/^YAC1-JP\d{3}$/.test(card.cardNumber)) {
+            if (!/^YAC1-JP\d{3}$/.test(card.cardNumber || '')) {
               throw new Error('カード番号の形式が不正です: ' + card.cardNumber);
             }
-            if (card.cardNumber && cardNumbers.has(card.cardNumber)) {
+            if (cardNumbers.has(card.cardNumber)) {
               throw new Error('カード番号が重複しています: ' + card.cardNumber);
             }
-            if (card.cardNumber) cardNumbers.add(card.cardNumber);
+            cardNumbers.add(card.cardNumber);
             if (card.verified !== true) {
               throw new Error('未確認カードが確認済みデータに混在しています: ' + card.id);
             }
+            if (new Set(card.variants).size !== card.variants.length || card.variants.some(v => typeof v !== 'string' || !v.trim())) {
+              throw new Error('レアリティ候補が空、または重複しています: ' + card.cardNumber);
+            }
           }
+          for (let n = 1; n <= 100; n++) {
+            const no = 'YAC1-JP' + String(n).padStart(3, '0');
+            if (!cardNumbers.has(no)) throw new Error('OACカード番号が欠落しています: ' + no);
+          }
+          console.log('OAC全100番号・レアリティ候補を検証しました');
           for (const number of ['YAC1-JP004', 'YAC1-JP009']) {
             if (!data.cards.some(card => card.cardNumber === number)) {
               throw new Error('確認済みカード番号が見つかりません: ' + number);
