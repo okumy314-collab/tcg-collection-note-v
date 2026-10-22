@@ -1060,9 +1060,8 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20029",
-      "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed"
+      "imageStatus": "exact_yac1_image_pending",
+      "note": "Do not use the generic official database image as the YAC1 printing image until the exact YAC1 card artwork is verified. YAC1 product reference: https://yugioh.fukufukutoreka.com/products/detail/96349"
     },
     {
       "id": "YAC1-JP064",
@@ -1403,7 +1402,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Retail/product page explicitly identifies YAC1 and MANGA-STYLE variant. The page URL is a reference, not an image URL; extract a direct stable image asset before assigning imageUrl.",
+      "note": "Do not display generic Dark Magician Knight/Gaia artwork for this entry. The exact YAC1 MANGA-STYLE variant is not assigned an imageUrl until verified.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
