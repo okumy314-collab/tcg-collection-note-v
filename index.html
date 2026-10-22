@@ -123,7 +123,7 @@ function coll(){
  h+=sortbar();if(!a.length)return h+`<div class="empty">このジャンルのカードはまだありません</div>`;
  return h+a.map(c=>`<div class="card it"><div class="row">${c.img?`<img src="${c.img}" class="th" onclick="pvw(this.src)">`:''}<div><div class="t">${c.name}</div><div class="m"><span class="tag" style="color:${GN[c.g].c}">${GN[c.g].n}</span>${c.pack||c.series||''} ${c.rarity?'・'+c.rarity:''} ${c.no?'・'+c.no:''}</div>${(c.place||c.cond||c.paid!=null||c.memo)?`<div class="m">📝 ${[c.place,c.cond,c.paid!=null?'取得 '+yen(c.paid):'',c.memo].filter(Boolean).join(' / ')}</div>`:''}</div><div style="flex:none;text-align:right"><b style="font-size:17px">${yen(val(c))}</b><div class="m">${c.qty}枚 × 平均${yen(c.price)}</div><div style="font-size:12px">${pl(val(c),cost(c))}</div></div></div>
  <div class="row">${GN[c.g].s.map((s,i)=>`<div><div class="m" style="margin:0 0 3px;font-size:11px">${s[0]}</div><input type="number" inputmode="numeric" value="${pr3(c)[i]||''}" placeholder="¥" style="padding:8px;${best(c,i)}" onchange="upd('${c.id}',${i},+this.value)"></div>`).join('')}</div>
- <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row"><button class="btn sm" onclick="detail('${c.id}')">詳細登録</button></div></div>`).join('')}
+ <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row" style="align-items:center;justify-content:space-between;margin-top:8px"><button class="btn sm" onclick="changeQty('${c.id}',-1)" aria-label="所持数を1減らす">−</button><b style="font-size:13px">所持数：${c.qty}枚</b><button class="btn sm" onclick="changeQty('${c.id}',1)" aria-label="所持数を1増やす">＋</button><button class="btn sm" onclick="detail('${c.id}')">詳細登録</button></div></div>`).join('')}
 function mk(){
  const G=GN[mg];return `<div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${mg==g?'on':''}" onclick="mg='${g}';render()">${GN[g].n}</button>`).join('')}</div>
  <div class="card"><b>${G.n} 相場検索</b><label>カード名・型番</label><input id="mq" placeholder="例：リザードンex SV2a 201"><div class="row" style="margin-top:12px">${G.s.map((s,i)=>`<button class="btn p" style="font-size:13px;padding:13px" onclick="msearch(${i})">${s[0]}</button>`).join('')}</div></div>
@@ -135,6 +135,7 @@ function render(){
 function go(v){view=v;render();scrollTo(0,0)}
 document.querySelectorAll('nav .tb[data-v]').forEach(b=>b.onclick=()=>go(b.dataset.v));
 function upd(id,p){const c=S.cards.find(x=>x.id==id);if(c&&p>=0){c.price=p;save();render();toast('✓ 相場を更新しました')}}
+function changeQty(id,d){const c=S.cards.find(x=>x.id==id);if(!c)return;c.qty=Math.max(1,(Number(c.qty)||1)+d);save();render();toast('✓ 所持数：'+c.qty+'枚')}
 function toast(m,act,fn){const t=$('#toast');t.innerHTML=m+(act?`<u id="ta">${act}</u>`:'');t.classList.add('on');if(act)$('#ta').onclick=()=>{t.classList.remove('on');fn()};clearTimeout(t.h);t.h=setTimeout(()=>t.classList.remove('on'),3800)}
 function open_(h){$('#sh').innerHTML=h;$('#ov').classList.add('on')}
 function close_(){$('#ov').classList.remove('on')}
@@ -250,6 +251,20 @@ $('#more').onclick=()=>open_(`<div class="hd"><b>その他</b><button class="ib"
 const L=s=>s.split('、').reverse();
 GN.poke.pk={'MEGAシリーズ':L('メガブレイブ(M1L)、メガシンフォニア(M1S)、インフェルノX(M2)、MEGAドリームex(M2a)、ストームエメラルダ、30th CELEBRATION、アビスアイ、ニンジャスピナー、ムニキスゼロ'),'スカーレット&バイオレット':L('スカーレットex(sv1S)、バイオレットex(sv1V)、トリプレットビート(sv1a)、スノーハザード(sv2P)、クレイバースト(sv2D)、ポケモンカード151(sv2a)、黒炎の支配者(sv3)、レイジングサーフ(sv3a)、古代の哆哮(sv4K)、未来の一閃(sv4M)、シャイニートレジャーex(sv4a)、ワイルドフォース(sv5K)、サイバージャッジ(sv5M)、クリムゾンヘイズ(sv5a)、変幻の仮面(sv6)、ナイトワンダラー(sv6a)、ステラミラクル(sv7)、楽園ドラゴーナ(sv7a)、超電ブレイカー(sv8)、テラスタルフェスex(sv8a)、バトルパートナーズ(sv9)、熱風のアリーナ(sv9a)、ロケット団の栄光(sv10)、ブラックボルト(sv11B)、ホワイトフレア(sv11W)'),'ソード&シールド':L('ソード(s1W)、シールド(s1H)、VMAXライジング(s1a)、反逆クラッシュ(s2)、爆炎ウォーカー(s2a)、ムゲンゾーン(s3)、伝説の鼓動(s3a)、仿天のボルテッカー(s4)、シャイニースターV(s4a)、一撃マスター(s5I)、連撃マスター(s5R)、双璧のファイター(s5a)、白銀のランス(s6H)、漆黒のガイスト(s6K)、イーブイヒーローズ(s6a)、摩天パーフェクト(s7D)、蒼空ストリーム(s7R)、フュージョンアーツ(s8)、25th ANNIVERSARY COLLECTION(s8a)、VMAXクライマックス(s8b)、スターバース(s9)、バトルリージョン(s9a)、タイムゲイザー(s10D)、スペースジャグラー(s10P)、ダークファンタズマ(s10a)、ポケモンGO(s10b)、ロストアビス(s11)、白熱のアルカナ(s11a)、パラダイムトリガー(s12)、VSTARユニバース(s12a)'),'その他':['プロモ','サン&ムーン以前のパック']};
 GN.op.pk={'ブースターパック':L('OP-01 ROMANCE DAWN、OP-02 頂上決戦、OP-03 強大な敵、OP-04 謀略の王国、OP-05 新時代の主役、OP-06 双璧の覇者、OP-07 500年後の未来、OP-08 二つの伝説、OP-09 四皇覚醒、OP-10 ロイヤルブラッドライン、OP-11 神速の拳、OP-12、OP-13'),'エクストラ・プレミアム':['PRB-01 THE BEST','EB-02 Anime 25th collection','EB-01 メモリアルコレクション'],'その他':['スタートデッキ(ST)','プロモ']};
+GN.poke.pk={
+ '拡張パック（新しい順）':['30th CELEBRATION','ストームエメラルダ','アビスアイ','ニンジャスピナー','ムニキスゼロ','MEGAドリームex','インフェルノX','メガシンフォニア','メガブレイブ'],
+ '構築デッキ・デッキセット（新しい順）':['スペシャルデッキセットMEGA メガオーダイル・メガカイリュー・メガゲンガー（2026/11/13予定）','30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー','スターターセットex イーブイex','スターターセットex ゾロア＆ゾロアークex','スターターセットex ニャオハ＆マスカーニャex','スタートデッキ100 バトルコレクション','MEGAスタートデッキ'],
+ 'スカーレット＆バイオレット':['ホワイトフレア','ブラックボルト','ロケット団の栄光','熱風のアリーナ','バトルパートナーズ','テラスタルフェスex','超電ブレイカー','楽園ドラゴーナ','ステラミラクル','変幻の仮面','クリムゾンヘイズ','サイバージャッジ','ワイルドフォース','シャイニートレジャーex','古代の咆哮','未来の一閃','レイジングサーフ','黒炎の支配者','ポケモンカード151','クレイバースト','スノーハザード','トリプレットビート','バイオレットex','スカーレットex'],
+ 'ソード＆シールド':['VSTARユニバース','パラダイムトリガー','白熱のアルカナ','ロストアビス','ポケモンGO','ダークファンタズマ','スペースジャグラー','タイムゲイザー','バトルリージョン','スターバース','VMAXクライマックス','25th ANNIVERSARY COLLECTION','フュージョンアーツ','蒼空ストリーム','摩天パーフェクト','イーブイヒーローズ','漆黒のガイスト','白銀のランス','双璧のファイター','連撃マスター','一撃マスター','シャイニースターV','仰天のボルテッカー','伝説の鼓動','ムゲンゾーン','爆炎ウォーカー','反逆クラッシュ','VMAXライジング','シールド','ソード'],
+ 'その他':['プロモ','サン＆ムーン以前のパック']
+};
+GN.op.pk={
+ 'ブースターパック（新しい順）':['OP-17 世界最強の戦士','OP-16 決戦の刻','OP-15 神の島の冒険','OP-14 蒼海の七傑','OP-13 受け継がれる意思','OP-12 師弟の絆','OP-11 神速の拳','OP-10 王族の血統','OP-09 新たなる皇帝','OP-08 二つの伝説','OP-07 500年後の未来','OP-06 双璧の覇者','OP-05 新時代の主役','OP-04 謀略の王国','OP-03 強大な敵','OP-02 頂上決戦','OP-01 ROMANCE DAWN'],
+ 'エクストラブースター（新しい順）':['EB-05 ONE PIECE Heroines Edition vol.2（2026/10/31予定）','EB-04 EGGHEAD CRISIS','EB-03 ONE PIECE Heroines Edition','EB-02 Anime 25th collection','EB-01 メモリアルコレクション'],
+ 'プレミアムブースター':['PRB-02 ONE PIECE CARD THE BEST vol.2','PRB-01 ONE PIECE CARD THE BEST'],
+ 'スタートデッキ・セット':['ST-36 黄 ユースタス・キッド','ST-35 赤黒 サボ','ST-34 紫 シャーロット・カタクリ','ST-33 青 クザン','ST-32 緑 ロロノア・ゾロ','ST-31 赤 モンキー・D・ルフィ','ST-30 EX ルフィ＆エース','ST-29','ST-28 緑黄 ヤマト','ST-27 黒 マーシャル・D・ティーチ','ST-25 青 バギー','ST-24 緑 ジュエリー・ボニー','ST-20 黄 シャーロット・カタクリ','ST-19 黒 スモーカー','ST-09 ヤマト','ST-08 モンキー・D・ルフィ'],
+ 'その他':['プロモ','限定商品']
+};
 GN.ygo.pk={'優先して登録':['遊☆戯☆王 ORIGINAL ARTWORK COLLECTION'],'2026年発売・発売予定':['遊☆戯☆王 ORIGINAL ARTWORK COLLECTION','BLAZING DOMINION','CHAOS ORIGINS','BEYOND THE BRAVE','PREMIUM PACK 2026','IMMORTAL PHOENIX','REVOLUTION BOOSTER － 方界・マリンセス・ゴーストリック －','THE CHRONICLES DECK DX マギストス','Yu-Gi-Oh! THE DARK SIDE OF DIMENSIONS 10th ANNIVERSARY MOVIE BOX','LIMITED PACK WORLD CHAMPIONSHIP 2026','UTILITY SELECTION','デッキビルドパック グロリアス・ヴィクターズ'],'最近のパック':['PHANTOM NIGHTMARE','DIMENSION FORCE','CROSSOVER BREAKERS','AGE OF OVERLORD','LEGACY OF DESTRUCTION','DUELIST NEXUS','ETERNITY CODE'],'25th / QUARTER CENTURY':['QUARTER CENTURY CHRONICLE side:PRIDE','QUARTER CENTURY CHRONICLE side:UNITY','RARITY COLLECTION -QUARTER CENTURY EDITION-','25th ANNIVERSARY ULTRA RARE EDITION'],'その他':['ストラクチャーデッキ','プロモ','旧パック']};
 const packOpts=g=>{
  const G=GN[g];
@@ -320,7 +335,7 @@ function cand(){
   const nq=normYgo(q), nNo=normYgo(rawNo);
   const searchText=Boolean(nq||nNo);
   const shortYgoRarity=v=>{const key=String(v||'').replace(/（オーバーフレーム）/g,' OF');return ({'ノーマル':'N','レア':'R','スーパーレア':'SR','ウルトラレア':'UR','ウルトラレア（モノクロ）':'UR（モノクロ）','ウルトラレア（カラー）':'UR（カラー）','シークレットレア（モノクロ）':'SE（モノクロ）','シークレットレア（カラー）':'SE（カラー）','プリズマティックシークレットレア（モノクロ）':'PSE（モノクロ）','プリズマティックシークレットレア（カラー）':'PSE（カラー）','アルティメットレア':'UL','シークレットレア':'SE','プリズマティックシークレットレア':'PSE','コレクターズレア':'CR','クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR','ウルトラレア OF':'UR OF','シークレットレア OF':'SE OF','プリズマティックシークレットレア OF':'PSE OF'}[key]||key)};
-  const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,50).map(x=>({n:x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:(x.variants||[]).map(shortYgoRarity),setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:x.imageUrl||x.img||'',verifiedNameAndNumber:x.verified})):[];
+  const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,50).map(x=>({n:x.baseName||x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:(x.variants||[]).map(shortYgoRarity),setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:x.imageUrl||x.img||'',verifiedNameAndNumber:x.verified})):[];
   PKR=rows;
   const pendingVariants=YGOI.filter(x=>x.variantStatus==='needs_crosscheck').length;
   const ygoNotice=YGO_ERROR?'<div style="font-size:11px;color:var(--dn);margin:6px 0">遊戯王データを読み込めませんでした。通信環境を確認して再読み込みしてください。</div>':(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin:6px 0">遊戯王カードデータを読み込み中…</div>':`<div style="font-size:11px;color:var(--mu);margin:6px 0">ORIGINAL ARTWORK COLLECTION：カード情報 ${YGOI.length} / 100種類を登録済み。レアリティ仕様 ${pendingVariants}種類は照合中です。</div>`);
