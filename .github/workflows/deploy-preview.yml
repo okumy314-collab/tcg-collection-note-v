@@ -1,5 +1,6 @@
 name: deploy-preview
 # Keep the development preview in /preview, separate from the published main app.
+# Refresh preview after development-branch commits by pushing a no-op workflow update.
 
 on:
   push:
