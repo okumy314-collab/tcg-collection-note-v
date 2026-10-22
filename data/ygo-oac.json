@@ -1627,7 +1627,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Exact YAC1-JP080 variant evidence added from CardStack, カーナベル, and eスターボックス. User previously reported a wrong Gaia image, so imageUrl intentionally remains empty until the exact card image asset can be identified. Verified product listing title and YAC1 number for 2 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted.",
+      "note": "Exact YAC1-JP080 variant evidence added from CardStack, カーナベル, and eスターボックス. User previously reported a wrong Gaia image, so imageUrl intentionally remains empty until the exact card image asset can be identified. Verified product listing title and YAC1 number for 2 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted. Added current listing for YAC1-JP080 (カラー/ウルトラ) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Added current listing for YAC1-JP080 (モノクロ/ウルトラ) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -1649,9 +1649,11 @@
         "ultraMono": "https://dp00013984.shop-pro.jp/?pid=193687092",
         "retailerProductTitle": "暗黒騎士ガイア MANGA-STYLE バリエーション",
         "fukufukuColorSecretSearchVerified": "https://yugioh.fukufukutoreka.com/products/detail/96410",
-        "fukufukuMonoSecretSearchVerified": "https://yugioh.fukufukutoreka.com/products/detail/96409"
+        "fukufukuMonoSecretSearchVerified": "https://yugioh.fukufukutoreka.com/products/detail/96409",
+        "priceBaseColorUltra": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp080-ur-color",
+        "cardLaboMonoUltra": "https://www.c-labo-online.jp/product/416346"
       },
-      "variantImageReferenceStatus": "exact_YAC1_variant_product_pages_verified_by_search_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_variant_listing_confirmed_direct_image_url_pending",
       "retailerVariantEvidence": {
         "0": "暗黒騎士ガイア",
         "1": "モノクロ版YAC1-MANGA-STYLE",
@@ -1685,6 +1687,22 @@
           "rarity": "シークレット",
           "artworkVariant": "カラー",
           "evidenceStatus": "listing title and exact YAC1 collector number verified from indexed product page; direct image file URL not extracted"
+        },
+        "priceBaseColorUltra": {
+          "url": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp080-ur-color",
+          "title": "暗黒騎士ガイア（YAC1-JP080）［UR・MANGA-STYLE(カラー)］",
+          "cardNumber": "YAC1-JP080",
+          "artworkVariant": "カラー",
+          "rarity": "ウルトラ",
+          "evidenceStatus": "search result confirms product title and exact collector number; source page advertises card image but direct image file URL not extracted"
+        },
+        "cardLaboMonoUltra": {
+          "url": "https://www.c-labo-online.jp/product/416346",
+          "title": "暗黒騎士ガイア〔漫画/モノクロ版〕〔ウルトラ/通常〕YAC1-JP080",
+          "cardNumber": "YAC1-JP080",
+          "artworkVariant": "モノクロ",
+          "rarity": "ウルトラ",
+          "evidenceStatus": "search result confirms product title and exact collector number; source page advertises card image but direct image file URL not extracted"
         }
       },
       "variantCatalogReferences": {
@@ -2185,7 +2203,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Exact YAC1-JP092 retailer listings have been checked: DMM Myca titles identify MANGA-STYLE color secret, color ultra, and monochrome secret variants. These are visual references only; direct image URL is not yet extracted and user previously flagged an incorrect Marshmallon image, so imageUrl remains empty pending exact asset validation. CardStack variant-specific catalog reference added for YAC1-JP092; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Verified product listing title and YAC1 number for 3 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted.",
+      "note": "Exact YAC1-JP092 retailer listings have been checked: DMM Myca titles identify MANGA-STYLE color secret, color ultra, and monochrome secret variants. These are visual references only; direct image URL is not yet extracted and user previously flagged an incorrect Marshmallon image, so imageUrl remains empty pending exact asset validation. CardStack variant-specific catalog reference added for YAC1-JP092; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Verified product listing title and YAC1 number for 3 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted. Added current listing for YAC1-JP092 (モノクロ/シークレット) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Added current listing for YAC1-JP092 (モノクロ/シークレット) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -2198,9 +2216,11 @@
         "cardStackVariantCatalogSearchVerified": "https://cardstack.jp/yugioh-card/yac1-jp092/",
         "fukufukuColorUltraSearchVerified": "https://yugioh.fukufukutoreka.com/products/detail/97199",
         "fukufukuMonoSecretSearchVerified": "https://yugioh.fukufukutoreka.com/products/detail/96493",
-        "dmmColorUltraSearchVerified": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594065"
+        "dmmColorUltraSearchVerified": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594065",
+        "priceBaseMonoSecret": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp092-se-mono",
+        "dmmMonoSecretCurrent": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594060"
       },
-      "variantImageReferenceStatus": "exact_YAC1_variant_product_pages_verified_by_search_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_variant_listing_confirmed_direct_image_url_pending",
       "retailerVariantEvidence": {
         "0": "カラー・シークレットレア",
         "1": "カラー・ウルトラレア",
@@ -2249,6 +2269,22 @@
           "rarity": "シークレット",
           "artworkVariant": "モノクロ",
           "evidenceStatus": "listing title and exact YAC1 collector number verified from indexed product page; direct image file URL not extracted"
+        },
+        "priceBaseMonoSecret": {
+          "url": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp092-se-mono",
+          "title": "マシュマロン（YAC1-JP092）［SE・MANGA-STYLE(モノクロ)］",
+          "cardNumber": "YAC1-JP092",
+          "artworkVariant": "モノクロ",
+          "rarity": "シークレット",
+          "evidenceStatus": "search result confirms product title and exact collector number; source page advertises card image but direct image file URL not extracted"
+        },
+        "dmmMonoSecretCurrent": {
+          "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594060",
+          "title": "マシュマロン（MANGA-STYLE・モノクロ版）シークレット YAC1-JP092",
+          "cardNumber": "YAC1-JP092",
+          "artworkVariant": "モノクロ",
+          "rarity": "シークレット",
+          "evidenceStatus": "search result confirms product title and exact collector number; source page advertises card image but direct image file URL not extracted"
         }
       },
       "variantCatalogReferences": {
