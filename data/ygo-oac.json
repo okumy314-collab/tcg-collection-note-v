@@ -1,0 +1,1495 @@
+{
+  "title": "遊☆戯☆王 ORIGINAL ARTWORK COLLECTION",
+  "productCode": "YAC1",
+  "releaseDate": "2026-09-26",
+  "totalCardTypes": 100,
+  "knownCards": 100,
+  "datasetStatus": "partial_verified",
+  "note": "All 100 card names and collector numbers are populated. Rarity variants for YAC1-JP026–JP070 have been cross-checked against the current published YAC1 rarity lists and the community-maintained yaml-yugi dataset; conflicting entries were reconciled against the newer checklist. This is secondary-source verification and should be periodically compared with Konami's official database.",
+  "sources": [
+    "https://www.yugioh-card.com/japan/products/yac1/",
+    "https://ocg-card.com/list/yac1/",
+    "https://samuraiswordtokyo.com/blogs/news/yu-gi-oh-original-artwork-collection-yac1-japanese-box",
+    "https://github.com/DawnbrandBots/yaml-yugi/tree/312be377b876af4fe3fadc69fac2367adf765cb2/data/cards"
+  ],
+  "cards": [
+    {
+      "id": "YAC1-JP001",
+      "cardNumber": "YAC1-JP001",
+      "name": "業火の魔神エクゾディア",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスターレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP002",
+      "cardNumber": "YAC1-JP002",
+      "name": "完全なる羽化－究極完全態・グレート・モス",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスターレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP003",
+      "cardNumber": "YAC1-JP003",
+      "name": "ハーピィ・レディ－華麗なる分身－",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスターレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP004",
+      "cardNumber": "YAC1-JP004",
+      "name": "神を超えたしもべ－青眼の究極竜",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスター"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP005",
+      "cardNumber": "YAC1-JP005",
+      "name": "機械龍－リボルバー・ドラゴン",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスターレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP006",
+      "cardNumber": "YAC1-JP006",
+      "name": "幻想の邪眼－サクリファイス",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスターレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP007",
+      "cardNumber": "YAC1-JP007",
+      "name": "死の世界の支配者－ダーク・ネクロフィア",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスターレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP008",
+      "cardNumber": "YAC1-JP008",
+      "name": "稲妻の戦士－ギルフォード・ザ・ライトニング",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスターレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP009",
+      "cardNumber": "YAC1-JP009",
+      "name": "波動の超魔導剣士－ブラック・パラディン",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスター"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP010",
+      "cardNumber": "YAC1-JP010",
+      "name": "沈黙の闘者－サイレント・マジシャン",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "ウルトラレア（オーバーフレーム）",
+        "シークレットレア",
+        "プリズマティックシークレットレア（オーバーフレーム）",
+        "グランドマスターレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP011",
+      "cardNumber": "YAC1-JP011",
+      "name": "罰ゲーム「GREED－欲望の幻像－」",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP012",
+      "cardNumber": "YAC1-JP012",
+      "name": "ゾンバイア",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP013",
+      "cardNumber": "YAC1-JP013",
+      "name": "魔の龍札－土龍",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP014",
+      "cardNumber": "YAC1-JP014",
+      "name": "魔の龍札－金龍",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP015",
+      "cardNumber": "YAC1-JP015",
+      "name": "スーパークリティカル",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP016",
+      "cardNumber": "YAC1-JP016",
+      "name": "環境適応力",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP017",
+      "cardNumber": "YAC1-JP017",
+      "name": "香水戦術",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP018",
+      "cardNumber": "YAC1-JP018",
+      "name": "闇魔導の覇王",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP019",
+      "cardNumber": "YAC1-JP019",
+      "name": "属性反発作用",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP020",
+      "cardNumber": "YAC1-JP020",
+      "name": "デューカー・ツイン・ソード",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP021",
+      "cardNumber": "YAC1-JP021",
+      "name": "閃光の封殺剣",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP022",
+      "cardNumber": "YAC1-JP022",
+      "name": "暗黒魔族ギルファー・デーモン－暗黒魔炎葬",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP023",
+      "cardNumber": "YAC1-JP023",
+      "name": "鋼鉄の騎士 ギア・フリード",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP024",
+      "cardNumber": "YAC1-JP024",
+      "name": "マジックカード「エネミーコントローラー」",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP025",
+      "cardNumber": "YAC1-JP025",
+      "name": "魂への引導",
+      "baseRarity": "ウルトラレア",
+      "variants": [
+        "ウルトラレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
+      "variantStatus": "verified_from_published_list"
+    },
+    {
+      "id": "YAC1-JP026",
+      "cardNumber": "YAC1-JP026",
+      "name": "カオス・ソルジャー",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP027",
+      "cardNumber": "YAC1-JP027",
+      "name": "レッドアイズ・ブラックフルメタルドラゴン",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP028",
+      "cardNumber": "YAC1-JP028",
+      "name": "心宿りし青眼竜",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP029",
+      "cardNumber": "YAC1-JP029",
+      "name": "千年の眠りから覚めし原人",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "YAC1 set rarity list cross-check (secondary sources)",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP030",
+      "cardNumber": "YAC1-JP030",
+      "name": "破壊竜ガンドラＧ",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP031",
+      "cardNumber": "YAC1-JP031",
+      "name": "黒き魔術師－ブラック・マジシャン",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP032",
+      "cardNumber": "YAC1-JP032",
+      "name": "真紅眼の鋼爪竜",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP033",
+      "cardNumber": "YAC1-JP033",
+      "name": "鋼炎の剣士",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP034",
+      "cardNumber": "YAC1-JP034",
+      "name": "千年の宝を守りしゴーレム",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP035",
+      "cardNumber": "YAC1-JP035",
+      "name": "魔術師の弟子－ブラック・マジシャン・ガール",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP036",
+      "cardNumber": "YAC1-JP036",
+      "name": "大翼のバフォメット",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP037",
+      "cardNumber": "YAC1-JP037",
+      "name": "千年王朝の盾",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP038",
+      "cardNumber": "YAC1-JP038",
+      "name": "幻爪の王ガゼル",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP039",
+      "cardNumber": "YAC1-JP039",
+      "name": "磁石の戦士ε",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP040",
+      "cardNumber": "YAC1-JP040",
+      "name": "トリコロール・ガジェット",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP041",
+      "cardNumber": "YAC1-JP041",
+      "name": "サイレント・マジシャン・ゼロ",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP042",
+      "cardNumber": "YAC1-JP042",
+      "name": "マジシャンズ・ロッド",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP043",
+      "cardNumber": "YAC1-JP043",
+      "name": "電磁石の戦士β",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP044",
+      "cardNumber": "YAC1-JP044",
+      "name": "鋼鉄の幻想師",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP045",
+      "cardNumber": "YAC1-JP045",
+      "name": "イリュージョン・オブ・カオス",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP046",
+      "cardNumber": "YAC1-JP046",
+      "name": "幻の召喚神エクゾディア",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP047",
+      "cardNumber": "YAC1-JP047",
+      "name": "幻想魔獣キマイラ",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP048",
+      "cardNumber": "YAC1-JP048",
+      "name": "滅びの黒魔術師",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP049",
+      "cardNumber": "YAC1-JP049",
+      "name": "ハーピィ・レディ・ＳＣ",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP050",
+      "cardNumber": "YAC1-JP050",
+      "name": "青き眼の精霊",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP051",
+      "cardNumber": "YAC1-JP051",
+      "name": "滅びの爆裂疾風弾",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP052",
+      "cardNumber": "YAC1-JP052",
+      "name": "師弟の絆",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP053",
+      "cardNumber": "YAC1-JP053",
+      "name": "黒・魔・導・爆・裂・破",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP054",
+      "cardNumber": "YAC1-JP054",
+      "name": "仲間の絆",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP055",
+      "cardNumber": "YAC1-JP055",
+      "name": "千年の十字",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP056",
+      "cardNumber": "YAC1-JP056",
+      "name": "青眼龍轟臨",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP057",
+      "cardNumber": "YAC1-JP057",
+      "name": "黒・爆・裂・破・魔・導",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP058",
+      "cardNumber": "YAC1-JP058",
+      "name": "魂のしもべ",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP059",
+      "cardNumber": "YAC1-JP059",
+      "name": "黒魔術の秘儀",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP060",
+      "cardNumber": "YAC1-JP060",
+      "name": "合成獣融合",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP061",
+      "cardNumber": "YAC1-JP061",
+      "name": "時の沈黙－ターン・サイレンス",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP062",
+      "cardNumber": "YAC1-JP062",
+      "name": "未来への沈黙",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP063",
+      "cardNumber": "YAC1-JP063",
+      "name": "マジックカード「死者蘇生」",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP064",
+      "cardNumber": "YAC1-JP064",
+      "name": "ティマイオスの眼光",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "アルティメットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP065",
+      "cardNumber": "YAC1-JP065",
+      "name": "光の霊堂",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP066",
+      "cardNumber": "YAC1-JP066",
+      "name": "石版の神殿",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP067",
+      "cardNumber": "YAC1-JP067",
+      "name": "黒の魔導陣",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP068",
+      "cardNumber": "YAC1-JP068",
+      "name": "光の黄金櫃",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "コレクターズレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP069",
+      "cardNumber": "YAC1-JP069",
+      "name": "怒りの業火 エクゾード・フレイム",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP070",
+      "cardNumber": "YAC1-JP070",
+      "name": "メタル化・強化反射装甲",
+      "baseRarity": "スーパーレア",
+      "variants": [
+        "スーパーレア",
+        "シークレットレア",
+        "プリズマティックシークレットレア"
+      ],
+      "verified": true,
+      "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
+      "variantStatus": "cross_checked_yac1_setlist"
+    },
+    {
+      "id": "YAC1-JP071",
+      "cardNumber": "YAC1-JP071",
+      "name": "ブラック・マジシャン（MANGA-STYLE）",
+      "baseName": "ブラック・マジシャン",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP072",
+      "cardNumber": "YAC1-JP072",
+      "name": "真紅眼の黒竜（MANGA-STYLE）",
+      "baseName": "真紅眼の黒竜",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP073",
+      "cardNumber": "YAC1-JP073",
+      "name": "青眼の白龍（MANGA-STYLE）",
+      "baseName": "青眼の白龍",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP074",
+      "cardNumber": "YAC1-JP074",
+      "name": "ホーリー・エルフ（MANGA-STYLE）",
+      "baseName": "ホーリー・エルフ",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP075",
+      "cardNumber": "YAC1-JP075",
+      "name": "ベビードラゴン（MANGA-STYLE）",
+      "baseName": "ベビードラゴン",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP076",
+      "cardNumber": "YAC1-JP076",
+      "name": "砦を守る翼竜（MANGA-STYLE）",
+      "baseName": "砦を守る翼竜",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP077",
+      "cardNumber": "YAC1-JP077",
+      "name": "ワイト（MANGA-STYLE）",
+      "baseName": "ワイト",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP078",
+      "cardNumber": "YAC1-JP078",
+      "name": "二頭を持つキング・レックス（MANGA-STYLE）",
+      "baseName": "二頭を持つキング・レックス",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP079",
+      "cardNumber": "YAC1-JP079",
+      "name": "闇・道化師のサギー（MANGA-STYLE）",
+      "baseName": "闇・道化師のサギー",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP080",
+      "cardNumber": "YAC1-JP080",
+      "name": "暗黒騎士ガイア（MANGA-STYLE）",
+      "baseName": "暗黒騎士ガイア",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP081",
+      "cardNumber": "YAC1-JP081",
+      "name": "幻想師・ノー・フェイス（MANGA-STYLE）",
+      "baseName": "幻想師・ノー・フェイス",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP082",
+      "cardNumber": "YAC1-JP082",
+      "name": "ハーピィ・レディ（MANGA-STYLE）",
+      "baseName": "ハーピィ・レディ",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP083",
+      "cardNumber": "YAC1-JP083",
+      "name": "逆転の女神（MANGA-STYLE）",
+      "baseName": "逆転の女神",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP084",
+      "cardNumber": "YAC1-JP084",
+      "name": "デビルゾア（MANGA-STYLE）",
+      "baseName": "デビルゾア",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP085",
+      "cardNumber": "YAC1-JP085",
+      "name": "人造人間－サイコ・ショッカー（MANGA-STYLE）",
+      "baseName": "人造人間－サイコ・ショッカー",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP086",
+      "cardNumber": "YAC1-JP086",
+      "name": "インセクト女王（MANGA-STYLE）",
+      "baseName": "インセクト女王",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP087",
+      "cardNumber": "YAC1-JP087",
+      "name": "バスター・ブレイダー（MANGA-STYLE）",
+      "baseName": "バスター・ブレイダー",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP088",
+      "cardNumber": "YAC1-JP088",
+      "name": "リバイバルスライム（MANGA-STYLE）",
+      "baseName": "リバイバルスライム",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP089",
+      "cardNumber": "YAC1-JP089",
+      "name": "伝説のフィッシャーマン（MANGA-STYLE）",
+      "baseName": "伝説のフィッシャーマン",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP090",
+      "cardNumber": "YAC1-JP090",
+      "name": "ブレイドナイト（MANGA-STYLE）",
+      "baseName": "ブレイドナイト",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP091",
+      "cardNumber": "YAC1-JP091",
+      "name": "溶岩魔神ラヴァ・ゴーレム（MANGA-STYLE）",
+      "baseName": "溶岩魔神ラヴァ・ゴーレム",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP092",
+      "cardNumber": "YAC1-JP092",
+      "name": "マシュマロン（MANGA-STYLE）",
+      "baseName": "マシュマロン",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP093",
+      "cardNumber": "YAC1-JP093",
+      "name": "光の護封剣（MANGA-STYLE）",
+      "baseName": "光の護封剣",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP094",
+      "cardNumber": "YAC1-JP094",
+      "name": "ハーピィの羽根帚（MANGA-STYLE）",
+      "baseName": "ハーピィの羽根帚",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP095",
+      "cardNumber": "YAC1-JP095",
+      "name": "スケープ・ゴート（MANGA-STYLE）",
+      "baseName": "スケープ・ゴート",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP096",
+      "cardNumber": "YAC1-JP096",
+      "name": "融合（MANGA-STYLE）",
+      "baseName": "融合",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP097",
+      "cardNumber": "YAC1-JP097",
+      "name": "デビルズ・サンクチュアリ（MANGA-STYLE）",
+      "baseName": "デビルズ・サンクチュアリ",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP098",
+      "cardNumber": "YAC1-JP098",
+      "name": "聖なるバリア －ミラーフォース－（MANGA-STYLE）",
+      "baseName": "聖なるバリア －ミラーフォース－",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP099",
+      "cardNumber": "YAC1-JP099",
+      "name": "魔法の筒（MANGA-STYLE）",
+      "baseName": "魔法の筒",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    },
+    {
+      "id": "YAC1-JP100",
+      "cardNumber": "YAC1-JP100",
+      "name": "現世と冥界の逆転（MANGA-STYLE）",
+      "baseName": "現世と冥界の逆転",
+      "baseRarity": "ウルトラレア（MANGA-STYLE）",
+      "variants": [
+        "ウルトラレア（モノクロ）",
+        "ウルトラレア（カラー）",
+        "シークレットレア（モノクロ）",
+        "シークレットレア（カラー）"
+      ],
+      "verified": true,
+      "source": "official Yu-Gi-Oh! Japan event/regulation list",
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+    }
+  ],
+  "variantChecksPending": 0,
+  "nameNumberRecords": 100
+}
