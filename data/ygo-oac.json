@@ -1379,9 +1379,15 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "note": "Retail/product page explicitly identifies YAC1 and MANGA-STYLE variant. The page URL is a reference, not an image URL; extract a direct stable image asset before assigning imageUrl.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending"
+      "imageStatus": "exact_manga_style_image_pending",
+      "variantImageReferences": {
+        "ultraMono": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp079-ur-mono",
+        "secretMono": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp079-se-mono",
+        "productPage": "https://cardstack.jp/yugioh-card/yac1-jp079/"
+      },
+      "variantImageReferenceStatus": "exact_yac1_variant_pages_found_direct_image_asset_not_extracted"
     },
     {
       "id": "YAC1-JP080",
@@ -1397,9 +1403,17 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "note": "Retail/product page explicitly identifies YAC1 and MANGA-STYLE variant. The page URL is a reference, not an image URL; extract a direct stable image asset before assigning imageUrl.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending"
+      "imageStatus": "exact_manga_style_image_pending",
+      "variantImageReferences": {
+        "secretColor": "https://yugioh.fukufukutoreka.com/products/detail/96410",
+        "productPage": "https://cardstack.jp/yugioh-card/yac1-jp080/",
+        "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416425",
+        "colorSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416245",
+        "colorUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416335"
+      },
+      "variantImageReferenceStatus": "exact_yac1_variant_pages_found_direct_image_asset_not_extracted"
     },
     {
       "id": "YAC1-JP081",
