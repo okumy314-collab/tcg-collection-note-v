@@ -71,6 +71,15 @@ def extract_images(page_url, body):
     unique = []
     seen = set()
     for url, source in found:
+        lowered = url.lower()
+        # Exclude known site chrome, placeholders, and generic catalog images.
+        if any(token in lowered for token in (
+            "lgpcard", "logo", "icon", "banner", "sprite", "payment", "cart",
+            "lalamiamr", "supply_c", "h_oripa", "layout_photo", "layout_text",
+            "labo_point", "tentouketori", "kyujin", "oisogibin", "tento2",
+            "cg2133.png"
+        )):
+            continue
         if url.startswith(("https://", "http://")) and url not in seen:
             seen.add(url)
             unique.append({"imageUrl": url, "extractionSource": source})
@@ -103,13 +112,39 @@ def main():
         evidence_urls = list(dict.fromkeys(
             walk_urls(card.get("retailerVariantEvidence", {}))
         ))
-        page_urls = list(dict.fromkeys(ref_urls + evidence_urls))[:MAX_PAGES_PER_CARD]
+        all_urls = list(dict.fromkeys(ref_urls + evidence_urls))
+        # Prefer exact product listings over category/catalog pages.
+        def priority(url):
+            low = url.lower()
+            score = 0
+            if f"yac1-jp{number[-3:]}" in low or f"yac1%2fjp{number[-3:]}" in low:
+                score += 10
+            if any(token in low for token in (
+                "/items/single-card/", "/products/detail/", "sell_detail",
+                "/product/", "pid=", "detail/"
+            )):
+                score += 5
+            if any(token in low for token in (
+                "product-list", "card_search.action", "/products/yac1/"
+            )):
+                score -= 8
+            return score
+        page_urls = sorted(all_urls, key=priority, reverse=True)[:MAX_PAGES_PER_CARD]
         candidates = []
         for page_url in page_urls:
             try:
                 final_url, body = fetch_page(page_url)
                 if body:
-                    for item in extract_images(final_url, body):
+                    extracted = extract_images(final_url, body)
+                    page_lower = page_url.lower()
+                    # A shared official set page contains many unrelated thumbnails;
+                    # keep only assets whose filename includes this collector number.
+                    if "products/yac1/" in page_lower or "card_search.action" in page_lower:
+                        card_no = number[-3:]
+                        extracted = [item for item in extracted
+                                     if f"yac1{card_no}" in item["imageUrl"].lower()
+                                     or f"yac1-jp{card_no}" in item["imageUrl"].lower()]
+                    for item in extracted:
                         candidate = {
                             **item,
                             "sourcePageUrl": page_url,
