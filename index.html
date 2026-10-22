@@ -271,7 +271,7 @@ const packOpts=g=>{
  const loadedPacks=g==='poke'?PKI.map(x=>x.s?.n||''):g==='op'?OPI.map(x=>x.packName||''):g==='ygo'?YGOI.map(x=>x.setName||'ORIGINAL ARTWORK COLLECTION'):[];
  const packs=[...new Set([...(G.sr||[]),...loadedPacks].map(x=>String(x||'').trim()).filter(Boolean))];
  const curated=G.pk?Object.entries(G.pk).map(([k,v])=>`<optgroup label="${k}">${opt(v)}</optgroup>`).join(''):opt(packs);
-  const extra=g==='op'?'<optgroup label="カードデータ収録パック（正式名称）">'+opt([...new Set(OPI.map(x=>x.packName).filter(Boolean))].sort((a,b)=>{const code=x=>{const m=String(x).match(/(?:OP|EB|PRB|ST)-?(\\d+)/);return m?+m[1]:0};return code(b)-code(a)||b.localeCompare(a,'ja')}))+'</optgroup>':'';
+  const extra=g==='op'?'<optgroup label="カードデータ収録パック（正式名称）">'+opt([...new Set(OPI.map(x=>x.packName).filter(Boolean))].sort((a,b)=>{const code=x=>{const m=String(x).match(/(?:OP|EB|PRB|ST)-?(\d+)/);return m?+m[1]:0};return code(b)-code(a)||b.localeCompare(a,'ja')}))+'</optgroup>':'';
   return curated+extra+`<option>${SO}</option>`;
 };
 let so='new';
