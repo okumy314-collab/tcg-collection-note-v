@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. User confirmed YAC1-JP063 image is correct, so its official image URL is retained. JP081-JP100 now have official product and retailer catalog references for the four MANGA-STYLE variants; these are source references, not direct image assets, and exact artwork URLs remain pending. Do not substitute regular artwork for MANGA-STYLE cards.",
+  "note": "MANGA-STYLE JP071-JP100 now link to the official YAC1 product page and a retailer photo catalog with variant names. retailerVariantEvidence records specific variants observed in search-indexed catalog results; it is not proof of an exact direct image URL. Exact image assets still need extraction and visual verification. User confirmed YAC1-JP063 image is correct; keep its URL unchanged.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1211,7 +1211,14 @@
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4041&ope=2&request_locale=ja",
-      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "variantImageReferences": {
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+      },
+      "retailerVariantEvidence": [],
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending"
     },
     {
       "id": "YAC1-JP072",
@@ -1232,7 +1239,16 @@
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4088&ope=2&request_locale=ja",
-      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "variantImageReferences": {
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+      },
+      "retailerVariantEvidence": [
+        "モノクロ・ウルトラレア"
+      ],
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending"
     },
     {
       "id": "YAC1-JP073",
@@ -1253,7 +1269,14 @@
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4007&ope=2&request_locale=ja",
-      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "variantImageReferences": {
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+      },
+      "retailerVariantEvidence": [],
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending"
     },
     {
       "id": "YAC1-JP074",
@@ -1274,7 +1297,14 @@
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4008&ope=2&request_locale=ja",
-      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "variantImageReferences": {
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+      },
+      "retailerVariantEvidence": [],
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending"
     },
     {
       "id": "YAC1-JP075",
@@ -1297,9 +1327,17 @@
         "ultra_mono": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp075-ur-mono",
         "ultra_color": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp075-ur-color",
         "secret_mono": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416485",
-        "secret_color": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416305"
+        "secret_color": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416305",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_variant_source_pages_found_direct_image_url_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・シークレットレア",
+        "モノクロ・シークレットレア",
+        "カラー・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP076",
@@ -1322,9 +1360,16 @@
         "ultra_mono": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp076-ur-mono",
         "ultra_color": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593745",
         "secret_mono": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416458",
-        "secret_color": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593750"
+        "secret_color": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593750",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_variant_source_pages_found_direct_image_url_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "モノクロ・シークレットレア",
+        "モノクロ・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP077",
@@ -1346,9 +1391,16 @@
       "variantImageReferences": {
         "productPage": "https://cardstack.jp/yugioh-card/yac1-jp077/",
         "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&category=&genre=1&id=100416512&lang=&supply=&type=1",
-        "monochromeUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416602"
+        "monochromeUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416602",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_variant_product_pages_found_direct_image_url_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・ウルトラレア",
+        "モノクロ・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP078",
@@ -1373,9 +1425,15 @@
       "variantImageReferences": {
         "productPage": "https://cardstack.jp/yugioh-card/yac1-jp078/",
         "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416461",
-        "monochromeUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416551"
+        "monochromeUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416551",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_variant_product_pages_found_direct_image_url_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・シークレットレア"
+      ]
     },
     {
       "id": "YAC1-JP079",
@@ -1397,9 +1455,15 @@
       "variantImageReferences": {
         "ultraMono": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp079-ur-mono",
         "secretMono": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp079-se-mono",
-        "productPage": "https://cardstack.jp/yugioh-card/yac1-jp079/"
+        "productPage": "https://cardstack.jp/yugioh-card/yac1-jp079/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variant_pages_found_direct_image_asset_not_extracted"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "モノクロ・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP080",
@@ -1430,9 +1494,12 @@
         "variantCatalog": "https://cardstack.jp/yugioh-card/yac1-jp080/",
         "officialCardDetail": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4044&ope=2&request_locale=ja",
         "ultraMonochrome": "https://www.ka-nabell.com/?act=sell_detail&category=&genre=1&id=100416515&lang=&supply=&type=1",
-        "officialSetCardList": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999"
+        "officialSetCardList": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal"
       },
-      "variantImageReferenceStatus": "exact_yac1_variant_confirmed_direct_image_not_extracted"
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "retailerVariantEvidence": []
     },
     {
       "id": "YAC1-JP081",
@@ -1454,9 +1521,16 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "モノクロ・シークレットレア",
+        "モノクロ・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP082",
@@ -1478,9 +1552,13 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "retailerVariantEvidence": []
     },
     {
       "id": "YAC1-JP083",
@@ -1502,9 +1580,13 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "retailerVariantEvidence": []
     },
     {
       "id": "YAC1-JP084",
@@ -1526,9 +1608,17 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "モノクロ・シークレットレア",
+        "モノクロ・ウルトラレア",
+        "カラー・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP085",
@@ -1550,9 +1640,18 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・シークレットレア",
+        "モノクロ・シークレットレア",
+        "カラー・ウルトラレア",
+        "モノクロ・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP086",
@@ -1574,9 +1673,13 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "retailerVariantEvidence": []
     },
     {
       "id": "YAC1-JP087",
@@ -1598,9 +1701,15 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "モノクロ・シークレットレア"
+      ]
     },
     {
       "id": "YAC1-JP088",
@@ -1622,9 +1731,13 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "retailerVariantEvidence": []
     },
     {
       "id": "YAC1-JP089",
@@ -1646,9 +1759,15 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "モノクロ・シークレットレア"
+      ]
     },
     {
       "id": "YAC1-JP090",
@@ -1670,9 +1789,16 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・シークレットレア",
+        "カラー・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP091",
@@ -1694,9 +1820,16 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・ウルトラレア",
+        "モノクロ・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP092",
@@ -1718,9 +1851,15 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "モノクロ・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP093",
@@ -1742,9 +1881,16 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・ウルトラレア",
+        "モノクロ・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP094",
@@ -1766,9 +1912,13 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "retailerVariantEvidence": []
     },
     {
       "id": "YAC1-JP095",
@@ -1790,9 +1940,17 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・シークレットレア",
+        "モノクロ・シークレットレア",
+        "カラー・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP096",
@@ -1814,9 +1972,13 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "catalog_reference_saved_exact_variant_asset_still_pending",
+      "retailerVariantEvidence": []
     },
     {
       "id": "YAC1-JP097",
@@ -1838,9 +2000,15 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP098",
@@ -1862,9 +2030,16 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・シークレットレア",
+        "カラー・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP099",
@@ -1886,9 +2061,16 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・シークレットレア",
+        "カラー・ウルトラレア"
+      ]
     },
     {
       "id": "YAC1-JP100",
@@ -1910,9 +2092,15 @@
       "variantImageReferences": {
         "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
+        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
+        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
       },
-      "variantImageReferenceStatus": "exact_yac1_variants_listed_retailer_image_asset_pending"
+      "variantImageReferenceStatus": "variant_names_found_in_retailer_catalog_direct_image_asset_pending",
+      "retailerVariantEvidence": [
+        "カラー・シークレットレア"
+      ]
     }
   ],
   "variantChecksPending": 0,
