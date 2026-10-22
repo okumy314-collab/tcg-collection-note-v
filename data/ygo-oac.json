@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. For JP075-JP078, exact MANGA-STYLE product/reference pages are being tracked by variant. Product-page links are not direct image assets and must not be used as img src. Only verified direct image URLs should be counted as imageUrl entries; do not substitute regular artwork for MANGA-STYLE variants.",
+  "note": "All 100 card names and collector numbers are populated. YAC1-JP063 and YAC1-JP080 have source pages recorded for follow-up, but their exact printing/variant images remain pending and imageUrl stays empty. Do not substitute generic card art for the YAC1 printing or MANGA-STYLE variant.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1061,7 +1061,12 @@
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
       "imageStatus": "exact_yac1_image_pending",
-      "note": "Do not use the generic official database image as the YAC1 printing image until the exact YAC1 card artwork is verified. YAC1 product reference: https://yugioh.fukufukutoreka.com/products/detail/96349"
+      "note": "YAC1 set listing and product reference recorded. Generic card database image was removed because the correct YAC1 print image has not yet been confirmed. Keep imageUrl empty until the exact set printing image is verified.",
+      "officialProductPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
+      "variantImageReferences": {
+        "yac1ProductListing": "https://yugioh.fukufukutoreka.com/products/detail/96349",
+        "officialSetCardList": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999"
+      }
     },
     {
       "id": "YAC1-JP064",
@@ -1402,7 +1407,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Do not display generic Dark Magician Knight/Gaia artwork for this entry. The exact YAC1 MANGA-STYLE variant is not assigned an imageUrl until verified.",
+      "note": "Exact MANGA-STYLE variant references recorded. Keep imageUrl empty until the selected monochrome/color and rarity artwork is individually verified; never substitute standard Gaia artwork.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -1410,7 +1415,9 @@
         "productPage": "https://cardstack.jp/yugioh-card/yac1-jp080/",
         "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416425",
         "colorSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416245",
-        "colorUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416335"
+        "colorUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416335",
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "exactVariantProductPage": "https://cardstack.jp/yugioh-card/yac1-jp080/"
       },
       "variantImageReferenceStatus": "exact_yac1_variant_pages_found_direct_image_asset_not_extracted"
     },
