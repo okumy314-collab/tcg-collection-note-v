@@ -1771,11 +1771,18 @@
         "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "cardLaboMonoUltra": "https://www.c-labo-online.jp/product/416348"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_retailer_product_page_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
-        "legacyEntries": []
+        "legacyEntries": [],
+        "cardLaboMonoUltra": {
+          "url": "https://www.c-labo-online.jp/product/416348",
+          "title": "ハーピィ・レディ 漫画/モノクロ版 ウルトラ",
+          "cardNumber": "YAC1-JP082",
+          "evidenceStatus": "exact retailer page title and YAC1 number verified; product page only, direct image URL not extracted"
+        }
       },
       "variantCatalogReferences": {
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
@@ -1806,11 +1813,18 @@
         "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "cardLaboColorUltra": "https://www.c-labo-online.jp/product/416353"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_retailer_product_page_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
-        "legacyEntries": []
+        "legacyEntries": [],
+        "cardLaboColorUltra": {
+          "url": "https://www.c-labo-online.jp/product/416353",
+          "title": "逆転の女神 漫画/カラー版 ウルトラ",
+          "cardNumber": "YAC1-JP083",
+          "evidenceStatus": "exact retailer page title and YAC1 number verified; product page only, direct image URL not extracted"
+        }
       },
       "variantCatalogReferences": {
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
@@ -1883,15 +1897,22 @@
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
-        "dmmColorUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593925"
+        "dmmColorUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593925",
+        "cardLaboMonoUltra": "https://www.c-labo-online.jp/product/416347"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_retailer_product_page_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
         "dmmColorUltra": {
           "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593925",
           "title": "人造人間－サイコ・ショッカー（MANGA-STYLE・カラー版） ウルトラレア",
           "cardNumber": "YAC1-JP085",
           "evidenceStatus": "exact_card_number_and_variant_confirmed; direct image URL not extracted"
+        },
+        "cardLaboMonoUltra": {
+          "url": "https://www.c-labo-online.jp/product/416347",
+          "title": "人造人間－サイコ・ショッカー 漫画/モノクロ版 ウルトラ",
+          "cardNumber": "YAC1-JP085",
+          "evidenceStatus": "exact retailer page title and YAC1 number verified; product page only, direct image URL not extracted"
         }
       },
       "variantCatalogReferences": {
@@ -1923,11 +1944,18 @@
         "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "cardLaboColorUltra": "https://www.c-labo-online.jp/product/411612"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_retailer_product_page_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
-        "legacyEntries": []
+        "legacyEntries": [],
+        "cardLaboColorUltra": {
+          "url": "https://www.c-labo-online.jp/product/411612",
+          "title": "インセクト女王 漫画/カラー版 ウルトラ",
+          "cardNumber": "YAC1-JP086",
+          "evidenceStatus": "exact retailer page title and YAC1 number verified; product page only, direct image URL not extracted"
+        }
       },
       "variantCatalogReferences": {
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
@@ -2034,13 +2062,27 @@
         "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "cardLaboMonoUltra": "https://www.c-labo-online.jp/product/411675",
+        "cardLaboColorUltra": "https://www.c-labo-online.jp/product/416354"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_retailer_product_page_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
         "legacyEntries": [
           "モノクロ・シークレットレア"
-        ]
+        ],
+        "cardLaboMonoUltra": {
+          "url": "https://www.c-labo-online.jp/product/411675",
+          "title": "伝説のフィッシャーマン MANGA-STYLE/モノクロ版 ウルトラ",
+          "cardNumber": "YAC1-JP089",
+          "evidenceStatus": "exact retailer page title and YAC1 number verified; product page only, direct image URL not extracted"
+        },
+        "cardLaboColorUltra": {
+          "url": "https://www.c-labo-online.jp/product/416354",
+          "title": "伝説のフィッシャーマン 漫画/カラー版 ウルトラ",
+          "cardNumber": "YAC1-JP089",
+          "evidenceStatus": "exact retailer page title and YAC1 number verified; product page only, direct image URL not extracted"
+        }
       },
       "variantCatalogReferences": {
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
