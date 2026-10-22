@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. YAC1-JP063 and YAC1-JP080 have source pages recorded for follow-up, but their exact printing/variant images remain pending and imageUrl stays empty. Do not substitute generic card art for the YAC1 printing or MANGA-STYLE variant.",
+  "note": "All 100 card names and collector numbers are populated. JP063 has YAC1-specific product references for multiple rarities but no direct image URL until the asset is validated. JP080 has exact MANGA-STYLE monochrome/color Secret Rare pages; no generic artwork is substituted. Current imageUrl entries may include other variant-unverified entries; status labels must be respected.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1061,12 +1061,17 @@
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
       "imageStatus": "exact_yac1_image_pending",
-      "note": "YAC1 set listing and product reference recorded. Generic card database image was removed because the correct YAC1 print image has not yet been confirmed. Keep imageUrl empty until the exact set printing image is verified.",
+      "note": "YAC1-specific product pages identify this card and print. Direct image asset has not been extracted/validated, so imageUrl remains empty to avoid showing the wrong artwork.",
       "officialProductPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
       "variantImageReferences": {
         "yac1ProductListing": "https://yugioh.fukufukutoreka.com/products/detail/96349",
-        "officialSetCardList": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999"
-      }
+        "officialSetCardList": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
+        "superRare": "https://yugioh.fukufukutoreka.com/products/detail/96351",
+        "ultimateRare": "https://yugioh.fukufukutoreka.com/products/detail/96349",
+        "secretRare": "https://yugioh.fukufukutoreka.com/products/detail/96351",
+        "productReference": "https://yugiohsouba.com/cards/NbItCg/"
+      },
+      "variantImageReferenceStatus": "exact_yac1_print_confirmed_product_pages_found_direct_image_asset_pending"
     },
     {
       "id": "YAC1-JP064",
@@ -1407,7 +1412,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Exact MANGA-STYLE variant references recorded. Keep imageUrl empty until the selected monochrome/color and rarity artwork is individually verified; never substitute standard Gaia artwork.",
+      "note": "Exact YAC1 MANGA-STYLE monochrome and color Secret Rare product pages found. Direct image asset not yet extracted/validated; imageUrl remains empty until variant image is verified.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -1417,9 +1422,12 @@
         "colorSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416245",
         "colorUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416335",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
-        "exactVariantProductPage": "https://cardstack.jp/yugioh-card/yac1-jp080/"
+        "exactVariantProductPage": "https://cardstack.jp/yugioh-card/yac1-jp080/",
+        "secretMonochrome": "https://yugioh.fukufukutoreka.com/products/detail/96409",
+        "variantCatalog": "https://cardstack.jp/yugioh-card/yac1-jp080/",
+        "officialCardDetail": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4044&ope=2&request_locale=ja"
       },
-      "variantImageReferenceStatus": "exact_yac1_variant_pages_found_direct_image_asset_not_extracted"
+      "variantImageReferenceStatus": "exact_yac1_manga_style_variant_pages_confirmed_direct_image_asset_pending"
     },
     {
       "id": "YAC1-JP081",
