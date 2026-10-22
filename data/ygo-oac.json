@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. Image URLs are only retained for the first three cards, where the official database CID sequence has supporting evidence for YAC1-JP003; the first two CIDs still require individual confirmation. Do not infer later CIDs from card numbers: some reprinted cards have existing Konami database CIDs unrelated to the YAC1 collector number. Continue resolving official image URLs card by card.",
+  "note": "All 100 card names and collector numbers are populated. Official image URLs are retained only when the matching card's Konami database page confirms its CID. YAC1-JP003 and YAC1-JP004 are confirmed; YAC1-JP001 and YAC1-JP002 remain CID candidates and require individual confirmation. Do not infer later CIDs from card numbers.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -84,7 +84,10 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23568",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_cid_confirmed"
     },
     {
       "id": "YAC1-JP005",
