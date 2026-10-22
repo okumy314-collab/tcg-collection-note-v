@@ -190,7 +190,7 @@ S.cards=S.cards.filter(c=>GN[c.g]);
 const SO='その他(手入力)';
 function add(){const G=GN[F.g];
  open_(`<div class="hd"><b>カード登録</b><button class="ib" onclick="close_()">✕</button></div>
- <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="keep();F.r='';F.g='${g}';add()">${GN[g].n}</button>`).join('')}</div>
+ <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="switchGame('${g}')">${GN[g].n}</button>`).join('')}</div>
  <label>シリーズ・パック名</label><select id="fs" onchange="$('#fs2').style.display=this.value==SO?'block':'none'">${packOpts(F.g)}</select><input id="fs2" placeholder="シリーズ名を入力" style="display:none;margin-top:8px">
  <label>レアリティ</label><div class="chips" style="flex-wrap:wrap" id="rr">${G.rr.map(r=>`<button class="chip ${F.r==r?'on':''}" onclick="F.r=F.r==='${r}'?'':'${r}';document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.textContent==F.r))">${r}</button>`).join('')}</div>
  <label>カード写真（任意）</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this)"></label><img id="pv" class="th" style="display:none"></div>
@@ -202,6 +202,13 @@ function add(){const G=GN[F.g];
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});setTimeout(()=>$('#fn').focus(),150)}
 function keep(){['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value})}
+function switchGame(g){
+ if(!GN[g]||g===F.g)return;
+ keep();
+ F.g=g;F.r='';F.img='';
+ ['fn','fo','fs','fs2','fr','fp','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(k=>delete F[k]);
+ add();
+}
 function fq(i){window.open(link(F.g,{name:$('#fn').value,no:$('#fo').value},i),'_blank')}
 function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
