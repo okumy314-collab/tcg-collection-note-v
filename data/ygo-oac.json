@@ -2050,7 +2050,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Corrected JP092 reference pages to retailer listings that explicitly identify YAC1-JP092 MANGA-STYLE color/monochrome variants and rarity. The earlier generic product page is not used as the variant reference. Direct image URL extraction and in-app visual validation remain pending; do not substitute regular artwork.",
+      "note": "Exact YAC1-JP092 retailer listings have been checked: DMM Myca titles identify MANGA-STYLE color secret, color ultra, and monochrome secret variants. These are visual references only; direct image URL is not yet extracted and user previously flagged an incorrect Marshmallon image, so imageUrl remains empty pending exact asset validation.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -2062,14 +2062,32 @@
         "mangaColorUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594065"
       },
       "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
-      "retailerVariantEvidence": [
-        "カラー・シークレットレア",
-        "カラー・ウルトラレア",
-        "モノクロ・シークレットレア",
-        "モノクロ・ウルトラレア",
-        "マシュマロン",
-        "カラー版YAC1-MANGA-STYLE"
-      ],
+      "retailerVariantEvidence": {
+        "0": "カラー・シークレットレア",
+        "1": "カラー・ウルトラレア",
+        "2": "モノクロ・シークレットレア",
+        "3": "モノクロ・ウルトラレア",
+        "4": "マシュマロン",
+        "5": "カラー版YAC1-MANGA-STYLE",
+        "dmmMangaColorSecret": {
+          "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594070",
+          "listedTitle": "マシュマロン（MANGA-STYLE・カラー版） シークレット",
+          "cardNumber": "YAC1-JP092",
+          "evidenceStatus": "page title and card number confirmed; direct image URL not extracted"
+        },
+        "dmmMangaColorUltra": {
+          "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594065",
+          "listedTitle": "マシュマロン（MANGA-STYLE・カラー版） ウルトラレア",
+          "cardNumber": "YAC1-JP092",
+          "evidenceStatus": "page title and card number confirmed; direct image URL not extracted"
+        },
+        "dmmMangaMonoSecret": {
+          "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594060",
+          "listedTitle": "マシュマロン（MANGA-STYLE・モノクロ版） シークレット",
+          "cardNumber": "YAC1-JP092",
+          "evidenceStatus": "page title and card number confirmed; direct image URL not extracted"
+        }
+      },
       "variantCatalogReferences": {
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
