@@ -319,7 +319,7 @@ function cand(){
   const normYgo=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
   const nq=normYgo(q), nNo=normYgo(rawNo);
   const searchText=Boolean(nq||nNo);
-  const shortYgoRarity=v=>{const key=String(v||'').replace(/（オーバーフレーム）/g,' OF').replace('（モノクロ）','').replace('（カラー）','');return ({'ノーマル':'N','レア':'R','スーパーレア':'SR','ウルトラレア':'UR','アルティメットレア':'UL','シークレットレア':'SE','プリズマティックシークレットレア':'PSE','コレクターズレア':'CR','クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR','ウルトラレア OF':'UR OF','シークレットレア OF':'SE OF','プリズマティックシークレットレア OF':'PSE OF'}[key]||key)};
+  const shortYgoRarity=v=>{const key=String(v||'').replace(/（オーバーフレーム）/g,' OF');return ({'ノーマル':'N','レア':'R','スーパーレア':'SR','ウルトラレア':'UR','ウルトラレア（モノクロ）':'UR（モノクロ）','ウルトラレア（カラー）':'UR（カラー）','シークレットレア（モノクロ）':'SE（モノクロ）','シークレットレア（カラー）':'SE（カラー）','プリズマティックシークレットレア（モノクロ）':'PSE（モノクロ）','プリズマティックシークレットレア（カラー）':'PSE（カラー）','アルティメットレア':'UL','シークレットレア':'SE','プリズマティックシークレットレア':'PSE','コレクターズレア':'CR','クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR','ウルトラレア OF':'UR OF','シークレットレア OF':'SE OF','プリズマティックシークレットレア OF':'PSE OF'}[key]||key)};
   const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,50).map(x=>({n:x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:(x.variants||[]).map(shortYgoRarity),setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:x.imageUrl||x.img||'',verifiedNameAndNumber:x.verified})):[];
   PKR=rows;
   const pendingVariants=YGOI.filter(x=>x.variantStatus==='needs_crosscheck').length;
