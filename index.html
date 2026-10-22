@@ -248,7 +248,7 @@ function rs(){open_(`<div class="hd"><b>バックアップから復元</b><butto
 function rsgo(){try{const o=JSON.parse($('#rt').value);if(!Array.isArray(o.cards))throw 0;if(!confirm('現在のデータを置き換えます。よろしいですか？'))return;S={cards:o.cards.filter(c=>GN[c.g]),hist:o.hist||[]};save();close_();render();toast('✓ 復元しました')}catch(e){toast('復元できませんでした')}}
 $('#more').onclick=()=>open_(`<div class="hd"><b>その他</b><button class="ib" onclick="close_()">✕</button></div><button class="btn" style="width:100%;margin-bottom:10px" onclick="links()">🔗 ショップ・公式サイトへ移動</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="bk()">💾 バックアップを保存</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="rs()">♻️ バックアップから復元</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="csv()">📄 CSV出力（Excel用）</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="demo();close_()">デモデータを追加</button><button class="btn" style="width:100%;color:var(--dn)" onclick="if(confirm('全データを削除しますか？')){S={cards:[],hist:[]};save();close_();render()}">全データを削除</button>`);
 const L=s=>s.split('、').reverse();
-GN.poke.pk={'MEGAシリーズ':L('メガブレイブ(M1L)、メガシンフォニア(M1S)、インフェルノX(M2)、MEGAドリームex(M2a)'),'スカーレット&バイオレット':L('スカーレットex(sv1S)、バイオレットex(sv1V)、トリプレットビート(sv1a)、スノーハザード(sv2P)、クレイバースト(sv2D)、ポケモンカード151(sv2a)、黒炎の支配者(sv3)、レイジングサーフ(sv3a)、古代の哆哮(sv4K)、未来の一閃(sv4M)、シャイニートレジャーex(sv4a)、ワイルドフォース(sv5K)、サイバージャッジ(sv5M)、クリムゾンヘイズ(sv5a)、変幻の仮面(sv6)、ナイトワンダラー(sv6a)、ステラミラクル(sv7)、楽園ドラゴーナ(sv7a)、超電ブレイカー(sv8)、テラスタルフェスex(sv8a)、バトルパートナーズ(sv9)、熱風のアリーナ(sv9a)、ロケット団の栄光(sv10)、ブラックボルト(sv11B)、ホワイトフレア(sv11W)'),'ソード&シールド':L('ソード(s1W)、シールド(s1H)、VMAXライジング(s1a)、反逆クラッシュ(s2)、爆炎ウォーカー(s2a)、ムゲンゾーン(s3)、伝説の鼓動(s3a)、仿天のボルテッカー(s4)、シャイニースターV(s4a)、一撃マスター(s5I)、連撃マスター(s5R)、双璧のファイター(s5a)、白銀のランス(s6H)、漆黒のガイスト(s6K)、イーブイヒーローズ(s6a)、摩天パーフェクト(s7D)、蒼空ストリーム(s7R)、フュージョンアーツ(s8)、25th ANNIVERSARY COLLECTION(s8a)、VMAXクライマックス(s8b)、スターバース(s9)、バトルリージョン(s9a)、タイムゲイザー(s10D)、スペースジャグラー(s10P)、ダークファンタズマ(s10a)、ポケモンGO(s10b)、ロストアビス(s11)、白熱のアルカナ(s11a)、パラダイムトリガー(s12)、VSTARユニバース(s12a)'),'その他':['プロモ','サン&ムーン以前のパック']};
+GN.poke.pk={'MEGAシリーズ':L('メガブレイブ(M1L)、メガシンフォニア(M1S)、インフェルノX(M2)、MEGAドリームex(M2a)、ストームエメラルダ、30th CELEBRATION、30th CELEBRATION カードセット フシギダネ・ヒトカゲ・ゼニガメ、30th CELEBRATION カードセット チコリータ・ヒノアラシ・ワニノコ、30th CELEBRATION カードセット キモリ・アチャモ・ミズゴロウ、30th CELEBRATION カードセット ナエトル・ヒコザル・ポッチャマ、30th CELEBRATION カードセット ツタージャ・ポカブ・ミジュマル、30th CELEBRATION カードセット ハリマロン・フォッコ・ケロマツ、30th CELEBRATION カードセット モクロー・ニャビー・アシマリ、30th CELEBRATION カードセット サルノリ・ヒバニー・メッソン、30th CELEBRATION カードセット ニャオハ・ホゲータ・クワッス)'),'スカーレット&バイオレット':L('スカーレットex(sv1S)、バイオレットex(sv1V)、トリプレットビート(sv1a)、スノーハザード(sv2P)、クレイバースト(sv2D)、ポケモンカード151(sv2a)、黒炎の支配者(sv3)、レイジングサーフ(sv3a)、古代の哆哮(sv4K)、未来の一閃(sv4M)、シャイニートレジャーex(sv4a)、ワイルドフォース(sv5K)、サイバージャッジ(sv5M)、クリムゾンヘイズ(sv5a)、変幻の仮面(sv6)、ナイトワンダラー(sv6a)、ステラミラクル(sv7)、楽園ドラゴーナ(sv7a)、超電ブレイカー(sv8)、テラスタルフェスex(sv8a)、バトルパートナーズ(sv9)、熱風のアリーナ(sv9a)、ロケット団の栄光(sv10)、ブラックボルト(sv11B)、ホワイトフレア(sv11W)'),'ソード&シールド':L('ソード(s1W)、シールド(s1H)、VMAXライジング(s1a)、反逆クラッシュ(s2)、爆炎ウォーカー(s2a)、ムゲンゾーン(s3)、伝説の鼓動(s3a)、仿天のボルテッカー(s4)、シャイニースターV(s4a)、一撃マスター(s5I)、連撃マスター(s5R)、双璧のファイター(s5a)、白銀のランス(s6H)、漆黒のガイスト(s6K)、イーブイヒーローズ(s6a)、摩天パーフェクト(s7D)、蒼空ストリーム(s7R)、フュージョンアーツ(s8)、25th ANNIVERSARY COLLECTION(s8a)、VMAXクライマックス(s8b)、スターバース(s9)、バトルリージョン(s9a)、タイムゲイザー(s10D)、スペースジャグラー(s10P)、ダークファンタズマ(s10a)、ポケモンGO(s10b)、ロストアビス(s11)、白熱のアルカナ(s11a)、パラダイムトリガー(s12)、VSTARユニバース(s12a)'),'その他':['プロモ','サン&ムーン以前のパック']};
 GN.op.pk={'ブースターパック':L('OP-01 ROMANCE DAWN、OP-02 頂上決戦、OP-03 強大な敵、OP-04 謀略の王国、OP-05 新時代の主役、OP-06 双璧の覇者、OP-07 500年後の未来、OP-08 二つの伝説、OP-09 四皇覚醒、OP-10 ロイヤルブラッドライン、OP-11 神速の拳、OP-12、OP-13'),'エクストラ・プレミアム':['PRB-01 THE BEST','EB-02 Anime 25th collection','EB-01 メモリアルコレクション'],'その他':['スタートデッキ(ST)','プロモ']};
 GN.ygo.pk={'優先して登録':['遊☆戯☆王 ORIGINAL ARTWORK COLLECTION'],'2026年発売・発売予定':['遊☆戯☆王 ORIGINAL ARTWORK COLLECTION','BLAZING DOMINION','CHAOS ORIGINS','BEYOND THE BRAVE','PREMIUM PACK 2026','IMMORTAL PHOENIX','REVOLUTION BOOSTER － 方界・マリンセス・ゴーストリック －','THE CHRONICLES DECK DX マギストス','Yu-Gi-Oh! THE DARK SIDE OF DIMENSIONS 10th ANNIVERSARY MOVIE BOX','LIMITED PACK WORLD CHAMPIONSHIP 2026','UTILITY SELECTION','デッキビルドパック グロリアス・ヴィクターズ'],'最近のパック':['PHANTOM NIGHTMARE','DIMENSION FORCE','CROSSOVER BREAKERS','AGE OF OVERLORD','LEGACY OF DESTRUCTION','DUELIST NEXUS','ETERNITY CODE'],'25th / QUARTER CENTURY':['QUARTER CENTURY CHRONICLE side:PRIDE','QUARTER CENTURY CHRONICLE side:UNITY','RARITY COLLECTION -QUARTER CENTURY EDITION-','25th ANNIVERSARY ULTRA RARE EDITION'],'その他':['ストラクチャーデッキ','プロモ','旧パック']};
 const packOpts=g=>{
@@ -286,18 +286,20 @@ function candOP(){
  b.innerHTML=OPR.length?renderOPR(OPR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致する候補がありません。カード名またはカード番号を確認してください。</div>';
  if(OP_ERROR)b.innerHTML+='<div style="font-size:11px;color:var(--mu);margin-top:6px">保存済みデータを読み込めません。データ更新後に再試行してください。</div>';
 }
-function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${x.rarity}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
+const opRarity=v=>({'SuperRare':'SR','Super Rare':'SR','SR':'SR','Common':'C','Uncommon':'UC','Rare':'R','Leader':'L','SecretRare':'SEC','Secret Rare':'SEC','Special':'SP','Parallel':'P'}[String(v||'')]||String(v||''));
+function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${opRarity(x.rarity)}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
 function selectedPricePanel(extra=''){
  const G=GN[F.g],name=$('#fn')?.value?.trim()||'',no=$('#fo')?.value?.trim()||'';
- return `<div style="font-size:12px;color:var(--up);margin-top:8px">✓ 選択済み：${name}${no?' ・ '+no:''}${F.r?' ・ '+F.r:''}${extra?' ・ '+extra:''}</div>`;
+ return `<div style="font-size:12px;color:var(--up);margin-top:8px">✓ 選択済み：${name}${no?' ・ '+no:''}${F.r?' ・ '+(F.g==='ygo'?({'ウルトラレア（モノクロ）':'UR（モノクロ）','ウルトラレア（カラー）':'UR（カラー）','シークレットレア（モノクロ）':'SE（モノクロ）','シークレットレア（カラー）':'SE（カラー）','プリズマティックシークレットレア（モノクロ）':'PSE（モノクロ）','プリズマティックシークレットレア（カラー）':'PSE（カラー）'}[F.r]||F.r):F.r):''}${extra?' ・ '+extra:''}</div>`;
 }
 function pickOP(i){
  const x=OPR[i];if(!x)return;
- const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=x.rarity+(x.parallel?'（パラレル）':'');F.img=x.img||'';
+ const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=opRarity(x.rarity)+(x.parallel?'（パラレル）':'');F.img=x.img||'';
  const ss=$('#fs');
  // Preserve the exact Japanese pack title from the master data, including newer sets
  // that are not yet listed in the app's manually maintained dropdown.
- const packOption=x.packName?[...ss.options].find(o=>o.text.trim()===x.packName):null;
+ let packOption=x.packName?[...ss.options].find(o=>o.text.trim()===x.packName):null;
+  if(x.packName&&!packOption){packOption=document.createElement('option');packOption.textContent=x.packName;packOption.value=x.packName;ss.appendChild(packOption)}
  if(packOption){ss.value=packOption.value;$('#fs2').style.display='none';$('#fs2').value=''}
  else if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}
  else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
@@ -317,7 +319,7 @@ function cand(){
   const normYgo=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
   const nq=normYgo(q), nNo=normYgo(rawNo);
   const searchText=Boolean(nq||nNo);
-  const shortYgoRarity=v=>{const key=String(v||'').replace(/（オーバーフレーム）/g,' OF');return ({'ノーマル':'N','レア':'R','スーパーレア':'SR','ウルトラレア':'UR','アルティメットレア':'UL','シークレットレア':'SE','プリズマティックシークレットレア':'PSE','コレクターズレア':'CR','クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR','ウルトラレア OF':'UR OF','シークレットレア OF':'SE OF','プリズマティックシークレットレア OF':'PSE OF'}[key]||key)};
+  const shortYgoRarity=v=>{const key=String(v||'').replace(/（オーバーフレーム）/g,' OF').replace('（モノクロ）','').replace('（カラー）','');return ({'ノーマル':'N','レア':'R','スーパーレア':'SR','ウルトラレア':'UR','アルティメットレア':'UL','シークレットレア':'SE','プリズマティックシークレットレア':'PSE','コレクターズレア':'CR','クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR','ウルトラレア OF':'UR OF','シークレットレア OF':'SE OF','プリズマティックシークレットレア OF':'PSE OF'}[key]||key)};
   const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,50).map(x=>({n:x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:(x.variants||[]).map(shortYgoRarity),setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:x.imageUrl||x.img||'',verifiedNameAndNumber:x.verified})):[];
   PKR=rows;
   const pendingVariants=YGOI.filter(x=>x.variantStatus==='needs_crosscheck').length;
@@ -381,7 +383,8 @@ async function pickc(i){
  $('#fn').value=detail.n||selectedName;
  $('#fo').value=detail.cardNo||String(detail.localId??detail.l??'');
  const sel=$('#fs');const setName=detail.setName||(detail.s&&detail.s.n)||'';
- const option=[...sel.options].find(o=>o.text.trim()===setName||o.text.includes(setName));
+ let option=[...sel.options].find(o=>o.text.trim()===setName||o.text.includes(setName));
+ if(setName&&!option){option=document.createElement('option');option.textContent=setName;option.value=setName;sel.appendChild(option)}
  if(option){sel.value=option.value;$('#fs2').style.display='none'}else if(setName){sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=setName}
  if(F.g==='ygo'&&Array.isArray(detail.variants)&&detail.variants.length&&rr){
   F.r=detail.variants[0];
