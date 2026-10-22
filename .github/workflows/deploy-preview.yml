@@ -1,6 +1,7 @@
 name: deploy-preview
 # Keep the development preview in /preview, separate from the published main app.
 # Refresh preview after development-branch commits by pushing a no-op workflow update.
+# Sync card-image data from the development branch into the isolated preview.
 
 on:
   push:
