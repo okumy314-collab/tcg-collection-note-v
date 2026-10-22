@@ -2322,9 +2322,10 @@
         "mangaColorSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594090",
         "mangaVariantCatalog": "https://www.c-labo-online.jp/product-list/3552/0/photo",
         "dmmMonoUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594075",
-        "dmmColorSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594090"
+        "dmmColorSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594090",
+        "priceBaseMonoUltraExact": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp093-ur-mono"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_product_page_with_embedded_card_image_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
         "dmmMonoUltra": {
           "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594075",
@@ -2337,6 +2338,14 @@
           "title": "光の護封剣（MANGA-STYLE・カラー版）シークレット",
           "cardNumber": "YAC1-JP093",
           "evidenceStatus": "retailer listing explicitly identifies YAC1 card number and artwork variant; direct image URL not extracted"
+        },
+        "priceBaseMonoUltraExact": {
+          "url": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp093-ur-mono",
+          "title": "光の護封剣（YAC1-JP093）UR・MANGA-STYLE（モノクロ）",
+          "cardNumber": "YAC1-JP093",
+          "artworkVariant": "モノクロ",
+          "rarity": "ウルトラ",
+          "evidenceStatus": "verified indexed listing title includes exact YAC1 collector number and variant; page has an embedded card image, but direct image file URL not extracted"
         }
       },
       "variantCatalogReferences": {
@@ -2426,9 +2435,11 @@
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
         "dmmColorSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594130",
         "dmmMonoSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594120",
-        "dmmColorUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594125"
+        "dmmColorUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594125",
+        "priceBaseColorUltraExact": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp095-ur-color",
+        "priceBaseMonoSecretExact": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp095-se-mono"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_product_page_with_embedded_card_image_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
         "dmmColorSecret": {
           "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594130",
@@ -2447,6 +2458,22 @@
           "title": "スケープ・ゴート（MANGA-STYLE・カラー版）ウルトラレア",
           "cardNumber": "YAC1-JP095",
           "evidenceStatus": "retailer listing explicitly identifies YAC1 card number and artwork variant; direct image URL not extracted"
+        },
+        "priceBaseColorUltraExact": {
+          "url": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp095-ur-color",
+          "title": "スケープ・ゴート（YAC1-JP095）UR・MANGA-STYLE（カラー）",
+          "cardNumber": "YAC1-JP095",
+          "artworkVariant": "カラー",
+          "rarity": "ウルトラ",
+          "evidenceStatus": "verified indexed listing title includes exact YAC1 collector number and variant; page has an embedded card image, but direct image file URL not extracted"
+        },
+        "priceBaseMonoSecretExact": {
+          "url": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp095-se-mono",
+          "title": "スケープ・ゴート（YAC1-JP095）SE・MANGA-STYLE（モノクロ）",
+          "cardNumber": "YAC1-JP095",
+          "artworkVariant": "モノクロ",
+          "rarity": "シークレット",
+          "evidenceStatus": "verified indexed listing title includes exact YAC1 collector number and variant; page has an embedded card image, but direct image file URL not extracted"
         }
       },
       "variantCatalogReferences": {
@@ -2523,9 +2550,10 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
         "dmmMonoUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594155",
-        "dmmColorSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594170"
+        "dmmColorSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594170",
+        "priceBaseColorSecretExact": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp097-se-color"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_product_page_with_embedded_card_image_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
         "dmmMonoUltra": {
           "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594155",
@@ -2538,6 +2566,14 @@
           "title": "デビルズ・サンクチュアリ（MANGA-STYLE・カラー版）シークレット",
           "cardNumber": "YAC1-JP097",
           "evidenceStatus": "retailer listing explicitly identifies YAC1 card number and artwork variant; direct image URL not extracted"
+        },
+        "priceBaseColorSecretExact": {
+          "url": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp097-se-color",
+          "title": "デビルズ・サンクチュアリ（YAC1-JP097）SE・MANGA-STYLE（カラー）",
+          "cardNumber": "YAC1-JP097",
+          "artworkVariant": "カラー",
+          "rarity": "シークレット",
+          "evidenceStatus": "verified indexed listing title includes exact YAC1 collector number and variant; page has an embedded card image, but direct image file URL not extracted"
         }
       },
       "variantCatalogReferences": {
@@ -2570,15 +2606,33 @@
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
-        "dmmMonoUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594175"
+        "dmmMonoUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594175",
+        "priceBaseColorSecretExact": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp098-se-color",
+        "priceBaseMonoSecretExact": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp098-se-mono"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_product_page_with_embedded_card_image_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
         "dmmMonoUltra": {
           "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594175",
           "title": "聖なるバリア －ミラーフォース－（MANGA-STYLE・モノクロ版）ウルトラレア",
           "cardNumber": "YAC1-JP098",
           "evidenceStatus": "retailer listing explicitly identifies YAC1 card number and artwork variant; direct image URL not extracted"
+        },
+        "priceBaseColorSecretExact": {
+          "url": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp098-se-color",
+          "title": "聖なるバリア －ミラーフォース－（YAC1-JP098）SE・MANGA-STYLE（カラー）",
+          "cardNumber": "YAC1-JP098",
+          "artworkVariant": "カラー",
+          "rarity": "シークレット",
+          "evidenceStatus": "verified indexed listing title includes exact YAC1 collector number and variant; page has an embedded card image, but direct image file URL not extracted"
+        },
+        "priceBaseMonoSecretExact": {
+          "url": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp098-se-mono",
+          "title": "聖なるバリア －ミラーフォース－（YAC1-JP098）SE・MANGA-STYLE（モノクロ）",
+          "cardNumber": "YAC1-JP098",
+          "artworkVariant": "モノクロ",
+          "rarity": "シークレット",
+          "evidenceStatus": "verified indexed listing title includes exact YAC1 collector number and variant; page has an embedded card image, but direct image file URL not extracted"
         }
       },
       "variantCatalogReferences": {
@@ -2612,9 +2666,10 @@
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
         "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
         "dmmColorUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594205",
-        "dmmMonoSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594200"
+        "dmmMonoSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594200",
+        "priceBaseMonoSecretExact": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp099-se-mono"
       },
-      "variantImageReferenceStatus": "variant_catalog_reference_added_direct_image_url_pending",
+      "variantImageReferenceStatus": "exact_product_page_with_embedded_card_image_verified_direct_image_url_pending",
       "retailerVariantEvidence": {
         "dmmColorUltra": {
           "url": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594205",
@@ -2627,6 +2682,14 @@
           "title": "魔法の筒（MANGA-STYLE・モノクロ版）シークレット",
           "cardNumber": "YAC1-JP099",
           "evidenceStatus": "retailer listing explicitly identifies YAC1 card number and artwork variant; direct image URL not extracted"
+        },
+        "priceBaseMonoSecretExact": {
+          "url": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp099-se-mono",
+          "title": "魔法の筒（YAC1-JP099）SE・MANGA-STYLE（モノクロ）",
+          "cardNumber": "YAC1-JP099",
+          "artworkVariant": "モノクロ",
+          "rarity": "シークレット",
+          "evidenceStatus": "verified indexed listing title includes exact YAC1 collector number and variant; page has an embedded card image, but direct image file URL not extracted"
         }
       },
       "variantCatalogReferences": {
