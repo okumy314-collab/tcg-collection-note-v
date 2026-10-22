@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. For JP075 and JP076, source pages for all four exact MANGA-STYLE variants (Ultra monochrome/color, Secret monochrome/color) have been identified, but direct image asset URLs are not yet extracted, so the general imageUrl count is unchanged. Do not substitute regular card artwork or use product page URLs as image sources.",
+  "note": "All 100 card names and collector numbers are populated. For JP075-JP078, exact MANGA-STYLE product/reference pages are being tracked by variant. Product-page links are not direct image assets and must not be used as img src. Only verified direct image URLs should be counted as imageUrl entries; do not substitute regular artwork for MANGA-STYLE variants.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1328,9 +1328,15 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Name and card number are listed in the YAC1 MANGA-STYLE checklist. Exact official monochrome/color artwork image still needs to be sourced; do not substitute regular card artwork.",
+      "note": "Product pages identify the exact YAC1 MANGA-STYLE variant (including monochrome and rarity). These are reference pages, not direct image URLs. Extract and verify the image asset before assigning an imageUrl; do not substitute regular artwork.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending"
+      "imageStatus": "exact_manga_style_image_pending",
+      "variantImageReferences": {
+        "productPage": "https://cardstack.jp/yugioh-card/yac1-jp077/",
+        "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&category=&genre=1&id=100416512&lang=&supply=&type=1",
+        "monochromeUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416602"
+      },
+      "variantImageReferenceStatus": "exact_variant_product_pages_found_direct_image_url_pending"
     },
     {
       "id": "YAC1-JP078",
@@ -1346,12 +1352,18 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified.",
+      "note": "Product pages identify the exact YAC1 MANGA-STYLE variant (including monochrome and rarity). These are reference pages, not direct image URLs. Extract and verify the image asset before assigning an imageUrl; do not substitute regular artwork.",
       "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4038",
       "imageSource": "Konami official card database",
       "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4038&ope=2&request_locale=ja",
-      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/"
+      "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
+      "variantImageReferences": {
+        "productPage": "https://cardstack.jp/yugioh-card/yac1-jp078/",
+        "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416461",
+        "monochromeUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416551"
+      },
+      "variantImageReferenceStatus": "exact_variant_product_pages_found_direct_image_url_pending"
     },
     {
       "id": "YAC1-JP079",
