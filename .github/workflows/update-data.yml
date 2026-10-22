@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/japanese-one-piece-card-data
     paths:
       - "index.html"
       - "fetch-poke.mjs"
