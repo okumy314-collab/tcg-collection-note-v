@@ -1,4 +1,5 @@
 name: deploy-preview
+# Keep the development preview in /preview, separate from the published main app.
 
 on:
   push:
