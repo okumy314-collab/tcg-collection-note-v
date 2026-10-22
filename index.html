@@ -144,7 +144,7 @@ function add(){
  const G=GN[F.g];
  open_(`<div class="hd"><b>カード登録</b><button class="ib" onclick="close_()">✕</button></div>
  <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="F.g='${g}';keep();add()">${GN[g].n}</button>`).join('')}</div>
- <div class="row"><div><label>シリーズ</label><select id="fs">${opt(G.sr)}</select></div><div><label>レアリティ</label><select id="fr">${opt(G.rr)}</select></div></div>
+ <div class="row"><div><label>シリーズ・パック</label><select id="fs" onchange="togglePackCustom()">${packOpts(F.g)}</select><input id="fs2" placeholder="商品名を入力" style="display:none;margin-top:6px"></div><div><label>レアリティ</label><select id="fr">${opt(G.rr)}</select></div></div>
  <label>カード名</label><input id="fn" placeholder="カード名"><label>カード番号</label><input id="fo" placeholder="例：201/165">
  <label>相場チェック（ショップ検索）</label><div class="row"><button class="btn" onclick="fq(0)">${G.s[0][0]}</button><button class="btn" onclick="fq(1)">${G.s[1][0]}</button></div>
  <label>相場（1枚あたり）</label><div class="pr"><span>¥</span><input id="fp" type="number" inputmode="numeric" placeholder="確認した相場を入力"></div>
@@ -152,6 +152,7 @@ function add(){
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fs','fr','fn','fo','fp'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});
  setTimeout(()=>$('#fn').focus(),150)}
+function togglePackCustom(){const s=$('#fs'),i=$('#fs2');if(!s||!i)return;const show=s.value===SO;i.style.display=show?'block':'none';if(!show)i.value=''}
 function keep(){['fs','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value});F.fs=F.fr=undefined}
 function stp(d){F.q=Math.max(1,F.q+d);$('#fq').textContent=F.q}
 function fq(i){
@@ -163,7 +164,7 @@ function fq(i){
 }
 function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const p=+$('#fp').value||0,c={id:Date.now()+'',g:F.g,series:$('#fs').value,rarity:$('#fr').value,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p};
+ const p=+$('#fp').value||0,customPack=$('#fs2')?.style.display!=='none'?$('#fs2')?.value.trim():'',selectedPack=customPack||$('#fs').value,c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity:F.r||$('#fr').value,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||''};
  S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();
  toast('✓ 登録しました','詳細登録 ›',()=>detail(c.id))}
 function detail(id){
