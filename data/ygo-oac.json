@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. JP063 has YAC1-specific product references for multiple rarities but no direct image URL until the asset is validated. JP080 has exact MANGA-STYLE monochrome/color Secret Rare pages; no generic artwork is substituted. Current imageUrl entries may include other variant-unverified entries; status labels must be respected.",
+  "note": "All 100 YAC1 card names/numbers retained. JP063 has an official set-list and retailer reference, but exact image URL remains pending. JP080 has exact YAC1 variant references confirmed for color Secret Rare and monochrome Ultra Rare; direct image assets are not yet extracted/validated. Do not use unverified artwork as app image.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1061,7 +1061,7 @@
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
       "imageStatus": "exact_yac1_image_pending",
-      "note": "YAC1-specific product pages identify this card and print. Direct image asset has not been extracted/validated, so imageUrl remains empty to avoid showing the wrong artwork.",
+      "note": "Official set list and retailer listing identify YAC1-JP063 as マジックカード「死者蘇生」. Exact image asset still not validated, so imageUrl must remain empty.",
       "officialProductPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
       "variantImageReferences": {
         "yac1ProductListing": "https://yugioh.fukufukutoreka.com/products/detail/96349",
@@ -1069,9 +1069,10 @@
         "superRare": "https://yugioh.fukufukutoreka.com/products/detail/96351",
         "ultimateRare": "https://yugioh.fukufukutoreka.com/products/detail/96349",
         "secretRare": "https://yugioh.fukufukutoreka.com/products/detail/96351",
-        "productReference": "https://yugiohsouba.com/cards/NbItCg/"
+        "productReference": "https://yugiohsouba.com/cards/NbItCg/",
+        "verifiedRetailerListing": "https://shopping.yahoo.co.jp/search/%E9%81%8A%E6%88%AF%E7%8E%8B%2BYAC1-JP063%2B%E3%83%9E%E3%82%B8%E3%83%83%E3%82%AF%E3%82%AB%E3%83%BC%E3%83%89%2B%E6%AD%BB%E8%80%85%E8%98%87%E7%94%9F"
       },
-      "variantImageReferenceStatus": "exact_yac1_print_confirmed_product_pages_found_direct_image_asset_pending"
+      "variantImageReferenceStatus": "yac1_print_reference_found_direct_image_not_verified"
     },
     {
       "id": "YAC1-JP064",
@@ -1412,11 +1413,11 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Exact YAC1 MANGA-STYLE monochrome and color Secret Rare product pages found. Direct image asset not yet extracted/validated; imageUrl remains empty until variant image is verified.",
+      "note": "Retailer pages explicitly identify YAC1-JP080 and the exact MANGA-STYLE variant: color Secret Rare and monochrome Ultra Rare. Direct image asset has not been validated/extracted; imageUrl remains empty until checked. Do not substitute generic Gaia art.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
-        "secretColor": "https://yugioh.fukufukutoreka.com/products/detail/96410",
+        "secretColor": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416245",
         "productPage": "https://cardstack.jp/yugioh-card/yac1-jp080/",
         "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416425",
         "colorSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416245",
@@ -1425,9 +1426,11 @@
         "exactVariantProductPage": "https://cardstack.jp/yugioh-card/yac1-jp080/",
         "secretMonochrome": "https://yugioh.fukufukutoreka.com/products/detail/96409",
         "variantCatalog": "https://cardstack.jp/yugioh-card/yac1-jp080/",
-        "officialCardDetail": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4044&ope=2&request_locale=ja"
+        "officialCardDetail": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4044&ope=2&request_locale=ja",
+        "ultraMonochrome": "https://www.ka-nabell.com/?act=sell_detail&category=&genre=1&id=100416515&lang=&supply=&type=1",
+        "officialSetCardList": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999"
       },
-      "variantImageReferenceStatus": "exact_yac1_manga_style_variant_pages_confirmed_direct_image_asset_pending"
+      "variantImageReferenceStatus": "exact_yac1_variant_confirmed_direct_image_not_extracted"
     },
     {
       "id": "YAC1-JP081",
