@@ -81,9 +81,9 @@ ws:{n:'ヴァイス',c:'#34d399',sr:['ブースターパック','トライアル
 };
 const R='カードラッシュ',Y='遊々亭',V='駿河屋',gg=n=>'https://www.google.com/search?q='+encodeURIComponent(n+' '),yy=c=>'https://yuyu-tei.jp/sell/'+c+'/s/search?search_word=';
 const GN={
-poke:{n:'ポケモン',c:'#facc15',o:'https://www.pokemon-card.com/card-search/index.php?keyword=',sr:['MEGAシリーズ','スカーレット&バイオレット','ソード&シールド','サン&ムーン','XY以前','プロモ'],rr:['C','U','R','RR','RRR','SR','HR','UR','AR','SAR','ACE','MUR','BWR'],s:[[R,'https://www.cardrush-pokemon.jp/product-list?keyword='],[Y,yy('poc')],[V,gg(V)]]},
-op:{n:'ワンピース',c:'#f43f5e',o:'https://www.onepiece-cardgame.com/cardlist/?freewords=',sr:['ブースターパック','エクストラブースター','プレミアムブースター','スタートデッキ','プロモ'],rr:['C','UC','R','SR','SEC','L','SP','P'],s:[[R,'https://www.cardrush-op.jp/product-list?keyword='],[Y,yy('opc')],[V,gg(V)]]},
-ygo:{n:'遊戯王',c:'#f97316',o:'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=',sr:['QUARTER CENTURY','レアリティ・コレクション','パック(その他)','構築済みデッキ','プロモ'],rr:['N','R','SR','UR','UL','SE','PSE','QCSE','KC'],s:[[R,gg(R+' 遊戯王')],[Y,yy('ygo')],[V,gg(V)]]},
+poke:{n:'ポケモン',c:'#facc15',o:'https://www.pokemon-card.com/card-search/index.php?keyword=',sr:['MEGAシリーズ','スカーレット&バイオレット','ソード&シールド','サン&ムーン','XY以前','プロモ'],rr:['C','U','R','RR','RRR','SR','HR','UR','AR','SAR','ACE','MUR','BWR'],s:[[R,'https://www.cardrush-pokemon.jp/product-list?keyword='],[Y,yy('poc')],[V,'https://www.suruga-ya.jp/search?search_word=']]},
+op:{n:'ワンピース',c:'#f43f5e',o:'https://www.onepiece-cardgame.com/cardlist/?freewords=',sr:['ブースターパック','エクストラブースター','プレミアムブースター','スタートデッキ','プロモ'],rr:['C','UC','R','SR','SEC','L','SP','P'],s:[[R,'https://www.cardrush-op.jp/product-list?keyword='],[Y,yy('opc')],[V,'https://www.suruga-ya.jp/search?search_word=']]},
+ygo:{n:'遊戯王',c:'#f97316',o:'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=',sr:['ORIGINAL ARTWORK COLLECTION (OAC)','QUARTER CENTURY','レアリティ・コレクション','パック(その他)','構築済みデッキ','プロモ'],rr:['N','R','SR','UR','UL','SE','PSE','QCSE','KC'],s:[[R,'https://www.cardrush.jp/product-list?keyword='],[Y,yy('ygo')],[V,'https://www.suruga-ya.jp/search?category=5010800&search_word=']]},
 rush:{n:'ラッシュデュエル',c:'#38bdf8',sr:['ブースター','デッキ','プロモ'],rr:['N','R','SR','UR','GR','SE'],s:[[R,gg(R+' ラッシュデュエル')],[Y,gg(Y+' ラッシュデュエル')],[V,gg(V+' ラッシュデュエル')]]},
 digi:{n:'デジモン',c:'#a78bfa',sr:['ブースター','エクストラ','スタートデッキ','プロモ'],rr:['C','U','R','SR','SEC','P'],s:[[R,gg(R+' デジモンカード')],[Y,gg(Y+' デジモンカード')],[V,gg(V+' デジモンカード')]]},
 ua:{n:'ユニアリ',c:'#34d399',sr:['ブースター','スタートデッキ','プロモ'],rr:['C','U','R','SR','UR','P'],s:[[R,gg(R+' ユニオンアリーナ')],[Y,gg(Y+' ユニオンアリーナ')],[V,gg(V+' ユニオンアリーナ')]]}
@@ -235,7 +235,12 @@ const L=s=>s.split('、').reverse();
 GN.poke.pk={'MEGAシリーズ':L('メガブレイブ(M1L)、メガシンフォニア(M1S)、インフェルノX(M2)、MEGAドリームex(M2a)'),'スカーレット&バイオレット':L('スカーレットex(sv1S)、バイオレットex(sv1V)、トリプレットビート(sv1a)、スノーハザード(sv2P)、クレイバースト(sv2D)、ポケモンカード151(sv2a)、黒炎の支配者(sv3)、レイジングサーフ(sv3a)、古代の哆哮(sv4K)、未来の一閃(sv4M)、シャイニートレジャーex(sv4a)、ワイルドフォース(sv5K)、サイバージャッジ(sv5M)、クリムゾンヘイズ(sv5a)、変幻の仮面(sv6)、ナイトワンダラー(sv6a)、ステラミラクル(sv7)、楽園ドラゴーナ(sv7a)、超電ブレイカー(sv8)、テラスタルフェスex(sv8a)、バトルパートナーズ(sv9)、熱風のアリーナ(sv9a)、ロケット団の栄光(sv10)、ブラックボルト(sv11B)、ホワイトフレア(sv11W)'),'ソード&シールド':L('ソード(s1W)、シールド(s1H)、VMAXライジング(s1a)、反逆クラッシュ(s2)、爆炎ウォーカー(s2a)、ムゲンゾーン(s3)、伝説の鼓動(s3a)、仿天のボルテッカー(s4)、シャイニースターV(s4a)、一撃マスター(s5I)、連撃マスター(s5R)、双璧のファイター(s5a)、白銀のランス(s6H)、漆黒のガイスト(s6K)、イーブイヒーローズ(s6a)、摩天パーフェクト(s7D)、蒼空ストリーム(s7R)、フュージョンアーツ(s8)、25th ANNIVERSARY COLLECTION(s8a)、VMAXクライマックス(s8b)、スターバース(s9)、バトルリージョン(s9a)、タイムゲイザー(s10D)、スペースジャグラー(s10P)、ダークファンタズマ(s10a)、ポケモンGO(s10b)、ロストアビス(s11)、白熱のアルカナ(s11a)、パラダイムトリガー(s12)、VSTARユニバース(s12a)'),'その他':['プロモ','サン&ムーン以前のパック']};
 GN.op.pk={'ブースターパック':L('OP-01 ROMANCE DAWN、OP-02 頂上決戦、OP-03 強大な敵、OP-04 謀略の王国、OP-05 新時代の主役、OP-06 双璧の覇者、OP-07 500年後の未来、OP-08 二つの伝説、OP-09 四皇覚醒、OP-10 ロイヤルブラッドライン、OP-11 神速の拳、OP-12、OP-13'),'エクストラ・プレミアム':['PRB-01 THE BEST','EB-02 Anime 25th collection','EB-01 メモリアルコレクション'],'その他':['スタートデッキ(ST)','プロモ']};
 GN.ygo.pk={'優先して登録':['遊☆戯☆王 ORIGINAL ARTWORK COLLECTION'],'2026年発売・発売予定':['遊☆戯☆王 ORIGINAL ARTWORK COLLECTION','BLAZING DOMINION','CHAOS ORIGINS','BEYOND THE BRAVE','PREMIUM PACK 2026','IMMORTAL PHOENIX','REVOLUTION BOOSTER － 方界・マリンセス・ゴーストリック －','THE CHRONICLES DECK DX マギストス','Yu-Gi-Oh! THE DARK SIDE OF DIMENSIONS 10th ANNIVERSARY MOVIE BOX','LIMITED PACK WORLD CHAMPIONSHIP 2026','UTILITY SELECTION','デッキビルドパック グロリアス・ヴィクターズ'],'最近のパック':['PHANTOM NIGHTMARE','DIMENSION FORCE','CROSSOVER BREAKERS','AGE OF OVERLORD','LEGACY OF DESTRUCTION','DUELIST NEXUS','ETERNITY CODE'],'25th / QUARTER CENTURY':['QUARTER CENTURY CHRONICLE side:PRIDE','QUARTER CENTURY CHRONICLE side:UNITY','RARITY COLLECTION -QUARTER CENTURY EDITION-','25th ANNIVERSARY ULTRA RARE EDITION'],'その他':['ストラクチャーデッキ','プロモ','旧パック']};
-const packOpts=g=>{const G=GN[g];return (G.pk?Object.entries(G.pk).map(([k,v])=>`<optgroup label="${k}">${opt(v)}</optgroup>`).join(''):opt(G.sr))+`<option>${SO}</option>`};
+const packOpts=g=>{
+ const G=GN[g];
+ const loadedPacks=g==='poke'?PKI.map(x=>x.s?.n||''):g==='op'?OPI.map(x=>x.packName||''):g==='ygo'?YGOI.map(x=>x.setName||'ORIGINAL ARTWORK COLLECTION'):[];
+ const packs=[...new Set([...(G.sr||[]),...loadedPacks].map(x=>String(x||'').trim()).filter(Boolean))];
+ return (G.pk?Object.entries(G.pk).map(([k,v])=>`<optgroup label="${k}">${opt(v)}</optgroup>`).join(''):opt(packs))+`<option>${SO}</option>`;
+};
 let so='new';
 const pidx=c=>{const l=GN[c.g].pk?Object.values(GN[c.g].pk).flat():GN[c.g].sr,i=l.indexOf(c.pack||c.series);return i<0?999:i};
 const SORT={new:()=>0,val:(a,b)=>val(b)-val(a),unit:(a,b)=>b.price-a.price,pl:(a,b)=>(val(b)-cost(b))-(val(a)-cost(a)),series:(a,b)=>a.g.localeCompare(b.g)||pidx(a)-pidx(b)||a.name.localeCompare(b.name,'ja'),name:(a,b)=>a.name.localeCompare(b.name,'ja')};
@@ -276,8 +281,9 @@ function pickOP(i){
  const ss=$('#fs');
  // Preserve the exact Japanese pack title from the master data, including newer sets
  // that are not yet listed in the app's manually maintained dropdown.
- if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}
- else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
+ const packOption=x.packName?[...ss.options].find(o=>o.text.trim()===x.packName):null;
+ if(packOption){ss.value=packOption.value;$('#fs2').style.display='none';$('#fs2').value=''}
+ else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}else if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}}
  const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));const selectedRarity=F.r;let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===selectedRarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=selectedRarity;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
  const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
  b.innerHTML=selectedPricePanel(x.parallel?'パラレル':'');
