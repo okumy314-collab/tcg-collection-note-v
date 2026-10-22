@@ -220,8 +220,8 @@ function fq(i){
 }
 function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const ps=[0,1,2].map(i=>+$('#fp'+i).value||0),a=ps.filter(x=>x>0),p=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value,custom=$('#fs').value===SO?$('#fs2').value.trim():'',s=custom||$('#fs').value,sg=$('#fs').selectedOptions[0].parentElement.label||'';
- const c={id:Date.now()+'',g:F.g,series:sg||s,pack:s,img:F.img||'',rarity:F.r||'',name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value};
+ const ps=[0,1,2].map(i=>+$('#fp'+i).value||0),a=ps.filter(x=>x>0),p=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value,custom=$('#fs').value===SO?$('#fs2').value.trim():'',s=custom||$('#fs').value;
+ const c={id:Date.now()+'',g:F.g,series:s,pack:s,img:F.img||'',rarity:F.r||'',name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value};
  S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();toast('✓ 登録しました','編集 ›',()=>detail(c.id))}
 function msearch(i){window.open(u(mg,i)+encodeURIComponent($('#mq').value.trim()),'_blank')}
 function demo(){
