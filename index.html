@@ -151,9 +151,9 @@ function add(){
  <label>枚数</label><div class="stp"><button onclick="stp(-1)">−</button><b id="fq">${F.q}</b><button onclick="stp(1)">＋</button></div>
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fs','fr','fn','fo','fp'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});
- setTimeout(()=>$('#fn').focus(),150)}
+ togglePackCustom();if(F.fs!==undefined)$('#fs').value=F.fs;if(F.fs2!==undefined)$('#fs2').value=F.fs2;setTimeout(()=>$('#fn').focus(),150)}
 function togglePackCustom(){const s=$('#fs'),i=$('#fs2');if(!s||!i)return;const show=s.value===SO;i.style.display=show?'block':'none';if(!show)i.value=''}
-function keep(){['fs','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value});F.fs=F.fr=undefined}
+function keep(){['fs','fs2','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e&&e.offsetParent!==null)F[i]=e.value});F.fs=F.fr=F.fs2=undefined}
 function stp(d){F.q=Math.max(1,F.q+d);$('#fq').textContent=F.q}
 function fq(i){
  const name=$('#fn')?.value?.trim()||'';
@@ -284,7 +284,8 @@ function pickOP(i){
  // that are not yet listed in the app's manually maintained dropdown.
  const packOption=x.packName?[...ss.options].find(o=>o.text.trim()===x.packName):null;
  if(packOption){ss.value=packOption.value;$('#fs2').style.display='none';$('#fs2').value=''}
- else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}else if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}}
+ else if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}
+ else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
  const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));const selectedRarity=F.r;let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===selectedRarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=selectedRarity;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
  const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
  b.innerHTML=selectedPricePanel(x.parallel?'パラレル':'');
