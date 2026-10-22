@@ -2090,7 +2090,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Specific retailer pages for YAC1 MANGA-STYLE variants added as visual references; direct image URL still pending, so this is not counted as an image URL.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -2099,9 +2099,13 @@
         "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "mangaMonoUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594075",
+        "mangaMonoSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594080",
+        "mangaColorSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594090",
+        "mangaVariantCatalog": "https://www.c-labo-online.jp/product-list/3552/0/photo"
       },
-      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "variantImageReferenceStatus": "specific_YAC1_variant_product_pages_found_direct_image_url_pending",
       "retailerVariantEvidence": [
         "カラー・ウルトラレア",
         "モノクロ・ウルトラレア",
@@ -2354,7 +2358,7 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork.",
+      "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Specific retailer pages for YAC1 MANGA-STYLE variants added as visual references; direct image URL still pending, so this is not counted as an image URL.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
@@ -2363,9 +2367,12 @@
         "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
         "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/"
+        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
+        "mangaMonoUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594215",
+        "mangaMonoSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594220",
+        "mangaVariantCatalog": "https://www.c-labo-online.jp/product-list/3552/0/photo"
       },
-      "variantImageReferenceStatus": "retailer_catalog_confirms_named_variant_direct_asset_pending",
+      "variantImageReferenceStatus": "specific_YAC1_variant_product_pages_found_direct_image_url_pending",
       "retailerVariantEvidence": [
         "カラー・シークレットレア",
         "現世と冥界の逆転",
