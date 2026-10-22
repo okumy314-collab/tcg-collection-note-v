@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. Official image URLs are retained only where an individual official Konami card database page supports the CID. Recently verified: YAC1-JP064, JP065, JP066, JP070. YAC1-JP062, JP063, JP067, JP068, and JP069 have been returned to unresolved status until their CIDs are individually verified. Remaining cards without URLs require individual verification. Official database artwork does not alone guarantee exact YAC1 rarity treatment.",
+  "note": "All 100 card names and collector numbers are populated. For MANGA-STYLE cards JP071-JP074 and JP078, official card detail pages and current official card images are linked, but exact YAC1 MANGA-STYLE artwork/print image is not yet verified; these are marked official_card_page_confirmed_artwork_variant_unverified. Other image URLs are retained only where their card identities have individual official Konami CID evidence. Do not infer CIDs from collector-number sequence.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1179,7 +1179,11 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4041",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4041&ope=2&request_locale=ja"
     },
     {
       "id": "YAC1-JP072",
@@ -1195,7 +1199,11 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4088",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4088&ope=2&request_locale=ja"
     },
     {
       "id": "YAC1-JP073",
@@ -1211,7 +1219,11 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4007",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4007&ope=2&request_locale=ja"
     },
     {
       "id": "YAC1-JP074",
@@ -1227,7 +1239,11 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4008",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4008&ope=2&request_locale=ja"
     },
     {
       "id": "YAC1-JP075",
@@ -1291,7 +1307,11 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Card name and printed number verified against the official MANGA-STYLE checklist."
+      "note": "Card name and printed number verified against the official MANGA-STYLE checklist.",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4038",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4038&ope=2&request_locale=ja"
     },
     {
       "id": "YAC1-JP079",
