@@ -97,10 +97,30 @@ const tot=a=>({q:a.reduce((x,c)=>x+c.qty,0),k:a.length,v:a.reduce((x,c)=>x+val(c
 function snap(){const d=new Date().toISOString().slice(0,10),v=tot(S.cards).v,l=S.hist[S.hist.length-1];if(l&&l.d===d)l.v=v;else S.hist.push({d,v})}
 const pl=(v,c)=>{const d=v-c,p=c?d/c*100:0;return `<span class="${d>=0?'up':'dn'}">${d>=0?'+':''}${yen(d)} (${d>=0?'+':''}${p.toFixed(1)}%)</span>`};
 const u=(g,i)=>GN[g].s[i][1];
+const shortShopRarity=v=>{
+ const key=String(v||'').trim();
+ const m={
+  'ノーマル':'N','ノーマルレア':'NR','レア':'R','スーパーレア':'SR','ウルトラレア':'UR',
+  'アルティメットレア':'UL','シークレットレア':'SE','パラレルレア':'P','プリズマティックシークレットレア':'PSE',
+  'コレクターズレア':'CR','エクストラシークレットレア':'EXSE','ホログラフィックレア':'HR',
+  'クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR',
+  'ウルトラレア（モノクロ）':'UR','ウルトラレア（カラー）':'UR','シークレットレア（モノクロ）':'SE',
+  'シークレットレア（カラー）':'SE','プリズマティックシークレットレア（モノクロ）':'PSE',
+  'プリズマティックシークレットレア（カラー）':'PSE','SuperRare':'SR','Super Rare':'SR',
+  'Common':'C','Uncommon':'UC','Rare':'R','SecretRare':'SEC','Secret Rare':'SEC','Leader':'L','Special':'SP'
+ };
+ if(m[key])return m[key];
+ return key.replace(/（パラレル）/g,' P').replace(/（オーバーフレーム）/g,' OF');
+};
 const link=(g,c,i)=>{
  const name=String(c.name||'').trim();
  const no=String(c.no||c.cardNo||'').trim();
- const query=[name,no].filter(Boolean).join(' ');
+ const rarity=shortShopRarity(c.rarity||F.r||'');
+ let query=name;
+ if(i===0)query=[name,no].filter(Boolean).join(' ');
+ else if(i===1)query=name;
+ else if(i===2)query=[name,rarity].filter(Boolean).join(' ');
+ else query=[name,no].filter(Boolean).join(' ');
  return u(g,i)+encodeURIComponent(query);
 };
 function chart(){
