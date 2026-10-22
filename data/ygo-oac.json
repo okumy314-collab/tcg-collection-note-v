@@ -380,7 +380,11 @@
       ],
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
-      "variantStatus": "verified_from_published_list"
+      "variantStatus": "verified_from_published_list",
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23584",
+      "imageSource": "Konami official card database",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed."
     },
     {
       "id": "YAC1-JP021",
@@ -1404,9 +1408,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Found product pages explicitly identifying the YAC1 MANGA-STYLE print and variant. These are reference pages, not direct image URLs; do not use the page URL as an img src. Extract and verify a stable image asset before adding it as imageUrl.",
+      "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "variantImageReferences": {
         "ultra_mono": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp075-ur-mono",
         "ultra_color": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp075-ur-color",
@@ -1428,7 +1432,9 @@
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
         "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
-      }
+      },
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4005",
+      "imageSource": "Konami official card database"
     },
     {
       "id": "YAC1-JP076",
@@ -1444,9 +1450,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Found product pages explicitly identifying the YAC1 MANGA-STYLE print and variant. These are reference pages, not direct image URLs; do not use the page URL as an img src. Extract and verify a stable image asset before adding it as imageUrl.",
+      "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "variantImageReferences": {
         "ultra_mono": "https://shop.price-base.com/c/yugioh/y-list/yac1-jp076-ur-mono",
         "ultra_color": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593745",
@@ -1468,7 +1474,9 @@
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
         "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
-      }
+      },
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4010",
+      "imageSource": "Konami official card database"
     },
     {
       "id": "YAC1-JP077",
@@ -1484,9 +1492,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Product pages identify the exact YAC1 MANGA-STYLE variant (including monochrome and rarity). These are reference pages, not direct image URLs. Extract and verify the image asset before assigning an imageUrl; do not substitute regular artwork.",
+      "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "variantImageReferences": {
         "productPage": "https://cardstack.jp/yugioh-card/yac1-jp077/",
         "monochromeSecret": "https://www.ka-nabell.com/?act=sell_detail&category=&genre=1&id=100416512&lang=&supply=&type=1",
@@ -1506,7 +1514,9 @@
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
         "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
-      }
+      },
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4014",
+      "imageSource": "Konami official card database"
     },
     {
       "id": "YAC1-JP078",
@@ -1562,9 +1572,9 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Retail/product page explicitly identifies YAC1 and MANGA-STYLE variant. The page URL is a reference, not an image URL; extract a direct stable image asset before assigning imageUrl.",
+      "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "exact_manga_style_image_pending",
+      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
       "variantImageReferences": {
         "ultraMono": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp079-ur-mono",
         "secretMono": "https://shop.price-base.com/c/yugioh/original-artwork-yac1/yac1-jp079-se-mono",
@@ -1581,7 +1591,9 @@
         "officialProduct": "https://www.yugioh-card.com/japan/products/yac1/",
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
         "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
-      }
+      },
+      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4017",
+      "imageSource": "Konami official card database"
     },
     {
       "id": "YAC1-JP080",
