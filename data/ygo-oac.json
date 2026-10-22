@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers remain. Added exact retailer product pages for MANGA-STYLE variants: JP071, JP072, JP080, JP092, JP096. These pages identify the correct YAC1 variant, but direct image assets are not yet assigned. User-confirmed JP063 image remains unchanged. Never substitute generic artwork for exact variants.",
+  "note": "All 100 card names and collector numbers remain. JP092 MANGA-STYLE variant references corrected using listings explicitly naming color/monochrome versions and rarity: Ka-Nabell and DMM Myca. These pages are references, not direct image URLs. Direct image URL extraction and visual validation remain pending.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -1852,21 +1852,22 @@
       ],
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
-      "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation.",
+      "note": "Corrected JP092 reference pages to retailer listings that explicitly identify YAC1-JP092 MANGA-STYLE color/monochrome variants and rarity. The earlier generic product page is not used as the variant reference. Direct image URL extraction and in-app visual validation remain pending; do not substitute regular artwork.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageStatus": "exact_manga_style_image_pending",
       "variantImageReferences": {
-        "colorUltraRetailerList": "https://www.c-labo-online.jp/product-list/3552/0/photo",
-        "monochromeAndSecretRetailerList": "https://bigweb.co.jp/ja/products/yugioh/list?recommend_id=1435",
-        "officialProductDetails": "https://www.yugioh-card.com/japan/products/yac1/",
-        "retailerPhotoCatalog": "https://www.trendtrade.jp/phone/product-list/1235/0/photo?sort=featured",
-        "retailerCardList": "https://www.trendtrade.jp/phone/product-list/1235/0/normal",
-        "officialYac1ProductPage": "https://www.yugioh-card.com/japan/products/yac1/",
-        "secretColor": "https://dp00013984.shop-pro.jp/index.php?pid=193687082",
-        "retailerProductTitle": "マシュマロン カラーMANGA-STYLE シークレット"
+        "officialCardDatabase": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=6000&ope=2&request_locale=ja",
+        "mangaColorSecret": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416314",
+        "mangaMonoUltra": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416584",
+        "mangaMonoSecret": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594060",
+        "mangaColorSecretAlt": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594070",
+        "mangaColorUltra": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594065"
       },
-      "variantImageReferenceStatus": "exact_yac1_variant_product_page_found_direct_image_asset_pending",
+      "variantImageReferenceStatus": "exact_yac1_variant_pages_confirmed_direct_image_url_pending",
       "retailerVariantEvidence": [
+        "カラー・シークレットレア",
+        "カラー・ウルトラレア",
+        "モノクロ・シークレットレア",
         "モノクロ・ウルトラレア"
       ]
     },
