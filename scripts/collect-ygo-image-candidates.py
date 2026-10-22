@@ -1,116 +1,131 @@
 #!/usr/bin/env python3
-"""Collect direct image candidates from existing YAC1 product-page references.
+"""Extract unverified card-image candidates from YAC1 retailer product pages.
 
-This intentionally does NOT write candidate URLs into imageUrl. Product-page
-metadata can point to a wrong rarity/artwork variant, so all output remains
-unverified until a human checks the card face.
+Never overwrites imageUrl. The results are review-only and should not be treated
+as a confirmed YAC1 print until a human checks the artwork.
 """
+import html
 import json
 import re
 import time
+import urllib.error
 import urllib.request
-from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "ygo-oac.json"
-OUT = ROOT / "data" / "ygo-oac-image-candidates.json"
-CARD_RE = re.compile(r"^YAC1-JP\d{3}$")
-MAX_PAGES_PER_CARD = 3
-TIMEOUT = 12
+DATA_PATH = Path("data/ygo-oac.json")
+USER_AGENT = "Mozilla/5.0 (compatible; YAC1ImageReviewCollector/1.0)"
+MAX_PAGES_PER_CARD = 6
+TIMEOUT_SECONDS = 15
+IMAGE_EXT = re.compile(r"\.(?:jpe?g|png|webp)(?:[?#]|$)", re.I)
+META_TAG = re.compile(r"<meta\b[^>]*>", re.I)
+IMG_TAG = re.compile(r"<img\b[^>]*>", re.I)
+ATTR = re.compile(r"""([\w:-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))""", re.I)
 
-class MetaParser(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.meta = []
-        self.title_parts = []
-        self.in_title = False
-    def handle_starttag(self, tag, attrs):
-        a = dict(attrs)
-        if tag.lower() == "meta":
-            key = (a.get("property") or a.get("name") or "").lower()
-            val = a.get("content")
-            if key in ("og:image", "og:image:url", "twitter:image", "twitter:image:src") and val:
-                self.meta.append((key, val.strip()))
-        if tag.lower() == "title":
-            self.in_title = True
-    def handle_endtag(self, tag):
-        if tag.lower() == "title":
-            self.in_title = False
-    def handle_data(self, data):
-        if self.in_title and data.strip():
-            self.title_parts.append(data.strip())
+def attrs(tag):
+    result = {}
+    for m in ATTR.finditer(tag):
+        result[m.group(1).lower()] = html.unescape(m.group(2) or m.group(3) or m.group(4) or "")
+    return result
 
-def page_refs(card):
-    refs = card.get("variantImageReferences")
-    if not isinstance(refs, dict):
-        return []
-    urls = []
-    for value in refs.values():
-        if isinstance(value, str) and value.startswith("https://") and value not in urls:
-            urls.append(value)
-    return urls[:MAX_PAGES_PER_CARD]
+def fetch_page(url):
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=TIMEOUT_SECONDS) as response:
+        content_type = response.headers.get("Content-Type", "").lower()
+        final_url = response.geturl()
+        if "html" not in content_type:
+            return final_url, ""
+        body = response.read(2_000_000).decode("utf-8", errors="replace")
+        return final_url, body
 
-def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "TCGCollectionNote-image-candidate-check/1.0"})
-    with urllib.request.urlopen(req, timeout=TIMEOUT) as response:
-        content_type = response.headers.get("Content-Type", "")
-        if "text/html" not in content_type.lower():
-            return None
-        raw = response.read(1_500_000)
-    parser = MetaParser()
-    parser.feed(raw.decode("utf-8", errors="replace"))
-    image_urls = []
-    for _, value in parser.meta:
-        resolved = urljoin(url, value)
-        if resolved.startswith("https://") and resolved not in image_urls:
-            image_urls.append(resolved)
-    return {
-        "pageTitle": " ".join(parser.title_parts)[:240],
-        "imageCandidates": image_urls,
-        "contentType": content_type,
-    }
+def extract_images(page_url, body):
+    found = []
+    for tag in META_TAG.findall(body):
+        a = attrs(tag)
+        key = (a.get("property") or a.get("name") or "").lower()
+        value = a.get("content", "")
+        if key in {"og:image", "og:image:url", "twitter:image", "twitter:image:src"} and value:
+            found.append((urljoin(page_url, value), "meta:" + key))
+    for tag in IMG_TAG.findall(body):
+        a = attrs(tag)
+        value = a.get("data-src") or a.get("data-original") or a.get("src") or ""
+        if not value:
+            continue
+        absolute = urljoin(page_url, value)
+        # Skip tiny icons, trackers, and obvious UI assets where possible.
+        lowered = absolute.lower()
+        if any(word in lowered for word in ("logo", "icon", "banner", "sprite", "payment", "cart")):
+            continue
+        if IMAGE_EXT.search(absolute) or any(k in lowered for k in ("image.php", "image=", "item_image", "product_image", "goods_image")):
+            found.append((absolute, "img-tag"))
+    unique = []
+    seen = set()
+    for url, source in found:
+        if url.startswith(("https://", "http://")) and url not in seen:
+            seen.add(url)
+            unique.append({"imageUrl": url, "extractionSource": source})
+    return unique[:12]
+
+def walk_urls(value):
+    if isinstance(value, str):
+        if value.startswith(("https://", "http://")):
+            yield value
+    elif isinstance(value, dict):
+        for item in value.values():
+            yield from walk_urls(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from walk_urls(item)
 
 def main():
-    data = json.loads(DATA.read_text(encoding="utf-8"))
-    cards = [c for c in data.get("cards", []) if CARD_RE.match(str(c.get("cardNumber", "")))]
-    results = []
-    for card in cards:
+    data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
+    changed_cards = 0
+    failures = 0
+    for card in data.get("cards", []):
+        number = str(card.get("cardNumber", ""))
+        if not re.fullmatch(r"YAC1-JP\d{3}", number):
+            continue
         if card.get("imageUrl"):
             continue
-        for page_url in page_refs(card):
-            row = {
-                "cardNumber": card["cardNumber"],
-                "cardName": card.get("baseName") or card.get("name") or "",
-                "sourcePageUrl": page_url,
-                "status": "unverified_candidate",
-                "pageTitle": "",
-                "imageCandidates": [],
-                "error": None,
-            }
+        ref_urls = list(dict.fromkeys(
+            walk_urls(card.get("variantImageReferences", {}))
+        ))
+        evidence_urls = list(dict.fromkeys(
+            walk_urls(card.get("retailerVariantEvidence", {}))
+        ))
+        page_urls = list(dict.fromkeys(ref_urls + evidence_urls))[:MAX_PAGES_PER_CARD]
+        candidates = []
+        for page_url in page_urls:
             try:
-                info = fetch(page_url)
-                if info:
-                    row.update(info)
-                else:
-                    row["error"] = "source did not return HTML"
-            except Exception as exc:
-                row["error"] = type(exc).__name__ + ": " + str(exc)[:180]
-            results.append(row)
-            time.sleep(1.0)
-    output = {
-        "title": "YAC1 direct image URL candidates",
-        "status": "unverified_candidates_only",
-        "generatedBy": "scripts/collect-ygo-image-candidates.py",
-        "warning": "These are social/OG metadata candidates from product pages, not confirmed card artwork. Never copy into data/ygo-oac.json imageUrl until the exact YAC1 artwork variant is checked.",
-        "cardsScanned": len(cards),
-        "sourcePagesChecked": len(results),
-        "candidateImageCount": sum(len(r.get("imageCandidates", [])) for r in results),
-        "results": results,
+                final_url, body = fetch_page(page_url)
+                if body:
+                    for item in extract_images(final_url, body):
+                        candidate = {
+                            **item,
+                            "sourcePageUrl": page_url,
+                            "status": "unverified_review_candidate",
+                            "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+                        }
+                        if candidate["imageUrl"] not in [x["imageUrl"] for x in candidates]:
+                            candidates.append(candidate)
+            except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+                failures += 1
+            time.sleep(0.2)
+        if candidates:
+            previous = card.get("imageCandidates", [])
+            if previous != candidates:
+                card["imageCandidates"] = candidates
+                card["imageCandidateStatus"] = "needs_user_review"
+                card["imageCandidateSourcePageCount"] = len(page_urls)
+                changed_cards += 1
+    data["imageCandidateCollection"] = {
+        "purpose": "Review-only candidate image URLs extracted from existing retailer references; these do not count as confirmed imageUrl values.",
+        "script": "scripts/collect-ygo-image-candidates.py",
+        "cardsUpdatedThisRun": changed_cards,
+        "fetchFailuresThisRun": failures
     }
-    OUT.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({k: output[k] for k in ("cardsScanned", "sourcePagesChecked", "candidateImageCount")}, ensure_ascii=False))
+    DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Candidate metadata updated for {changed_cards} cards; page/image fetch failures: {failures}. Confirmed imageUrl fields were not changed.")
 
 if __name__ == "__main__":
     main()
