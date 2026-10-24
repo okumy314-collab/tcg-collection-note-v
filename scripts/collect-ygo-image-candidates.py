@@ -107,8 +107,31 @@ def walk_urls(value):
         for item in value:
             yield from walk_urls(item)
 
+def probe_image_url(url):
+    """Check whether a direct image endpoint exists without trusting its artwork."""
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
+    try:
+        with urllib.request.urlopen(req, timeout=TIMEOUT_SECONDS) as response:
+            return response.status, response.headers.get("Content-Type", "").lower()
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError):
+        # Some image hosts reject HEAD; retry with a small GET instead.
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Range": "bytes=0-64"})
+            with urllib.request.urlopen(req, timeout=TIMEOUT_SECONDS) as response:
+                return response.status, response.headers.get("Content-Type", "").lower()
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError):
+            return 0, "unreachable"
+
 def main():
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
+    # Test the exact direct-image naming convention already used by approved JP081-JP100.
+    # Report only: a reachable file is not proof that its artwork matches the card.
+    print("Direct image endpoint probe using the approved JP081-JP100 URL pattern:")
+    for n in (1, 2, 3, 79, 80, 81, 100):
+        card_no = f"YAC1-JP{n:03d}"
+        url = f"https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/{card_no}.jpg"
+        status, content_type = probe_image_url(url)
+        print(f"{card_no}: HTTP {status}; content-type={content_type}; url={url}")
     changed_cards = 0
     failures = 0
     for card in data.get("cards", []):
