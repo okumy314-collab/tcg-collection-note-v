@@ -16,7 +16,7 @@ from urllib.parse import urljoin
 DATA_PATH = Path("data/ygo-oac.json")
 USER_AGENT = "Mozilla/5.0 (compatible; YAC1ImageReviewCollector/1.0)"
 MAX_PAGES_PER_CARD = 12
-TIMEOUT_SECONDS = 15
+TIMEOUT_SECONDS = 8
 IMAGE_EXT = re.compile(r"\.(?:jpe?g|png|webp)(?:[?#]|$)", re.I)
 META_TAG = re.compile(r"<meta\b[^>]*>", re.I)
 IMG_TAG = re.compile(r"<img\b[^>]*>", re.I)
@@ -31,18 +31,21 @@ def attrs(tag):
 PAGE_CACHE = {}
 
 def fetch_page(url):
-    # Many cards can share the same catalog page; fetch each page only once per run.
+    # Cache both successful fetches and failures: catalog URLs repeat across many cards.
     if url in PAGE_CACHE:
         return PAGE_CACHE[url]
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=TIMEOUT_SECONDS) as response:
-        content_type = response.headers.get("Content-Type", "").lower()
-        final_url = response.geturl()
-        if "html" not in content_type:
-            result = (final_url, "")
-        else:
-            body = response.read(2_000_000).decode("utf-8", errors="replace")
-            result = (final_url, body)
+    try:
+        with urllib.request.urlopen(req, timeout=8) as response:
+            content_type = response.headers.get("Content-Type", "").lower()
+            final_url = response.geturl()
+            if "html" not in content_type:
+                result = (final_url, "")
+            else:
+                body = response.read(2_000_000).decode("utf-8", errors="replace")
+                result = (final_url, body)
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        result = (url, "")
     PAGE_CACHE[url] = result
     return result
 
