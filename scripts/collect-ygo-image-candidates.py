@@ -28,15 +28,23 @@ def attrs(tag):
         result[m.group(1).lower()] = html.unescape(m.group(2) or m.group(3) or m.group(4) or "")
     return result
 
+PAGE_CACHE = {}
+
 def fetch_page(url):
+    # Many cards can share the same catalog page; fetch each page only once per run.
+    if url in PAGE_CACHE:
+        return PAGE_CACHE[url]
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=TIMEOUT_SECONDS) as response:
         content_type = response.headers.get("Content-Type", "").lower()
         final_url = response.geturl()
         if "html" not in content_type:
-            return final_url, ""
-        body = response.read(2_000_000).decode("utf-8", errors="replace")
-        return final_url, body
+            result = (final_url, "")
+        else:
+            body = response.read(2_000_000).decode("utf-8", errors="replace")
+            result = (final_url, body)
+    PAGE_CACHE[url] = result
+    return result
 
 def extract_images(page_url, body):
     found = []
