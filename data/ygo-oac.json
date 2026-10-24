@@ -28,9 +28,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23565",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP001.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -317,7 +317,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 2
+      "imageCandidateSourcePageCount": 2,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23565"
     },
     {
       "id": "YAC1-JP002",
@@ -334,9 +335,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23566",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP002.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -483,7 +484,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23566"
     },
     {
       "id": "YAC1-JP003",
@@ -500,9 +502,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23567",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP003.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -649,7 +651,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23567"
     },
     {
       "id": "YAC1-JP004",
@@ -666,9 +669,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23568",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP004.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -816,7 +819,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23568"
     },
     {
       "id": "YAC1-JP005",
@@ -833,9 +837,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23569",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP005.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -983,7 +987,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23569"
     },
     {
       "id": "YAC1-JP006",
@@ -1000,9 +1005,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23570",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP006.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -1150,7 +1155,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23570"
     },
     {
       "id": "YAC1-JP007",
@@ -1167,9 +1173,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23571",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP007.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -1317,7 +1323,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23571"
     },
     {
       "id": "YAC1-JP008",
@@ -1334,9 +1341,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23572",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP008.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -1484,7 +1491,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23572"
     },
     {
       "id": "YAC1-JP009",
@@ -1501,9 +1509,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23573",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP009.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -1651,7 +1659,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23573"
     },
     {
       "id": "YAC1-JP010",
@@ -1668,9 +1677,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23574",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP010.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -1818,7 +1827,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23574"
     },
     {
       "id": "YAC1-JP011",
@@ -1833,9 +1843,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23575",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP011.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -1983,7 +1993,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23575"
     },
     {
       "id": "YAC1-JP012",
@@ -1998,9 +2009,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23576",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP012.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -2148,7 +2159,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23576"
     },
     {
       "id": "YAC1-JP013",
@@ -2163,9 +2175,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23577",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP013.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -2313,7 +2325,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23577"
     },
     {
       "id": "YAC1-JP014",
@@ -2328,9 +2341,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23578",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP014.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -2478,7 +2491,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23578"
     },
     {
       "id": "YAC1-JP015",
@@ -2493,9 +2507,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23579",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP015.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -2642,7 +2656,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23579"
     },
     {
       "id": "YAC1-JP016",
@@ -2657,9 +2672,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23580",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP016.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official Konami database card page confirms this CID for the matching YAC1 card number. User can review the actual displayed image and report any mismatch.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -2807,7 +2822,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23580"
     },
     {
       "id": "YAC1-JP017",
@@ -2822,9 +2838,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23581",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP017.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -2971,7 +2987,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23581"
     },
     {
       "id": "YAC1-JP018",
@@ -2986,9 +3003,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23582",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP018.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -3135,7 +3152,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23582"
     },
     {
       "id": "YAC1-JP019",
@@ -3150,9 +3168,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23583",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP019.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -3299,7 +3317,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23583"
     },
     {
       "id": "YAC1-JP020",
@@ -3314,9 +3333,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23584",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP020.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed.",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
@@ -3464,7 +3483,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23584"
     },
     {
       "id": "YAC1-JP021",
@@ -3479,9 +3499,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23585",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP021.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -3628,7 +3648,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23585"
     },
     {
       "id": "YAC1-JP022",
@@ -3643,9 +3664,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23586",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP022.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -3792,7 +3813,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23586"
     },
     {
       "id": "YAC1-JP023",
@@ -3807,9 +3829,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23587",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP023.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -3956,7 +3978,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23587"
     },
     {
       "id": "YAC1-JP024",
@@ -3971,9 +3994,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23588",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP024.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -4120,7 +4143,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23588"
     },
     {
       "id": "YAC1-JP025",
@@ -4135,9 +4159,9 @@
       "verified": true,
       "source": "OCG card list for ORIGINAL ARTWORK COLLECTION",
       "variantStatus": "verified_from_published_list",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23589",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP025.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -4284,7 +4308,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=23589"
     },
     {
       "id": "YAC1-JP026",
@@ -4299,9 +4324,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19092",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP026.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -4448,7 +4473,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19092"
     },
     {
       "id": "YAC1-JP027",
@@ -4463,9 +4489,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20481",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP027.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -4612,7 +4638,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20481"
     },
     {
       "id": "YAC1-JP028",
@@ -4627,9 +4654,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20480",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP028.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -4776,7 +4803,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20480"
     },
     {
       "id": "YAC1-JP029",
@@ -4791,9 +4819,9 @@
       "verified": true,
       "source": "YAC1 set rarity list cross-check (secondary sources)",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20180",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP029.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -4940,7 +4968,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20180"
     },
     {
       "id": "YAC1-JP030",
@@ -4955,9 +4984,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19842",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP030.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -5104,7 +5133,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19842"
     },
     {
       "id": "YAC1-JP031",
@@ -5119,9 +5149,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20185",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP031.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -5268,7 +5298,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20185"
     },
     {
       "id": "YAC1-JP032",
@@ -5283,9 +5314,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21162",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP032.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -5432,7 +5463,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21162"
     },
     {
       "id": "YAC1-JP033",
@@ -5447,9 +5479,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20753",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP033.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -5596,7 +5628,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20753"
     },
     {
       "id": "YAC1-JP034",
@@ -5611,9 +5644,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20181",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP034.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -5760,7 +5793,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20181"
     },
     {
       "id": "YAC1-JP035",
@@ -5775,9 +5809,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21141",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP035.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -5924,7 +5958,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21141"
     },
     {
       "id": "YAC1-JP036",
@@ -5939,9 +5974,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=18791",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP036.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -6088,7 +6123,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=18791"
     },
     {
       "id": "YAC1-JP037",
@@ -6103,9 +6139,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20182",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP037.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -6252,7 +6288,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20182"
     },
     {
       "id": "YAC1-JP038",
@@ -6267,9 +6304,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=18790",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP038.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -6416,7 +6453,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=18790"
     },
     {
       "id": "YAC1-JP039",
@@ -6431,9 +6469,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=16825",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP039.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -6580,7 +6618,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=16825"
     },
     {
       "id": "YAC1-JP040",
@@ -6595,9 +6634,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19845",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP040.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -6744,7 +6783,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19845"
     },
     {
       "id": "YAC1-JP041",
@@ -6759,9 +6799,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19844",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP041.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -6908,7 +6948,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19844"
     },
     {
       "id": "YAC1-JP042",
@@ -6923,9 +6964,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=12418",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP042.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -7072,7 +7113,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=12418"
     },
     {
       "id": "YAC1-JP043",
@@ -7086,9 +7128,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=12574",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP043.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -7235,7 +7277,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=12574"
     },
     {
       "id": "YAC1-JP044",
@@ -7249,9 +7292,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20484",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP044.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -7398,7 +7441,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20484"
     },
     {
       "id": "YAC1-JP045",
@@ -7413,9 +7457,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=16839",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP045.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -7562,7 +7606,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=16839"
     },
     {
       "id": "YAC1-JP046",
@@ -7577,9 +7622,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20212",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP046.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -7726,7 +7771,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20212"
     },
     {
       "id": "YAC1-JP047",
@@ -7741,9 +7787,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=18821",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP047.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -7890,7 +7936,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=18821"
     },
     {
       "id": "YAC1-JP048",
@@ -7905,9 +7952,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21610",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP048.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -8054,7 +8101,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21610"
     },
     {
       "id": "YAC1-JP049",
@@ -8070,9 +8118,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=15463",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP049.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -8219,7 +8267,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=15463"
     },
     {
       "id": "YAC1-JP050",
@@ -8234,9 +8283,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20609",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP050.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -8383,7 +8432,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20609"
     },
     {
       "id": "YAC1-JP051",
@@ -8398,9 +8448,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=5979",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP051.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -8547,7 +8597,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=5979"
     },
     {
       "id": "YAC1-JP052",
@@ -8561,9 +8612,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=11121",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP052.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -8710,7 +8761,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=11121"
     },
     {
       "id": "YAC1-JP053",
@@ -8725,9 +8777,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=11669",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP053.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -8874,7 +8926,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=11669"
     },
     {
       "id": "YAC1-JP054",
@@ -8889,9 +8942,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19894",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP054.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -9038,7 +9091,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19894"
     },
     {
       "id": "YAC1-JP055",
@@ -9052,9 +9106,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20232",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP055.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -9201,7 +9255,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20232"
     },
     {
       "id": "YAC1-JP056",
@@ -9217,9 +9272,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20605",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP056.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -9366,7 +9421,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20605"
     },
     {
       "id": "YAC1-JP057",
@@ -9382,9 +9438,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=11670",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP057.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -9531,7 +9587,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=11670"
     },
     {
       "id": "YAC1-JP058",
@@ -9545,9 +9602,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=14907",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP058.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -9694,7 +9751,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=14907"
     },
     {
       "id": "YAC1-JP059",
@@ -9708,9 +9766,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=14908",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP059.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -9857,7 +9915,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=14908"
     },
     {
       "id": "YAC1-JP060",
@@ -9872,9 +9931,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=18839",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP060.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -10021,7 +10080,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=18839"
     },
     {
       "id": "YAC1-JP061",
@@ -10036,9 +10096,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19893",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP061.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -10185,7 +10245,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19893"
     },
     {
       "id": "YAC1-JP062",
@@ -10201,9 +10262,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19895",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP062.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -10350,7 +10411,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19895"
     },
     {
       "id": "YAC1-JP063",
@@ -10366,14 +10428,14 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "note": "User confirmed this image is correct for YAC1-JP063. Keep this image URL; do not remove unless user reports otherwise.",
       "officialProductPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&pid=1000009617000&request_locale=ja&rp=99999",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
       "variantImageReferenceStatus": "yac1_print_reference_found_direct_image_not_verified",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20029",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP063.jpg",
       "imageSource": "Konami official card database",
       "imageCandidates": [
         {
@@ -10518,7 +10580,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20029"
     },
     {
       "id": "YAC1-JP064",
@@ -10533,9 +10596,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21612",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP064.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -10682,7 +10745,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=21612"
     },
     {
       "id": "YAC1-JP065",
@@ -10697,9 +10761,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=12331",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP065.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -10846,7 +10910,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=12331"
     },
     {
       "id": "YAC1-JP066",
@@ -10860,9 +10925,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20233",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP066.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -11009,7 +11074,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20233"
     },
     {
       "id": "YAC1-JP067",
@@ -11023,9 +11089,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=12456",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP067.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -11172,7 +11238,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=12456"
     },
     {
       "id": "YAC1-JP068",
@@ -11187,9 +11254,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19892",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP068.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -11336,7 +11403,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=19892"
     },
     {
       "id": "YAC1-JP069",
@@ -11350,9 +11418,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20247",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP069.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -11499,7 +11567,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20247"
     },
     {
       "id": "YAC1-JP070",
@@ -11514,9 +11583,9 @@
       "verified": true,
       "source": "DawnbrandBots/yaml-yugi YAC1 set rarity list",
       "variantStatus": "cross_checked_yac1_setlist",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20547",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP070.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_cid_confirmed",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -11663,7 +11732,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=20547"
     },
     {
       "id": "YAC1-JP071",
@@ -11680,9 +11750,9 @@
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4041",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP071.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4041&ope=2&request_locale=ja",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "variantImageReferences": [
@@ -11844,7 +11914,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4041"
     },
     {
       "id": "YAC1-JP072",
@@ -11861,9 +11932,9 @@
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4088",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP072.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4088&ope=2&request_locale=ja",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "variantImageReferences": [
@@ -12025,7 +12096,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4088"
     },
     {
       "id": "YAC1-JP073",
@@ -12042,9 +12114,9 @@
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4007",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP073.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4007&ope=2&request_locale=ja",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "variantImageReferences": [
@@ -12205,7 +12277,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4007"
     },
     {
       "id": "YAC1-JP074",
@@ -12222,9 +12295,9 @@
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Official card database image URL exists, but exact YAC1 MANGA-STYLE artwork/printing is not confirmed. Do not treat this image as the monochrome or color variant until individually verified. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4008",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP074.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4008&ope=2&request_locale=ja",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "variantImageReferences": [
@@ -12385,7 +12458,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4008"
     },
     {
       "id": "YAC1-JP075",
@@ -12403,7 +12477,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -12422,7 +12496,7 @@
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
         "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
       },
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4005",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP075.jpg",
       "imageSource": "Konami official card database",
       "imageCandidates": [
         {
@@ -12567,7 +12641,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4005"
     },
     {
       "id": "YAC1-JP076",
@@ -12585,7 +12660,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -12604,7 +12679,7 @@
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
         "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
       },
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4010",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP076.jpg",
       "imageSource": "Konami official card database",
       "imageCandidates": [
         {
@@ -12749,7 +12824,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4010"
     },
     {
       "id": "YAC1-JP077",
@@ -12767,7 +12843,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -12785,7 +12861,7 @@
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
         "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
       },
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4014",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP077.jpg",
       "imageSource": "Konami official card database",
       "imageCandidates": [
         {
@@ -12930,7 +13006,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4014"
     },
     {
       "id": "YAC1-JP078",
@@ -12947,9 +13024,9 @@
       "verified": true,
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Product pages identify the exact YAC1 MANGA-STYLE variant (including monochrome and rarity). These are reference pages, not direct image URLs. Extract and verify the image asset before assigning an imageUrl; do not substitute regular artwork. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4038",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP078.jpg",
       "imageSource": "Konami official card database",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "officialCardPageUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4038&ope=2&request_locale=ja",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
       "variantImageReferences": [
@@ -13111,7 +13188,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4038"
     },
     {
       "id": "YAC1-JP079",
@@ -13129,7 +13207,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Official card image URL added as a review candidate. The exact YAC1 MANGA-STYLE print artwork still needs user review; do not treat as variant-confirmed. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "official_card_page_confirmed_artwork_variant_unverified",
+      "imageStatus": "direct_image_endpoint_available_artwork_needs_user_review",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -13144,7 +13222,7 @@
         "retailerPhotoCatalog": "https://www.mercardyg.jp/product-group/175/0/photo",
         "avalonYac1Catalog": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate&page=1&sort=n"
       },
-      "imageUrl": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4017",
+      "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP079.jpg",
       "imageSource": "Konami official card database",
       "imageCandidates": [
         {
@@ -13289,7 +13367,8 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 1,
+      "previousImageUrlBeforeDirectPatternTest": "https://www.db.yugioh-card.com/yugiohdb/get_image.action?type=1&lang=1&cid=4017"
     },
     {
       "id": "YAC1-JP080",
@@ -13506,6 +13585,146 @@
           "imageUrl": "https://cardstack.jp/wp-content/uploads/2026/07/yugioh_effectveiler-rc04-jp-qcscr-207x300.jpg",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://cardstack.jp/yugioh-card/yac1-jp080/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/YAC1-JP080SE.jpg?20260911_1000",
+          "extractionSource": "meta:og:image",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/OCG-295.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/PH-52AR.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/23YA-JP001QSE.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/OCG-11.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/OCG-230.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/LB-06.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/B1-02.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/YAC1-JP080SSE.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/YAC1-JP080S.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/YAC1-JP080.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/WJ-01.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/15AX-JPY05SE.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/15AX-JPY05MR.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/DL2-006R.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/BE01-JP093R.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/BE1-JP103R.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/15AY-JPA05N.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/EX-07N.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/OCG-326N.jpg?20260911_1000",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
           "status": "unverified_review_candidate",
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
