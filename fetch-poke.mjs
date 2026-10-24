@@ -16,6 +16,9 @@ async function get(path, tries = 4) {
 }
 const [list, allCards] = await Promise.all([get('/sets'), get('/cards')]);
 console.log('sets:', list.length, 'global Japanese cards:', allCards.length);
+const prefixCounts = new Map();
+for (const card of allCards) { const id = String(card.id || ''); const prefix = id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : id; prefixCounts.set(prefix, (prefixCounts.get(prefix) || 0) + 1); }
+console.log('modern card ID prefixes:', [...prefixCounts.entries()].filter(([prefix]) => /^(M|SV)/i.test(prefix)).sort((a,b)=>a[0].localeCompare(b[0])).map(([prefix,count])=>prefix+':'+count).join(', '));
 const sets = [];
 const failedSets = [];
 let next = 0;
