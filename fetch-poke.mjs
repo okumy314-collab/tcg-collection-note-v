@@ -16,19 +16,6 @@ async function get(path, tries = 4) {
 }
 const [list, allCards] = await Promise.all([get('/sets'), get('/cards')]);
 console.log('sets:', list.length, 'global Japanese cards:', allCards.length);
-console.log('global card ID samples:', allCards.slice(0, 8).map(card => card.id));
-console.log('global card object sample:', JSON.stringify(allCards[0] || null));
-console.log('ADV1 prefix sample:', allCards.filter(card => String(card.id || '').toLowerCase().startsWith('adv1-')).slice(0, 5).map(card => card.id));
-const ALT_API = 'https://www.jpn-cards.com/v2';
-for (const path of ['/sets', '/cards', '/sets/ADV1', '/cards?set=ADV1', '/cards?setId=ADV1']) {
-  try {
-    const response = await fetch(ALT_API + path, { headers: { 'User-Agent': 'tcg-collection-note-data-updater' } });
-    const body = await response.text();
-    console.log('ALT SOURCE PROBE', path, 'HTTP', response.status, 'content-type', response.headers.get('content-type'), 'body', body.slice(0, 180).replace(/\\s+/g, ' '));
-  } catch (error) {
-    console.log('ALT SOURCE PROBE', path, 'ERROR', error.message);
-  }
-}
 const sets = [];
 const failedSets = [];
 let next = 0;
