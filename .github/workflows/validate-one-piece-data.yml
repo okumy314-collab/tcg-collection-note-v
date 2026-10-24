@@ -6,12 +6,14 @@ on:
       - feature/japanese-one-piece-card-data
     paths:
       - "scripts/**"
+      - "fetch-poke.mjs"
       - ".github/workflows/**"
       - "index.html"
       - "data/**"
   pull_request:
     paths:
       - "scripts/fetch-op.mjs"
+      - "fetch-poke.mjs"
       - ".github/workflows/update-data.yml"
       - ".github/workflows/validate-one-piece-data.yml"
       - "index.html"
