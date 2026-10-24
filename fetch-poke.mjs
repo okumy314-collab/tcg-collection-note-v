@@ -16,6 +16,12 @@ async function get(path, tries = 4) {
 }
 const [list, allCards] = await Promise.all([get('/sets'), get('/cards')]);
 console.log('sets:', list.length, 'global Japanese cards:', allCards.length);
+try {
+  const rr = await fetch('https://pooka.app/ja/list/set/cards/ja-m6a/30th%20Celebration');
+  const html = await rr.text();
+  const ix = html.indexOf('タマタマ');
+  console.log('M6A SCRAPE PROBE', rr.status, html.length, 'firstNameIndex', ix, 'sample', html.slice(Math.max(0, ix - 500), ix + 1400).replace(/\\s+/g, ' '));
+} catch (e) { console.log('M6A SCRAPE PROBE ERROR', e.message); }
 
 const sets = [];
 const failedSets = [];
