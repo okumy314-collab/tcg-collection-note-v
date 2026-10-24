@@ -18623,7 +18623,7 @@
   "imageCandidateCollection": {
     "purpose": "Review-only candidate image URLs extracted from existing retailer references; these do not count as confirmed imageUrl values.",
     "script": "scripts/collect-ygo-image-candidates.py",
-    "cardsUpdatedThisRun": 1,
+    "cardsUpdatedThisRun": 0,
     "fetchFailuresThisRun": 0
   }
 }
