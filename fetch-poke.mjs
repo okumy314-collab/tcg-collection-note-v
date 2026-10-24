@@ -41,7 +41,7 @@ const sortedSetIds = [...bySetId.keys()].sort((a, b) => b.length - a.length);
 const fallbackCards = new Map();
 for (const card of allCards) {
   const cardId = String(card.id || '');
-  const matchedSetId = sortedSetIds.find(id => cardId.startsWith(id + '-'));
+  const matchedSetId = sortedSetIds.find(id => cardId.toLowerCase().startsWith(id.toLowerCase() + '-'));
   if (!matchedSetId) continue;
   const localId = String(card.localId ?? cardId.slice(matchedSetId.length + 1));
   const name = String(card.name ?? '').trim();
