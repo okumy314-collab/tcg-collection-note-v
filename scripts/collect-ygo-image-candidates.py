@@ -124,6 +124,10 @@ def main():
             walk_urls(card.get("retailerVariantEvidence", {}))
         ))
         all_urls = list(dict.fromkeys(ref_urls + evidence_urls))
+        # Seed one exact YAC1-JP001 retailer listing as a controlled diagnostic.
+        # It is used only to extract candidate URLs; it never promotes an image automatically.
+        if number == "YAC1-JP001":
+            all_urls.insert(0, "https://www.cardmax.jp/shopdetail/000000234571/")
         # Prefer exact product listings over category/catalog pages.
         def priority(url):
             low = url.lower()
