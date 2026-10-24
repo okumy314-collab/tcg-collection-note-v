@@ -36,6 +36,146 @@
       ],
       "imageCandidates": [
         {
+          "imageUrl": "https://makeshop-multi-images.akamaized.net/cardmax/itemimages/000000234571_syZQO3X.jpg",
+          "extractionSource": "meta:og:image",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/rogo_pink3.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/rogo_ny.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/rogo_xmas.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-02.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-01.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-09.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-10.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-03.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-04.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-05.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-13.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-28.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-11.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-15.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-12.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-17.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-18.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-14.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
+          "imageUrl": "https://gigaplus.makeshop.jp/cardmax/assets/images/pc/snav-19.png",
+          "extractionSource": "img-tag",
+          "sourcePageUrl": "https://www.cardmax.jp/shopdetail/000000234571/",
+          "status": "unverified_review_candidate",
+          "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+        },
+        {
           "imageUrl": "https://img08.shop-pro.jp/PA01034/747/category/2281963_125.png?cmsp_timestamp=20260926111150",
           "extractionSource": "meta:og:image",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
@@ -43,7 +183,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -177,7 +317,7 @@
         }
       ],
       "imageCandidateStatus": "needs_user_review",
-      "imageCandidateSourcePageCount": 1
+      "imageCandidateSourcePageCount": 2
     },
     {
       "id": "YAC1-JP002",
@@ -209,7 +349,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -375,7 +515,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -542,7 +682,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -709,7 +849,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -876,7 +1016,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -1043,7 +1183,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -1210,7 +1350,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -1377,7 +1517,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -1544,7 +1684,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -1709,7 +1849,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -1874,7 +2014,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -2039,7 +2179,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -2204,7 +2344,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -2368,7 +2508,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -2533,7 +2673,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -2697,7 +2837,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -2861,7 +3001,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -3025,7 +3165,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -3190,7 +3330,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -3354,7 +3494,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -3518,7 +3658,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -3682,7 +3822,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -3846,7 +3986,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -4010,7 +4150,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -4174,7 +4314,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -4338,7 +4478,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -4502,7 +4642,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -4666,7 +4806,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -4830,7 +4970,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -4994,7 +5134,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -5158,7 +5298,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -5322,7 +5462,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -5486,7 +5626,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -5650,7 +5790,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -5814,7 +5954,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -5978,7 +6118,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -6142,7 +6282,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -6306,7 +6446,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -6470,7 +6610,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -6634,7 +6774,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -6798,7 +6938,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -6961,7 +7101,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -7124,7 +7264,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -7288,7 +7428,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -7452,7 +7592,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -7616,7 +7756,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -7780,7 +7920,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -7945,7 +8085,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -8109,7 +8249,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -8273,7 +8413,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -8436,7 +8576,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -8600,7 +8740,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -8764,7 +8904,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -8927,7 +9067,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -9092,7 +9232,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -9257,7 +9397,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -9420,7 +9560,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -9583,7 +9723,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -9747,7 +9887,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -9911,7 +10051,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -10076,7 +10216,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -10244,7 +10384,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -10408,7 +10548,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -10572,7 +10712,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -10735,7 +10875,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -10898,7 +11038,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -11062,7 +11202,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -11225,7 +11365,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -11389,7 +11529,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -11570,7 +11710,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -11751,7 +11891,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -11931,7 +12071,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -12111,7 +12251,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -12293,7 +12433,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -12475,7 +12615,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -12656,7 +12796,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -12837,7 +12977,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -13015,7 +13155,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -13580,7 +13720,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -13775,7 +13915,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -14022,7 +14162,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -14206,7 +14346,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -14390,7 +14530,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -14649,7 +14789,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -14896,7 +15036,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -15086,7 +15226,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -15264,7 +15404,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -15533,7 +15673,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -15717,7 +15857,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -15900,7 +16040,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -16225,7 +16365,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -16499,7 +16639,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -16715,7 +16855,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -17024,7 +17164,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -17214,7 +17354,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -17488,7 +17628,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -17771,7 +17911,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -18045,7 +18185,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -18258,7 +18398,7 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261023121816",
+          "imageUrl": "https://img08.shop-pro.jp/PA01034/747/PA01034747.jpg?cmsp_timestamp=20261024141235",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate",
           "status": "unverified_review_candidate",
@@ -18404,7 +18544,7 @@
   "imageCandidateCollection": {
     "purpose": "Review-only candidate image URLs extracted from existing retailer references; these do not count as confirmed imageUrl values.",
     "script": "scripts/collect-ygo-image-candidates.py",
-    "cardsUpdatedThisRun": 0,
+    "cardsUpdatedThisRun": 100,
     "fetchFailuresThisRun": 0
   }
 }
