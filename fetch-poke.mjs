@@ -16,12 +16,6 @@ async function get(path, tries = 4) {
 }
 const [list, allCards] = await Promise.all([get('/sets'), get('/cards')]);
 console.log('sets:', list.length, 'global Japanese cards:', allCards.length);
-try {
-  const rr = await fetch('https://pooka.app/ja/list/set/cards/ja-m6a/30th%20Celebration');
-  const html = await rr.text();
-  const ix = html.indexOf('タマタマ');
-  console.log('M6A SCRAPE PROBE', rr.status, html.length, 'firstNameIndex', ix, 'sample', html.slice(Math.max(0, ix - 500), ix + 1400).replace(/\\s+/g, ' '));
-} catch (e) { console.log('M6A SCRAPE PROBE ERROR', e.message); }
 
 const sets = [];
 const failedSets = [];
@@ -44,8 +38,10 @@ sets.sort((a, b) => a.id.localeCompare(b.id));
 if (!sets.length) throw new Error('no data');
 // TCGdex may lag behind newly released Japanese products. Add metadata for recent sets
 // that are independently listed in current Japanese set catalogues, but never invent card rows.
+const m6aCardNames = "タマタマ|アローラ ナッシー|バルビート|イルミーゼ|ビビヨン|ファイヤー|ホウオウ|レシラム|ホゲータex|ヤドン|ラプラス|フリーザー|カイオーガ|パルキア|ゲッコウガex|ヨワシ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウ|ピカチュウex|ピカチュウex|サンダー|ゼクロム|ストリンダー|モルペコ|ミライドン|ミュウツー|ミュウツーex|ミュウ|ミュウex|エーフィ|ニンフィアex|アンノーン|フワンテ|シャンデラ|ゼルネアス|コスモッグ|コスモウム|ルナアーラ|コレクレー|グラードン|ルカリオ|ガマゲロゲ|ルガルガン|コライドン|ニドラン♀|ニドリーナ|アローラ ニャース|ゲンガーex|ブラッキー|ズルッグ|イベルタル|ガラル ニャース|ジラーチex|ディアルガ|ナットレイ|ソルガレオ|ザシアン|ザマゼンタ|サーフゴー|ボーマンダex|ジャラコ|ジャランゴ|ジャラランガ|ニャース|メタモン|イーブイ|カビゴン|ププリン|ルギア|ヒスイ ゾロア|ヒスイ ゾロアーク|イッカネズミ|ハイパーボール|ポケパッド|ポケモンいれかえ|アローラ ナッシー|ファイヤー|ラプラス|フリーザー|サンダー|ストリンダー|モルペコ|フワンテ|シャンデラ|ルガルガン|ニドリーナ|アローラ ニャース|ズルッグ|ガラル ニャース|サーフゴー|ジャラランガ|ニャース|メタモン|ヒスイ ゾロア|イッカネズミ|ホゲータex|ゲッコウガex|ピカチュウex|ピカチュウex|ミュウツーex|ミュウex|ニンフィアex|ゲンガーex|ジラーチex|ボーマンダex|ミュウツーex|ミュウex|ピカチュウ|リザードン|カスミ|エリカのプリン|ニューラ|ひかるセレビィ|ルギア|エネコロロ|わるいバンギラス|ハッサムex|メタグロス|パルキア|ユクシー|クロバットG[ギンガ]|ゲンガー|ダークライ&クレセリアLEGEND|ダークライ&クレセリアLEGEND|エヌ|レックウザEX|ゲノセクトEX|サーナイトEX|ゲッコウガBREAK|ソルガレオGX|マッシブーンGX|ピカチュウ&ゼクロムGX|ザシアンV|ライコウ|ミュウVMAX|アルセウスVSTAR|コイキング|ミュウ|ミュウ|ミュウ|基本草エネルギー|基本炎エネルギー|基本水エネルギー|基本雷エネルギー|基本超エネルギー|基本闘エネルギー|基本悪エネルギー|基本鋼エネルギー".split('|');
+if (m6aCardNames.length !== 176) throw new Error('M6a card list length mismatch: ' + m6aCardNames.length);
 const recentMetadata = [
-  { id: 'M6a', n: '30th CELEBRATION', r: 'MEGA', t: 111, source: 'https://www.30th.pokemon-card.com/product/m6a?rss=260918' },
+  { id: 'M6a', n: '30th CELEBRATION', r: 'MEGA', t: 176, source: 'https://pooka.app/ja/list/set/cards/ja-m6a/30th%20Celebration' },
   { id: 'MF', n: '30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー', r: 'MEGA', t: 49, source: 'https://www.30th.pokemon-card.com/' },
   { id: 'MP1', n: 'スタートデッキ100 バトルコレクション コロちゃおVer.', r: 'MEGA', t: 23, source: 'https://www.pokemon-card.com/' },
   { id: 'MBD', n: 'スターターセットMEGA メガディアンシーex', r: 'MEGA', t: 22, source: 'https://www.pokemon-card.com/' },
@@ -57,6 +53,12 @@ for (const meta of recentMetadata) {
   if (sets.some(s => s.id.toLowerCase() === meta.id.toLowerCase())) continue;
   sets.push({ ...meta, c: [], dataStatus: 'series_registered_card_list_pending' });
   addedRecentMetadata++;
+}
+const m6a = sets.find(s => s.id === 'M6a');
+if (m6a && m6a.c.length === 0) {
+  m6a.c = m6aCardNames.map((name, i) => [String(i + 1).padStart(3, '0'), name]);
+  m6a.dataStatus = 'card_names_imported_needs_image_and_official_crosscheck';
+  console.log('imported M6a card names:', m6a.c.length);
 }
 sets.sort((a, b) => a.id.localeCompare(b.id));
 console.log('recent product metadata added:', addedRecentMetadata);
