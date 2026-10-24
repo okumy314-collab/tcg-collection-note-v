@@ -36,6 +36,21 @@ async function worker() {
 await Promise.all([worker(), worker(), worker(), worker()]);
 sets.sort((a, b) => a.id.localeCompare(b.id));
 if (!sets.length) throw new Error('no data');
+// TCGdex does not yet list the Japanese 30th CELEBRATION set.
+// Keep the officially released set discoverable without inventing individual card entries.
+if (!sets.some(s => s.id === 'M6a')) {
+  sets.push({
+    id: 'M6a',
+    n: '30th CELEBRATION',
+    r: 'MEGA',
+    t: 187,
+    c: [],
+    source: 'https://www.30th.pokemon-card.com/product/m6a?rss=260918',
+    dataStatus: 'series_registered_card_list_pending'
+  });
+  sets.sort((a, b) => a.id.localeCompare(b.id));
+  console.log('registered official set metadata only: M6a 30th CELEBRATION; individual card names not fabricated');
+}
 // Recover set lists omitted from individual set responses using the global card index.
 const bySetId = new Map(sets.map(s => [s.id, s]));
 const sortedSetIds = [...bySetId.keys()].sort((a, b) => b.length - a.length);
