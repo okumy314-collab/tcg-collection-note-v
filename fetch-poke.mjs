@@ -68,7 +68,9 @@ const totalCards = sets.reduce((n, s) => n + s.c.length, 0);
 const summary = [
   '## ポケモンカードデータ取得結果',
   '',
-  '- APIシリーズ一覧: ' + list.length,\n  '- グローバルカード一覧: ' + allCards.length,\n  '- グローバル一覧から補完: ' + fallbackFilled + 'シリーズ,
+  '- APIシリーズ一覧: ' + list.length,
+  '- グローバルカード一覧: ' + allCards.length,
+  '- グローバル一覧から補完: ' + fallbackFilled + 'シリーズ',
   '- 詳細取得成功: ' + sets.length,
   '- 詳細取得失敗: ' + failedSets.length,
   '- 取得できたカード: ' + totalCards,
@@ -79,11 +81,11 @@ const summary = [
   '',
   '### 詳細取得に失敗したシリーズ',
   ...(failedSets.length ? failedSets.map(s => '- ' + s.id + ' — ' + s.name + ': ' + s.error) : ['- なし'])
-].join('\\n');
+].join('\n');
 console.log(summary);
 if (process.env.GITHUB_STEP_SUMMARY) {
   const { appendFile } = await import('node:fs/promises');
-  await appendFile(process.env.GITHUB_STEP_SUMMARY, summary + '\\n');
+  await appendFile(process.env.GITHUB_STEP_SUMMARY, summary + '\n');
 }
 // Never replace a previously good master with a partial download.
 if (failedSets.length > 0) {
