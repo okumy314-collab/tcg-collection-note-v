@@ -131,6 +131,23 @@ jobs:
           if (setsWithCards < 80 || totalCards < 1000) {
             throw new Error('ポケモンのカードデータが不足しています: ' + setsWithCards + 'シリーズ / ' + totalCards + '件');
           }
+          const emptySets = data.sets.filter(set => set.c.length === 0);
+          const audit = [
+            '## ポケモンカードデータ監査',
+            '',
+            '- シリーズ総数: ' + data.sets.length,
+            '- カード一覧あり: ' + setsWithCards + 'シリーズ',
+            '- カード一覧なし: ' + emptySets.length + 'シリーズ',
+            '- 収録カードレコード: ' + totalCards + '件',
+            '',
+            '### カード一覧が空のシリーズ（補完調査対象）',
+            ...emptySets.map(set => '- ' + set.id + ' — ' + set.n + '（登録総数: ' + set.t + '）')
+          ].join('\\n');
+          console.log(audit);
+          if (process.env.GITHUB_STEP_SUMMARY) {
+            const { appendFileSync } = await import('node:fs');
+            appendFileSync(process.env.GITHUB_STEP_SUMMARY, audit + '\\n');
+          }
           console.log('ポケモンデータ検証成功:', data.sets.length, 'シリーズ、', setsWithCards, 'シリーズにカード収録、', totalCards, '件');
           NODE
 
