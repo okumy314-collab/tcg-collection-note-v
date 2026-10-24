@@ -26,14 +26,14 @@ jobs:
           python-version: "3.x"
       - name: Extract review-only image candidates
         run: python scripts/collect-ygo-image-candidates.py
-      - name: Commit candidate metadata when changed
+      - name: Commit candidate metadata and summary when changed
         run: |
-          if git diff --quiet -- data/ygo-oac.json; then
+          if git diff --quiet -- data/ygo-oac.json data/ygo-oac-image-candidate-summary.json; then
             echo "No new image candidates were found."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ygo-oac.json
+          git add data/ygo-oac.json data/ygo-oac-image-candidate-summary.json
           git commit -m "Collect review-only YAC1 image candidates"
           git push origin HEAD:feature/japanese-one-piece-card-data
