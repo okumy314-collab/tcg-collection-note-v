@@ -14,8 +14,8 @@ async function get(path, tries = 4) {
     }
   }
 }
-const list = await get('/sets');
-console.log('sets:', list.length);
+const [list, allCards] = await Promise.all([get('/sets'), get('/cards')]);
+console.log('sets:', list.length, 'global Japanese cards:', allCards.length);
 const sets = [];
 const failedSets = [];
 let next = 0;
@@ -35,12 +35,40 @@ async function worker() {
 await Promise.all([worker(), worker(), worker(), worker()]);
 sets.sort((a, b) => a.id.localeCompare(b.id));
 if (!sets.length) throw new Error('no data');
+// Recover set lists omitted from individual set responses using the global card index.
+const bySetId = new Map(sets.map(s => [s.id, s]));
+const sortedSetIds = [...bySetId.keys()].sort((a, b) => b.length - a.length);
+const fallbackCards = new Map();
+for (const card of allCards) {
+  const cardId = String(card.id || '');
+  const matchedSetId = sortedSetIds.find(id => cardId.startsWith(id + '-'));
+  if (!matchedSetId) continue;
+  const localId = String(card.localId ?? cardId.slice(matchedSetId.length + 1));
+  const name = String(card.name ?? '').trim();
+  if (!localId || !name) continue;
+  if (!fallbackCards.has(matchedSetId)) fallbackCards.set(matchedSetId, []);
+  fallbackCards.get(matchedSetId).push([localId, name]);
+}
+let fallbackFilled = 0;
+for (const set of sets) {
+  if (set.c.length) continue;
+  const recovered = fallbackCards.get(set.id) || [];
+  if (!recovered.length) continue;
+  const seen = new Set();
+  set.c = recovered.filter(card => {
+    if (seen.has(card[0])) return false;
+    seen.add(card[0]);
+    return true;
+  }).sort((a, b) => a[0].localeCompare(b[0], undefined, { numeric: true }));
+  fallbackFilled++;
+  console.log('recovered from global card index:', set.id, set.c.length);
+}
 const emptySets = sets.filter(s => s.c.length === 0 && Number(s.t) > 0);
 const totalCards = sets.reduce((n, s) => n + s.c.length, 0);
 const summary = [
   '## ポケモンカードデータ取得結果',
   '',
-  '- APIシリーズ一覧: ' + list.length,
+  '- APIシリーズ一覧: ' + list.length,\n  '- グローバルカード一覧: ' + allCards.length,\n  '- グローバル一覧から補完: ' + fallbackFilled + 'シリーズ,
   '- 詳細取得成功: ' + sets.length,
   '- 詳細取得失敗: ' + failedSets.length,
   '- 取得できたカード: ' + totalCards,
