@@ -65,7 +65,7 @@ for (const set of sets) {
   console.log('recovered from global card index:', set.id, set.c.length);
 }
 const emptySets = sets.filter(s => s.c.length === 0 && Number(s.t) > 0);
-const recentSetIds = new Set(['M1L','M1S','M2','M2a','M3','M4','M5','M6','MC','SV10','SV11B','SV11W','SV9','SV9a']);
+const recentSetIds = new Set(['M1L','M1S','M2','M2a','M3','M4','M5','M6','M6a','MC','SV10','SV11B','SV11W','SV9','SV9a']);
 const recentSets = sets.filter(s => recentSetIds.has(s.id));
 const missingRecentSets = [...recentSetIds].filter(id => !bySetId.has(id));
 const emptyRecentSets = recentSets.filter(s => s.c.length === 0);
