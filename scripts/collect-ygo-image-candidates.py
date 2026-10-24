@@ -104,8 +104,8 @@ def main():
         number = str(card.get("cardNumber", ""))
         if not re.fullmatch(r"YAC1-JP\d{3}", number):
             continue
-        if card.get("imageUrl"):
-            continue
+        # Gather alternate candidates even when a current imageUrl exists.
+        # This is review-only; never overwrite the current imageUrl.
         ref_urls = list(dict.fromkeys(
             walk_urls(card.get("variantImageReferences", {}))
         ))
