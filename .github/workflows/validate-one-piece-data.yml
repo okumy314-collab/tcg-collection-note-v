@@ -1,13 +1,21 @@
 name: validate-one-piece-data
 
 on:
+  push:
+    branches:
+      - feature/japanese-one-piece-card-data
+    paths:
+      - "scripts/**"
+      - ".github/workflows/**"
+      - "index.html"
+      - "data/**"
   pull_request:
     paths:
       - "scripts/fetch-op.mjs"
       - ".github/workflows/update-data.yml"
       - ".github/workflows/validate-one-piece-data.yml"
       - "index.html"
-      - "data/ygo-oac.json"
+      - "data/**"
   workflow_dispatch:
 
 permissions:
@@ -90,6 +98,40 @@ jobs:
           }
           console.log('検証成功:', data.cards.length, '件');
           console.log('サンプル:', card[0], card[1], card[2]);
+          NODE
+
+      - name: Validate Pokemon card master data
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const data = JSON.parse(readFileSync('data/poke.json', 'utf8'));
+          if (!Array.isArray(data.sets) || data.sets.length < 100) {
+            throw new Error('ポケモンのシリーズ一覧が不足しています');
+          }
+          const ids = new Set();
+          let totalCards = 0;
+          let setsWithCards = 0;
+          for (const set of data.sets) {
+            if (!set.id || !set.n || !Number.isFinite(Number(set.t)) || Number(set.t) < 0 || !Array.isArray(set.c)) {
+              throw new Error('シリーズデータの形式が不正です: ' + JSON.stringify(set).slice(0, 100));
+            }
+            if (ids.has(set.id)) throw new Error('シリーズIDが重複しています: ' + set.id);
+            ids.add(set.id);
+            if (set.c.length > 0) setsWithCards++;
+            totalCards += set.c.length;
+            const cardNos = new Set();
+            for (const card of set.c) {
+              if (!Array.isArray(card) || card.length < 2 || !String(card[0]).trim() || !String(card[1]).trim()) {
+                throw new Error('カード番号またはカード名が不足しています: ' + set.id);
+              }
+              if (cardNos.has(String(card[0]))) throw new Error('シリーズ内カード番号が重複しています: ' + set.id + '-' + card[0]);
+              cardNos.add(String(card[0]));
+            }
+          }
+          if (setsWithCards < 80 || totalCards < 1000) {
+            throw new Error('ポケモンのカードデータが不足しています: ' + setsWithCards + 'シリーズ / ' + totalCards + '件');
+          }
+          console.log('ポケモンデータ検証成功:', data.sets.length, 'シリーズ、', setsWithCards, 'シリーズにカード収録、', totalCards, '件');
           NODE
 
       - name: Validate Yu-Gi-Oh ORIGINAL ARTWORK COLLECTION data
