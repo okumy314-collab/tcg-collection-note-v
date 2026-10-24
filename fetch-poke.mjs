@@ -16,9 +16,7 @@ async function get(path, tries = 4) {
 }
 const [list, allCards] = await Promise.all([get('/sets'), get('/cards')]);
 console.log('sets:', list.length, 'global Japanese cards:', allCards.length);
-const prefixCounts = new Map();
-for (const card of allCards) { const id = String(card.id || ''); const prefix = id.includes('-') ? id.slice(0, id.lastIndexOf('-')) : id; prefixCounts.set(prefix, (prefixCounts.get(prefix) || 0) + 1); }
-console.log('modern card ID prefixes:', [...prefixCounts.entries()].filter(([prefix]) => /^(M|SV)/i.test(prefix)).sort((a,b)=>a[0].localeCompare(b[0])).map(([prefix,count])=>prefix+':'+count).join(', '));
+
 const sets = [];
 const failedSets = [];
 let next = 0;
@@ -67,6 +65,13 @@ for (const set of sets) {
   console.log('recovered from global card index:', set.id, set.c.length);
 }
 const emptySets = sets.filter(s => s.c.length === 0 && Number(s.t) > 0);
+const recentSetIds = new Set(['M1L','M1S','M2','M2a','M3','M4','M5','M6','MC','SV10','SV11B','SV11W','SV9','SV9a']);
+const recentSets = sets.filter(s => recentSetIds.has(s.id));
+const missingRecentSets = [...recentSetIds].filter(id => !bySetId.has(id));
+const emptyRecentSets = recentSets.filter(s => s.c.length === 0);
+if (missingRecentSets.length || emptyRecentSets.length) {
+  console.warn('最近シリーズ要確認:', JSON.stringify({missingRecentSets, emptyRecentSets: emptyRecentSets.map(s => s.id)}));
+}
 const totalCards = sets.reduce((n, s) => n + s.c.length, 0);
 const summary = [
   '## ポケモンカードデータ取得結果',
@@ -77,9 +82,12 @@ const summary = [
   '- 詳細取得成功: ' + sets.length,
   '- 詳細取得失敗: ' + failedSets.length,
   '- 取得できたカード: ' + totalCards,
-  '- 公式収録数はあるがカード一覧が空: ' + emptySets.length,
+  '- 公式収録数はあるがカード一覧が空（全期間）: ' + emptySets.length,\n  '- 2025〜2026年の主要シリーズ: ' + recentSets.length + '/' + recentSetIds.size,\n  '- 2025〜2026年の主要シリーズでカード一覧が空: ' + emptyRecentSets.length,\n  '- 2025〜2026年の主要シリーズ一覧に未登録: ' + missingRecentSets.length,
   '',
-  '### カード一覧が空のシリーズ',
+  '### 2025〜2026年の主要シリーズ確認',
+  ...recentSets.map(s => '- ' + s.id + ' — ' + s.n + ': ' + s.c.length + '件'),
+  '',
+  '### カード一覧が空のシリーズ（旧シリーズ含む）',
   ...emptySets.map(s => '- ' + s.id + ' — ' + s.n + '（公式収録数: ' + s.t + '）'),
   '',
   '### 詳細取得に失敗したシリーズ',
