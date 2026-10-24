@@ -16,6 +16,9 @@ async function get(path, tries = 4) {
 }
 const [list, allCards] = await Promise.all([get('/sets'), get('/cards')]);
 console.log('sets:', list.length, 'global Japanese cards:', allCards.length);
+console.log('global card ID samples:', allCards.slice(0, 8).map(card => card.id));
+console.log('global card object sample:', JSON.stringify(allCards[0] || null));
+console.log('ADV1 prefix sample:', allCards.filter(card => String(card.id || '').toLowerCase().startsWith('adv1-')).slice(0, 5).map(card => card.id));
 const sets = [];
 const failedSets = [];
 let next = 0;
