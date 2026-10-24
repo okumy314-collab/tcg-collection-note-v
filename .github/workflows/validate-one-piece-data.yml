@@ -148,6 +148,18 @@ jobs:
           if (!['partial_verified', 'verified_full_list', 'image_urls_partially_verified'].includes(data.datasetStatus)) {
             throw new Error('データ状態が明示されていません');
           }
+          const imageUrls = new Set();
+          for (const card of data.cards) {
+            if (typeof card.imageUrl !== 'string' || !/^https:\/\//.test(card.imageUrl)) {
+              throw new Error('画像URLが未設定、またはHTTPSではありません: ' + card.cardNumber);
+            }
+            if (imageUrls.has(card.imageUrl)) {
+              throw new Error('画像URLが重複しています: ' + card.cardNumber);
+            }
+            imageUrls.add(card.imageUrl);
+          }
+          if (imageUrls.size !== 100) throw new Error('YAC1画像URLが100件そろっていません');
+          console.log('YAC1画像URL検証成功: 100件、HTTPS・重複なし（画像内容の一致は別途目視確認）');
           const ids = new Set();
           const cardNumbers = new Set();
           for (const card of data.cards) {
