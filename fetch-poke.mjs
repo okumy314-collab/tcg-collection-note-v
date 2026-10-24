@@ -36,21 +36,24 @@ async function worker() {
 await Promise.all([worker(), worker(), worker(), worker()]);
 sets.sort((a, b) => a.id.localeCompare(b.id));
 if (!sets.length) throw new Error('no data');
-// TCGdex does not yet list the Japanese 30th CELEBRATION set.
-// Keep the officially released set discoverable without inventing individual card entries.
-if (!sets.some(s => s.id === 'M6a')) {
-  sets.push({
-    id: 'M6a',
-    n: '30th CELEBRATION',
-    r: 'MEGA',
-    t: 187,
-    c: [],
-    source: 'https://www.30th.pokemon-card.com/product/m6a?rss=260918',
-    dataStatus: 'series_registered_card_list_pending'
-  });
-  sets.sort((a, b) => a.id.localeCompare(b.id));
-  console.log('registered official set metadata only: M6a 30th CELEBRATION; individual card names not fabricated');
+// TCGdex may lag behind newly released Japanese products. Add metadata for recent sets
+// that are independently listed in current Japanese set catalogues, but never invent card rows.
+const recentMetadata = [
+  { id: 'M6a', n: '30th CELEBRATION', r: 'MEGA', t: 111, source: 'https://www.30th.pokemon-card.com/product/m6a?rss=260918' },
+  { id: 'MF', n: '30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー', r: 'MEGA', t: 49, source: 'https://www.30th.pokemon-card.com/' },
+  { id: 'MP1', n: 'スタートデッキ100 バトルコレクション コロちゃおVer.', r: 'MEGA', t: 23, source: 'https://www.pokemon-card.com/' },
+  { id: 'MBD', n: 'スターターセットMEGA メガディアンシーex', r: 'MEGA', t: 22, source: 'https://www.pokemon-card.com/' },
+  { id: 'MBG', n: 'スターターセットMEGA メガゲンガーex', r: 'MEGA', t: 22, source: 'https://www.pokemon-card.com/' },
+  { id: 'MA', n: 'プレミアムトレーナーボックス メガバトル', r: 'MEGA', t: 43, source: 'https://www.pokemon-card.com/' },
+];
+let addedRecentMetadata = 0;
+for (const meta of recentMetadata) {
+  if (sets.some(s => s.id.toLowerCase() === meta.id.toLowerCase())) continue;
+  sets.push({ ...meta, c: [], dataStatus: 'series_registered_card_list_pending' });
+  addedRecentMetadata++;
 }
+sets.sort((a, b) => a.id.localeCompare(b.id));
+console.log('recent product metadata added:', addedRecentMetadata);
 // Recover set lists omitted from individual set responses using the global card index.
 const bySetId = new Map(sets.map(s => [s.id, s]));
 const sortedSetIds = [...bySetId.keys()].sort((a, b) => b.length - a.length);
@@ -80,7 +83,7 @@ for (const set of sets) {
   console.log('recovered from global card index:', set.id, set.c.length);
 }
 const emptySets = sets.filter(s => s.c.length === 0 && Number(s.t) > 0);
-const recentSetIds = new Set(['M1L','M1S','M2','M2a','M3','M4','M5','M6','M6a','MC','SV10','SV11B','SV11W','SV9','SV9a']);
+const recentSetIds = new Set(['M1L','M1S','M2','M2a','M3','M4','M5','M6','M6a','MF','MP1','MBD','MBG','MA','MC','SV10','SV11B','SV11W','SV9','SV9a']);
 const recentSets = sets.filter(s => recentSetIds.has(s.id));
 const missingRecentSets = [...recentSetIds].filter(id => !bySetId.has(id));
 const emptyRecentSets = recentSets.filter(s => s.c.length === 0);
