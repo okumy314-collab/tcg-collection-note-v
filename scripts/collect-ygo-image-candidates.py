@@ -169,6 +169,25 @@ def main():
         "cardsUpdatedThisRun": changed_cards,
         "fetchFailuresThisRun": failures
     }
+    summary = {
+        "purpose": "Review-only candidates; URLs are not confirmed until artwork is checked.",
+        "cardsWithCandidates": sum(bool(card.get("imageCandidates")) for card in data.get("cards", [])),
+        "candidateCount": sum(len(card.get("imageCandidates", [])) for card in data.get("cards", [])),
+        "fetchFailuresThisRun": failures,
+        "cards": [
+            {
+                "cardNumber": card.get("cardNumber"),
+                "name": card.get("name"),
+                "candidateCount": len(card.get("imageCandidates", [])),
+                "candidates": card.get("imageCandidates", [])[:5]
+            }
+            for card in data.get("cards", [])
+            if card.get("imageCandidates")
+        ]
+    }
+    Path("data/ygo-oac-image-candidate-summary.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
     DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Candidate metadata updated for {changed_cards} cards; page/image fetch failures: {failures}. Confirmed imageUrl fields were not changed.")
 
