@@ -145,7 +145,7 @@ jobs:
           if (data.totalCardTypes !== 100 || data.knownCards !== 100 || data.cards.length !== 100) {
             throw new Error('遊戯王OAC全100種類がそろっていません');
           }
-          if (!['partial_verified', 'verified_full_list'].includes(data.datasetStatus)) {
+          if (!['partial_verified', 'verified_full_list', 'image_urls_partially_verified'].includes(data.datasetStatus)) {
             throw new Error('データ状態が明示されていません');
           }
           const ids = new Set();
