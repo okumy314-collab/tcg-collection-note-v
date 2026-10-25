@@ -5,6 +5,7 @@ Never overwrites imageUrl. The results are review-only and should not be treated
 as a confirmed YAC1 print until a human checks the artwork.
 """
 import html
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import re
 import time
@@ -124,14 +125,37 @@ def probe_image_url(url):
 
 def main():
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
-    # Test the exact direct-image naming convention already used by approved JP081-JP100.
-    # Report only: a reachable file is not proof that its artwork matches the card.
-    print("Direct image endpoint probe using the approved JP081-JP100 URL pattern:")
-    for n in (1, 2, 3, 79, 80, 81, 100):
-        card_no = f"YAC1-JP{n:03d}"
-        url = f"https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/{card_no}.jpg"
-        status, content_type = probe_image_url(url)
-        print(f"{card_no}: HTTP {status}; content-type={content_type}; url={url}")
+    # Check every numbered YAC1 direct-image URL, not just a handful of samples.
+    # Reachability is evidence only; it does not independently confirm the artwork.
+    direct_checks = []
+    urls = {
+        n: f"https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP{n:03d}.jpg"
+        for n in range(1, 101)
+    }
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        futures = {
+            pool.submit(probe_image_url, url): n
+            for n, url in urls.items()
+        }
+        for future in as_completed(futures):
+            n = futures[future]
+            try:
+                status, content_type = future.result()
+            except Exception:
+                status, content_type = 0, "probe_error"
+            direct_checks.append({
+                "cardNumber": f"YAC1-JP{n:03d}",
+                "url": urls[n],
+                "httpStatus": status,
+                "contentType": content_type,
+                "reachableImage": status == 200 and content_type.startswith("image/"),
+                "artworkStillNeedsVisualConfirmation": True
+            })
+    direct_checks.sort(key=lambda item: item["cardNumber"])
+    reachable_count = sum(item["reachableImage"] for item in direct_checks)
+    print(f"Direct image URL checks: {reachable_count}/100 reachable image endpoints.")
+    for item in direct_checks:
+        print(f'{item["cardNumber"]}: HTTP {item["httpStatus"]}; {item["contentType"]}')
     changed_cards = 0
     failures = 0
     image_urls_updated = 0
@@ -220,6 +244,12 @@ def main():
     }
     summary = {
         "purpose": "Review-only candidates; URLs are not confirmed until artwork is checked.",
+        "directImageEndpointChecks": {
+            "checkedCount": len(direct_checks),
+            "reachableImageCount": reachable_count,
+            "unreachableOrUnexpectedCount": len(direct_checks) - reachable_count,
+            "checks": direct_checks
+        },
         "cardsWithCandidates": sum(bool(card.get("imageCandidates")) for card in data.get("cards", [])),
         "candidateCount": sum(len(card.get("imageCandidates", [])) for card in data.get("cards", [])),
         "fetchFailuresThisRun": failures,
