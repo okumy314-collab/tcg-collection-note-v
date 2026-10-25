@@ -163,15 +163,15 @@ def main():
         number = str(card.get("cardNumber", ""))
         if not re.fullmatch(r"YAC1-JP\d{3}", number):
             continue
-        # Apply the reachable direct-image URL pattern to JP001-JP079 for user review.
-        # Keep the old URL for rollback; artwork still needs visual confirmation.
+        # Normalize the direct-image URL pattern across all 100 approved YAC1 cards.
+        # The endpoint audit below confirms availability, not artwork identity.
         serial = int(number[-3:])
-        if 1 <= serial <= 79:
+        if 1 <= serial <= 100:
             direct_url = f"https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/{number}.jpg"
             if card.get("imageUrl") != direct_url:
                 card.setdefault("previousImageUrlBeforeDirectPatternTest", card.get("imageUrl", ""))
                 card["imageUrl"] = direct_url
-                card["imageStatus"] = "direct_image_endpoint_available_artwork_needs_user_review"
+                card["imageStatus"] = "direct_image_endpoint_available_artwork_needs_visual_confirmation"
                 image_urls_updated += 1
         # Gather alternate candidates even when a current imageUrl exists.
         # This is review-only; never overwrite the current imageUrl.
@@ -268,7 +268,7 @@ def main():
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Candidate metadata updated for {changed_cards} cards; direct imageUrl pattern applied to {image_urls_updated} cards (JP001-JP079); page/image fetch failures: {failures}. Artwork remains unverified and previous URLs were retained for rollback.")
+    print(f"Candidate metadata updated for {changed_cards} cards; direct imageUrl pattern applied to {image_urls_updated} cards (JP001-JP100); page/image fetch failures: {failures}. Endpoint availability does not independently confirm artwork; previous URLs were retained for rollback.")
 
 if __name__ == "__main__":
     main()
