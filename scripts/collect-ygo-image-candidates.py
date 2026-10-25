@@ -217,12 +217,29 @@ def main():
                         extracted = [item for item in extracted
                                      if f"yac1{card_no}" in item["imageUrl"].lower()
                                      or f"yac1-jp{card_no}" in item["imageUrl"].lower()]
+                    # Reject obvious category thumbnails and shared shop chrome.
+                    # They were a major source of repeated non-card images in candidate lists.
+                    page_is_category = any(token in page_lower for token in (
+                        "/category/", "mode=cate", "product-list", "card_search.action"
+                    ))
+                    if page_is_category:
+                        extracted = [
+                            item for item in extracted
+                            if f"yac1-jp{number[-3:]}" in item["imageUrl"].lower()
+                            or f"yac1{number[-3:]}" in item["imageUrl"].lower()
+                        ]
                     for item in extracted:
+                        image_lower = item["imageUrl"].lower()
+                        if any(token in image_lower for token in (
+                            "/category/", "logo", "icon", "banner", "sprite",
+                            "payment", "cart", "layout_photo", "layout_text"
+                        )):
+                            continue
                         candidate = {
                             **item,
                             "sourcePageUrl": page_url,
                             "status": "unverified_review_candidate",
-                            "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
+                            "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
                         }
                         if candidate["imageUrl"] not in [x["imageUrl"] for x in candidates]:
                             candidates.append(candidate)
