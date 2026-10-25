@@ -39,4 +39,15 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/poke.json data/op.json
           git diff --cached --quiet || git commit -m "Update Pokémon and One Piece card data"
-          git push
+          # Image-candidate collection may commit to the same branch at the same time.
+          # Rebase our generated-data commit onto the latest branch before pushing.
+          for attempt in 1 2 3; do
+            if git push origin HEAD; then
+              exit 0
+            fi
+            git fetch origin feature/japanese-one-piece-card-data
+            git rebase origin/feature/japanese-one-piece-card-data
+            sleep $((attempt * 2))
+          done
+          echo "Failed to push generated card data after three attempts." >&2
+          exit 1
