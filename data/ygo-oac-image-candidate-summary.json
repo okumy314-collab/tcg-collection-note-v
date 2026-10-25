@@ -1,5 +1,812 @@
 {
   "purpose": "Review-only candidates; URLs are not confirmed until artwork is checked.",
+  "directImageEndpointChecks": {
+    "checkedCount": 100,
+    "reachableImageCount": 100,
+    "unreachableOrUnexpectedCount": 0,
+    "checks": [
+      {
+        "cardNumber": "YAC1-JP001",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP001.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP002",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP002.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP003",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP003.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP004",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP004.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP005",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP005.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP006",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP006.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP007",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP007.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP008",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP008.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP009",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP009.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP010",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP010.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP011",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP011.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP012",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP012.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP013",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP013.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP014",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP014.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP015",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP015.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP016",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP016.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP017",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP017.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP018",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP018.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP019",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP019.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP020",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP020.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP021",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP021.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP022",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP022.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP023",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP023.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP024",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP024.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP025",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP025.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP026",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP026.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP027",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP027.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP028",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP028.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP029",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP029.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP030",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP030.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP031",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP031.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP032",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP032.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP033",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP033.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP034",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP034.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP035",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP035.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP036",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP036.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP037",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP037.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP038",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP038.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP039",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP039.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP040",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP040.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP041",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP041.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP042",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP042.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP043",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP043.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP044",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP044.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP045",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP045.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP046",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP046.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP047",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP047.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP048",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP048.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP049",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP049.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP050",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP050.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP051",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP051.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP052",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP052.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP053",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP053.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP054",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP054.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP055",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP055.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP056",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP056.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP057",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP057.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP058",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP058.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP059",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP059.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP060",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP060.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP061",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP061.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP062",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP062.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP063",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP063.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP064",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP064.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP065",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP065.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP066",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP066.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP067",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP067.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP068",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP068.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP069",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP069.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP070",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP070.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP071",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP071.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP072",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP072.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP073",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP073.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP074",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP074.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP075",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP075.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP076",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP076.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP077",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP077.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP078",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP078.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP079",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP079.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP080",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP080.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP081",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP081.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP082",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP082.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP083",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP083.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP084",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP084.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP085",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP085.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP086",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP086.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP087",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP087.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP088",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP088.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP089",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP089.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP090",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP090.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP091",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP091.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP092",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP092.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP093",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP093.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP094",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP094.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP095",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP095.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP096",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP096.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP097",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP097.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP098",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP098.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP099",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP099.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      },
+      {
+        "cardNumber": "YAC1-JP100",
+        "url": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP100.jpg",
+        "httpStatus": 200,
+        "contentType": "image/jpeg",
+        "reachableImage": true,
+        "artworkStillNeedsVisualConfirmation": true
+      }
+    ]
+  },
   "cardsWithCandidates": 100,
   "candidateCount": 2186,
   "fetchFailuresThisRun": 0,

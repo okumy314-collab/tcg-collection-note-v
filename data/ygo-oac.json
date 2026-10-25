@@ -13659,14 +13659,14 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://assets.e-starbox.com/assets/img/product/YAC1-JP080.jpg?20260911_1000",
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/WJ-01.jpg?20260911_1000",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
           "status": "unverified_review_candidate",
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         },
         {
-          "imageUrl": "https://assets.e-starbox.com/assets/img/product/WJ-01.jpg?20260911_1000",
+          "imageUrl": "https://assets.e-starbox.com/assets/img/product/YAC1-JP080.jpg?20260911_1000",
           "extractionSource": "img-tag",
           "sourcePageUrl": "https://tcgkakaku.e-starbox.com/yg/card_list?no=YAC1%2FJP080SE",
           "status": "unverified_review_candidate",
@@ -18623,7 +18623,7 @@
   "imageCandidateCollection": {
     "purpose": "Review-only candidate image URLs extracted from existing retailer references; these do not count as confirmed imageUrl values.",
     "script": "scripts/collect-ygo-image-candidates.py",
-    "cardsUpdatedThisRun": 0,
+    "cardsUpdatedThisRun": 1,
     "fetchFailuresThisRun": 0
   }
 }
