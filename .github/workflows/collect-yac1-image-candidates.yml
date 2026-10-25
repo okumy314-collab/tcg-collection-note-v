@@ -36,4 +36,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/ygo-oac.json data/ygo-oac-image-candidate-summary.json
           git commit -m "Collect review-only YAC1 image candidates"
-          git push origin HEAD:feature/japanese-one-piece-card-data
+          # The card-data updater may push at the same time. Retry after rebasing.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:feature/japanese-one-piece-card-data; then
+              exit 0
+            fi
+            git fetch origin feature/japanese-one-piece-card-data
+            git rebase origin/feature/japanese-one-piece-card-data
+            sleep $((attempt * 2))
+          done
+          echo "Failed to push image-candidate metadata after three attempts." >&2
+          exit 1
