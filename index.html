@@ -183,7 +183,7 @@ async function masterFindImage(c){
  if(!name||!no||!pack)return null;
  if(c.g==='op'){
   const wantedRarity=masterImageRarity(c.rarity);
-  const hit=OPI.find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&masterImagePackMatches(c,x.packName)&&masterImageRarity(x.rarity)===wantedRarity&&x.img);
+  const hit=OPI.find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&masterImagePackMatches(c,x.packName)&&masterImageRarity(x.rarity)===wantedRarity&&Boolean(x.parallel)===Boolean(c.parallel)&&x.img);
   return hit?{url:hit.img,status:'official_card_data_exact_pack'}:null;
  }
  if(c.g==='ygo'){
@@ -228,9 +228,9 @@ async function masterFindImage(c){
     const wantedRarity=masterImageRarity(c.rarity),sourceRarity=masterImageRarity(detail.rarity||'');
     if(!wantedRarity||!sourceRarity||wantedRarity!==sourceRarity)return null;
    }
-  }else if(c.rarity)return null;
+  }
   const url=item.s?.r&&item.s?.id?'https://assets.tcgdex.net/ja/'+encodeURIComponent(item.s.r)+'/'+encodeURIComponent(item.s.id)+'/'+encodeURIComponent(item.l)+'/low.webp':'';
-  return url?{url,status:c.rarity?'tcgdex_exact_set_number_name_rarity':'tcgdex_exact_set_number_name_rarity_unspecified'}:null;
+  return url?{url,status:detail&&c.rarity?'tcgdex_exact_set_number_name_rarity':'tcgdex_exact_set_number_name'}:null;
  }
  return null;
 }
