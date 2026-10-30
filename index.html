@@ -334,7 +334,7 @@ function msearch(i){const q=$('#mq').value.trim();window.open(GN[mg].s[i][1]+enc
 function render(){
  $('#app').innerHTML={home,coll,mk}[view]();
  document.querySelectorAll('nav .tb[data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v==view))}
-function go(v){view=v;render();scrollTo(0,0)}
+function go(v){view=v;render();scrollTo(0,0);if(v==='coll')masterAutoFetchAll().then(()=>{if(view==='coll')render()})}
 document.querySelectorAll('nav .tb[data-v]').forEach(b=>b.onclick=()=>go(b.dataset.v));
 function upd(id,p){const c=S.cards.find(x=>x.id==id);if(c&&p>=0){c.price=p;save();render();toast('✓ 相場を更新しました')}}
 function changeQty(id,d){const c=S.cards.find(x=>x.id==id);if(!c)return;const current=Math.max(1,Number(c.qty)||1),next=current+d;if(next<1){toast('所持数は1枚以上にしてください');return}c.qty=next;save();render();toast('✓ 所持数：'+c.qty+'枚')}
