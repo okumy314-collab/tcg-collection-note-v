@@ -170,9 +170,19 @@ async function masterFindImage(c){
   const productCode=masterImageNorm(c.no||'').split('-')[0];
   const ygoPackMatch=!!wantedPack&&(wantedPack.includes('originalartworkcollection')&&productCode==='yac1');
   if(!ygoPackMatch)return null;
-  const hit=YGOI.find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name&&(x.imageUrl||(x.imageCandidates&&x.imageCandidates[0]&&x.imageCandidates[0].imageUrl)));
-  const url=hit&&(hit.imageUrl||(hit.imageCandidates&&hit.imageCandidates[0]&&hit.imageCandidates[0].imageUrl));
-  return url?{url,status:hit.imageStatus||'candidate_unverified'}:null;
+  const hit=YGOI.find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name);
+  if(!hit)return null;
+  const rarity=String(c.rarity||'').normalize('NFKC').trim();
+  const variants=hit.imageVariants||hit.variantImages||{};
+  let variant=null;
+  if(Array.isArray(variants)){
+   variant=variants.find(v=>masterImageNorm(v.rarity)===masterImageNorm(rarity)&&v.imageUrl);
+  }else{
+   const key=Object.keys(variants).find(k=>masterImageNorm(k)===masterImageNorm(rarity));
+   if(key&&variants[key])variant=typeof variants[key]==='string'?{imageUrl:variants[key]}:variants[key];
+  }
+  const url=variant&&(variant.imageUrl||variant.url);
+  return url?{url,status:variant.status||'rarity_variant_exact'}:null;
  }
  if(c.g==='poke'){
   const m=String(c.no||'').match(/^([0-9]+)/),localId=m?m[1]:String(c.no||'');
