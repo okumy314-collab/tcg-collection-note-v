@@ -143,7 +143,20 @@ function masterImageRarity(v){
  const s=masterImageNorm(v).replace(/[（(].*?[）)]/g,'');
  return ({leader:'l',リーダー:'l',l:'l',common:'c',コモン:'c',c:'c',uncommon:'uc',アンコモン:'uc',uc:'uc',rare:'r',レア:'r',r:'r',superrare:'sr',スーパーレア:'sr',sr:'sr',secretrare:'sec',シークレットレア:'sec',sec:'sec',special:'sp',スペシャル:'sp',sp:'sp'})[s]||s;
 }
-function masterImagePackMatches(c,packName){const wanted=masterImagePack(c),actual=masterImageNorm(packName);return !!wanted&&!!actual&&wanted===actual}
+function masterImagePackCode(v){
+ const m=String(v||'').normalize('NFKC').toUpperCase().match(/(OP|EB|PRB|ST)[-‐ー\s]*(\\d{1,2})/);
+ return m?m[1]+String(m[2]).padStart(2,'0'):'';
+}
+function masterImagePackMatches(c,packName){
+ const wanted=masterImagePack(c),actual=masterImageNorm(packName);
+ if(wanted&&actual&&wanted===actual)return true;
+ const cardCode=masterImagePackCode(c.no||c.cardNo),sourceCode=masterImagePackCode(packName);
+ if(cardCode&&sourceCode&&cardCode===sourceCode){
+  const selectedCode=masterImagePackCode(c.series||c.pack||'');
+  return !selectedCode||selectedCode===sourceCode;
+ }
+ return false;
+}
 async function masterFindImage(c){
  const name=masterImageNorm(c.name),no=masterImageNorm(c.no||''),pack=masterImagePack(c);
  if(!name||!no||!pack)return null;
