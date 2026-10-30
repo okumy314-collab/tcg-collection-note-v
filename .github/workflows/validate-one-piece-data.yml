@@ -1,0 +1,251 @@
+name: validate-one-piece-data
+
+on:
+  push:
+    branches:
+      - feature/japanese-one-piece-card-data
+    paths:
+      - "scripts/**"
+      - "fetch-poke.mjs"
+      - ".github/workflows/**"
+      - "index.html"
+      - "data/**"
+  pull_request:
+    paths:
+      - "scripts/fetch-op.mjs"
+      - "fetch-poke.mjs"
+      - ".github/workflows/update-data.yml"
+      - ".github/workflows/validate-one-piece-data.yml"
+      - "index.html"
+      - "data/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check updater syntax
+        run: node --check scripts/fetch-op.mjs
+
+      - name: Check app script syntax
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          const html = readFileSync('index.html', 'utf8');
+          const scripts = [];
+          let cursor = 0;
+          while (true) {
+            const open = html.indexOf('<script', cursor);
+            if (open < 0) break;
+            const contentStart = html.indexOf('>', open);
+            const close = html.indexOf('</script>', contentStart + 1);
+            if (contentStart < 0 || close < 0) throw new Error('scriptタグの閉じ方が不正です');
+            scripts.push(html.slice(contentStart + 1, close));
+            cursor = close + '</script>'.length;
+          }
+          if (!scripts.length) throw new Error('index.html のスクリプトが見つかりません');
+          writeFileSync('/tmp/tcg-app-check.js', scripts.join('\n'));
+          NODE
+          node --check /tmp/tcg-app-check.js
+
+      - name: Validate shared search, pack dropdown, and registration wiring
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const html = readFileSync('index.html', 'utf8');
+          const checks = [
+            ['dynamic pack dropdown is used in registration', html.includes('id="fs" onchange="togglePackCustom()"') && html.includes('${packOpts(F.g)}')],
+            ['pack dropdown includes loaded card master data', html.includes("loadedPacks=g==='poke'?PKI.map") && html.includes("g==='op'?OPI.map") && html.includes("g==='ygo'?YGOI.map")],
+            ['custom pack name can be entered', html.includes('function togglePackCustom()') && html.includes('id="fs2"')],
+            ['registration persists exact pack name', html.includes('pack:selectedPack') && html.includes('series:selectedPack')],
+            ['registration persists selected card image', html.includes("img:F.img||''")],
+            ['selected card opens shop-specific search', html.includes('function selectedPricePanel(') && html.includes('function fq(i)') && html.includes('window.open(url')],
+            ['Yu-Gi-Oh OAC appears in series options', html.includes('ORIGINAL ARTWORK COLLECTION (OAC)')],
+            ['One Piece card master is loaded from local data', html.includes("fetch('data/op.json')")],
+            ['card number search exists for all three titles', html.includes('function candOP()') && html.includes('normYgo(x.cardNumber).includes(nNo)') && html.includes('localByNo=PKI.filter')]
+          ];
+          const failed = checks.filter(([, ok]) => !ok);
+          for (const [name, ok] of checks) console.log((ok ? 'PASS ' : 'FAIL ') + name);
+          if (failed.length) throw new Error(failed.length + ' app integration checks failed');
+          NODE
+      - name: Generate Japanese One Piece card data
+        run: node scripts/fetch-op.mjs
+
+      - name: Validate generated data
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const data = JSON.parse(readFileSync('data/op.json', 'utf8'));
+          if (!Array.isArray(data.cards) || data.cards.length < 200) {
+            throw new Error('カードデータが空、または件数不足です');
+          }
+          const card = data.cards.find(x => x[0] === 'OP01-001');
+          if (!card || card[1] !== 'ロロノア・ゾロ') {
+            throw new Error('日本語カード名の検証に失敗しました');
+          }
+          if (!card[3].startsWith('https://www.onepiece-cardgame.com/images/cardlist/card/')) {
+            throw new Error('公式カード画像URLの検証に失敗しました');
+          }
+          if (!data.cards.every(x => x.length === 7 && x[0] && x[1] && x[2] && x[3])) {
+            throw new Error('データ項目の形式が不正です');
+          }
+          console.log('検証成功:', data.cards.length, '件');
+          console.log('サンプル:', card[0], card[1], card[2]);
+          NODE
+
+      - name: Validate Pokemon card master data
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const data = JSON.parse(readFileSync('data/poke.json', 'utf8'));
+          if (!Array.isArray(data.sets) || data.sets.length < 100) {
+            throw new Error('ポケモンのシリーズ一覧が不足しています');
+          }
+          const ids = new Set();
+          let totalCards = 0;
+          let setsWithCards = 0;
+          for (const set of data.sets) {
+            if (!set.id || !set.n || !Number.isFinite(Number(set.t)) || Number(set.t) < 0 || !Array.isArray(set.c)) {
+              throw new Error('シリーズデータの形式が不正です: ' + JSON.stringify(set).slice(0, 100));
+            }
+            if (ids.has(set.id)) throw new Error('シリーズIDが重複しています: ' + set.id);
+            ids.add(set.id);
+            if (set.c.length > 0) setsWithCards++;
+            totalCards += set.c.length;
+            const cardNos = new Set();
+            for (const card of set.c) {
+              if (!Array.isArray(card) || card.length < 2 || !String(card[0]).trim() || !String(card[1]).trim()) {
+                throw new Error('カード番号またはカード名が不足しています: ' + set.id);
+              }
+              if (cardNos.has(String(card[0]))) throw new Error('シリーズ内カード番号が重複しています: ' + set.id + '-' + card[0]);
+              cardNos.add(String(card[0]));
+            }
+          }
+          if (setsWithCards < 80 || totalCards < 1000) {
+            throw new Error('ポケモンのカードデータが不足しています: ' + setsWithCards + 'シリーズ / ' + totalCards + '件');
+          }
+          const emptySets = data.sets.filter(set => set.c.length === 0);
+          const audit = [
+            '## ポケモンカードデータ監査',
+            '',
+            '- シリーズ総数: ' + data.sets.length,
+            '- カード一覧あり: ' + setsWithCards + 'シリーズ',
+            '- カード一覧なし: ' + emptySets.length + 'シリーズ',
+            '- 収録カードレコード: ' + totalCards + '件',
+            '',
+            '### カード一覧が空のシリーズ（補完調査対象）',
+            ...emptySets.map(set => '- ' + set.id + ' — ' + set.n + '（登録総数: ' + set.t + '）')
+          ].join('\\n');
+          console.log(audit);
+          if (process.env.GITHUB_STEP_SUMMARY) {
+            const { appendFileSync } = await import('node:fs');
+            appendFileSync(process.env.GITHUB_STEP_SUMMARY, audit + '\\n');
+          }
+          console.log('ポケモンデータ検証成功:', data.sets.length, 'シリーズ、', setsWithCards, 'シリーズにカード収録、', totalCards, '件');
+          NODE
+
+      - name: Validate Yu-Gi-Oh ORIGINAL ARTWORK COLLECTION data
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const data = JSON.parse(readFileSync('data/ygo-oac.json', 'utf8'));
+          if (!Array.isArray(data.cards) || data.knownCards !== data.cards.length) {
+            throw new Error('遊戯王データの件数と配列が一致しません');
+          }
+          if (data.totalCardTypes !== 100 || data.knownCards !== 100 || data.cards.length !== 100) {
+            throw new Error('遊戯王OAC全100種類がそろっていません');
+          }
+          if (!['partial_verified', 'verified_full_list', 'image_urls_partially_verified'].includes(data.datasetStatus)) {
+            throw new Error('データ状態が明示されていません');
+          }
+          const imageUrls = new Set();
+          for (const card of data.cards) {
+            if (typeof card.imageUrl !== 'string' || !/^https:\/\//.test(card.imageUrl)) {
+              throw new Error('画像URLが未設定、またはHTTPSではありません: ' + card.cardNumber);
+            }
+            if (imageUrls.has(card.imageUrl)) {
+              throw new Error('画像URLが重複しています: ' + card.cardNumber);
+            }
+            imageUrls.add(card.imageUrl);
+          }
+          if (imageUrls.size !== 100) throw new Error('YAC1画像URLが100件そろっていません');
+          console.log('YAC1画像URL検証成功: 100件、HTTPS・重複なし（画像内容の一致は別途目視確認）');
+          const ids = new Set();
+          const cardNumbers = new Set();
+          for (const card of data.cards) {
+            if (!card.id || !card.name || !Array.isArray(card.variants) || !card.variants.length) {
+              throw new Error('カード情報の必須項目が不足しています');
+            }
+            if (ids.has(card.id)) throw new Error('カードIDが重複しています: ' + card.id);
+            ids.add(card.id);
+            if (!/^YAC1-JP\d{3}$/.test(card.cardNumber || '')) {
+              throw new Error('カード番号の形式が不正です: ' + card.cardNumber);
+            }
+            if (cardNumbers.has(card.cardNumber)) {
+              throw new Error('カード番号が重複しています: ' + card.cardNumber);
+            }
+            cardNumbers.add(card.cardNumber);
+            if (card.verified !== true) {
+              throw new Error('未確認カードが確認済みデータに混在しています: ' + card.id);
+            }
+            if (new Set(card.variants).size !== card.variants.length || card.variants.some(v => typeof v !== 'string' || !v.trim())) {
+              throw new Error('レアリティ候補が空、または重複しています: ' + card.cardNumber);
+            }
+          }
+          for (let n = 1; n <= 100; n++) {
+            const no = 'YAC1-JP' + String(n).padStart(3, '0');
+            if (!cardNumbers.has(no)) throw new Error('OACカード番号が欠落しています: ' + no);
+          }
+          console.log('OAC全100番号・レアリティ候補を検証しました');
+          for (const number of ['YAC1-JP004', 'YAC1-JP009']) {
+            if (!data.cards.some(card => card.cardNumber === number)) {
+              throw new Error('確認済みカード番号が見つかりません: ' + number);
+            }
+          }
+          const superRareCards = data.cards.filter(card => {
+            const match = /^YAC1-JP(02[6-9]|0[3-6][0-9]|070)$/.exec(card.cardNumber || '');
+            return Boolean(match);
+          });
+          if (superRareCards.length !== 45) {
+            throw new Error('YAC1-JP026〜JP070の45種類がそろっていません');
+          }
+          for (const card of superRareCards) {
+            if (card.variantStatus !== 'cross_checked_yac1_setlist') {
+              throw new Error('レアリティ照合状態が未完了です: ' + card.cardNumber);
+            }
+            if (!card.variants.includes('スーパーレア') || !card.variants.includes('シークレットレア')) {
+              throw new Error('基本レアリティが不足しています: ' + card.cardNumber);
+            }
+            if (card.variants.length < 2 || card.variants.some(v => typeof v !== 'string' || !v.trim())) {
+              throw new Error('レアリティ仕様の形式が不正です: ' + card.cardNumber);
+            }
+          }
+          if (data.variantChecksPending !== 0) {
+            throw new Error('未照合レアリティが残っています: ' + data.variantChecksPending);
+          }
+          const rarityCounts = Object.fromEntries(
+            ['アルティメットレア', 'コレクターズレア', 'プリズマティックシークレットレア']
+              .map(rarity => [rarity, superRareCards.filter(card => card.variants.includes(rarity)).length])
+          );
+          const expectedRarityCounts = {
+            'アルティメットレア': 14,
+            'コレクターズレア': 14,
+            'プリズマティックシークレットレア': 13
+          };
+          for (const [rarity, expected] of Object.entries(expectedRarityCounts)) {
+            if (rarityCounts[rarity] !== expected) {
+              throw new Error(rarity + 'の収録数が一致しません: ' + rarityCounts[rarity] + '/' + expected);
+            }
+          }
+          console.log('遊戯王データ検証成功:', data.knownCards, '/', data.totalCardTypes, '件。状態:', data.datasetStatus);
+          NODE
+
