@@ -140,7 +140,7 @@ const masterEsc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;'
 function masterImageNorm(v){return String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'')}
 function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
 function masterImageRarity(v){
- const s=masterImageNorm(v);
+ const s=masterImageNorm(v).replace(/[（(].*?[）)]/g,'');
  return ({leader:'l',リーダー:'l',l:'l',common:'c',コモン:'c',c:'c',uncommon:'uc',アンコモン:'uc',uc:'uc',rare:'r',レア:'r',r:'r',superrare:'sr',スーパーレア:'sr',sr:'sr',secretrare:'sec',シークレットレア:'sec',sec:'sec',special:'sp',スペシャル:'sp',sp:'sp'})[s]||s;
 }
 function masterImagePackMatches(c,packName){const wanted=masterImagePack(c),actual=masterImageNorm(packName);return !!wanted&&!!actual&&wanted===actual}
