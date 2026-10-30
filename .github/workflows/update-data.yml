@@ -1,6 +1,15 @@
 name: update-card-data
 
 on:
+  push:
+    branches:
+      - main
+      - feature/japanese-one-piece-card-data
+    paths:
+      - "index.html"
+      - "fetch-poke.mjs"
+      - "scripts/fetch-op.mjs"
+      - ".github/workflows/update-data.yml"
   workflow_dispatch:
   schedule:
     - cron: "0 18 * * 0"
@@ -18,12 +27,27 @@ jobs:
         with:
           node-version: 20
 
-      - run: node fetch-poke.mjs
+      - name: Update Pokémon card data
+        run: node fetch-poke.mjs
+
+      - name: Update Japanese One Piece card data
+        run: node scripts/fetch-op.mjs
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/poke.json
-          git diff --cached --quiet || git commit -m "Update Pokémon card data"
-          git push
+          git add data/poke.json data/op.json
+          git diff --cached --quiet || git commit -m "Update Pokémon and One Piece card data"
+          # Image-candidate collection may commit to the same branch at the same time.
+          # Rebase our generated-data commit onto the latest branch before pushing.
+          for attempt in 1 2 3; do
+            if git push origin HEAD; then
+              exit 0
+            fi
+            git fetch origin feature/japanese-one-piece-card-data
+            git rebase origin/feature/japanese-one-piece-card-data
+            sleep $((attempt * 2))
+          done
+          echo "Failed to push generated card data after three attempts." >&2
+          exit 1
