@@ -302,7 +302,7 @@ function coll(){
  h+=sortbar();if(!a.length)return h+`<div class="empty">このジャンルのカードはまだありません</div>`;
  return h+a.map(c=>`<div class="card it"><div class="row">${c.img?`<img src="https://images.weserv.nl/?url=${encodeURIComponent(c.img)}" class="th" onclick="pvw(this.src)">`:''}<div><div class="t">${c.name}</div><div class="m"><span class="tag" style="color:${GN[c.g].c}">${GN[c.g].n}</span>${c.pack||c.series||''} ${c.rarity?'・'+c.rarity:''} ${c.no?'・'+c.no:''}</div>${(c.place||c.cond||c.paid!=null||c.memo)?`<div class="m">📝 ${[c.place,c.cond,c.paid!=null?'取得 '+yen(c.paid):'',c.memo].filter(Boolean).join(' / ')}</div>`:''}</div><div style="flex:none;text-align:right"><b style="font-size:17px">${yen(val(c))}</b><div class="m">${c.qty}枚 × 平均${yen(c.price)}</div><div style="font-size:12px">${pl(val(c),cost(c))}</div></div></div>
  <div class="row">${GN[c.g].s.map((s,i)=>`<div><div class="m" style="margin:0 0 3px;font-size:11px">${s[0]}</div><input type="number" inputmode="numeric" value="${pr3(c)[i]||''}" placeholder="¥" style="padding:8px;${best(c,i)}" onchange="upd('${c.id}',${i},+this.value)"></div>`).join('')}</div>
- <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row" style="align-items:center;justify-content:space-between;margin-top:8px"><button class="btn sm" onclick="changeQty('${c.id}',-1)" aria-label="所持数を1減らす">−</button><b style="font-size:13px">所持数：${c.qty}枚</b><button class="btn sm" onclick="changeQty('${c.id}',1)" aria-label="所持数を1増やす">＋</button><button class="btn sm" onclick="detail('${c.id}')">詳細登録</button></div></div>`).join('')}
+ <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row" style="align-items:center;justify-content:space-between;margin-top:8px"><button class="btn sm" onclick="changeQty('${c.id}',-1)" aria-label="所持数を1減らす">−</button><b style="font-size:13px">所持数：${c.qty}枚</b><button class="btn sm" onclick="changeQty('${c.id}',1)" aria-label="所持数を1増やす">＋</button><button class="btn sm" onclick="editCard('${c.id}')">カード情報を編集</button><button class="btn sm" onclick="detail('${c.id}')">詳細登録</button></div></div>`).join('')}
 function mk(){
  const G=GN[mg];return `<div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${mg==g?'on':''}" onclick="mg='${g}';render()">${GN[g].n}</button>`).join('')}</div>
  <div class="card"><b>${G.n} 相場検索</b><label>カード名・型番</label><input id="mq" placeholder="例：リザードンex SV2a 201"><div class="row" style="margin-top:12px">${G.s.map((s,i)=>`<button class="btn p" style="font-size:13px;padding:13px" onclick="msearch(${i})">${s[0]}</button>`).join('')}</div></div>
@@ -347,6 +347,36 @@ function reg(){
  const p=+$('#fp').value||0,customPack=$('#fs2')?.style.display!=='none'?$('#fs2')?.value.trim():'',selectedPack=customPack||$('#fs').value,c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity:F.r||$('#fr').value,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||''};
  S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();
  toast('✓ 登録しました','詳細登録 ›',()=>detail(c.id))}
+async function masterDeleteKey(key){
+ try{const db=await masterDb();await new Promise((resolve,reject)=>{const tx=db.transaction(MASTER_STORE,'readwrite');tx.objectStore(MASTER_STORE).delete(key);tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)})}catch(e){console.warn('Card master key cleanup:',e)}
+}
+function editCard(id){
+ const c=S.cards.find(x=>x.id==id);if(!c)return;
+ open_(`<div class="hd"><b>カード情報を編集</b><button class="ib" onclick="close_()">✕</button></div>
+ <div class="m">カード番号やレアリティの入力間違いをここから修正できます。</div>
+ <label>シリーズ・パック名</label><input id="ec_series" value="${masterEsc(c.series||c.pack||'')}" placeholder="収録パック">
+ <label>レアリティ</label><input id="ec_rarity" value="${masterEsc(c.rarity||'')}" placeholder="例：SAR / シークレットレア（カラー）">
+ <label>カード名</label><input id="ec_name" value="${masterEsc(c.name||'')}" placeholder="カード名">
+ <label>カード番号</label><input id="ec_no" value="${masterEsc(c.no||c.cardNo||'')}" placeholder="カード番号">
+ <div class="row"><div><label>枚数</label><input id="ec_qty" type="number" min="1" step="1" value="${Math.max(1,Number(c.qty)||1)}"></div><div><label>相場（1枚あたり）</label><input id="ec_price" type="number" min="0" value="${Number(c.price)||0}"></div></div>
+ <button class="btn p" style="width:100%;margin-top:20px" onclick="saveCardEdit('${id}')">変更を保存</button>`);
+}
+async function saveCardEdit(id){
+ const c=S.cards.find(x=>x.id==id);if(!c)return;
+ const next={series:$('#ec_series').value.trim(),rarity:$('#ec_rarity').value.trim(),name:$('#ec_name').value.trim(),no:$('#ec_no').value.trim(),qty:Math.max(1,Math.floor(Number($('#ec_qty').value)||1)),price:Math.max(0,Number($('#ec_price').value)||0)};
+ if(!next.name){toast('カード名を入力してください');$('#ec_name').focus();return}
+ const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'');
+ c.series=next.series;c.pack=next.series;c.rarity=next.rarity;c.name=next.name;c.no=next.no;c.cardNo=next.no;c.qty=next.qty;c.price=next.price;
+ if(identityChanged){
+  if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}
+  c.imageLookupStatus='needs_recheck';
+ }
+ save();
+ const newKey=masterKeyFor(c);
+ if(oldKey!==newKey)await masterDeleteKey(oldKey);
+ try{await masterPut(c,true);if(identityChanged)await masterFetchOne(c,true)}catch(e){console.warn('Card master edit sync:',e)}
+ close_();render();toast('カード情報を更新しました');
+}
 function detail(id){
  const c=S.cards.find(x=>x.id==id);
  open_(`<div class="hd"><b>詳細登録</b><button class="ib" onclick="close_()">✕</button></div><div class="m" style="color:var(--mu);font-size:13px">${c.name} ${c.no||''}</div><label>カード写真</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this,'${id}')"></label><img id="pv" class="th" ${c.img?`src="${c.img}"`:'style="display:none"'}></div>
