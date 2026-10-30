@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja"><head><meta charset="utf-8">
+<html lang="ja"><head>
+<!-- YAC1 direct image pattern test: all 100 direct URLs audited 2026-10-25 --><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TCG Collection note</title>
 <style>
@@ -81,9 +82,9 @@ ws:{n:'ヴァイス',c:'#34d399',sr:['ブースターパック','トライアル
 };
 const R='カードラッシュ',Y='遊々亭',V='駿河屋',gg=n=>'https://www.google.com/search?q='+encodeURIComponent(n+' '),yy=c=>'https://yuyu-tei.jp/sell/'+c+'/s/search?search_word=';
 const GN={
-poke:{n:'ポケモン',c:'#facc15',o:'https://www.pokemon-card.com/card-search/index.php?keyword=',sr:['MEGAシリーズ','スカーレット&バイオレット','ソード&シールド','サン&ムーン','XY以前','プロモ'],rr:['C','U','R','RR','RRR','SR','HR','UR','AR','SAR','ACE','MUR','BWR'],s:[[R,'https://www.cardrush-pokemon.jp/product-list?keyword='],[Y,yy('poc')],[V,gg(V)]]},
-op:{n:'ワンピース',c:'#f43f5e',o:'https://www.onepiece-cardgame.com/cardlist/?freewords=',sr:['ブースターパック','エクストラブースター','プレミアムブースター','スタートデッキ','プロモ'],rr:['C','UC','R','SR','SEC','L','SP','P'],s:[[R,'https://www.cardrush-op.jp/product-list?keyword='],[Y,yy('opc')],[V,gg(V)]]},
-ygo:{n:'遊戯王',c:'#f97316',o:'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=',sr:['QUARTER CENTURY','レアリティ・コレクション','パック(その他)','構築済みデッキ','プロモ'],rr:['N','R','SR','UR','UL','SE','PSE','QCSE','KC'],s:[[R,gg(R+' 遊戯王')],[Y,yy('ygo')],[V,gg(V)]]},
+poke:{n:'ポケモン',c:'#facc15',o:'https://www.pokemon-card.com/card-search/index.php?keyword=',sr:['MEGAシリーズ','スカーレット&バイオレット','ソード&シールド','サン&ムーン','XY以前','プロモ'],rr:['C','U','R','RR','RRR','SR','HR','UR','AR','SAR','ACE','MUR','BWR'],s:[[R,'https://www.cardrush-pokemon.jp/product-list?keyword='],[Y,yy('poc')],[V,'https://www.suruga-ya.jp/search?search_word=']]},
+op:{n:'ワンピース',c:'#f43f5e',o:'https://www.onepiece-cardgame.com/cardlist/?freewords=',sr:['ブースターパック','エクストラブースター','プレミアムブースター','スタートデッキ','プロモ'],rr:['C','UC','R','SR','SEC','L','SP','P'],s:[[R,'https://www.cardrush-op.jp/product-list?keyword='],[Y,yy('opc')],[V,'https://www.suruga-ya.jp/search?search_word=']]},
+ygo:{n:'遊戯王',c:'#f97316',o:'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=',sr:['ORIGINAL ARTWORK COLLECTION (OAC)','QUARTER CENTURY','レアリティ・コレクション','パック(その他)','構築済みデッキ','プロモ'],rr:['N','R','SR','UR','UL','SE','PSE','QCSE','KC'],s:[[R,'https://www.cardrush.jp/product-list?keyword='],[Y,yy('ygo')],[V,'https://www.suruga-ya.jp/search?category=5010800&search_word=']]},
 rush:{n:'ラッシュデュエル',c:'#38bdf8',sr:['ブースター','デッキ','プロモ'],rr:['N','R','SR','UR','GR','SE'],s:[[R,gg(R+' ラッシュデュエル')],[Y,gg(Y+' ラッシュデュエル')],[V,gg(V+' ラッシュデュエル')]]},
 digi:{n:'デジモン',c:'#a78bfa',sr:['ブースター','エクストラ','スタートデッキ','プロモ'],rr:['C','U','R','SR','SEC','P'],s:[[R,gg(R+' デジモンカード')],[Y,gg(Y+' デジモンカード')],[V,gg(V+' デジモンカード')]]},
 ua:{n:'ユニアリ',c:'#34d399',sr:['ブースター','スタートデッキ','プロモ'],rr:['C','U','R','SR','UR','P'],s:[[R,gg(R+' ユニオンアリーナ')],[Y,gg(Y+' ユニオンアリーナ')],[V,gg(V+' ユニオンアリーナ')]]}
@@ -92,11 +93,205 @@ const $=s=>document.querySelector(s),yen=n=>'¥'+Math.round(n).toLocaleString(),
 let S={cards:[],hist:[]},view='home',cur='all',F={g:'poke',q:1},mg='poke';
 try{const r=localStorage.getItem(K);if(r)S=JSON.parse(r)}catch(e){}
 const save=()=>{snap();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){toast('⚠ 保存容量がいっぱいです。バックアップを取って、写真を減らしてください')}};
+const MASTER_DB_NAME='tcg-collection-master-v1',MASTER_STORE='cards';
+let masterDbPromise;
+const masterNorm=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
+const masterKeyFor=c=>{const no=masterNorm(c.no||c.cardNo||'');const pack=masterNorm(c.series||c.pack||'');const base=no?('no:'+no):('name:'+masterNorm(c.name));return [String(c.g||'other'),pack,base,masterNorm(c.rarity||''),masterNorm(c.variant||c.parallel||c.artwork||'')].join('|')};
+function masterDb(){
+ if(!('indexedDB' in window))return Promise.reject(new Error('このブラウザではIndexedDBを利用できません'));
+ if(masterDbPromise)return masterDbPromise;
+ masterDbPromise=new Promise((resolve,reject)=>{
+  const req=indexedDB.open(MASTER_DB_NAME,1);
+  req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(MASTER_STORE))db.createObjectStore(MASTER_STORE,{keyPath:'key'})};
+  req.onsuccess=()=>resolve(req.result);
+  req.onerror=()=>reject(req.error||new Error('マスターデータベースを開けません'));
+ });
+ return masterDbPromise;
+}
+function masterRecordFromCollection(c){
+ const image=String(c.img||''),isUrl=image.startsWith('https://')||image.startsWith('http://');
+ return {key:masterKeyFor(c),variantKey:[c.g||'',c.no||c.cardNo||'',c.rarity||'',c.parallel||c.variant||c.artwork||''].map(masterNorm).join('|'),collectionId:c.id||'',game:c.g||'',name:c.name||'',cardNo:c.no||c.cardNo||'',series:c.series||c.pack||'',rarity:c.rarity||'',imageUrl:isUrl?image:'',localImageAvailable:image.startsWith('data:'),imageStatus:isUrl?(c.imageVerificationStatus||'url_saved'):(image?'local_photo_only':'not_set'),imageSourceStatus:c.imageSourceStatus||'',source:'app_search_or_manual',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
+}
+async function masterPut(c,replaceImage=false){
+ const db=await masterDb(),incoming=masterRecordFromCollection(c);
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction(MASTER_STORE,'readwrite'),store=tx.objectStore(MASTER_STORE),get=store.get(incoming.key);
+  get.onsuccess=()=>{const old=get.result||{};store.put({...old,...incoming,imageUrl:replaceImage?incoming.imageUrl:(incoming.imageUrl||old.imageUrl||''),imageStatus:incoming.imageUrl?'url_saved':(replaceImage?incoming.imageStatus:(old.imageUrl?'url_saved':incoming.imageStatus)),imageVerificationStatus:c.imageVerificationStatus||'',imageSourceStatus:c.imageSourceStatus||'',createdAt:old.createdAt||incoming.createdAt,updatedAt:new Date().toISOString()})};
+  tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error||new Error('カードマスターへの保存に失敗しました'));tx.onabort=()=>reject(tx.error||new Error('カードマスターへの保存が中断されました'));
+ });
+}
+async function masterList(){
+ const db=await masterDb();
+ return new Promise((resolve,reject)=>{const tx=db.transaction(MASTER_STORE,'readonly'),req=tx.objectStore(MASTER_STORE).getAll();req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error||new Error('カードマスターを読み込めません'))});
+}
+async function masterReplace(records){
+ const db=await masterDb();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction(MASTER_STORE,'readwrite'),store=tx.objectStore(MASTER_STORE);store.clear();
+  (records||[]).forEach(r=>{if(!r||!r.name||!(r.game||r.g))return;const c=r.key?r:masterRecordFromCollection(r);store.put(c)});
+  tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error||new Error('カードマスターを復元できません'));tx.onabort=()=>reject(tx.error||new Error('カードマスターの復元が中断されました'));
+ });
+}
+async function masterDeduplicate(){
+ const rows=await masterList(),groups=new Map(),norm=v=>masterNorm(v);
+ for(const r of rows){
+  const no=norm(String(r.cardNo||'').split('/')[0]),name=norm(r.name),pack=norm(r.series||''),rarity=norm(r.rarity||''),variant=norm(r.variantKey||'');
+  const fp=[norm(r.game||r.g),pack,no||name,rarity,variant].join('|');
+  const prev=groups.get(fp);if(!prev){groups.set(fp,{...r});continue}
+  const keepImage=prev.imageUrl||r.imageUrl,newer=String(r.updatedAt||'')>String(prev.updatedAt||'')?r:prev;
+  groups.set(fp,{...prev,...newer,key:masterKeyFor({g:newer.game||newer.g,series:newer.series,name:newer.name,no:newer.cardNo,rarity:newer.rarity}),imageUrl:keepImage||'',imageStatus:keepImage?(prev.imageUrl?prev.imageStatus:r.imageStatus):(newer.imageStatus||'not_set'),imageVerificationStatus:prev.imageVerificationStatus||r.imageVerificationStatus||'',imageSourceStatus:prev.imageSourceStatus||r.imageSourceStatus||'',createdAt:prev.createdAt||r.createdAt});
+ }
+ const clean=[...groups.values()];await masterReplace(clean);return {before:rows.length,after:clean.length,removed:rows.length-clean.length};
+}
+async function masterSyncExisting(){
+ try{for(const c of S.cards||[])await masterPut(c)}catch(e){console.warn('Card master sync:',e)}
+}
+const masterEsc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+function masterImageNorm(v){return String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'')}
+function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
+function masterImageRarity(v){
+ const s=masterImageNorm(v);
+ const base=s.replace(/[（(].*?[）)]/g,'');
+ return ({leader:'l',リーダー:'l',l:'l',common:'common',コモン:'common',c:'common',uncommon:'uncommon',アンコモン:'uncommon',uc:'uncommon',rare:'rare',レア:'rare',r:'rare',superrare:'superrare',スーパーレア:'superrare',sr:'superrare',secretrare:'secretrare',シークレットレア:'secretrare',sec:'secretrare',special:'special',スペシャル:'special',sp:'special',ダブルレア:'doublerare',doublerare:'doublerare',ar:'illustrationrare',イラストレア:'illustrationrare',illustrationrare:'illustrationrare',sar:'specialillustrationrare',スペシャルアートレア:'specialillustrationrare',specialillustrationrare:'specialillustrationrare',ur:'ultrarare',ウルトラレア:'ultrarare',ultrarare:'ultrarare',hr:'hyperrare',ハイパーレア:'hyperrare',hyperrare:'hyperrare'})[base]||base;
+}
+function masterImagePackCode(v){
+ const m=String(v||'').normalize('NFKC').toUpperCase().match(/(OP|EB|PRB|ST)[-‐ー\s]*(\\d{1,2})/);
+ return m?m[1]+String(m[2]).padStart(2,'0'):'';
+}
+function masterImagePackMatches(c,packName){
+ const wanted=masterImagePack(c),actual=masterImageNorm(packName);
+ if(wanted&&actual&&wanted===actual)return true;
+ const cardCode=masterImagePackCode(c.no||c.cardNo),sourceCode=masterImagePackCode(packName);
+ if(cardCode&&sourceCode&&cardCode===sourceCode){
+  const selectedCode=masterImagePackCode(c.series||c.pack||'');
+  return !selectedCode||selectedCode===sourceCode;
+ }
+ return false;
+}
+async function masterFindImage(c){
+ const name=masterImageNorm(c.name),no=masterImageNorm(c.no||''),pack=masterImagePack(c);
+ if(!name||!no||!pack)return null;
+ if(c.g==='op'){
+  const wantedRarity=masterImageRarity(c.rarity);
+  const hit=OPI.find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&masterImagePackMatches(c,x.packName)&&masterImageRarity(x.rarity)===wantedRarity&&x.img);
+  return hit?{url:hit.img,status:'official_card_data_exact_pack'}:null;
+ }
+ if(c.g==='ygo'){
+  const wantedPack=masterImageNorm(c.series||c.pack||'');
+  const productCode=masterImageNorm(c.no||'').split('-')[0];
+  const ygoPackMatch=!!wantedPack&&(wantedPack.includes('originalartworkcollection')&&productCode==='yac1');
+  if(!ygoPackMatch)return null;
+  const hit=YGOI.find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name);
+  if(!hit)return null;
+  const rarity=String(c.rarity||'').normalize('NFKC').trim();
+  const variants=hit.imageVariants||hit.variantImages||{};
+  let variant=null;
+  if(Array.isArray(variants)){
+   variant=variants.find(v=>masterImageNorm(v.rarity)===masterImageNorm(rarity)&&v.imageUrl);
+  }else{
+   const key=Object.keys(variants).find(k=>masterImageNorm(k)===masterImageNorm(rarity));
+   if(key&&variants[key])variant=typeof variants[key]==='string'?{imageUrl:variants[key]}:variants[key];
+  }
+  if(!variant&&masterImageNorm(hit.baseRarity)===masterImageNorm(rarity)&&hit.imageStatus==='user_confirmed_image'&&hit.imageUrl){
+   variant={imageUrl:hit.imageUrl,status:'user_confirmed_base_rarity'};
+  }
+  const url=variant&&(variant.imageUrl||variant.url);
+  return url?{url,status:variant.status||'rarity_variant_exact'}:null;
+ }
+ if(c.g==='poke'){
+  const m=String(c.no||'').match(/^(\d+)/),localId=m?m[1].replace(/^0+/,''):String(c.no||'').replace(/^0+/,'');
+  if(!localId)return null;
+  const wantedPack=masterImageNorm(c.series||c.pack||'');
+  if(!wantedPack)return null;
+  const exact=(PKI||[]).filter(x=>masterImageNorm(x.n)===name&&String(x.l||'').replace(/^0+/,'')===localId&&masterImageNorm(x.s?.n)===wantedPack);
+  if(exact.length!==1)return null;
+  const item=exact[0];
+  let detail=null;
+  try{
+   const detailResp=await fetch('https://api.tcgdex.net/v2/ja/sets/'+encodeURIComponent(item.s.id)+'/'+encodeURIComponent(item.l));
+   if(detailResp.ok)detail=await detailResp.json();
+  }catch(e){console.warn('TCGdex detail lookup:',e)}
+  if(detail){
+   if(masterImageNorm(detail.name)!==name||String(detail.localId||'').replace(/^0+/,'')!==localId)return null;
+   if(masterImageNorm(detail.set?.name)!==wantedPack)return null;
+   if(c.rarity){
+    const wantedRarity=masterImageRarity(c.rarity),sourceRarity=masterImageRarity(detail.rarity||'');
+    if(!wantedRarity||!sourceRarity||wantedRarity!==sourceRarity)return null;
+   }
+  }else if(c.rarity)return null;
+  const url=item.s?.r&&item.s?.id?'https://assets.tcgdex.net/ja/'+encodeURIComponent(item.s.r)+'/'+encodeURIComponent(item.s.id)+'/'+encodeURIComponent(item.l)+'/low.webp':'';
+  return url?{url,status:c.rarity?'tcgdex_exact_set_number_name_rarity':'tcgdex_exact_set_number_name_rarity_unspecified'}:null;
+ }
+ return null;
+}
+async function masterFetchOne(c,force=false){
+ if(!c||(!force&&(String(c.img||'').startsWith('http')||String(c.img||'').startsWith('data:'))))return false;
+ try{
+  const found=await masterFindImage(c);
+  if(!found){
+   if(force){c.img='';c.imageVerificationStatus='pack_or_card_mismatch';c.imageSourceStatus='exact_match_not_found';save();await masterPut(c,true)}
+   return false;
+  }
+  c.img=found.url;c.imageVerificationStatus=found.status==='candidate_unverified'?'candidate_unverified':'source_matched';c.imageSourceStatus=found.status;
+  save();await masterPut(c,true);return true;
+ }catch(e){console.warn('Card image lookup:',c.name,e);return false}
+}
+async function masterAutoFetchAll(){
+ const pending=(S.cards||[]).filter(c=>!String(c.img||'').startsWith('http'));
+ for(const c of pending)await masterFetchOne(c);
+}
+async function masterRetryImages(){
+ const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">パック名・カード番号・カード名・レアリティを照合して画像を再検索中…</div>';
+ for(const c of (S.cards||[]))await masterFetchOne(c,true);
+ const el2=$('#masterInfoBody');
+ if(el2)el2.innerHTML='<div class="empty">厳密照合による再検索が完了しました。カードマスター画面を閉じて、もう一度開くと結果を確認できます。</div>';
+ toast('厳密照合による画像再検索が完了しました');
+}
+async function masterInfo(){
+ open_('<div class="hd"><b>カードマスター</b><button class="ib" onclick="close_()">✕</button></div><div id="masterInfoBody" class="empty">マスターデータを読み込み中…</div>');
+ try{
+  await masterSyncPromise;const dedup=await masterDeduplicate();await masterAutoFetchAll();const rows=await masterList(),counts={};
+  rows.forEach(r=>counts[r.game]=(counts[r.game]||0)+1);
+  const summary=Object.keys(counts).map(g=>'<div class="row" style="justify-content:space-between;padding:6px 0"><span>'+masterEsc(GN[g]?.n||g)+'</span><b>'+counts[g]+' 種</b></div>').join('');
+  const latest=rows.slice().sort((a,b)=>String(b.updatedAt||'').localeCompare(String(a.updatedAt||''))).slice(0,8);
+  const list=latest.map(r=>'<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)">'+(r.imageUrl?'<img src="https://images.weserv.nl/?url='+encodeURIComponent(r.imageUrl)+'" style="width:48px;height:66px;object-fit:contain;border-radius:6px;background:var(--sf2)" loading="lazy">':'<div style="width:48px;height:66px;border-radius:6px;background:var(--sf2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--mu)">画像なし</div>')+'<div><b>'+masterEsc(r.name)+'</b><div class="m">'+masterEsc(r.cardNo)+' ・ '+masterEsc(r.rarity||'レアリティ未設定')+'</div><div class="m">'+(r.imageUrl?(r.imageVerificationStatus==='candidate_unverified'||String(r.imageSourceStatus||'').includes('needs_user_review')?'画像候補（要確認）':'画像URL登録済み（表示未確認）'):'画像未取得')+'</div></div></div>').join('');
+  const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="card" style="margin:0 0 10px"><div class="m">登録済みカードマスター</div><div style="font-size:30px;font-weight:800">'+rows.length+' <small style="font-size:13px;color:var(--mu)">種類</small></div><div class="m">重複整理：'+dedup.before+'件 → '+dedup.after+'件（'+dedup.removed+'件を統合）</div>'+summary+'</div><div class="m" style="margin:10px 0">最近更新したカード（最大8件）</div>'+(list||'<div class="empty">まだマスター登録はありません</div>')+'<button class="btn" style="width:100%;margin-top:14px" onclick="masterRetryImages()">全カードの画像を厳密照合で再検索</button><div class="m" style="margin-top:12px">マイコレ登録カードだけを対象に、パック名・カード番号・カード名・レアリティを照合します。一致しない場合は画像を登録しません。保存先はこの端末のブラウザ内です。</div>';
+ }catch(e){const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">カードマスターを利用できません。このブラウザの保存機能を確認してください。</div>'}
+}
+
+const masterSyncPromise=masterSyncExisting();
 const cost=c=>(c.paid??c.base)*c.qty,val=c=>c.price*c.qty;
 const tot=a=>({q:a.reduce((x,c)=>x+c.qty,0),k:a.length,v:a.reduce((x,c)=>x+val(c),0),c:a.reduce((x,c)=>x+cost(c),0)});
-function snap(){const d=new Date().toISOString().slice(0,10),v=tot(S.cards).v,l=S.hist[S.hist.length-1];if(l&&l.d===d)l.v=v;else S.hist.push({d,v})}
+function snap(){const d=day(),v=tot(S.cards).v,l=S.hist[S.hist.length-1];if(l&&l.d===d)l.v=v;else S.hist.push({d,v})}
 const pl=(v,c)=>{const d=v-c,p=c?d/c*100:0;return `<span class="${d>=0?'up':'dn'}">${d>=0?'+':''}${yen(d)} (${d>=0?'+':''}${p.toFixed(1)}%)</span>`};
-const u=(g,i)=>GN[g].s[i][1];const link=(g,c,i)=>u(g,i)+encodeURIComponent(((c.name||'')+' '+(c.no||'')).trim());
+const u=(g,i)=>GN[g].s[i][1];
+const shortShopRarity=v=>{
+ const key=String(v||'').trim();
+ const m={
+  'ノーマル':'N','ノーマルレア':'NR','レア':'R','スーパーレア':'SR','ウルトラレア':'UR',
+  'アルティメットレア':'UL','シークレットレア':'SE','パラレルレア':'P','プリズマティックシークレットレア':'PSE',
+  'コレクターズレア':'CR','エクストラシークレットレア':'EXSE','ホログラフィックレア':'HR',
+  'クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR',
+  'ウルトラレア（モノクロ）':'UR','ウルトラレア（カラー）':'UR','シークレットレア（モノクロ）':'SE',
+  'シークレットレア（カラー）':'SE','プリズマティックシークレットレア（モノクロ）':'PSE',
+  'プリズマティックシークレットレア（カラー）':'PSE','SuperRare':'SR','Super Rare':'SR',
+  'Common':'C','Uncommon':'UC','Rare':'R','SecretRare':'SEC','Secret Rare':'SEC','Leader':'L','Special':'SP'
+ };
+ if(m[key])return m[key];
+ return key.replace(/（パラレル）/g,' P').replace(/（オーバーフレーム）/g,' OF');
+};
+const link=(g,c,i)=>{
+ const name=String(c.name||'').trim();
+ const no=String(c.no||c.cardNo||'').trim();
+ const rarity=shortShopRarity(c.rarity||F.r||'');
+ let query=name;
+ if(i===0)query=[name,no].filter(Boolean).join(' ');
+ else if(i===1)query=name;
+ else if(i===2)query=[name,rarity].filter(Boolean).join(' ');
+ else query=[name,no].filter(Boolean).join(' ');
+ return u(g,i)+encodeURIComponent(query);
+};
 function chart(){
  const h=S.hist.slice(-30);if(h.length<2)return `<div class="empty">データが貯まるとここに推移グラフが表示されます</div>`;
  const W=320,H=130,P=6,mx=Math.max(...h.map(x=>x.v)),mn=Math.min(...h.map(x=>x.v)),r=(mx-mn)||1;
@@ -117,9 +312,9 @@ function coll(){
  const a=S.cards.filter(c=>cur=='all'||c.g==cur).sort(SORT[so]),t=tot(a);
  h+=`<div class="card g" style="cursor:default"><div class="gl"><div class="n">資産価値</div><div class="gv">${yen(t.v)}</div><div class="gp">${pl(t.v,t.c)}</div></div><div class="gr"><b>${t.q}</b>枚<br><b>${t.k}</b>種</div></div>`;
  h+=sortbar();if(!a.length)return h+`<div class="empty">このジャンルのカードはまだありません</div>`;
- return h+a.map(c=>`<div class="card it"><div class="row">${c.img?`<img src="${c.img}" class="th" onclick="pvw(this.src)">`:''}<div><div class="t">${c.name}</div><div class="m"><span class="tag" style="color:${GN[c.g].c}">${GN[c.g].n}</span>${c.pack||c.series||''} ${c.rarity?'・'+c.rarity:''} ${c.no?'・'+c.no:''}</div>${(c.place||c.cond||c.paid!=null||c.memo)?`<div class="m">📝 ${[c.place,c.cond,c.paid!=null?'取得 '+yen(c.paid):'',c.memo].filter(Boolean).join(' / ')}</div>`:''}</div><div style="flex:none;text-align:right"><b style="font-size:17px">${yen(val(c))}</b><div class="m">${c.qty}枚 × 平均${yen(c.price)}</div><div style="font-size:12px">${pl(val(c),cost(c))}</div></div></div>
+ return h+a.map(c=>`<div class="card it"><div class="row">${c.img?`<img src="https://images.weserv.nl/?url=${encodeURIComponent(c.img)}" class="th" onclick="pvw(this.src)">`:''}<div><div class="t">${c.name}</div><div class="m"><span class="tag" style="color:${GN[c.g].c}">${GN[c.g].n}</span>${c.pack||c.series||''} ${c.rarity?'・'+c.rarity:''} ${c.no?'・'+c.no:''}</div>${(c.place||c.cond||c.paid!=null||c.memo)?`<div class="m">📝 ${[c.place,c.cond,c.paid!=null?'取得 '+yen(c.paid):'',c.memo].filter(Boolean).join(' / ')}</div>`:''}</div><div style="flex:none;text-align:right"><b style="font-size:17px">${yen(val(c))}</b><div class="m">${c.qty}枚 × 平均${yen(c.price)}</div><div style="font-size:12px">${pl(val(c),cost(c))}</div></div></div>
  <div class="row">${GN[c.g].s.map((s,i)=>`<div><div class="m" style="margin:0 0 3px;font-size:11px">${s[0]}</div><input type="number" inputmode="numeric" value="${pr3(c)[i]||''}" placeholder="¥" style="padding:8px;${best(c,i)}" onchange="upd('${c.id}',${i},+this.value)"></div>`).join('')}</div>
- <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row"><button class="btn sm" onclick="detail('${c.id}')">詳細登録</button></div></div>`).join('')}
+ <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row" style="align-items:center;justify-content:space-between;margin-top:8px"><button class="btn sm" onclick="changeQty('${c.id}',-1)" aria-label="所持数を1減らす">−</button><b style="font-size:13px">所持数：${c.qty}枚</b><button class="btn sm" onclick="changeQty('${c.id}',1)" aria-label="所持数を1増やす">＋</button><button class="btn sm" onclick="detail('${c.id}')">カード情報・詳細</button></div></div>`).join('')}
 function mk(){
  const G=GN[mg];return `<div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${mg==g?'on':''}" onclick="mg='${g}';render()">${GN[g].n}</button>`).join('')}</div>
  <div class="card"><b>${G.n} 相場検索</b><label>カード名・型番</label><input id="mq" placeholder="例：リザードンex SV2a 201"><div class="row" style="margin-top:12px">${G.s.map((s,i)=>`<button class="btn p" style="font-size:13px;padding:13px" onclick="msearch(${i})">${s[0]}</button>`).join('')}</div></div>
@@ -131,6 +326,7 @@ function render(){
 function go(v){view=v;render();scrollTo(0,0)}
 document.querySelectorAll('nav .tb[data-v]').forEach(b=>b.onclick=()=>go(b.dataset.v));
 function upd(id,p){const c=S.cards.find(x=>x.id==id);if(c&&p>=0){c.price=p;save();render();toast('✓ 相場を更新しました')}}
+function changeQty(id,d){const c=S.cards.find(x=>x.id==id);if(!c)return;const current=Math.max(1,Number(c.qty)||1),next=current+d;if(next<1){toast('所持数は1枚以上にしてください');return}c.qty=next;save();render();toast('✓ 所持数：'+c.qty+'枚')}
 function toast(m,act,fn){const t=$('#toast');t.innerHTML=m+(act?`<u id="ta">${act}</u>`:'');t.classList.add('on');if(act)$('#ta').onclick=()=>{t.classList.remove('on');fn()};clearTimeout(t.h);t.h=setTimeout(()=>t.classList.remove('on'),3800)}
 function open_(h){$('#sh').innerHTML=h;$('#ov').classList.add('on')}
 function close_(){$('#ov').classList.remove('on')}
@@ -140,32 +336,88 @@ function add(){
  const G=GN[F.g];
  open_(`<div class="hd"><b>カード登録</b><button class="ib" onclick="close_()">✕</button></div>
  <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="F.g='${g}';keep();add()">${GN[g].n}</button>`).join('')}</div>
- <div class="row"><div><label>シリーズ</label><select id="fs">${opt(G.sr)}</select></div><div><label>レアリティ</label><select id="fr">${opt(G.rr)}</select></div></div>
- <label>カード名</label><input id="fn" placeholder="カード名"><label>カード番号</label><input id="fo" placeholder="例：201/165">
+ <div><label>① 収録パックを選択</label><select id="fs" onchange="togglePackCustom();clearCardSelection();cand()">${packOpts(F.g)}</select><input id="fs2" placeholder="商品名を入力" style="display:none;margin-top:6px" oninput="clearCardSelection();cand()"></div>
+ <label>② カード名で検索（パックを選ぶと候補を絞り込めます）</label><input id="fn" placeholder="カード名を入力"><label>カード番号（候補選択後に自動入力）</label><input id="fo" placeholder="候補から選択すると自動入力" readonly>
+ <label>③ レアリティを選択</label><select id="fr" onchange="F.r=this.value"><option value="">候補選択後に選んでください</option>${G.rr.map(r=>`<option value="${r}">${r}</option>`).join('')}</select>
+ <div id="cardSearchPreview" style="display:none;margin:10px 0"></div>
  <label>相場チェック（ショップ検索）</label><div class="row"><button class="btn" onclick="fq(0)">${G.s[0][0]}</button><button class="btn" onclick="fq(1)">${G.s[1][0]}</button></div>
  <label>相場（1枚あたり）</label><div class="pr"><span>¥</span><input id="fp" type="number" inputmode="numeric" placeholder="確認した相場を入力"></div>
  <label>枚数</label><div class="stp"><button onclick="stp(-1)">−</button><b id="fq">${F.q}</b><button onclick="stp(1)">＋</button></div>
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fs','fr','fn','fo','fp'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});
- setTimeout(()=>$('#fn').focus(),150)}
-function keep(){['fs','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value});F.fs=F.fr=undefined}
+ togglePackCustom();if(F.fs!==undefined)$('#fs').value=F.fs;if(F.fs2!==undefined)$('#fs2').value=F.fs2;setTimeout(()=>$('#fn').focus(),150)}
+function togglePackCustom(){const s=$('#fs'),i=$('#fs2');if(!s||!i)return;const show=s.value===SO;i.style.display=show?'block':'none';if(!show)i.value=''}
+function currentSearchPack(){const s=$('#fs'),custom=$('#fs2');if(custom&&custom.style.display!=='none'&&custom.value.trim())return custom.value.trim();if(!s||!s.value||s.value===SO)return '';const o=s.options[s.selectedIndex];return o?String(o.text||o.value).trim():''}
+function syncRegistrationRarity(value){const el=$('#fr');if(!el)return;const v=String(value||'');if(v&&!Array.from(el.options).some(o=>o.value===v)){const op=document.createElement('option');op.value=v;op.textContent=v;el.appendChild(op)}el.value=v;F.r=v;}
+function clearCardSelection(){F.r='';F.img='';F.cardMeta=null;F.printVariant='';const p=$('#cardSearchPreview');if(p){p.innerHTML='';p.style.display='none'}const n=$('#fn'),no=$('#fo');if(n)n.value='';if(no)no.value='';syncRegistrationRarity('');}
+function keep(){['fs','fs2','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e&&e.offsetParent!==null)F[i]=e.value});F.fs=F.fr=F.fs2=undefined}
 function stp(d){F.q=Math.max(1,F.q+d);$('#fq').textContent=F.q}
-function fq(i){const c={name:$('#fn').value,no:$('#fo').value};window.open(link(F.g,c,i),'_blank')}
-function reg(){
+function fq(i){
+ const name=$('#fn')?.value?.trim()||'';
+ if(!name){toast('先にカード候補を選択してください');return}
+ const c={name,no:$('#fo')?.value?.trim()||'',rarity:F.r||$('#fr')?.value?.trim()||''};
+ const url=link(F.g,c,i);
+ window.open(url,'_blank','noopener');
+}
+function duplicateCardMatch(a,b){
+ const norm=v=>masterNorm(v),packA=norm(a.series||a.pack||''),packB=norm(b.series||b.pack||'');
+ if(String(a.g||'')!==String(b.g||'')||!packA||packA!==packB)return false;
+ const nameA=norm(a.name),nameB=norm(b.name),noA=norm(a.no||a.cardNo||''),noB=norm(b.no||b.cardNo||'');
+ const baseNo=v=>String(v||'').split('/')[0];
+ const numberMatch=!noA||!noB||baseNo(noA)===baseNo(noB);
+ const nameMatch=nameA===nameB;
+ const rarityKey=v=>{const x=norm(v);return ({sar:'specialillustrationrare',ar:'illustrationrare',sr:'superrare',sec:'secretrare',ur:'ultrarare',parallel:'parallel'}[x]||x)};
+ const rarityA=rarityKey(a.rarity),rarityB=rarityKey(b.rarity),rarityMatch=!rarityA||!rarityB||rarityA===rarityB;
+ return numberMatch&&(nameMatch||(!noA||!noB))&&rarityMatch;
+}
+async function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const p=+$('#fp').value||0,c={id:Date.now()+'',g:F.g,series:$('#fs').value,rarity:$('#fr').value,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p};
- S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();
- toast('✓ 登録しました','詳細登録 ›',()=>detail(c.id))}
+ const p=+$('#fp').value||0,selectedPack=currentSearchPack()||$('#fs').value,rarity=$('#fr').value||F.r||'';
+ const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||'',cardMeta:F.cardMeta||null,variant:F.printVariant||'',parallel:F.cardMeta?.parallel||false};
+ const existing=S.cards.find(x=>duplicateCardMatch(x,c));
+ if(existing){
+  existing.name=c.name;existing.no=c.no||existing.no;existing.cardNo=existing.no;existing.series=c.series;existing.pack=c.pack;existing.rarity=c.rarity||existing.rarity;existing.variant=c.variant||existing.variant;existing.parallel=c.parallel||existing.parallel;existing.qty=Math.max(1,Number(existing.qty)||1)+Math.max(1,Number(c.qty)||1);existing.img=c.img||existing.img;existing.cardMeta=c.cardMeta||existing.cardMeta;if(p>0)existing.price=p;
+  save();try{await masterPut(existing,true)}catch(e){console.warn('Duplicate card master sync:',e)}
+  F={g:F.g,q:1};close_();render();toast('✓ 登録済みカードに枚数を '+c.qty+' 枚追加しました','詳細を確認 ›',()=>detail(existing.id));return;
+ }
+ S.cards.unshift(c);save();try{await masterPut(c,true)}catch(e){console.warn('Card master registration sync:',e)}
+ F={g:F.g,q:1};close_();render();toast('✓ 登録しました','詳細登録 ›',()=>detail(c.id))
+}
+async function masterDeleteKey(key){
+ try{const db=await masterDb();await new Promise((resolve,reject)=>{const tx=db.transaction(MASTER_STORE,'readwrite');tx.objectStore(MASTER_STORE).delete(key);tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)})}catch(e){console.warn('Card master key cleanup:',e)}
+}
+function editCard(id){detail(id)}
 function detail(id){
- const c=S.cards.find(x=>x.id==id);
- open_(`<div class="hd"><b>詳細登録</b><button class="ib" onclick="close_()">✕</button></div><div class="m" style="color:var(--mu);font-size:13px">${c.name} ${c.no||''}</div><label>カード写真</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this,'${id}')"></label><img id="pv" class="th" ${c.img?`src="${c.img}"`:'style="display:none"'}></div>
- <label>入手場所</label><input id="dp" value="${c.place||''}" placeholder="例：カードショップ / パック / フリマ">
- <label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" value="${c.paid??''}" placeholder="損益の計算に使われます"></div>
- <label>状態</label><select id="dc"><option value="">未設定</option>${opt(['PSA10','PSA9','美品','良品','傷あり','プレイ用'])}</select>
- <label>メモ</label><textarea id="dn" rows="3">${c.memo||''}</textarea>
- <button class="btn p" style="width:100%;margin-top:20px" onclick="sd('${id}')">保存</button><button class="btn" style="width:100%;margin-top:10px;color:var(--dn)" onclick="del('${id}')">このカードを削除</button>`);
- $('#dc').value=c.cond||''}
-function sd(id){const c=S.cards.find(x=>x.id==id);c.place=$('#dp').value;c.paid=$('#dm').value===''?null:+$('#dm').value;c.cond=$('#dc').value;c.memo=$('#dn').value;save();close_();render();toast('✓ 詳細を保存しました')}
+ const c=S.cards.find(x=>x.id==id);if(!c)return;
+ const rarityOptions=[...new Set([...(GN[c.g]?.rr||[]),c.rarity||''].filter(Boolean))];
+ const rarityHtml=rarityOptions.map(r=>'<option value="'+masterEsc(r)+'" '+(r===(c.rarity||'')?'selected':'')+'>'+masterEsc(r)+'</option>').join('');
+ const imageHtml=c.img?'<img id="pv" class="th" src="'+masterEsc(c.img)+'">':'<img id="pv" class="th" style="display:none">';
+ open_('<div class="hd"><b>カード情報・入手情報</b><button class="ib" onclick="close_()">✕</button></div>'+
+ '<div class="m">カード情報の修正と入手情報の登録を、この画面でまとめて行えます。</div>'+
+ '<label>カード画像</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this,\''+id+'\')"></label>'+imageHtml+'</div>'+
+ '<label>収録パック</label><input id="ec_series" value="'+masterEsc(c.series||c.pack||'')+'" placeholder="収録パック">'+
+ '<label>カード名</label><input id="ec_name" value="'+masterEsc(c.name||'')+'" placeholder="カード名">'+
+ '<div class="row"><div><label>カード番号</label><input id="ec_no" value="'+masterEsc(c.no||c.cardNo||'')+'" placeholder="カード番号"></div><div><label>レアリティ</label><select id="ec_rarity">'+rarityHtml+'</select></div></div>'+
+ '<div class="row"><div><label>所持枚数</label><input id="ec_qty" type="number" min="1" step="1" value="'+Math.max(1,Number(c.qty)||1)+'"></div><div><label>相場（1枚あたり）</label><input id="ec_price" type="number" min="0" value="'+(Number(c.price)||0)+'"></div></div>'+
+ '<label>入手場所</label><input id="dp" value="'+masterEsc(c.place||'')+'" placeholder="例：カードショップ / パック / フリマ">'+
+ '<label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" value="'+(c.paid??'')+'" placeholder="損益の計算に使われます"></div>'+
+ '<label>状態</label><select id="dc"><option value="">未設定</option>'+opt(['PSA10','PSA9','美品','良品','傷あり','プレイ用'])+'</select>'+
+ '<label>メモ</label><textarea id="dn" rows="3">'+masterEsc(c.memo||'')+'</textarea>'+
+ '<button class="btn p" style="width:100%;margin-top:20px" onclick="sd(\''+id+'\')">変更を保存</button>'+
+ '<button class="btn" style="width:100%;margin-top:10px;color:var(--dn)" onclick="del(\''+id+'\')">このカードを削除</button>');
+ $('#dc').value=c.cond||'';
+}
+async function sd(id){
+ const c=S.cards.find(x=>x.id==id);if(!c)return;
+ const next={series:$('#ec_series').value.trim(),rarity:$('#ec_rarity').value.trim(),name:$('#ec_name').value.trim(),no:$('#ec_no').value.trim(),qty:Math.max(1,Math.floor(Number($('#ec_qty').value)||1)),price:Math.max(0,Number($('#ec_price').value)||0)};
+ if(!next.name){toast('カード名を入力してください');$('#ec_name').focus();return}
+ const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'');
+ Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value});
+ if(identityChanged){if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}c.imageLookupStatus='needs_recheck'}
+ save();const newKey=masterKeyFor(c);if(oldKey!==newKey)await masterDeleteKey(oldKey);
+ try{await masterPut(c,true);if(identityChanged)await masterFetchOne(c,true)}catch(e){console.warn('Card edit sync:',e)}
+ close_();render();toast('カード情報・入手情報を保存しました');
+}
 function del(id){if(confirm('削除しますか？')){S.cards=S.cards.filter(x=>x.id!=id);save();close_();render()}}
 function demo(){
  const d=[['poke','リザードンex','SAR','201/165',1,12800,9000],['poke','ピカチュウ','AR','132/108',3,2400,1500],['ygo','ブラック・マジシャン','QCSE','QCCU-JP001',1,8800,5000],['mtg','Black Lotus','R','001',1,52000,50000],['op','モンキー・D・ルフィ','SEC','OP05-119',2,6400,4200],['dm','ボルメテウス','SR','001/098',1,3200,3800]];
@@ -179,7 +431,7 @@ S.cards=S.cards.filter(c=>GN[c.g]);
 const SO='その他(手入力)';
 function add(){const G=GN[F.g];
  open_(`<div class="hd"><b>カード登録</b><button class="ib" onclick="close_()">✕</button></div>
- <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="keep();F.r='';F.g='${g}';add()">${GN[g].n}</button>`).join('')}</div>
+ <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="switchGame('${g}')">${GN[g].n}</button>`).join('')}</div>
  <label>シリーズ・パック名</label><select id="fs" onchange="$('#fs2').style.display=this.value==SO?'block':'none'">${packOpts(F.g)}</select><input id="fs2" placeholder="シリーズ名を入力" style="display:none;margin-top:8px">
  <label>レアリティ</label><div class="chips" style="flex-wrap:wrap" id="rr">${G.rr.map(r=>`<button class="chip ${F.r==r?'on':''}" onclick="F.r=F.r==='${r}'?'':'${r}';document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.textContent==F.r))">${r}</button>`).join('')}</div>
  <label>カード写真（任意）</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this)"></label><img id="pv" class="th" style="display:none"></div>
@@ -191,12 +443,29 @@ function add(){const G=GN[F.g];
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});setTimeout(()=>$('#fn').focus(),150)}
 function keep(){['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value})}
-function fq(i){window.open(link(F.g,{name:$('#fn').value,no:$('#fo').value},i),'_blank')}
-function reg(){
+function switchGame(g){
+ if(!GN[g]||g===F.g)return;
+ keep();
+ F.g=g;F.r='';F.img='';
+ ['fn','fo','fs','fs2','fr','fp','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(k=>delete F[k]);
+ add();
+}
+function fq(i){
+ const name=$('#fn')?.value?.trim()||'';
+ if(!name){toast('先にカード候補を選択してください');return}
+ const c={name,no:$('#fo')?.value?.trim()||'',rarity:F.r||$('#fr')?.value?.trim()||''};
+ const target=link(F.g,c,i);
+ // Open the actual shop URL synchronously from the tap so iOS popup blocking is less likely.
+ const w=window.open(target,'_blank');
+ if(!w) toast('ショップ画面を開けませんでした。Safariのポップアップ設定を確認してください');
+}
+async function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const ps=[0,1,2].map(i=>+$('#fp'+i).value||0),a=ps.filter(x=>x>0),p=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value,s=$('#fs').value==SO?$('#fs2').value:$('#fs').value,sg=$('#fs').selectedOptions[0].parentElement.label||'';
- const c={id:Date.now()+'',g:F.g,series:sg||s,pack:sg?s:'',img:F.img||'',rarity:F.r||'',name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value};
- S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();toast('✓ 登録しました','編集 ›',()=>detail(c.id))}
+ const ps=[0,1,2].map(i=>+$('#fp'+i).value||0),a=ps.filter(x=>x>0),p=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value,custom=$('#fs').value===SO?$('#fs2').value.trim():'',s=custom||$('#fs').value;
+ const c={id:Date.now()+'',g:F.g,series:s,pack:s,img:F.img||'',rarity:F.r||'',name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value};
+ S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();
+ let masterSaved=false;try{await masterPut(c);await masterFetchOne(c);masterSaved=true}catch(e){console.warn('Card master save:',e)}
+ toast(masterSaved?'✓ 登録しました（マスター保存済み）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))}
 function msearch(i){window.open(u(mg,i)+encodeURIComponent($('#mq').value.trim()),'_blank')}
 function demo(){
  const d=[['poke','リザードンex','SAR','201/165',1,12800,9000],['poke','ピカチュウ','AR','132/108',3,2400,1500],['ygo','ブラック・マジシャン','QCSE','QCCU-JP001',1,8800,5000],['op','モンキー・D・ルフィ','SEC','OP05-119',2,6400,4200],['rush','デモカード','SR','RD/001',1,1500,1800]];
@@ -216,25 +485,109 @@ const TOPS=g=>[[R+' トップ',{poke:'https://www.cardrush-pokemon.jp/',op:'http
 function links(g){g=g||'poke';open_(`<div class="hd"><b>ショップ・公式リンク</b><button class="ib" onclick="close_()">✕</button></div><div class="chips">${Object.keys(GN).map(k=>`<button class="chip ${g==k?'on':''}" onclick="links('${k}')">${GN[k].n}</button>`).join('')}</div>${TOPS(g).map(l=>`<a class="btn" style="margin-top:8px" target="_blank" rel="noopener" href="${l[1]}">${l[0]} ↗</a>`).join('')}`)}
 const day=()=>new Date().toISOString().slice(0,10);
 const dl=async(name,data)=>{try{const d=await window.claude?.use('downloads');if(!d)throw 0;await d.save({filename:name,data});toast('✓ 保存しました')}catch(e){if(e&&e.code==='declined')return;try{await navigator.clipboard.writeText(data);toast('✓ コピーしました（メモ等に貼り付けて保管）')}catch(_){prompt('コピーして保管してください',data)}}};
-function bk(){dl('tcg-note-backup-'+day()+'.json',JSON.stringify({cards:S.cards,hist:S.hist}))}
+async function bk(){try{const cardMaster=await masterList();await dl('tcg-note-backup-'+day()+'.json',JSON.stringify({version:2,cards:S.cards,hist:S.hist,cardMaster}))}catch(e){toast('バックアップを作成できませんでした')}}
 function csv(){const q=x=>'"'+String(x??'').replace(/"/g,'""')+'"',h=['ジャンル','パック名','レアリティ','カード名','番号','枚数','相場平均',R,Y,V,'入手場所','入手価格','状態','メモ'];dl('tcg-note-'+day()+'.csv','\ufeff'+[h,...S.cards.map(c=>[GN[c.g].n,c.series,c.rarity,c.name,c.no,c.qty,c.price,...pr3(c),c.place,c.paid,c.cond,c.memo])].map(r=>r.map(q).join(',')).join('\n'))}
 function rs(){open_(`<div class="hd"><b>バックアップから復元</b><button class="ib" onclick="close_()">✕</button></div><div style="color:var(--mu);font-size:12px">保存したファイルを選ぶか、コピーした内容を貼り付けてください</div><input type="file" id="rf" accept=".json,application/json" style="margin-top:12px"><textarea id="rt" rows="4" style="margin-top:10px" placeholder="ここに貼り付け"></textarea><button class="btn p" style="width:100%;margin-top:16px" onclick="rsgo()">復元する</button>`);$('#rf').onchange=e=>{const f=e.target.files[0];if(f){const r=new FileReader();r.onload=()=>$('#rt').value=r.result;r.readAsText(f)}}}
-function rsgo(){try{const o=JSON.parse($('#rt').value);if(!Array.isArray(o.cards))throw 0;if(!confirm('現在のデータを置き換えます。よろしいですか？'))return;S={cards:o.cards.filter(c=>GN[c.g]),hist:o.hist||[]};save();close_();render();toast('✓ 復元しました')}catch(e){toast('復元できませんでした')}}
-$('#more').onclick=()=>open_(`<div class="hd"><b>その他</b><button class="ib" onclick="close_()">✕</button></div><button class="btn" style="width:100%;margin-bottom:10px" onclick="links()">🔗 ショップ・公式サイトへ移動</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="bk()">💾 バックアップを保存</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="rs()">♻️ バックアップから復元</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="csv()">📄 CSV出力（Excel用）</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="demo();close_()">デモデータを追加</button><button class="btn" style="width:100%;color:var(--dn)" onclick="if(confirm('全データを削除しますか？')){S={cards:[],hist:[]};save();close_();render()}">全データを削除</button>`);
+async function rsgo(){try{const o=JSON.parse($('#rt').value);if(!Array.isArray(o.cards))throw 0;if(!confirm('現在のデータを置き換えます。よろしいですか？'))return;S={cards:o.cards.filter(c=>GN[c.g]),hist:o.hist||[]};save();let masterRestored=false;try{const records=Array.isArray(o.cardMaster)?o.cardMaster:S.cards.map(masterRecordFromCollection);await masterReplace(records);masterRestored=true}catch(e){console.warn('Card master restore:',e)}close_();render();toast(masterRestored?'✓ マイコレとカードマスターを復元しました':'✓ マイコレを復元しました（カードマスターは未復元）')}catch(e){toast('復元できませんでした')}}
+$('#more').onclick=()=>open_(`<div class="hd"><b>その他</b><button class="ib" onclick="close_()">✕</button></div><button class="btn" style="width:100%;margin-bottom:10px" onclick="links()">🔗 ショップ・公式サイトへ移動</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="masterInfo()">🗂 カードマスターを確認</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="bk()">💾 マスター込みでバックアップ</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="rs()">♻️ バックアップから復元</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="csv()">📄 CSV出力（Excel用）</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="demo();close_()">デモデータを追加</button><button class="btn" style="width:100%;color:var(--dn)" onclick="if(confirm('マイコレとカードマスターをすべて削除しますか？')){S={cards:[],hist:[]};save();masterReplace([]).catch(()=>{});close_();render()}">全データを削除</button>`);
 const L=s=>s.split('、').reverse();
-GN.poke.pk={'MEGAシリーズ':L('メガブレイブ(M1L)、メガシンフォニア(M1S)、インフェルノX(M2)、MEGAドリームex(M2a)'),'スカーレット&バイオレット':L('スカーレットex(sv1S)、バイオレットex(sv1V)、トリプレットビート(sv1a)、スノーハザード(sv2P)、クレイバースト(sv2D)、ポケモンカード151(sv2a)、黒炎の支配者(sv3)、レイジングサーフ(sv3a)、古代の哆哮(sv4K)、未来の一閃(sv4M)、シャイニートレジャーex(sv4a)、ワイルドフォース(sv5K)、サイバージャッジ(sv5M)、クリムゾンヘイズ(sv5a)、変幻の仮面(sv6)、ナイトワンダラー(sv6a)、ステラミラクル(sv7)、楽園ドラゴーナ(sv7a)、超電ブレイカー(sv8)、テラスタルフェスex(sv8a)、バトルパートナーズ(sv9)、熱風のアリーナ(sv9a)、ロケット団の栄光(sv10)、ブラックボルト(sv11B)、ホワイトフレア(sv11W)'),'ソード&シールド':L('ソード(s1W)、シールド(s1H)、VMAXライジング(s1a)、反逆クラッシュ(s2)、爆炎ウォーカー(s2a)、ムゲンゾーン(s3)、伝説の鼓動(s3a)、仿天のボルテッカー(s4)、シャイニースターV(s4a)、一撃マスター(s5I)、連撃マスター(s5R)、双璧のファイター(s5a)、白銀のランス(s6H)、漆黒のガイスト(s6K)、イーブイヒーローズ(s6a)、摩天パーフェクト(s7D)、蒼空ストリーム(s7R)、フュージョンアーツ(s8)、25th ANNIVERSARY COLLECTION(s8a)、VMAXクライマックス(s8b)、スターバース(s9)、バトルリージョン(s9a)、タイムゲイザー(s10D)、スペースジャグラー(s10P)、ダークファンタズマ(s10a)、ポケモンGO(s10b)、ロストアビス(s11)、白熱のアルカナ(s11a)、パラダイムトリガー(s12)、VSTARユニバース(s12a)'),'その他':['プロモ','サン&ムーン以前のパック']};
+GN.poke.pk={'MEGAシリーズ':L('メガブレイブ(M1L)、メガシンフォニア(M1S)、インフェルノX(M2)、MEGAドリームex(M2a)、ストームエメラルダ、30th CELEBRATION、アビスアイ、ニンジャスピナー、ムニキスゼロ'),'スカーレット&バイオレット':L('スカーレットex(sv1S)、バイオレットex(sv1V)、トリプレットビート(sv1a)、スノーハザード(sv2P)、クレイバースト(sv2D)、ポケモンカード151(sv2a)、黒炎の支配者(sv3)、レイジングサーフ(sv3a)、古代の哆哮(sv4K)、未来の一閃(sv4M)、シャイニートレジャーex(sv4a)、ワイルドフォース(sv5K)、サイバージャッジ(sv5M)、クリムゾンヘイズ(sv5a)、変幻の仮面(sv6)、ナイトワンダラー(sv6a)、ステラミラクル(sv7)、楽園ドラゴーナ(sv7a)、超電ブレイカー(sv8)、テラスタルフェスex(sv8a)、バトルパートナーズ(sv9)、熱風のアリーナ(sv9a)、ロケット団の栄光(sv10)、ブラックボルト(sv11B)、ホワイトフレア(sv11W)'),'ソード&シールド':L('ソード(s1W)、シールド(s1H)、VMAXライジング(s1a)、反逆クラッシュ(s2)、爆炎ウォーカー(s2a)、ムゲンゾーン(s3)、伝説の鼓動(s3a)、仿天のボルテッカー(s4)、シャイニースターV(s4a)、一撃マスター(s5I)、連撃マスター(s5R)、双璧のファイター(s5a)、白銀のランス(s6H)、漆黒のガイスト(s6K)、イーブイヒーローズ(s6a)、摩天パーフェクト(s7D)、蒼空ストリーム(s7R)、フュージョンアーツ(s8)、25th ANNIVERSARY COLLECTION(s8a)、VMAXクライマックス(s8b)、スターバース(s9)、バトルリージョン(s9a)、タイムゲイザー(s10D)、スペースジャグラー(s10P)、ダークファンタズマ(s10a)、ポケモンGO(s10b)、ロストアビス(s11)、白熱のアルカナ(s11a)、パラダイムトリガー(s12)、VSTARユニバース(s12a)'),'その他':['プロモ','サン&ムーン以前のパック']};
 GN.op.pk={'ブースターパック':L('OP-01 ROMANCE DAWN、OP-02 頂上決戦、OP-03 強大な敵、OP-04 謀略の王国、OP-05 新時代の主役、OP-06 双璧の覇者、OP-07 500年後の未来、OP-08 二つの伝説、OP-09 四皇覚醒、OP-10 ロイヤルブラッドライン、OP-11 神速の拳、OP-12、OP-13'),'エクストラ・プレミアム':['PRB-01 THE BEST','EB-02 Anime 25th collection','EB-01 メモリアルコレクション'],'その他':['スタートデッキ(ST)','プロモ']};
-GN.ygo.pk={'最近のパック':['PHANTOM NIGHTMARE','DIMENSION FORCE','CROSSOVER BREAKERS','AGE OF OVERLORD','LEGACY OF DESTRUCTION','DUELIST NEXUS','ETERNITY CODE'],'25th / QUARTER CENTURY':['QUARTER CENTURY CHRONICLE side:PRIDE','QUARTER CENTURY CHRONICLE side:UNITY','RARITY COLLECTION -QUARTER CENTURY EDITION-','25th ANNIVERSARY ULTRA RARE EDITION'],'その他':['ストラクチャーデッキ','プロモ','旧パック']};
-const packOpts=g=>{const G=GN[g];return (G.pk?Object.entries(G.pk).map(([k,v])=>`<optgroup label="${k}">${opt(v)}</optgroup>`).join(''):opt(G.sr))+`<option>${SO}</option>`};
+GN.poke.pk={
+ '拡張パック（新しい順）':['ハドウシーカー（2026/11/27予定）','30th CELEBRATION','ストームエメラルダ','アビスアイ','ニンジャスピナー','ムニキスゼロ','MEGAドリームex','インフェルノX','メガシンフォニア','メガブレイブ'],
+ '構築デッキ・デッキセット（新しい順）':['スペシャルデッキセットMEGA メガオーダイル・メガカイリュー・メガゲンガー（2026/11/13予定）','30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー','スターターセットex イーブイex','スターターセットex ゾロア＆ゾロアークex','スターターセットex ニャオハ＆マスカーニャex','スタートデッキ100 バトルコレクション コロちゃおVer.','スタートデッキ100 バトルコレクション','スターターセットMEGA メガゲンガーex','スターターセットMEGA メガディアンシーex'],
+ '30周年カードセット（新しい順）':['30th CELEBRATION カードセット ニャオハ・ホゲータ・クワッス','30th CELEBRATION カードセット サルノリ・ヒバニー・メッソン','30th CELEBRATION カードセット モクロー・ニャビー・アシマリ','30th CELEBRATION カードセット ハリマロン・フォッコ・ケロマツ','30th CELEBRATION カードセット ツタージャ・ポカブ・ミジュマル','30th CELEBRATION カードセット ナエトル・ヒコザル・ポッチャマ','30th CELEBRATION カードセット キモリ・アチャモ・ミズゴロウ','30th CELEBRATION カードセット チコリータ・ヒノアラシ・ワニノコ','30th CELEBRATION カードセット フシギダネ・ヒトカゲ・ゼニガメ'],
+ 'スカーレット＆バイオレット':['ホワイトフレア','ブラックボルト','ロケット団の栄光','熱風のアリーナ','バトルパートナーズ','テラスタルフェスex','超電ブレイカー','楽園ドラゴーナ','ステラミラクル','変幻の仮面','クリムゾンヘイズ','サイバージャッジ','ワイルドフォース','シャイニートレジャーex','古代の咆哮','未来の一閃','レイジングサーフ','黒炎の支配者','ポケモンカード151','クレイバースト','スノーハザード','トリプレットビート','バイオレットex','スカーレットex'],
+ 'ソード＆シールド':['VSTARユニバース','パラダイムトリガー','白熱のアルカナ','ロストアビス','ポケモンGO','ダークファンタズマ','スペースジャグラー','タイムゲイザー','バトルリージョン','スターバース','VMAXクライマックス','25th ANNIVERSARY COLLECTION','フュージョンアーツ','蒼空ストリーム','摩天パーフェクト','イーブイヒーローズ','漆黒のガイスト','白銀のランス','双璧のファイター','連撃マスター','一撃マスター','シャイニースターV','仰天のボルテッカー','伝説の鼓動','ムゲンゾーン','爆炎ウォーカー','反逆クラッシュ','VMAXライジング','シールド','ソード'],
+ 'その他':['プロモ','サン＆ムーン以前のパック']
+};
+GN.op.pk={
+ 'ブースターパック（新しい順）':['OP-18 神の支配（2026/11/21予定）','OP-17 世界最強の戦士','OP-16 決戦の刻','OP-15 神の島の冒険','OP-14 蒼海の七傑','OP-13 受け継がれる意志','OP-12 師弟の絆','OP-11 神速の拳','OP-10 王族の血統','OP-09 新たなる皇帝','OP-08 二つの伝説','OP-07 500年後の未来','OP-06 双璧の覇者','OP-05 新時代の主役','OP-04 謀略の王国','OP-03 強大な敵','OP-02 頂上決戦','OP-01 ROMANCE DAWN'],
+ 'エクストラブースター（新しい順）':['EB-05 ONE PIECE Heroines Edition vol.2（2026/10/31予定）','EB-04 EGGHEAD CRISIS','EB-03 ONE PIECE Heroines Edition','EB-02 Anime 25th collection','EB-01 メモリアルコレクション'],
+ 'プレミアムブースター':['PRB-02 ONE PIECE CARD THE BEST vol.2','PRB-01 ONE PIECE CARD THE BEST'],
+ 'スタートデッキ・セット':['ST-36 黄 ユースタス・キッド','ST-35 赤黒 サボ','ST-34 紫 シャーロット・カタクリ','ST-33 青 クザン','ST-32 緑 ロロノア・ゾロ','ST-31 赤 モンキー・D・ルフィ','ST-30 EX ルフィ＆エース','ST-29','ST-28 緑黄 ヤマト','ST-27 黒 マーシャル・D・ティーチ','ST-25 青 バギー','ST-24 緑 ジュエリー・ボニー','ST-20 黄 シャーロット・カタクリ','ST-19 黒 スモーカー','ST-09 ヤマト','ST-08 モンキー・D・ルフィ'],
+ 'その他':['プロモ','限定商品']
+};
+GN.ygo.pk={'優先して登録':['遊☆戯☆王 ORIGINAL ARTWORK COLLECTION'],'2026年発売・発売予定':['遊☆戯☆王 ORIGINAL ARTWORK COLLECTION','BLAZING DOMINION','CHAOS ORIGINS','BEYOND THE BRAVE','PREMIUM PACK 2026','IMMORTAL PHOENIX','REVOLUTION BOOSTER － 方界・マリンセス・ゴーストリック －','THE CHRONICLES DECK DX マギストス','Yu-Gi-Oh! THE DARK SIDE OF DIMENSIONS 10th ANNIVERSARY MOVIE BOX','LIMITED PACK WORLD CHAMPIONSHIP 2026','UTILITY SELECTION','デッキビルドパック グロリアス・ヴィクターズ'],'最近のパック':['PHANTOM NIGHTMARE','DIMENSION FORCE','CROSSOVER BREAKERS','AGE OF OVERLORD','LEGACY OF DESTRUCTION','DUELIST NEXUS','ETERNITY CODE'],'25th / QUARTER CENTURY':['QUARTER CENTURY CHRONICLE side:PRIDE','QUARTER CENTURY CHRONICLE side:UNITY','RARITY COLLECTION -QUARTER CENTURY EDITION-','25th ANNIVERSARY ULTRA RARE EDITION'],'その他':['ストラクチャーデッキ','プロモ','旧パック']};
+const packOpts=g=>{
+ const G=GN[g];
+ const loadedPacks=g==='poke'?PKI.map(x=>x.s?.n||''):g==='op'?OPI.map(x=>x.packName||''):g==='ygo'?YGOI.map(x=>x.setName||'ORIGINAL ARTWORK COLLECTION'):[];
+ const packs=[...new Set([...(G.sr||[]),...loadedPacks].map(x=>String(x||'').trim()).filter(Boolean))];
+ const curated=G.pk?Object.entries(G.pk).map(([k,v])=>`<optgroup label="${k}">${opt(v)}</optgroup>`).join(''):opt(packs);
+  const extra=g==='op'?'<optgroup label="カードデータ収録パック（正式名称）">'+opt([...new Set(OPI.map(x=>x.packName).filter(Boolean))].sort((a,b)=>{const code=x=>{const m=String(x).match(/(?:OP|EB|PRB|ST)-?(\d+)/);return m?+m[1]:0};return code(b)-code(a)||b.localeCompare(a,'ja')}))+'</optgroup>':'';
+  return curated+extra+`<option>${SO}</option>`;
+};
 let so='new';
 const pidx=c=>{const l=GN[c.g].pk?Object.values(GN[c.g].pk).flat():GN[c.g].sr,i=l.indexOf(c.pack||c.series);return i<0?999:i};
 const SORT={new:()=>0,val:(a,b)=>val(b)-val(a),unit:(a,b)=>b.price-a.price,pl:(a,b)=>(val(b)-cost(b))-(val(a)-cost(a)),series:(a,b)=>a.g.localeCompare(b.g)||pidx(a)-pidx(b)||a.name.localeCompare(b.name,'ja'),name:(a,b)=>a.name.localeCompare(b.name,'ja')};
 const sortbar=()=>`<div style="margin:0 0 10px"><select onchange="so=this.value;render()" style="padding:10px 12px;font-size:13px;font-weight:700">${[['new','並び替え：登録が新しい順'],['val','評価額が高い順'],['unit','相場（単価）が高い順'],['pl','損益が大きい順'],['series','シリーズ・パック順'],['name','名前順']].map(o=>`<option value="${o[0]}" ${so==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div>`;
-function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;save();render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
+function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;save();masterPut(x).catch(e=>console.warn('Card master image update:',e));render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
 function pvw(s){open_(`<div class="hd"><b>カード写真</b><button class="ib" onclick="close_()">✕</button></div><img src="${s}" style="width:100%;border-radius:12px">`)}
 let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
+let YGOI=[],YGO_READY=false,YGO_ERROR=false;fetch('data/ygo-oac.json').then(r=>{if(!r.ok)throw Error('data/ygo-oac.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.cards))YGOI=j.cards;else throw Error('invalid YGO data');YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()}).catch(()=>{YGO_ERROR=true;YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()});
 fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
 const cimg=x=>x.img||(x.s&&x.s.r?`https://assets.tcgdex.net/ja/${x.s.r}/${x.s.id}/${x.l}/low.webp`:'');
+let OPI=[],OPR=[],OPSEARCH=0,OP_READY=false,OP_ERROR=false;
+fetch('data/op.json').then(r=>{if(!r.ok)throw Error('data/op.json '+r.status);return r.json()}).then(j=>{
+ if(j&&Array.isArray(j.cards))OPI=j.cards.map(a=>({no:String(a[0]||''),n:String(a[1]||''),rarity:String(a[2]||''),img:String(a[3]||''),parallel:Number(a[4]||0),packId:String(a[5]||''),packName:String(a[6]||'')}));
+ OP_READY=true;
+}).catch(()=>{OP_ERROR=true;OP_READY=true});
+const opSeries=no=>{const m=String(no||'').match(/^(OP|EB|PRB|ST|P)(?:-)?(\d{1,2})/i);return m?(m[1].toUpperCase()==='P'?'プロモ':m[1].toUpperCase()==='ST'?'スタートデッキ':m[1].toUpperCase()+'-'+m[2].padStart(2,'0')):''};
+function candOP(){
+ const b=$('#cd');if(!b)return;
+ const q=$('#fn').value.trim(),rawNo=$('#fo').value.trim(),seq=++OPSEARCH,selectedPack=currentSearchPack();
+ if(!q&&!rawNo){OPR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名またはカード番号を入力すると候補が表示されます。</div>';return}
+ if(!OP_READY){b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">ワンピースのカードデータを読み込み中…</div>';return}
+ const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
+ const nq=norm(q),nNo=norm(rawNo);
+ OPR=OPI.filter(x=>(!selectedPack||norm(x.packName)===norm(selectedPack)||opSeries(x.no)===selectedPack)&& (nNo?norm(x.no).includes(nNo):(nq&&(norm(x.n).includes(nq)||norm(x.no).includes(nq)))))
+  .sort((a,b)=>(nNo?0:(norm(a.n)===nq?0:1)-(norm(b.n)===nq?0:1))||a.no.localeCompare(b.no,'ja')).slice(0,50);
+ if(seq!==OPSEARCH)return;
+ b.innerHTML=OPR.length?renderOPR(OPR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致する候補がありません。カード名またはカード番号を確認してください。</div>';
+ if(OP_ERROR)b.innerHTML+='<div style="font-size:11px;color:var(--mu);margin-top:6px">保存済みデータを読み込めません。データ更新後に再試行してください。</div>';
+}
+const opRarity=v=>({'SuperRare':'SR','Super Rare':'SR','SR':'SR','Common':'C','Uncommon':'UC','Rare':'R','Leader':'L','SecretRare':'SEC','Secret Rare':'SEC','Special':'SP','Parallel':'P'}[String(v||'')]||String(v||''));
+function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:48px;height:66px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:'<div class="th" style="width:48px;height:66px;display:grid;place-items:center;font-size:9px;background:var(--sf2)">画像未登録</div>'}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${opRarity(x.rarity)}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
+function renderSearchCardPreview(d){
+ const el=$('#cardSearchPreview');if(!el)return;
+ const image=String(d.img||d.imageUrl||'');
+ const rows=[];
+ const addRow=(label,value)=>{if(value!==undefined&&value!==null&&String(value).trim()!=='')rows.push('<div style="font-size:11px;color:var(--mu);padding:2px 0"><b>'+label+'：</b>'+String(value)+'</div>')};
+ addRow('収録',d.setName||d.packName||d.set?.name);
+ addRow('カード番号',d.cardNo||d.no||d.localId||d.cardNumber);
+ addRow('レアリティ',d.rarity);
+ addRow('分類',d.category);
+ addRow('HP',d.hp);
+ addRow('タイプ',Array.isArray(d.types)?d.types.join('・'):d.types);
+ addRow('進化',d.stage);
+ addRow('イラスト',d.illustrator);
+ addRow('レギュレーション',d.regulationMark);
+ if(Array.isArray(d.attacks)&&d.attacks.length)addRow('ワザ',d.attacks.map(a=>[a.name,a.damage].filter(Boolean).join(' ')).join(' / '));
+ if(Array.isArray(d.variants)&&d.variants.length)addRow('仕様',d.variants.map(v=>typeof v==='string'?v:Object.entries(v).filter(([k,val])=>val===true).map(([k])=>k).join('・')).filter(Boolean).join(' / '));
+ el.style.display='block';
+ const safeImage=image.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+ el.innerHTML='<div class="card" style="display:flex;gap:12px;align-items:flex-start;padding:10px;margin:0 0 8px">'+(safeImage?'<img src="'+safeImage+'" alt="" style="width:92px;max-height:132px;object-fit:contain;border-radius:8px;background:var(--sf2)" onerror="this.style.display=\'none\'">':'<div style="width:92px;height:124px;display:grid;place-items:center;background:var(--sf2);border-radius:8px;font-size:10px;color:var(--mu)">画像未取得</div>')+'<div style="min-width:0;flex:1"><div style="font-weight:800;font-size:13px;margin-bottom:4px">'+String(d.n||d.name||$('#fn')?.value||'')+'</div>'+rows.join('')+'<div style="font-size:10px;color:var(--mu);margin-top:5px">登録時にこのカード情報と画像を保存します</div></div></div>';
+}
+function selectedPricePanel(extra=''){
+ const G=GN[F.g],name=$('#fn')?.value?.trim()||'',no=$('#fo')?.value?.trim()||'';
+ return `<div style="font-size:12px;color:var(--up);margin-top:8px">✓ 選択済み：${name}${no?' ・ '+no:''}${F.r?' ・ '+(F.g==='ygo'?({'ウルトラレア（モノクロ）':'UR（モノクロ）','ウルトラレア（カラー）':'UR（カラー）','シークレットレア（モノクロ）':'SE（モノクロ）','シークレットレア（カラー）':'SE（カラー）','プリズマティックシークレットレア（モノクロ）':'PSE（モノクロ）','プリズマティックシークレットレア（カラー）':'PSE（カラー）'}[F.r]||F.r):F.r):''}${extra?' ・ '+extra:''}</div>`;
+}
+function pickOP(i){
+ const x=OPR[i];if(!x)return;
+ const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=opRarity(x.rarity)+(x.parallel?'（パラレル）':'');F.img=x.img||'';
+ const ss=$('#fs');
+ // Preserve the exact Japanese pack title from the master data, including newer sets
+ // that are not yet listed in the app's manually maintained dropdown.
+ let packOption=x.packName?[...ss.options].find(o=>o.text.trim()===x.packName):null;
+  if(x.packName&&!packOption){packOption=document.createElement('option');packOption.textContent=x.packName;packOption.value=x.packName;ss.appendChild(packOption)}
+ if(packOption){ss.value=packOption.value;$('#fs2').style.display='none';$('#fs2').value=''}
+ else if(x.packName){ss.value=SO;$('#fs2').style.display='block';$('#fs2').value=x.packName}
+ else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
+ const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));const selectedRarity=F.r;let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===selectedRarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=selectedRarity;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
+ const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
+ syncRegistrationRarity(F.r);
+ F.cardMeta={game:'op',name:x.n,cardNo:x.no,rarity:F.r,packName:x.packName||'',parallel:!!x.parallel};renderSearchCardPreview({...x,n:x.n,cardNo:x.no,rarity:F.r,packName:x.packName||''});b.innerHTML=selectedPricePanel(x.parallel?'パラレル':'');
+}
 function cand(){
  const b=$('#cd');if(!b)return;
  const q=$('#fn').value.trim();
@@ -242,20 +595,46 @@ function cand(){
  const seq=++PKSEARCH;
  // Never reuse a previous card number to filter a new name search.
  if(q && q!==PKLASTNAME){PKLASTNAME=q;}
- if(F.g!=='poke'){b.innerHTML='';return}
- if(!q){PKR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を入力すると候補が表示されます。番号だけの検索は候補が混ざりやすいため、カード名から検索してください。</div>';return}
- b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を検索中…</div>';
+ if(F.g==='op'){candOP();return}
+ if(F.g==='ygo'){
+  const normYgo=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
+  const nq=normYgo(q), nNo=normYgo(rawNo);
+  const searchText=Boolean(nq||nNo);
+  const shortYgoRarity=v=>{const key=String(v||'').replace(/（オーバーフレーム）/g,' OF');return ({'ノーマル':'N','レア':'R','スーパーレア':'SR','ウルトラレア':'UR','ウルトラレア（モノクロ）':'UR（モノクロ）','ウルトラレア（カラー）':'UR（カラー）','シークレットレア（モノクロ）':'SE（モノクロ）','シークレットレア（カラー）':'SE（カラー）','プリズマティックシークレットレア（モノクロ）':'PSE（モノクロ）','プリズマティックシークレットレア（カラー）':'PSE（カラー）','アルティメットレア':'UL','シークレットレア':'SE','プリズマティックシークレットレア':'PSE','コレクターズレア':'CR','クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR','ウルトラレア OF':'UR OF','シークレットレア OF':'SE OF','プリズマティックシークレットレア OF':'PSE OF'}[key]||key)};
+  const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,100).map(x=>({n:x.baseName||x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:(x.variants||[]).map(shortYgoRarity),setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:(x.imageUrl||(x.imageCandidates&&x.imageCandidates[0]&&x.imageCandidates[0].imageUrl)||x.img||''),imageStatus:x.imageStatus||(x.imageCandidates&&x.imageCandidates.length?'candidate_image_unverified':'unverified'),verifiedNameAndNumber:x.verified})):[];
+  PKR=rows;
+  const pendingVariants=YGOI.filter(x=>['official_card_page_confirmed_artwork_variant_unverified','exact_manga_style_image_pending','exact_yac1_image_pending'].includes(x.imageStatus)).length;
+  const ygoNotice=YGO_ERROR?'<div style="font-size:11px;color:var(--dn);margin:6px 0">遊戯王データを読み込めませんでした。通信環境を確認して再読み込みしてください。</div>':(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin:6px 0">遊戯王カードデータを読み込み中…</div>':`<div style="font-size:11px;color:var(--mu);margin:6px 0">ORIGINAL ARTWORK COLLECTION：カード情報 ${YGOI.length} / 100種類を登録済み。レアリティ仕様 ${pendingVariants}種類は照合中です。</div>`);
+  const ygoPrompt=searchText?'':'<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名またはカード番号を入力すると候補が表示されます。</div>';
+  b.innerHTML=ygoNotice+ygoPrompt+(rows.length?renderPKR(rows):(searchText&&YGO_READY&&!YGO_ERROR?'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致するカードがありません。カード名またはYAC1-JP番号を確認してください。</div>':''));
+  return;
+}
+if(F.g!=='poke'){b.innerHTML='';return}
  const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
- const nq=norm(q);
- const local=PKI.filter(x=>norm(x.n).includes(nq)).map(x=>({...x,local:true,setName:x.s?.n||'',setSeries:x.s?.r||''}));
+ const nq=norm(q),nNo=norm(rawNo);
+ if(nNo){
+  const localByNo=PKI.filter(x=>norm(x.l).includes(nNo)||norm(x.setId).includes(nNo)).map(x=>({...x,local:true,setName:x.s?.n||'',setSeries:x.s?.r||''})).slice(0,50);
+  PKR=localByNo;
+  b.innerHTML=PKR.length?renderPKR(PKR)+(PKI_READY?'':'<div style="font-size:11px;color:var(--mu);margin-top:6px">カードデータを読み込み中…</div>'):'<div style="font-size:11px;color:var(--mu);margin-top:6px">保存済みデータに一致する番号がありません。カード名でも検索できます。</div>';
+  return;
+ }
+ if(!q){PKR=[];b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">先に収録パックを選び、カード名を入力してください。</div>';return}
+ b.innerHTML='<div style="font-size:11px;color:var(--mu);margin-top:6px">カード名を検索中…</div>';
+ const selectedPack=currentSearchPack();
+ const local=PKI.filter(x=>norm(x.n).includes(nq)&&(!selectedPack||norm(x.s?.n)===norm(selectedPack))).map(x=>({...x,local:true,setName:x.s?.n||'',setSeries:x.s?.r||''}));
  fetch('https://api.tcgdex.net/v2/ja/cards?name='+encodeURIComponent(q)).then(r=>{if(!r.ok)throw Error('API '+r.status);return r.json()}).then(rows=>{
   if(seq!==PKSEARCH||!$('#cd'))return;
   if(!Array.isArray(rows))throw Error('unexpected response');
   const mapped=rows.map(d=>({n:d.name||'',l:String(d.localId||''),img:d.image?d.image+'/low.webp':'',live:true,setId:d.id||'',setName:d.set?.name||'',setSeries:d.set?.serie?.name||''}));
   // Remove unrelated fuzzy matches; exact/substring matches only, with name similarity first.
-  const all=[...mapped,...local].filter(x=>norm(x.n).includes(nq));
-  const seen=new Set();
-  PKR=all.filter(x=>{const k=(x.setId||x.s?.id||'')+'|'+x.l+'|'+norm(x.n);if(seen.has(k))return false;seen.add(k);return true})
+  const all=[...local,...mapped].filter(x=>norm(x.n).includes(nq)&&(!selectedPack||norm(x.setName||x.s?.n)===norm(selectedPack)));
+  const byCard=new Map();
+  for(const x of all){
+    const key=norm(x.n)+'|'+String(x.setId||x.s?.id||'')+'|'+String(x.l||'');
+    const prev=byCard.get(key);
+    byCard.set(key,prev?{...x,...prev,n:prev.n||x.n,l:prev.l||x.l,img:prev.img||x.img,setName:prev.setName||x.setName,setSeries:prev.setSeries||x.setSeries,setId:prev.setId||x.setId,s:prev.s||x.s}:x);
+  }
+  PKR=[...byCard.values()]
     .sort((a,b)=>(norm(a.n)===nq?0:1)-(norm(b.n)===nq?0:1)||a.n.localeCompare(b.n,'ja')).slice(0,50);
   b.innerHTML=PKR.length?renderPKR(PKR):'<div style="font-size:11px;color:var(--mu);margin-top:6px">一致する候補がありません。名前を短くするか、カード名を確認してください。</div>';
  }).catch(()=>{
@@ -264,13 +643,13 @@ function cand(){
   b.innerHTML=PKR.length?renderPKR(PKR)+'<div style="font-size:11px;color:var(--mu);margin-top:6px">オンライン検索に接続できないため、保存済みデータのみ表示しています。</div>':'<div style="font-size:11px;color:var(--mu);margin-top:6px">検索に接続できません。時間をおいて再試行するか、カード情報を手入力してください。</div>';
  });
 }
-function renderPKR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickc(${i})">${cimg(x)?`<img class="th" style="width:36px;height:50px" src="${cimg(x)}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}</div><div style="font-size:11px;color:var(--mu)">${x.l}${x.setName?' ・ '+x.setName:''}</div></div></div>`).join('')}</div>`}
+function renderPKR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:340px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickc(${i})">${cimg(x)?`<img class="th" style="width:48px;height:66px;object-fit:contain" src="${cimg(x)}" onerror="this.style.display='none'" loading="lazy">`:'<div class="th" style="width:48px;height:66px;display:grid;place-items:center;font-size:9px;background:var(--sf2)">画像未登録</div>'}<div style="min-width:0;flex:1"><div style="font-weight:700;font-size:13px">${x.n}</div><div style="font-size:11px;color:var(--mu)">${x.l}${x.setName?' ・ '+x.setName:''}${x.rarity?' ・ '+x.rarity:''}</div></div></div>`).join('')}</div>`}
 async function pickc(i){
  const x=PKR[i];if(!x)return;
  const b=$('#cd');const selectedName=x.n;
  // Clear stale fields first so a missing value from this card cannot inherit the last card's value.
  $('#fn').value=selectedName;$('#fo').value='';F.r='';F.img='';
- const rr=$('#rr');if(rr)rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));
+ const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));}
  const p=$('#pv');if(p){p.removeAttribute('src');p.style.display='none'}
  let detail=x;
  if(x.setId){
@@ -286,14 +665,21 @@ async function pickc(i){
  $('#fn').value=detail.n||selectedName;
  $('#fo').value=detail.cardNo||String(detail.localId??detail.l??'');
  const sel=$('#fs');const setName=detail.setName||(detail.s&&detail.s.n)||'';
- const option=[...sel.options].find(o=>o.text.trim()===setName||o.text.includes(setName));
+ let option=[...sel.options].find(o=>o.text.trim()===setName||o.text.includes(setName));
+ if(setName&&!option){option=document.createElement('option');option.textContent=setName;option.value=setName;sel.appendChild(option)}
  if(option){sel.value=option.value;$('#fs2').style.display='none'}else if(setName){sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=setName}
- if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
+ if(F.g==='ygo'&&Array.isArray(detail.variants)&&detail.variants.length&&rr){
+  F.r=detail.variants[0];
+  detail.variants.forEach((variant,index)=>{const chip=document.createElement('button');chip.className='chip'+(index===0?' on':'');chip.textContent=variant;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=variant;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)});
+ }else if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
  F.img=detail.img||cimg(detail)||'';
  if(p&&F.img){p.src=F.img;p.style.display='block'}
- b.innerHTML=`<div style="font-size:11px;color:var(--up);margin-top:6px">✓ 選択済み${setName?' ・ '+setName:''}${detail.rarity?' ・ '+detail.rarity:' ・ レアリティ情報なし'} ・ ${$('#fo').value||'カード番号情報なし'}</div>`;
+ syncRegistrationRarity(F.r);
+ F.cardMeta={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,rarity:detail.rarity||F.r||'',category:detail.category||'',hp:detail.hp??null,types:detail.types||[],stage:detail.stage||'',illustrator:detail.illustrator||'',regulationMark:detail.regulationMark||'',attacks:detail.attacks||[],variants:detail.variants||[]};
+ renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.img||detail.img||''});
+ b.innerHTML=selectedPricePanel(setName);
 }
-const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=cand;$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
+const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{$('#fo').value='';cand()};$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
 $('#fab').onclick=()=>add();
 render();
 </script></body></html>
