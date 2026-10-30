@@ -63,7 +63,7 @@ jobs:
           import { readFileSync } from 'node:fs';
           const html = readFileSync('index.html', 'utf8');
           const checks = [
-            ['dynamic pack dropdown is used in registration', html.includes('id="fs" onchange="togglePackCustom()"') && html.includes('${packOpts(F.g)}')],
+            ['dynamic pack dropdown is used in registration', (html.includes('id="fs" onchange="togglePackCustom()"') || html.includes('id="fs" onchange="$(\'#fs2\').style.display=this.value==SO?\'block\':\'none\'"')) && html.includes('${packOpts(F.g)}')],
             ['pack dropdown includes loaded card master data', html.includes("loadedPacks=g==='poke'?PKI.map") && html.includes("g==='op'?OPI.map") && html.includes("g==='ygo'?YGOI.map")],
             ['custom pack name can be entered', html.includes('function togglePackCustom()') && html.includes('id="fs2"')],
             ['registration persists exact pack name', html.includes('pack:selectedPack') && html.includes('series:selectedPack')],
