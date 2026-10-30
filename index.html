@@ -556,7 +556,8 @@ let OPI=[],OPR=[],OPSEARCH=0,OP_READY=false,OP_ERROR=false;
 fetch('data/op.json').then(r=>{if(!r.ok)throw Error('data/op.json '+r.status);return r.json()}).then(j=>{
  if(j&&Array.isArray(j.cards))OPI=j.cards.map(a=>({no:String(a[0]||''),n:String(a[1]||''),rarity:String(a[2]||''),img:String(a[3]||''),parallel:Number(a[4]||0),packId:String(a[5]||''),packName:String(a[6]||'')}));
  OP_READY=true;
-}).catch(()=>{OP_ERROR=true;OP_READY=true});
+ if(F.g==='op'&&$('#fn')&&$('#fn').value.trim())cand();
+}).catch(()=>{OP_ERROR=true;OP_READY=true;if(F.g==='op'&&$('#fn')&&$('#fn').value.trim())cand()});
 const opSeries=no=>{const m=String(no||'').match(/^(OP|EB|PRB|ST|P)(?:-)?(\d{1,2})/i);return m?(m[1].toUpperCase()==='P'?'プロモ':m[1].toUpperCase()==='ST'?'スタートデッキ':m[1].toUpperCase()+'-'+m[2].padStart(2,'0')):''};
 function candOP(){
  const b=$('#cd');if(!b)return;
