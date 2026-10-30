@@ -95,6 +95,13 @@ let S={cards:[],hist:[]},view='home',cur='all',F={g:'poke',q:1},mg='poke';
 let collectionMode='detail',saleOnly=false;
 try{const r=localStorage.getItem(K);if(r)S=JSON.parse(r)}catch(e){}
 const save=()=>{snap();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){toast('⚠ 保存容量がいっぱいです。バックアップを取って、写真を減らしてください')}};
+function normalizeCardImageUrl(value){
+ const src=String(value||'').trim();if(!src)return '';
+ if(/(?:images\\.)?weserv\\.nl/i.test(src)){try{const raw=new URLSearchParams(src.split('?')[1]||'').get('url')||'';let v=raw.trim();try{v=decodeURIComponent(v)}catch(e){}if(v&&!/^https?:\\/\\//i.test(v))v='https://'+v;if(/^https?:\\/\\//i.test(v))return v}catch(e){}}
+ return src;
+}
+let imageUrlMigration=false;(S.cards||[]).forEach(c=>{const v=normalizeCardImageUrl(c.img);if(v&&v!==c.img){c.img=v;imageUrlMigration=true}});
+if(imageUrlMigration){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
 const MASTER_DB_NAME='tcg-collection-master-v1',MASTER_STORE='cards';
 let masterDbPromise;
 const masterNorm=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
