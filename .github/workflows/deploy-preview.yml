@@ -1,12 +1,13 @@
 name: deploy-preview
-# Keep the development preview in /preview, separate from the published main app.
-# Refresh preview after development-branch commits by pushing a no-op workflow update.
-# Sync card-image data from the development branch into the isolated preview.
-# Refresh after the official image manifest changes.
 
 on:
   push:
-    branches: [main]
+    branches:
+      - feature/japanese-one-piece-card-data
+    paths:
+      - "index.html"
+      - "data/**"
+      - ".github/workflows/deploy-preview.yml"
   workflow_dispatch:
 
 permissions:
@@ -21,37 +22,36 @@ concurrency:
 jobs:
   deploy:
     environment:
-      name: github-pages
+      name: preview-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout published main site
+      - name: Checkout currently published main site
         uses: actions/checkout@v4
         with:
           ref: main
           path: site-root
 
-      - name: Checkout development branch
+      - name: Checkout latest development branch
         uses: actions/checkout@v4
         with:
           ref: feature/japanese-one-piece-card-data
           path: preview-source
 
-      - name: Assemble isolated preview without changing the main app
+      - name: Add isolated preview under /preview/
         run: |
           mkdir -p site-root/preview
           cp -R preview-source/. site-root/preview/
           rm -rf site-root/preview/.git
-          rm -f site-root/preview/.github/workflows/deploy-preview.yml
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload site with separate preview path
+      - name: Upload combined site with preserved root
         uses: actions/upload-pages-artifact@v3
         with:
           path: site-root
 
-      - name: Deploy GitHub Pages
+      - name: Deploy preview
         id: deployment
         uses: actions/deploy-pages@v4
