@@ -397,7 +397,8 @@ function detail(id){
  '<label>カード画像</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this,\''+id+'\')"></label>'+imageHtml+'</div>'+
  '<label>収録パック</label><input id="ec_series" value="'+masterEsc(c.series||c.pack||'')+'" placeholder="収録パック">'+
  '<label>カード名</label><input id="ec_name" value="'+masterEsc(c.name||'')+'" placeholder="カード名">'+
- '<div class="row"><div><label>カード番号</label><input id="ec_no" value="'+masterEsc(c.no||c.cardNo||'')+'" placeholder="カード番号"></div><div><label>レアリティ</label><select id="ec_rarity">'+rarityHtml+'</select></div></div>'+
+ '<label>カード番号</label><input id="ec_no" value="'+masterEsc(c.no||c.cardNo||'')+'" placeholder="カード番号">'+
+ '<label>レアリティ</label><select id="ec_rarity">'+rarityHtml+'</select>'+
  '<div class="row"><div><label>所持枚数</label><input id="ec_qty" type="number" min="1" step="1" value="'+Math.max(1,Number(c.qty)||1)+'"></div><div><label>相場（1枚あたり）</label><input id="ec_price" type="number" min="0" value="'+(Number(c.price)||0)+'"></div></div>'+
  '<label>入手場所</label><input id="dp" value="'+masterEsc(c.place||'')+'" placeholder="例：カードショップ / パック / フリマ">'+
  '<label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" value="'+(c.paid??'')+'" placeholder="損益の計算に使われます"></div>'+
@@ -433,9 +434,10 @@ function add(){const G=GN[F.g];
  open_(`<div class="hd"><b>カード登録</b><button class="ib" onclick="close_()">✕</button></div>
  <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="switchGame('${g}')">${GN[g].n}</button>`).join('')}</div>
  <label>シリーズ・パック名</label><select id="fs" onchange="$('#fs2').style.display=this.value==SO?'block':'none'">${packOpts(F.g)}</select><input id="fs2" placeholder="シリーズ名を入力" style="display:none;margin-top:8px">
- <label>レアリティ</label><div class="chips" style="flex-wrap:wrap" id="rr">${G.rr.map(r=>`<button class="chip ${F.r==r?'on':''}" onclick="F.r=F.r==='${r}'?'':'${r}';document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.textContent==F.r))">${r}</button>`).join('')}</div>
+
  <label>カード写真（任意）</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this)"></label><img id="pv" class="th" style="display:none"></div>
  <label>カード名</label><input id="fn" placeholder="カード名"><label>カード番号</label><input id="fo" placeholder="例：201/165">
+ <label>レアリティ</label><div class="chips" style="flex-wrap:wrap" id="rr">${G.rr.map(r=>`<button class="chip ${F.r==r?'on':''}" onclick="F.r=F.r==='${r}'?'':'${r}';document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.textContent==F.r))">${r}</button>`).join('')}</div>
  <label>相場チェック（タップで検索画面を開く）</label><div class="row">${G.s.map((s,i)=>`<button class="btn sm" onclick="fq(${i})">${s[0]}</button>`).join('')}</div>${G.o?`<button class="btn sm" style="width:100%;margin-top:8px" onclick="window.open(GN[F.g].o+encodeURIComponent($('#fn').value),'_blank')">📖 公式カードリストで調べる</button>`:''}
  <label>各店舗の相場（1枚あたり）</label><div class="row">${G.s.map((s,i)=>`<div><div class="m" style="color:var(--mu);font-size:11px;margin-bottom:4px">${s[0]}</div><input id="fp${i}" type="number" inputmode="numeric" placeholder="¥" style="padding:10px"></div>`).join('')}</div>
  <label>枚数</label><div class="stp"><button onclick="stp(-1)">−</button><b id="fq">${F.q}</b><button onclick="stp(1)">＋</button></div>
