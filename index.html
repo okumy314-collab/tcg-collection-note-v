@@ -546,7 +546,11 @@ function cardImageError(el,id){
  const normalized=normalizeCardImageUrl(current);
  if(normalized&&normalized!==current&&!((el.dataset.tried||'').split('|').includes(normalized))){el.dataset.tried=(el.dataset.tried||'')+'|'+normalized;el.src=normalized;return}
  const candidates=[];const add=u=>{u=normalizeCardImageUrl(u);if(u&&u!==current&&!candidates.includes(u)&&!((el.dataset.tried||'').split('|').includes(u)))candidates.push(u)};
- if(c&&c.g==='op'){const no=masterImageNorm(c.no||c.cardNo||'').split('/')[0],name=masterImageNorm(c.name),hit=(OPI||[]).find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&x.img);if(hit)add(hit.img)}
+ if(c&&c.g==='op'){
+  const no=masterImageNorm(c.no||c.cardNo||'').split('/')[0],name=masterImageNorm(c.name),rarity=masterImageRarity(c.rarity),pack=c.series||c.pack||'';
+  const hit=(OPI||[]).find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&masterImagePackMatches(c,x.packName)&&masterImageRarity(x.rarity)===rarity&&Boolean(x.parallel)===Boolean(c.parallel)&&x.img);
+  if(hit)add(hit.img);
+ }
  if(c&&c.g==='ygo'){const no=masterImageNorm(c.no||c.cardNo||''),name=masterImageNorm(c.name),hit=(YGOI||[]).find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name);if(hit)add(hit.imageUrl||hit.img)}
  if(c&&c.g==='poke'){const no=String(c.no||c.cardNo||'').split('/')[0].replace(/^0+/,'')||'',name=masterImageNorm(c.name),pack=masterImageNorm(c.series||c.pack||''),hits=(PKI||[]).filter(x=>masterImageNorm(x.n)===name&&String(x.l||'').replace(/^0+/,'')===no&&masterImageNorm(x.s&&x.s.n)===pack);if(hits.length===1){const x=hits[0],base='https://assets.tcgdex.net/ja/'+encodeURIComponent(x.s.r)+'/'+encodeURIComponent(x.s.id)+'/'+encodeURIComponent(x.l);['low.webp','low.png','high.webp','high.png'].forEach(v=>add(base+'/'+v))}}
  const next=candidates[0];if(next){el.dataset.tried=(el.dataset.tried||'')+'|'+next;el.src=next;return}
