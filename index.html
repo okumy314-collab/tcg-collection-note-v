@@ -239,7 +239,7 @@ async function masterFetchOne(c,force=false){
  try{
   const found=await masterFindImage(c);
   if(!found){
-   if(force){c.img='';c.imageVerificationStatus='pack_or_card_mismatch';c.imageSourceStatus='exact_match_not_found';save();await masterPut(c,true)}
+   if(force){c.imageVerificationStatus='source_not_found_keep_existing';c.imageSourceStatus='exact_match_not_found';save();await masterPut(c,true)}
    return false;
   }
   c.img=found.url;c.imageVerificationStatus=found.status==='candidate_unverified'?'candidate_unverified':'source_matched';c.imageSourceStatus=found.status;
