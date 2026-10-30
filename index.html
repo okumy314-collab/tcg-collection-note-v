@@ -189,7 +189,7 @@ async function masterFindImage(c){
   return url?{url,status:variant.status||'rarity_variant_exact'}:null;
  }
  if(c.g==='poke'){
-  const m=String(c.no||'').match(/^(\\d+)/),localId=m?m[1].replace(/^0+/,''):String(c.no||'').replace(/^0+/,'');
+  const m=String(c.no||'').match(/^(\d+)/),localId=m?m[1].replace(/^0+/,''):String(c.no||'').replace(/^0+/,'');
   if(!localId)return null;
   const wantedPack=masterImageNorm(c.series||c.pack||'');
   if(!wantedPack)return null;
