@@ -1,0 +1,49 @@
+name: Collect YAC1 image candidates
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/japanese-one-piece-card-data
+    paths:
+      - "scripts/collect-ygo-image-candidates.py"
+      - ".github/workflows/collect-yac1-image-candidates.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout development branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/japanese-one-piece-card-data
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Extract review-only image candidates
+        run: python scripts/collect-ygo-image-candidates.py
+      - name: Commit candidate metadata and summary when changed
+        run: |
+          if git diff --quiet -- data/ygo-oac.json data/ygo-oac-image-candidate-summary.json; then
+            echo "No new image candidates were found."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ygo-oac.json data/ygo-oac-image-candidate-summary.json
+          git commit -m "Collect review-only YAC1 image candidates"
+          # The card-data updater may push at the same time. Retry after rebasing.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:feature/japanese-one-piece-card-data; then
+              exit 0
+            fi
+            git fetch origin feature/japanese-one-piece-card-data
+            git rebase origin/feature/japanese-one-piece-card-data
+            sleep $((attempt * 2))
+          done
+          echo "Failed to push image-candidate metadata after three attempts." >&2
+          exit 1
