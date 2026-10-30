@@ -327,6 +327,7 @@ function add(){
  <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="F.g='${g}';keep();add()">${GN[g].n}</button>`).join('')}</div>
  <div class="row"><div><label>シリーズ・パック</label><select id="fs" onchange="togglePackCustom()">${packOpts(F.g)}</select><input id="fs2" placeholder="商品名を入力" style="display:none;margin-top:6px"></div><div><label>レアリティ</label><select id="fr">${opt(G.rr)}</select></div></div>
  <label>カード名</label><input id="fn" placeholder="カード名"><label>カード番号</label><input id="fo" placeholder="例：201/165">
+ <div id="cardSearchPreview" style="display:none;margin:10px 0"></div>
  <label>相場チェック（ショップ検索）</label><div class="row"><button class="btn" onclick="fq(0)">${G.s[0][0]}</button><button class="btn" onclick="fq(1)">${G.s[1][0]}</button></div>
  <label>相場（1枚あたり）</label><div class="pr"><span>¥</span><input id="fp" type="number" inputmode="numeric" placeholder="確認した相場を入力"></div>
  <label>枚数</label><div class="stp"><button onclick="stp(-1)">−</button><b id="fq">${F.q}</b><button onclick="stp(1)">＋</button></div>
@@ -345,7 +346,7 @@ function fq(i){
 }
 function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const p=+$('#fp').value||0,customPack=$('#fs2')?.style.display!=='none'?$('#fs2')?.value.trim():'',selectedPack=customPack||$('#fs').value,c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity:F.r||$('#fr').value,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||''};
+ const p=+$('#fp').value||0,customPack=$('#fs2')?.style.display!=='none'?$('#fs2')?.value.trim():'',selectedPack=customPack||$('#fs').value,c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity:F.r||$('#fr').value,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||'',cardMeta:F.cardMeta||null};
  S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();
  toast('✓ 登録しました','詳細登録 ›',()=>detail(c.id))}
 async function masterDeleteKey(key){
@@ -518,6 +519,26 @@ function candOP(){
 }
 const opRarity=v=>({'SuperRare':'SR','Super Rare':'SR','SR':'SR','Common':'C','Uncommon':'UC','Rare':'R','Leader':'L','SecretRare':'SEC','Secret Rare':'SEC','Special':'SP','Parallel':'P'}[String(v||'')]||String(v||''));
 function renderOPR(rows){return `<div class="card" style="padding:4px;margin:8px 0 0;max-height:300px;overflow:auto">${rows.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid var(--bd);cursor:pointer" onclick="pickOP(${i})">${x.img?`<img class="th" style="width:36px;height:50px;object-fit:contain" src="${x.img}" onerror="this.style.display='none'" loading="lazy">`:''}<div style="min-width:0"><div style="font-weight:700;font-size:13px">${x.n}${x.parallel?' ・ パラレル':''}</div><div style="font-size:11px;color:var(--mu)">${x.no} ・ ${opRarity(x.rarity)}${x.packName?' ・ '+x.packName:''}</div></div></div>`).join('')}</div>`}
+function renderSearchCardPreview(d){
+ const el=$('#cardSearchPreview');if(!el)return;
+ const image=String(d.img||d.imageUrl||'');
+ const rows=[];
+ const addRow=(label,value)=>{if(value!==undefined&&value!==null&&String(value).trim()!=='')rows.push('<div style="font-size:11px;color:var(--mu);padding:2px 0"><b>'+label+'：</b>'+String(value)+'</div>')};
+ addRow('収録',d.setName||d.packName||d.set?.name);
+ addRow('カード番号',d.cardNo||d.no||d.localId||d.cardNumber);
+ addRow('レアリティ',d.rarity);
+ addRow('分類',d.category);
+ addRow('HP',d.hp);
+ addRow('タイプ',Array.isArray(d.types)?d.types.join('・'):d.types);
+ addRow('進化',d.stage);
+ addRow('イラスト',d.illustrator);
+ addRow('レギュレーション',d.regulationMark);
+ if(Array.isArray(d.attacks)&&d.attacks.length)addRow('ワザ',d.attacks.map(a=>[a.name,a.damage].filter(Boolean).join(' ')).join(' / '));
+ if(Array.isArray(d.variants)&&d.variants.length)addRow('仕様',d.variants.map(v=>typeof v==='string'?v:Object.entries(v).filter(([k,val])=>val===true).map(([k])=>k).join('・')).filter(Boolean).join(' / '));
+ el.style.display='block';
+ const safeImage=image.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+ el.innerHTML='<div class="card" style="display:flex;gap:12px;align-items:flex-start;padding:10px;margin:0 0 8px">'+(safeImage?'<img src="'+safeImage+'" alt="" style="width:92px;max-height:132px;object-fit:contain;border-radius:8px;background:var(--sf2)" onerror="this.style.display=\'none\'">':'<div style="width:92px;height:124px;display:grid;place-items:center;background:var(--sf2);border-radius:8px;font-size:10px;color:var(--mu)">画像未取得</div>')+'<div style="min-width:0;flex:1"><div style="font-weight:800;font-size:13px;margin-bottom:4px">'+String(d.n||d.name||$('#fn')?.value||'')+'</div>'+rows.join('')+'<div style="font-size:10px;color:var(--mu);margin-top:5px">登録時にこのカード情報と画像を保存します</div></div></div>';
+}
 function selectedPricePanel(extra=''){
  const G=GN[F.g],name=$('#fn')?.value?.trim()||'',no=$('#fo')?.value?.trim()||'';
  return `<div style="font-size:12px;color:var(--up);margin-top:8px">✓ 選択済み：${name}${no?' ・ '+no:''}${F.r?' ・ '+(F.g==='ygo'?({'ウルトラレア（モノクロ）':'UR（モノクロ）','ウルトラレア（カラー）':'UR（カラー）','シークレットレア（モノクロ）':'SE（モノクロ）','シークレットレア（カラー）':'SE（カラー）','プリズマティックシークレットレア（モノクロ）':'PSE（モノクロ）','プリズマティックシークレットレア（カラー）':'PSE（カラー）'}[F.r]||F.r):F.r):''}${extra?' ・ '+extra:''}</div>`;
@@ -535,7 +556,7 @@ function pickOP(i){
  else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
  const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));const selectedRarity=F.r;let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===selectedRarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=selectedRarity;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
  const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
- b.innerHTML=selectedPricePanel(x.parallel?'パラレル':'');
+ F.cardMeta={game:'op',name:x.n,cardNo:x.no,rarity:F.r,packName:x.packName||'',parallel:!!x.parallel};renderSearchCardPreview({...x,n:x.n,cardNo:x.no,rarity:F.r,packName:x.packName||''});b.innerHTML=selectedPricePanel(x.parallel?'パラレル':'');
 }
 function cand(){
  const b=$('#cd');if(!b)return;
@@ -622,6 +643,8 @@ async function pickc(i){
  }else if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
  F.img=detail.img||cimg(detail)||'';
  if(p&&F.img){p.src=F.img;p.style.display='block'}
+ F.cardMeta={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,rarity:detail.rarity||F.r||'',category:detail.category||'',hp:detail.hp??null,types:detail.types||[],stage:detail.stage||'',illustrator:detail.illustrator||'',regulationMark:detail.regulationMark||'',attacks:detail.attacks||[],variants:detail.variants||[]};
+ renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.img||detail.img||''});
  b.innerHTML=selectedPricePanel(setName);
 }
 const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{$('#fo').value='';cand()};$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
