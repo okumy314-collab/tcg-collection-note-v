@@ -434,9 +434,10 @@ function add(){const G=GN[F.g];
  open_(`<div class="hd"><b>カード登録</b><button class="ib" onclick="close_()">✕</button></div>
  <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="switchGame('${g}')">${GN[g].n}</button>`).join('')}</div>
  <label>シリーズ・パック名</label><select id="fs" onchange="$('#fs2').style.display=this.value==SO?'block':'none'">${packOpts(F.g)}</select><input id="fs2" placeholder="シリーズ名を入力" style="display:none;margin-top:8px">
- <label>レアリティ</label><div class="chips" style="flex-wrap:wrap" id="rr">${G.rr.map(r=>`<button class="chip ${F.r==r?'on':''}" onclick="F.r=F.r==='${r}'?'':'${r}';document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.textContent==F.r))">${r}</button>`).join('')}</div>
+
  <label>カード写真（任意）</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this)"></label><img id="pv" class="th" style="display:none"></div>
  <label>カード名</label><input id="fn" placeholder="カード名"><label>カード番号</label><input id="fo" placeholder="例：201/165">
+ <label>レアリティ</label><div class="chips" style="flex-wrap:wrap" id="rr">${G.rr.map(r=>`<button class="chip ${F.r==r?'on':''}" onclick="F.r=F.r==='${r}'?'':'${r}';document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.textContent==F.r))">${r}</button>`).join('')}</div>
  <label>相場チェック（タップで検索画面を開く）</label><div class="row">${G.s.map((s,i)=>`<button class="btn sm" onclick="fq(${i})">${s[0]}</button>`).join('')}</div>${G.o?`<button class="btn sm" style="width:100%;margin-top:8px" onclick="window.open(GN[F.g].o+encodeURIComponent($('#fn').value),'_blank')">📖 公式カードリストで調べる</button>`:''}
  <label>各店舗の相場（1枚あたり）</label><div class="row">${G.s.map((s,i)=>`<div><div class="m" style="color:var(--mu);font-size:11px;margin-bottom:4px">${s[0]}</div><input id="fp${i}" type="number" inputmode="numeric" placeholder="¥" style="padding:10px"></div>`).join('')}</div>
  <label>枚数</label><div class="stp"><button onclick="stp(-1)">−</button><b id="fq">${F.q}</b><button onclick="stp(1)">＋</button></div>
