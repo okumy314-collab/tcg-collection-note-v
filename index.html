@@ -166,7 +166,11 @@ async function masterFindImage(c){
   return hit?{url:hit.img,status:'official_card_data_exact_pack'}:null;
  }
  if(c.g==='ygo'){
-  const hit=YGOI.find(x=>masterImageNorm(x.cardNumber)===no&&masterImageNorm(x.baseName||x.name)===name&&masterImagePackMatches(c,x.setName||YGOI.title||'遊☆戯☆王 ORIGINAL ARTWORK COLLECTION')&&(x.imageUrl||(x.imageCandidates&&x.imageCandidates[0]&&x.imageCandidates[0].imageUrl)));
+  const wantedPack=masterImageNorm(c.series||c.pack||''),sourcePack=masterImageNorm(YGOI.title||'');
+  const productCode=masterImageNorm(c.no||'').split('-')[0];
+  const ygoPackMatch=!!wantedPack&&!!sourcePack&&(wantedPack===sourcePack||wantedPack.includes('originalartworkcollection')&&sourcePack.includes('originalartworkcollection')||productCode&&masterImageNorm(YGOI.productCode||'')===productCode);
+  if(!ygoPackMatch)return null;
+  const hit=YGOI.cards?.find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name&&(x.imageUrl||(x.imageCandidates&&x.imageCandidates[0]&&x.imageCandidates[0].imageUrl)));
   const url=hit&&(hit.imageUrl||(hit.imageCandidates&&hit.imageCandidates[0]&&hit.imageCandidates[0].imageUrl));
   return url?{url,status:hit.imageStatus||'candidate_unverified'}:null;
  }
