@@ -59,6 +59,7 @@ body{font-size:14px;line-height:1.45}main{padding:6px 14px}.card{padding:14px 16
 .it .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row>div[style*="text-align:right"]{white-space:nowrap}.th{flex:none!important;width:56px;height:78px;object-fit:contain;border-radius:8px;border:1px solid var(--bd);background:var(--sf2)}
 .g[style]{flex-wrap:wrap}.g .r[style]{margin-left:0!important;width:100%}.g .r[style] .btn{flex:1}
 .gl{flex:1;min-width:0}.gl .n{font-size:12px;color:var(--mu)}.gv{font-size:26px;font-weight:800;letter-spacing:-.01em;line-height:1.15;white-space:nowrap}.gp{font-size:12px}.gr{text-align:right;font-size:11px;color:var(--mu);line-height:1.7;white-space:nowrap}.gr b{font-size:14px;color:var(--tx)}
+.collection-toolbar{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:0 0 10px;flex-wrap:wrap}.collection-toolbar .chips{padding:0;margin:0;gap:6px}.collection-toolbar .chip{padding:7px 10px;font-size:11px}.simple-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.simple-card{min-width:0;background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:7px;cursor:pointer;overflow:hidden}.simple-card .simple-image{width:100%;height:112px;object-fit:contain;display:block;background:var(--sf2);border-radius:8px}.simple-card .simple-name{font-size:11px;font-weight:700;line-height:1.35;height:2.7em;overflow:hidden;margin:6px 1px 4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.simple-card .simple-price{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.simple-card .simple-qty{font-size:10px;color:var(--mu);margin-top:2px}@media(max-width:360px){.simple-grid{gap:6px}.simple-card{padding:5px}.simple-card .simple-image{height:96px}}
 </style></head><body>
 <header><div class="logo"><b>TCG</b> Collection note<small>PERSONAL VAULT</small></div><button class="ib" id="th" aria-label="theme">◐</button></header>
 <main id="app"></main>
@@ -91,6 +92,7 @@ ua:{n:'ユニアリ',c:'#34d399',sr:['ブースター','スタートデッキ','
 };
 const $=s=>document.querySelector(s),yen=n=>'¥'+Math.round(n).toLocaleString(),K='tcg-note-v1';
 let S={cards:[],hist:[]},view='home',cur='all',F={g:'poke',q:1},mg='poke';
+let collectionMode='detail',saleOnly=false;
 try{const r=localStorage.getItem(K);if(r)S=JSON.parse(r)}catch(e){}
 const save=()=>{snap();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){toast('⚠ 保存容量がいっぱいです。バックアップを取って、写真を減らしてください')}};
 const MASTER_DB_NAME='tcg-collection-master-v1',MASTER_STORE='cards';
@@ -402,6 +404,7 @@ function detail(id){
  '<label>入手場所</label><input id="dp" value="'+masterEsc(c.place||'')+'" placeholder="例：カードショップ / パック / フリマ">'+
  '<label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" value="'+(c.paid??'')+'" placeholder="損益の計算に使われます"></div>'+
  '<label>状態</label><select id="dc"><option value="">未設定</option>'+opt(['PSA10','PSA9','美品','良品','傷あり','プレイ用'])+'</select>'+
+ '<label style="display:flex;align-items:center;gap:8px;color:var(--tx);letter-spacing:0"><input id="ec_salePlanned" type="checkbox" style="width:18px;height:18px;margin:0" '+(c.salePlanned?'checked':'')+'> 売却予定にする</label>'+
  '<label>メモ</label><textarea id="dn" rows="3">'+masterEsc(c.memo||'')+'</textarea>'+
  '<button class="btn p" style="width:100%;margin-top:20px" onclick="sd(\''+id+'\')">変更を保存</button>'+
  '<button class="btn" style="width:100%;margin-top:10px;color:var(--dn)" onclick="del(\''+id+'\')">このカードを削除</button>');
@@ -412,7 +415,7 @@ async function sd(id){
  const next={series:$('#ec_series').value.trim(),rarity:$('#ec_rarity').value.trim(),name:$('#ec_name').value.trim(),no:$('#ec_no').value.trim(),qty:Math.max(1,Math.floor(Number($('#ec_qty').value)||1)),price:Math.max(0,Number($('#ec_price').value)||0)};
  if(!next.name){toast('カード名を入力してください');$('#ec_name').focus();return}
  const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'');
- Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value});
+ Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#ec_salePlanned').checked});
  if(identityChanged){if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}c.imageLookupStatus='needs_recheck'}
  save();const newKey=masterKeyFor(c);if(oldKey!==newKey)await masterDeleteKey(oldKey);
  try{await masterPut(c,true);if(identityChanged)await masterFetchOne(c,true)}catch(e){console.warn('Card edit sync:',e)}
@@ -440,7 +443,7 @@ function add(){const G=GN[F.g];
  <label>相場チェック（タップで検索画面を開く）</label><div class="row">${G.s.map((s,i)=>`<button class="btn sm" onclick="fq(${i})">${s[0]}</button>`).join('')}</div>${G.o?`<button class="btn sm" style="width:100%;margin-top:8px" onclick="window.open(GN[F.g].o+encodeURIComponent($('#fn').value),'_blank')">📖 公式カードリストで調べる</button>`:''}
  <label>各店舗の相場（1枚あたり）</label><div class="row">${G.s.map((s,i)=>`<div><div class="m" style="color:var(--mu);font-size:11px;margin-bottom:4px">${s[0]}</div><input id="fp${i}" type="number" inputmode="numeric" placeholder="¥" style="padding:10px"></div>`).join('')}</div>
  <label>枚数</label><div class="stp"><button onclick="stp(-1)">−</button><b id="fq">${F.q}</b><button onclick="stp(1)">＋</button></div>
- <label>詳細設定（任意）</label><div class="card" style="padding:4px 14px 14px;margin:0"><label>入手場所</label><input id="dp" placeholder="例：カードショップ / パック / フリマ"><label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" placeholder="損益の計算に使われます"></div><label>状態</label><select id="dc"><option value="">未設定</option>${opt(['PSA10','PSA9','美品','良品','傷あり','プレイ用'])}</select><label>メモ</label><textarea id="dn" rows="2"></textarea></div>
+ <label>詳細設定（任意）</label><div class="card" style="padding:4px 14px 14px;margin:0"><label>入手場所</label><input id="dp" placeholder="例：カードショップ / パック / フリマ"><label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" placeholder="損益の計算に使われます"></div><label>状態</label><select id="dc"><option value="">未設定</option>${opt(['PSA10','PSA9','美品','良品','傷あり','プレイ用'])}</select><label style="display:flex;align-items:center;gap:8px;color:var(--tx);letter-spacing:0"><input id="salePlanned" type="checkbox" style="width:18px;height:18px;margin:0"> 売却予定にする</label><label>メモ</label><textarea id="dn" rows="2"></textarea></div>
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});setTimeout(()=>$('#fn').focus(),150)}
 function keep(){['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value})}
@@ -463,7 +466,7 @@ function fq(i){
 async function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
  const ps=[0,1,2].map(i=>+$('#fp'+i).value||0),a=ps.filter(x=>x>0),p=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value,custom=$('#fs').value===SO?$('#fs2').value.trim():'',s=custom||$('#fs').value;
- const c={id:Date.now()+'',g:F.g,series:s,pack:s,img:F.img||'',rarity:F.r||'',name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value};
+ const c={id:Date.now()+'',g:F.g,series:s,pack:s,img:F.img||'',rarity:F.r||'',name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false};
  S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();
  let masterSaved=false;try{await masterPut(c);await masterFetchOne(c);masterSaved=true}catch(e){console.warn('Card master save:',e)}
  toast(masterSaved?'✓ 登録しました（マスター保存済み）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))}
