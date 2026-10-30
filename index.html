@@ -350,7 +350,7 @@ function duplicateCardMatch(a,b){
  const norm=v=>masterNorm(v),packA=norm(a.series||a.pack||''),packB=norm(b.series||b.pack||'');
  if(String(a.g||'')!==String(b.g||'')||!packA||packA!==packB)return false;
  const nameA=norm(a.name),nameB=norm(b.name),noA=norm(a.no||a.cardNo||''),noB=norm(b.no||b.cardNo||'');
- const baseNo=v=>String(v||'').match(/^(.*?)(?:\\/\\d+)?$/)?.[1]||String(v||'');
+ const baseNo=v=>String(v||'').split('/')[0];
  const numberMatch=!noA||!noB||baseNo(noA)===baseNo(noB);
  const nameMatch=nameA===nameB;
  const rarityKey=v=>{const x=norm(v);return ({sar:'specialillustrationrare',ar:'illustrationrare',sr:'superrare',sec:'secretrare',ur:'ultrarare',parallel:'parallel'}[x]||x)};
