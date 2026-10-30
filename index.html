@@ -540,6 +540,18 @@ let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
 let YGOI=[],YGO_READY=false,YGO_ERROR=false;fetch('data/ygo-oac.json').then(r=>{if(!r.ok)throw Error('data/ygo-oac.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.cards))YGOI=j.cards;else throw Error('invalid YGO data');YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()}).catch(()=>{YGO_ERROR=true;YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()});
 fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
 const cimg=x=>x.img||(x.s&&x.s.r?`https://assets.tcgdex.net/ja/${x.s.r}/${x.s.id}/${x.l}/low.webp`:'');
+function cardImageError(el,id){
+ if(!el)return;const c=id?(S.cards||[]).find(x=>String(x.id)===String(id)):null;
+ const current=String(el.getAttribute('src')||el.src||'');
+ const normalized=normalizeCardImageUrl(current);
+ if(normalized&&normalized!==current&&!((el.dataset.tried||'').split('|').includes(normalized))){el.dataset.tried=(el.dataset.tried||'')+'|'+normalized;el.src=normalized;return}
+ const candidates=[];const add=u=>{u=normalizeCardImageUrl(u);if(u&&u!==current&&!candidates.includes(u)&&!((el.dataset.tried||'').split('|').includes(u)))candidates.push(u)};
+ if(c&&c.g==='op'){const no=masterImageNorm(c.no||c.cardNo||'').split('/')[0],name=masterImageNorm(c.name),hit=(OPI||[]).find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&x.img);if(hit)add(hit.img)}
+ if(c&&c.g==='ygo'){const no=masterImageNorm(c.no||c.cardNo||''),name=masterImageNorm(c.name),hit=(YGOI||[]).find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name);if(hit)add(hit.imageUrl||hit.img)}
+ if(c&&c.g==='poke'){const no=String(c.no||c.cardNo||'').split('/')[0].replace(/^0+/,'')||'',name=masterImageNorm(c.name),pack=masterImageNorm(c.series||c.pack||''),hits=(PKI||[]).filter(x=>masterImageNorm(x.n)===name&&String(x.l||'').replace(/^0+/,'')===no&&masterImageNorm(x.s&&x.s.n)===pack);if(hits.length===1){const x=hits[0],base='https://assets.tcgdex.net/ja/'+encodeURIComponent(x.s.r)+'/'+encodeURIComponent(x.s.id)+'/'+encodeURIComponent(x.l);['low.webp','low.png','high.webp','high.png'].forEach(v=>add(base+'/'+v))}}
+ const next=candidates[0];if(next){el.dataset.tried=(el.dataset.tried||'')+'|'+next;el.src=next;return}
+ const ph=document.createElement('div');ph.className='th image-missing';ph.textContent='画像なし';if(el.classList.contains('simple-image')){ph.className='simple-image image-missing';ph.style.display='grid';ph.style.placeItems='center';ph.style.fontSize='10px'}if(el.id==='pv'){ph.style.width='56px';ph.style.height='78px'}el.replaceWith(ph);
+}
 let OPI=[],OPR=[],OPSEARCH=0,OP_READY=false,OP_ERROR=false;
 fetch('data/op.json').then(r=>{if(!r.ok)throw Error('data/op.json '+r.status);return r.json()}).then(j=>{
  if(j&&Array.isArray(j.cards))OPI=j.cards.map(a=>({no:String(a[0]||''),n:String(a[1]||''),rarity:String(a[2]||''),img:String(a[3]||''),parallel:Number(a[4]||0),packId:String(a[5]||''),packName:String(a[6]||'')}));
