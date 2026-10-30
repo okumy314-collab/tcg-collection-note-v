@@ -338,6 +338,7 @@ function add(){
  <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="F.g='${g}';keep();add()">${GN[g].n}</button>`).join('')}</div>
  <div><label>① 収録パックを選択</label><select id="fs" onchange="togglePackCustom();clearCardSelection();cand()">${packOpts(F.g)}</select><input id="fs2" placeholder="商品名を入力" style="display:none;margin-top:6px" oninput="clearCardSelection();cand()"></div>
  <label>② カード名で検索（パックを選ぶと候補を絞り込めます）</label><input id="fn" placeholder="カード名を入力"><label>カード番号（候補選択後に自動入力）</label><input id="fo" placeholder="候補から選択すると自動入力" readonly>
+ <label>③ レアリティを選択</label><select id="fr" onchange="F.r=this.value"><option value="">候補選択後に選んでください</option>${G.rr.map(r=>`<option value="${r}">${r}</option>`).join('')}</select>
  <div id="cardSearchPreview" style="display:none;margin:10px 0"></div>
  <label>相場チェック（ショップ検索）</label><div class="row"><button class="btn" onclick="fq(0)">${G.s[0][0]}</button><button class="btn" onclick="fq(1)">${G.s[1][0]}</button></div>
  <label>相場（1枚あたり）</label><div class="pr"><span>¥</span><input id="fp" type="number" inputmode="numeric" placeholder="確認した相場を入力"></div>
@@ -347,7 +348,8 @@ function add(){
  togglePackCustom();if(F.fs!==undefined)$('#fs').value=F.fs;if(F.fs2!==undefined)$('#fs2').value=F.fs2;setTimeout(()=>$('#fn').focus(),150)}
 function togglePackCustom(){const s=$('#fs'),i=$('#fs2');if(!s||!i)return;const show=s.value===SO;i.style.display=show?'block':'none';if(!show)i.value=''}
 function currentSearchPack(){const s=$('#fs'),custom=$('#fs2');if(custom&&custom.style.display!=='none'&&custom.value.trim())return custom.value.trim();if(!s||!s.value||s.value===SO)return '';const o=s.options[s.selectedIndex];return o?String(o.text||o.value).trim():''}
-function clearCardSelection(){F.r='';F.img='';F.cardMeta=null;F.printVariant='';const p=$('#cardSearchPreview');if(p){p.innerHTML='';p.style.display='none'}const n=$('#fn'),no=$('#fo');if(n)n.value='';if(no)no.value='';}
+function syncRegistrationRarity(value){const el=$('#fr');if(!el)return;const v=String(value||'');if(v&&!Array.from(el.options).some(o=>o.value===v)){const op=document.createElement('option');op.value=v;op.textContent=v;el.appendChild(op)}el.value=v;F.r=v;}
+function clearCardSelection(){F.r='';F.img='';F.cardMeta=null;F.printVariant='';const p=$('#cardSearchPreview');if(p){p.innerHTML='';p.style.display='none'}const n=$('#fn'),no=$('#fo');if(n)n.value='';if(no)no.value='';syncRegistrationRarity('');}
 function keep(){['fs','fs2','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e&&e.offsetParent!==null)F[i]=e.value});F.fs=F.fr=F.fs2=undefined}
 function stp(d){F.q=Math.max(1,F.q+d);$('#fq').textContent=F.q}
 function fq(i){
@@ -370,7 +372,7 @@ function duplicateCardMatch(a,b){
 }
 async function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const p=+$('#fp').value||0,selectedPack=currentSearchPack()||$('#fs').value,rarity=F.r||$('#fr').value;
+ const p=+$('#fp').value||0,selectedPack=currentSearchPack()||$('#fs').value,rarity=$('#fr').value||F.r||'';
  const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||'',cardMeta:F.cardMeta||null,variant:F.printVariant||'',parallel:F.cardMeta?.parallel||false};
  const existing=S.cards.find(x=>duplicateCardMatch(x,c));
  if(existing){
@@ -583,6 +585,7 @@ function pickOP(i){
  else {const series=opSeries(x.no),option=[...ss.options].find(o=>o.text.trim()===series);if(option){ss.value=option.value;$('#fs2').style.display='none'}}
  const rr=$('#rr');if(rr){rr.querySelectorAll('[data-ygo-dynamic="1"]').forEach(el=>el.remove());rr.querySelectorAll('.chip').forEach(el=>el.classList.remove('on'));const selectedRarity=F.r;let found=false;rr.querySelectorAll('.chip').forEach(el=>{if(el.textContent.trim()===selectedRarity){el.classList.add('on');found=true}});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=selectedRarity;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}
  const p=$('#pv');if(p&&F.img){p.src=F.img;p.style.display='block'}
+ syncRegistrationRarity(F.r);
  F.cardMeta={game:'op',name:x.n,cardNo:x.no,rarity:F.r,packName:x.packName||'',parallel:!!x.parallel};renderSearchCardPreview({...x,n:x.n,cardNo:x.no,rarity:F.r,packName:x.packName||''});b.innerHTML=selectedPricePanel(x.parallel?'パラレル':'');
 }
 function cand(){
@@ -671,6 +674,7 @@ async function pickc(i){
  }else if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
  F.img=detail.img||cimg(detail)||'';
  if(p&&F.img){p.src=F.img;p.style.display='block'}
+ syncRegistrationRarity(F.r);
  F.cardMeta={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,rarity:detail.rarity||F.r||'',category:detail.category||'',hp:detail.hp??null,types:detail.types||[],stage:detail.stage||'',illustrator:detail.illustrator||'',regulationMark:detail.regulationMark||'',attacks:detail.attacks||[],variants:detail.variants||[]};
  renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.img||detail.img||''});
  b.innerHTML=selectedPricePanel(setName);
