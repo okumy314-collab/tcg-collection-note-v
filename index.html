@@ -142,7 +142,7 @@ function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
 function masterImageRarity(v){
  const s=masterImageNorm(v);
  const base=s.replace(/[（(].*?[）)]/g,'');
- return ({leader:'l',リーダー:'l',l:'l',common:'common',コモン:'common',c:'common',uncommon:'uncommon',アンコモン:'uncommon',uc:'uncommon',rare:'rare',レア:'rare',r:'rare',superrare:'superrare',スーパーレア:'superrare',sr:'superrare',secretrare:'secretrare',シークレットレア:'secretrare',sec:'secretrare',special:'special',スペシャル:'special',sp:'special',ダブルレア:'doublerare',doublerare:'doublerare',ar:'illustrationrare',イラストレア:'illustrationrare',illustrationrare:'illustrationrare',sar:'specialillustrationrare',スペシャルアートレア:'specialillustrationrare',specialillustrationrare:'specialillustrationrare',ur:'ultrarare',ウルトラレア:'ultrarare',ultrarare:'ultrarare',hr:'hyperrare',ハイパーレア:'hyperrare',hyperrare:'hyperrare',ace:'acespecr are',acespecr are:'acespecr are'})[base]||base;
+ return ({leader:'l',リーダー:'l',l:'l',common:'common',コモン:'common',c:'common',uncommon:'uncommon',アンコモン:'uncommon',uc:'uncommon',rare:'rare',レア:'rare',r:'rare',superrare:'superrare',スーパーレア:'superrare',sr:'superrare',secretrare:'secretrare',シークレットレア:'secretrare',sec:'secretrare',special:'special',スペシャル:'special',sp:'special',ダブルレア:'doublerare',doublerare:'doublerare',ar:'illustrationrare',イラストレア:'illustrationrare',illustrationrare:'illustrationrare',sar:'specialillustrationrare',スペシャルアートレア:'specialillustrationrare',specialillustrationrare:'specialillustrationrare',ur:'ultrarare',ウルトラレア:'ultrarare',ultrarare:'ultrarare',hr:'hyperrare',ハイパーレア:'hyperrare',hyperrare:'hyperrare'})[base]||base;
 }
 function masterImagePackCode(v){
  const m=String(v||'').normalize('NFKC').toUpperCase().match(/(OP|EB|PRB|ST)[-‐ー\s]*(\\d{1,2})/);
