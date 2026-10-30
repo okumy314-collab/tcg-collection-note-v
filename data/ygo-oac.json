@@ -5,7 +5,7 @@
   "totalCardTypes": 100,
   "knownCards": 100,
   "datasetStatus": "image_urls_partially_verified",
-  "note": "All 100 card names and collector numbers are populated. Official image URLs are added for JP004-JP014 and JP016 based on matching official Konami card pages and YAC1 collector numbers. The user wants candidate images gathered for later review; user-confirmed JP063 remains intact. MANGA-STYLE cards remain marked variant-unverified where exact print artwork is not confirmed. User visual review completed: YAC1-JP080 through YAC1-JP100 image candidates were approved by the user on 2026-10-23. Their status records user approval; this is separate from official-source confirmation.",
+  "note": "All 100 card names and collector numbers are populated. Official image URLs are added for JP004-JP014 and JP016 based on matching official Konami card pages and YAC1 collector numbers. The user wants candidate images gathered for later review; user-confirmed JP063 remains intact. MANGA-STYLE cards remain marked variant-unverified where exact print artwork is not confirmed. User visual review completed: YAC1-JP080 through YAC1-JP100 image candidates were approved by the user on 2026-10-23. Their status records user approval; this is separate from official-source confirmation. 2026-10-30 update: Per user instruction, prior visual review of YAC1-JP080 through YAC1-JP100 image candidates is honored and recorded as user-confirmed. Variant-specific image asset extraction/verification remains separate.",
   "sources": [
     "https://www.yugioh-card.com/japan/products/yac1/",
     "https://ocg-card.com/list/yac1/",
@@ -13246,7 +13246,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Exact YAC1-JP080 variant evidence added from CardStack, カーナベル, and eスターボックス. User previously reported a wrong Gaia image, so imageUrl intentionally remains empty until the exact card image asset can be identified. Verified product listing title and YAC1 number for 2 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted. Added current listing for YAC1-JP080 (カラー/ウルトラ) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Added current listing for YAC1-JP080 (モノクロ/ウルトラ) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -13652,13 +13652,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 7,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP080.jpg",
       "imageSource": "https://dp00013984.shop-pro.jp/?pid=193687095",
       "imageCandidateVariant": "カラー版・シークレット候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://img08.shop-pro.jp/PA01034/747/product/193687095.jpg?cmsp_timestamp=20260926182830"
+      "previousImageUrlBeforeDirectPatternTest": "https://img08.shop-pro.jp/PA01034/747/product/193687095.jpg?cmsp_timestamp=20260926182830",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP081",
@@ -13848,12 +13849,13 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 4,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP081.jpg",
       "imageSource": "https://www.ka-nabell.com/?act=sell_detail&genre=1&id=100416518",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP082",
@@ -13871,7 +13873,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP082; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -13955,13 +13957,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 2,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP082.jpg",
       "imageSource": "https://www.c-labo-online.jp/product/416348",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0328.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0328.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP083",
@@ -13979,7 +13982,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP083; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -14140,13 +14143,14 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 2,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP083.jpg",
       "imageSource": "https://www.c-labo-online.jp/product/416353",
       "imageCandidateVariant": "カラー版・ウルトラ候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0269.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0269.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP084",
@@ -14325,12 +14329,13 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 1,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP084.jpg",
       "imageSource": "https://www.yugioh-card.com/japan/products/yac1/",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP085",
@@ -14348,7 +14353,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added retailer listings that explicitly identify the exact YAC1 collector number and MANGA-STYLE color/monochrome variant. These are reference pages, not direct image URLs; imageUrl remains unchanged until exact image asset is extracted. CardStack variant-specific catalog reference added for YAC1-JP085; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -14444,13 +14449,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 3,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP085.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593925",
       "imageCandidateVariant": "カラー版・ウルトラ候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP085c.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP085c.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP086",
@@ -14468,7 +14474,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP086; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -14552,13 +14558,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 2,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP086.jpg",
       "imageSource": "https://www.c-labo-online.jp/product/411612",
       "imageCandidateVariant": "カラー版・ウルトラ候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0272.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0272.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP087",
@@ -14603,12 +14610,13 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 2,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP087.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593955",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP088",
@@ -14781,12 +14789,13 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 1,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP088.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600593975",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP089",
@@ -14804,7 +14813,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP089; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -14910,13 +14919,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 3,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP089.jpg",
       "imageSource": "https://www.c-labo-online.jp/product/411675",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0335.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://www.c-labo-online.jp/data/c-labo/product/ygo_yac1_0335.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP090",
@@ -15095,12 +15105,13 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 1,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP090.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594015",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP091",
@@ -15118,7 +15129,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. CardStack variant-specific catalog reference added for YAC1-JP091; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Normalized older retailerVariantEvidence array into legacyEntries to keep the evidence schema consistent; no image URL was added by this cleanup. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -15278,13 +15289,14 @@
           "warning": "Extracted from a product page; verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 1,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP091.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594040",
       "imageCandidateVariant": "モノクロ版・シークレット候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP091b.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP091b.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP092",
@@ -15302,7 +15314,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Exact YAC1-JP092 retailer listings have been checked: DMM Myca titles identify MANGA-STYLE color secret, color ultra, and monochrome secret variants. These are visual references only; direct image URL is not yet extracted and user previously flagged an incorrect Marshmallon image, so imageUrl remains empty pending exact asset validation. CardStack variant-specific catalog reference added for YAC1-JP092; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. Verified product listing title and YAC1 number for 3 variant(s); this confirms reference metadata only, not the direct image asset. imageUrl remains unchanged. Added currently searchable product pages that explicitly name the matching YAC1 collector number and MANGA-STYLE variant. These remain product-page references; direct image URLs have not been extracted. Added current listing for YAC1-JP092 (モノクロ/シークレット) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. Added current listing for YAC1-JP092 (モノクロ/シークレット) with exact collector number. It is a product page, not a direct image URL; do not count as imageUrl. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -15464,13 +15476,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 5,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP092.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594060",
       "imageCandidateVariant": "モノクロ版・シークレット候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP092b.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP092b.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP093",
@@ -15599,12 +15612,13 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 4,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP093.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594075",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP094",
@@ -15622,7 +15636,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 3 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP094; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -15675,13 +15689,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 4,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP094.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594105",
       "imageCandidateVariant": "カラー版・ウルトラ候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP094c.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP094c.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP095",
@@ -15699,7 +15714,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 3 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP095; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -15845,13 +15860,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 6,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP095.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594130",
       "imageCandidateVariant": "カラー版・シークレット候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP095d.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP095d.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP096",
@@ -15869,7 +15885,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "Retailer product page explicitly names the YAC1 MANGA-STYLE variant. The page is a reference source, not a direct image URL; exact image asset still needs extraction and display validation. Added 1 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP096; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -15896,13 +15912,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 2,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP096.jpg",
       "imageSource": "https://dp00013984.shop-pro.jp/?pid=193687153",
       "imageCandidateVariant": "カラー版・シークレット候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://img08.shop-pro.jp/PA01034/747/product/193687153.jpg?cmsp_timestamp=20261002181043"
+      "previousImageUrlBeforeDirectPatternTest": "https://img08.shop-pro.jp/PA01034/747/product/193687153.jpg?cmsp_timestamp=20261002181043",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP097",
@@ -16031,12 +16048,13 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 4,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP097.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594155",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP098",
@@ -16174,12 +16192,13 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 4,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP098.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594175",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP099",
@@ -16197,7 +16216,7 @@
       "source": "official Yu-Gi-Oh! Japan event/regulation list",
       "note": "YAC1-specific MANGA-STYLE variants are listed in retailer catalogs. These catalog pages establish the product/variant reference but are not direct image assets. Extract the exact card image before assigning imageUrl; do not substitute standard card artwork. Added 2 exact MANGA-STYLE retailer listing reference(s) for visual review. Reference pages are not direct image URLs; imageUrl remains unchanged. CardStack variant-specific catalog reference added for YAC1-JP099; use for visual comparison only. It is a product page, not a direct image URL. Removed unverified guessed catalog URL; only retain source URLs actually confirmed for the exact card. User visually reviewed this image candidate and approved it. Status is unverified; some URLs use a retailer asset-path pattern and must be checked visually. Do not treat as exact variant confirmed.",
       "officialProductPageUrl": "https://www.yugioh-card.com/japan/products/yac1/",
-      "imageStatus": "direct_image_endpoint_available_artwork_needs_visual_confirmation",
+      "imageStatus": "user_confirmed_image",
       "variantImageReferences": [
         "https://dp00013984.shop-pro.jp/?cbid=2281963&csid=125&mode=cate"
       ],
@@ -16308,13 +16327,14 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 4,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP099.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594205",
       "imageCandidateVariant": "カラー版・ウルトラ候補",
       "imageCandidateConfidence": "user_reviewed_and_approved",
-      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP099c.jpg"
+      "previousImageUrlBeforeDirectPatternTest": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP099c.jpg",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     },
     {
       "id": "YAC1-JP100",
@@ -16382,12 +16402,13 @@
           "warning": "Review candidate only. Verify the exact YAC1 artwork and rarity before promoting."
         }
       ],
-      "imageCandidateStatus": "needs_user_review",
+      "imageCandidateStatus": "user_confirmed_by_user",
       "imageCandidateSourcePageCount": 3,
       "imageUrl": "https://static.mycalinks.io/app/item/image/YUGI/card/YAC1-JP/YAC1-JP100.jpg",
       "imageSource": "https://myca.dmm.com/yu-gi-oh-trading-card-game/items/single-card/600594215",
       "imageCandidateVariant": "モノクロ版・ウルトラ候補",
-      "imageCandidateConfidence": "user_reviewed_and_approved"
+      "imageCandidateConfidence": "user_reviewed_and_approved",
+      "imageReviewNote": "2026-10-30整理: ユーザーの指示により、2026-10-23までに実施した画像候補の目視確認結果を尊重し、ユーザー確認済みとして扱う。各レアリティ/カラー・モノクロ別バリアントの個別画像URLの抽出・照合完了を意味しない。"
     }
   ],
   "variantChecksPending": 0,
