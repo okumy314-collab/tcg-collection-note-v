@@ -112,14 +112,12 @@ function masterRecordFromCollection(c){
  const image=String(c.img||''),isUrl=image.startsWith('https://')||image.startsWith('http://');
  return {key:masterKeyFor(c),collectionId:c.id||'',game:c.g||'',name:c.name||'',cardNo:c.no||c.cardNo||'',series:c.series||c.pack||'',rarity:c.rarity||'',imageUrl:isUrl?image:'',localImageAvailable:image.startsWith('data:'),imageStatus:isUrl?(c.imageVerificationStatus||'url_saved'):(image?'local_photo_only':'not_set'),imageSourceStatus:c.imageSourceStatus||'',source:'app_search_or_manual',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
 }
-async function masterPut(c){
+async function masterPut(c,replaceImage=false){
  const db=await masterDb(),incoming=masterRecordFromCollection(c);
  return new Promise((resolve,reject)=>{
   const tx=db.transaction(MASTER_STORE,'readwrite'),store=tx.objectStore(MASTER_STORE),get=store.get(incoming.key);
-  get.onsuccess=()=>{const old=get.result||{};store.put({...old,...incoming,imageUrl:incoming.imageUrl||old.imageUrl||'',imageStatus:incoming.imageUrl?'url_saved':(old.imageUrl?'url_saved':incoming.imageStatus),createdAt:old.createdAt||incoming.createdAt,updatedAt:new Date().toISOString()})};
-  tx.oncomplete=()=>resolve(true);
-  tx.onerror=()=>reject(tx.error||new Error('カードマスターへの保存に失敗しました'));
-  tx.onabort=()=>reject(tx.error||new Error('カードマスターへの保存が中断されました'));
+  get.onsuccess=()=>{const old=get.result||{};store.put({...old,...incoming,imageUrl:replaceImage?incoming.imageUrl:(incoming.imageUrl||old.imageUrl||''),imageStatus:incoming.imageUrl?'url_saved':(replaceImage?incoming.imageStatus:(old.imageUrl?'url_saved':incoming.imageStatus)),imageVerificationStatus:c.imageVerificationStatus||'',imageSourceStatus:c.imageSourceStatus||'',createdAt:old.createdAt||incoming.createdAt,updatedAt:new Date().toISOString()})};
+  tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error||new Error('カードマスターへの保存に失敗しました'));tx.onabort=()=>reject(tx.error||new Error('カードマスターへの保存が中断されました'));
  });
 }
 async function masterList(){
@@ -140,15 +138,22 @@ async function masterSyncExisting(){
 const masterEsc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 
 function masterImageNorm(v){return String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'')}
+function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
+function masterImageRarity(v){
+ const s=masterImageNorm(v);
+ return ({leader:'l',リーダー:'l',l:'l',common:'c',コモン:'c',c:'c',uncommon:'uc',アンコモン:'uc',uc:'uc',rare:'r',レア:'r',r:'r',superrare:'sr',スーパーレア:'sr',sr:'sr',secretrare:'sec',シークレットレア:'sec',sec:'sec',special:'sp',スペシャル:'sp',sp:'sp'})[s]||s;
+}
+function masterImagePackMatches(c,packName){const wanted=masterImagePack(c),actual=masterImageNorm(packName);return !!wanted&&!!actual&&wanted===actual}
 async function masterFindImage(c){
- const name=masterImageNorm(c.name),no=masterImageNorm(c.no||'');
- if(!name||!no)return null;
+ const name=masterImageNorm(c.name),no=masterImageNorm(c.no||''),pack=masterImagePack(c);
+ if(!name||!no||!pack)return null;
  if(c.g==='op'){
-  const hit=OPI.find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&x.img);
-  return hit?{url:hit.img,status:'official_card_data'}:null;
+  const wantedRarity=masterImageRarity(c.rarity);
+  const hit=OPI.find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&masterImagePackMatches(c,x.packName)&&masterImageRarity(x.rarity)===wantedRarity&&x.img);
+  return hit?{url:hit.img,status:'official_card_data_exact_pack'}:null;
  }
  if(c.g==='ygo'){
-  const hit=YGOI.find(x=>masterImageNorm(x.cardNumber)===no&&masterImageNorm(x.baseName||x.name)===name&&(x.imageUrl||(x.imageCandidates&&x.imageCandidates[0]&&x.imageCandidates[0].imageUrl)));
+  const hit=YGOI.find(x=>masterImageNorm(x.cardNumber)===no&&masterImageNorm(x.baseName||x.name)===name&&masterImagePackMatches(c,x.setName||YGOI.title||'遊☆戯☆王 ORIGINAL ARTWORK COLLECTION')&&(x.imageUrl||(x.imageCandidates&&x.imageCandidates[0]&&x.imageCandidates[0].imageUrl)));
   const url=hit&&(hit.imageUrl||(hit.imageCandidates&&hit.imageCandidates[0]&&hit.imageCandidates[0].imageUrl));
   return url?{url,status:hit.imageStatus||'candidate_unverified'}:null;
  }
@@ -163,18 +168,23 @@ async function masterFindImage(c){
    const detailResp=await fetch('https://api.tcgdex.net/v2/ja/cards/'+encodeURIComponent(item.id));
    if(!detailResp.ok)continue;
    const detail=await detailResp.json();
+   if(!masterImagePackMatches(c,detail.set?.name||''))continue;
    const url=detail.image?detail.image+'/low.webp':'';
-   if(url)return {url,status:'tcgdex_exact_name_number'};
+   if(url)return {url,status:'tcgdex_exact_name_number_pack'};
   }
  }
  return null;
 }
-async function masterFetchOne(c){
- if(!c||String(c.img||'').startsWith('http')||String(c.img||'').startsWith('data:'))return false;
+async function masterFetchOne(c,force=false){
+ if(!c||(!force&&(String(c.img||'').startsWith('http')||String(c.img||'').startsWith('data:'))))return false;
  try{
-  const found=await masterFindImage(c);if(!found)return false;
-  c.img=found.url;c.imageVerificationStatus=(found.status==='official_card_data'||found.status==='tcgdex_exact_name_number')?'source_matched':'candidate_unverified';c.imageSourceStatus=found.status;
-  save();await masterPut(c);return true;
+  const found=await masterFindImage(c);
+  if(!found){
+   if(force){c.img='';c.imageVerificationStatus='pack_or_card_mismatch';c.imageSourceStatus='exact_match_not_found';save();await masterPut(c,true)}
+   return false;
+  }
+  c.img=found.url;c.imageVerificationStatus=found.status==='candidate_unverified'?'candidate_unverified':'source_matched';c.imageSourceStatus=found.status;
+  save();await masterPut(c,true);return true;
  }catch(e){console.warn('Card image lookup:',c.name,e);return false}
 }
 async function masterAutoFetchAll(){
@@ -182,13 +192,12 @@ async function masterAutoFetchAll(){
  for(const c of pending)await masterFetchOne(c);
 }
 async function masterRetryImages(){
- const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">登録済みカードの画像を検索中…</div>';
- await masterAutoFetchAll();
+ const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">パック名・カード番号・カード名・レアリティを照合して画像を再検索中…</div>';
+ for(const c of (S.cards||[]))await masterFetchOne(c,true);
  const el2=$('#masterInfoBody');
- if(el2)el2.innerHTML='<div class="empty">画像検索が完了しました。カードマスター画面を閉じて、もう一度開くと最新状態を確認できます。</div>';
- toast('画像検索が完了しました');
+ if(el2)el2.innerHTML='<div class="empty">厳密照合による再検索が完了しました。カードマスター画面を閉じて、もう一度開くと結果を確認できます。</div>';
+ toast('厳密照合による画像再検索が完了しました');
 }
-
 async function masterInfo(){
  open_('<div class="hd"><b>カードマスター</b><button class="ib" onclick="close_()">✕</button></div><div id="masterInfoBody" class="empty">マスターデータを読み込み中…</div>');
  try{
@@ -197,7 +206,7 @@ async function masterInfo(){
   const summary=Object.keys(counts).map(g=>'<div class="row" style="justify-content:space-between;padding:6px 0"><span>'+masterEsc(GN[g]?.n||g)+'</span><b>'+counts[g]+' 種</b></div>').join('');
   const latest=rows.slice().sort((a,b)=>String(b.updatedAt||'').localeCompare(String(a.updatedAt||''))).slice(0,8);
   const list=latest.map(r=>'<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)">'+(r.imageUrl?'<img src="https://images.weserv.nl/?url='+encodeURIComponent(r.imageUrl)+'" style="width:48px;height:66px;object-fit:contain;border-radius:6px;background:var(--sf2)" loading="lazy">':'<div style="width:48px;height:66px;border-radius:6px;background:var(--sf2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--mu)">画像なし</div>')+'<div><b>'+masterEsc(r.name)+'</b><div class="m">'+masterEsc(r.cardNo)+' ・ '+masterEsc(r.rarity||'レアリティ未設定')+'</div><div class="m">'+(r.imageUrl?(r.imageVerificationStatus==='candidate_unverified'||String(r.imageSourceStatus||'').includes('needs_user_review')?'画像候補（要確認）':'画像URL登録済み（表示未確認）'):'画像未取得')+'</div></div></div>').join('');
-  const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="card" style="margin:0 0 10px"><div class="m">登録済みカードマスター</div><div style="font-size:30px;font-weight:800">'+rows.length+' <small style="font-size:13px;color:var(--mu)">種類</small></div>'+summary+'</div><div class="m" style="margin:10px 0">最近更新したカード（最大8件）</div>'+(list||'<div class="empty">まだマスター登録はありません</div>')+'<button class="btn" style="width:100%;margin-top:14px" onclick="masterRetryImages()">画像未取得カードを再検索</button><div class="m" style="margin-top:12px">マイコレ登録カードだけを対象に画像を検索します。候補画像はカード番号・カード名を照合し、確定できない画像は要確認として表示します。保存先はこの端末のブラウザ内です。</div>';
+  const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="card" style="margin:0 0 10px"><div class="m">登録済みカードマスター</div><div style="font-size:30px;font-weight:800">'+rows.length+' <small style="font-size:13px;color:var(--mu)">種類</small></div>'+summary+'</div><div class="m" style="margin:10px 0">最近更新したカード（最大8件）</div>'+(list||'<div class="empty">まだマスター登録はありません</div>')+'<button class="btn" style="width:100%;margin-top:14px" onclick="masterRetryImages()">全カードの画像を厳密照合で再検索</button><div class="m" style="margin-top:12px">マイコレ登録カードだけを対象に、パック名・カード番号・カード名・レアリティを照合します。一致しない場合は画像を登録しません。保存先はこの端末のブラウザ内です。</div>';
  }catch(e){const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">カードマスターを利用できません。このブラウザの保存機能を確認してください。</div>'}
 }
 
