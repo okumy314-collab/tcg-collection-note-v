@@ -110,7 +110,7 @@ function masterDb(){
 }
 function masterRecordFromCollection(c){
  const image=String(c.img||''),isUrl=image.startsWith('https://')||image.startsWith('http://');
- return {key:masterKeyFor(c),collectionId:c.id||'',game:c.g||'',name:c.name||'',cardNo:c.no||c.cardNo||'',series:c.series||c.pack||'',rarity:c.rarity||'',imageUrl:isUrl?image:'',localImageAvailable:image.startsWith('data:'),imageStatus:isUrl?(c.imageVerificationStatus||'url_saved'):(image?'local_photo_only':'not_set'),imageSourceStatus:c.imageSourceStatus||'',source:'app_search_or_manual',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
+ return {key:masterKeyFor(c),variantKey:[c.g||'',c.no||c.cardNo||'',c.rarity||'',c.parallel||c.variant||c.artwork||''].map(masterNorm).join('|'),collectionId:c.id||'',game:c.g||'',name:c.name||'',cardNo:c.no||c.cardNo||'',series:c.series||c.pack||'',rarity:c.rarity||'',imageUrl:isUrl?image:'',localImageAvailable:image.startsWith('data:'),imageStatus:isUrl?(c.imageVerificationStatus||'url_saved'):(image?'local_photo_only':'not_set'),imageSourceStatus:c.imageSourceStatus||'',source:'app_search_or_manual',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
 }
 async function masterPut(c,replaceImage=false){
  const db=await masterDb(),incoming=masterRecordFromCollection(c);
@@ -140,8 +140,9 @@ const masterEsc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;'
 function masterImageNorm(v){return String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'')}
 function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
 function masterImageRarity(v){
- const s=masterImageNorm(v).replace(/[（(].*?[）)]/g,'');
- return ({leader:'l',リーダー:'l',l:'l',common:'c',コモン:'c',c:'c',uncommon:'uc',アンコモン:'uc',uc:'uc',rare:'r',レア:'r',r:'r',superrare:'sr',スーパーレア:'sr',sr:'sr',secretrare:'sec',シークレットレア:'sec',sec:'sec',special:'sp',スペシャル:'sp',sp:'sp'})[s]||s;
+ const s=masterImageNorm(v);
+ const base=s.replace(/[（(].*?[）)]/g,'');
+ return ({leader:'l',リーダー:'l',l:'l',common:'common',コモン:'common',c:'common',uncommon:'uncommon',アンコモン:'uncommon',uc:'uncommon',rare:'rare',レア:'rare',r:'rare',superrare:'superrare',スーパーレア:'superrare',sr:'superrare',secretrare:'secretrare',シークレットレア:'secretrare',sec:'secretrare',special:'special',スペシャル:'special',sp:'special',ダブルレア:'doublerare',doublerare:'doublerare',ar:'illustrationrare',イラストレア:'illustrationrare',illustrationrare:'illustrationrare',sar:'specialillustrationrare',スペシャルアートレア:'specialillustrationrare',specialillustrationrare:'specialillustrationrare',ur:'ultrarare',ウルトラレア:'ultrarare',ultrarare:'ultrarare',hr:'hyperrare',ハイパーレア:'hyperrare',hyperrare:'hyperrare',ace:'acespecr are',acespecr are:'acespecr are'})[base]||base;
 }
 function masterImagePackCode(v){
  const m=String(v||'').normalize('NFKC').toUpperCase().match(/(OP|EB|PRB|ST)[-‐ー\s]*(\\d{1,2})/);
@@ -181,6 +182,9 @@ async function masterFindImage(c){
    const key=Object.keys(variants).find(k=>masterImageNorm(k)===masterImageNorm(rarity));
    if(key&&variants[key])variant=typeof variants[key]==='string'?{imageUrl:variants[key]}:variants[key];
   }
+  if(!variant&&masterImageNorm(hit.baseRarity)===masterImageNorm(rarity)&&hit.imageStatus==='user_confirmed_image'&&hit.imageUrl){
+   variant={imageUrl:hit.imageUrl,status:'user_confirmed_base_rarity'};
+  }
   const url=variant&&(variant.imageUrl||variant.url);
   return url?{url,status:variant.status||'rarity_variant_exact'}:null;
  }
@@ -196,8 +200,15 @@ async function masterFindImage(c){
    if(!detailResp.ok)continue;
    const detail=await detailResp.json();
    if(!masterImagePackMatches(c,detail.set?.name||''))continue;
+   if(masterImageNorm(detail.name)!==name||String(detail.localId||'').replace(/^0+/,'')!==localId.replace(/^0+/,''))continue;
+   const wantedRarity=masterImageRarity(c.rarity),sourceRarity=masterImageRarity(detail.rarity||'');
+   if(!wantedRarity||!sourceRarity||wantedRarity!==sourceRarity)continue;
+   const rarityText=masterImageNorm(c.rarity);
+   const variants=detail.variants||{};
+   if(/reverse|ミラー|リバース/.test(rarityText)&&variants.reverse!==true)continue;
+   if(/holo|ホロ/.test(rarityText)&&variants.holo!==true)continue;
    const url=detail.image?detail.image+'/low.webp':'';
-   if(url)return {url,status:'tcgdex_exact_name_number_pack'};
+   if(url)return {url,status:'tcgdex_exact_name_number_pack_rarity'};
   }
  }
  return null;
