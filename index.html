@@ -132,6 +132,17 @@ async function masterReplace(records){
   tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error||new Error('カードマスターを復元できません'));tx.onabort=()=>reject(tx.error||new Error('カードマスターの復元が中断されました'));
  });
 }
+async function masterDeduplicate(){
+ const rows=await masterList(),groups=new Map(),norm=v=>masterNorm(v);
+ for(const r of rows){
+  const no=norm(String(r.cardNo||'').split('/')[0]),name=norm(r.name),pack=norm(r.series||''),rarity=norm(r.rarity||''),variant=norm(r.variantKey||'');
+  const fp=[norm(r.game||r.g),pack,no||name,rarity,variant].join('|');
+  const prev=groups.get(fp);if(!prev){groups.set(fp,{...r});continue}
+  const keepImage=prev.imageUrl||r.imageUrl,newer=String(r.updatedAt||'')>String(prev.updatedAt||'')?r:prev;
+  groups.set(fp,{...prev,...newer,key:masterKeyFor({g:newer.game||newer.g,series:newer.series,name:newer.name,no:newer.cardNo,rarity:newer.rarity}),imageUrl:keepImage||'',imageStatus:keepImage?(prev.imageUrl?prev.imageStatus:r.imageStatus):(newer.imageStatus||'not_set'),imageVerificationStatus:prev.imageVerificationStatus||r.imageVerificationStatus||'',imageSourceStatus:prev.imageSourceStatus||r.imageSourceStatus||'',createdAt:prev.createdAt||r.createdAt});
+ }
+ const clean=[...groups.values()];await masterReplace(clean);return {before:rows.length,after:clean.length,removed:rows.length-clean.length};
+}
 async function masterSyncExisting(){
  try{for(const c of S.cards||[])await masterPut(c)}catch(e){console.warn('Card master sync:',e)}
 }
@@ -240,12 +251,12 @@ async function masterRetryImages(){
 async function masterInfo(){
  open_('<div class="hd"><b>カードマスター</b><button class="ib" onclick="close_()">✕</button></div><div id="masterInfoBody" class="empty">マスターデータを読み込み中…</div>');
  try{
-  await masterSyncPromise;await masterAutoFetchAll();const rows=await masterList(),counts={};
+  await masterSyncPromise;const dedup=await masterDeduplicate();await masterAutoFetchAll();const rows=await masterList(),counts={};
   rows.forEach(r=>counts[r.game]=(counts[r.game]||0)+1);
   const summary=Object.keys(counts).map(g=>'<div class="row" style="justify-content:space-between;padding:6px 0"><span>'+masterEsc(GN[g]?.n||g)+'</span><b>'+counts[g]+' 種</b></div>').join('');
   const latest=rows.slice().sort((a,b)=>String(b.updatedAt||'').localeCompare(String(a.updatedAt||''))).slice(0,8);
   const list=latest.map(r=>'<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)">'+(r.imageUrl?'<img src="https://images.weserv.nl/?url='+encodeURIComponent(r.imageUrl)+'" style="width:48px;height:66px;object-fit:contain;border-radius:6px;background:var(--sf2)" loading="lazy">':'<div style="width:48px;height:66px;border-radius:6px;background:var(--sf2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--mu)">画像なし</div>')+'<div><b>'+masterEsc(r.name)+'</b><div class="m">'+masterEsc(r.cardNo)+' ・ '+masterEsc(r.rarity||'レアリティ未設定')+'</div><div class="m">'+(r.imageUrl?(r.imageVerificationStatus==='candidate_unverified'||String(r.imageSourceStatus||'').includes('needs_user_review')?'画像候補（要確認）':'画像URL登録済み（表示未確認）'):'画像未取得')+'</div></div></div>').join('');
-  const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="card" style="margin:0 0 10px"><div class="m">登録済みカードマスター</div><div style="font-size:30px;font-weight:800">'+rows.length+' <small style="font-size:13px;color:var(--mu)">種類</small></div>'+summary+'</div><div class="m" style="margin:10px 0">最近更新したカード（最大8件）</div>'+(list||'<div class="empty">まだマスター登録はありません</div>')+'<button class="btn" style="width:100%;margin-top:14px" onclick="masterRetryImages()">全カードの画像を厳密照合で再検索</button><div class="m" style="margin-top:12px">マイコレ登録カードだけを対象に、パック名・カード番号・カード名・レアリティを照合します。一致しない場合は画像を登録しません。保存先はこの端末のブラウザ内です。</div>';
+  const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="card" style="margin:0 0 10px"><div class="m">登録済みカードマスター</div><div style="font-size:30px;font-weight:800">'+rows.length+' <small style="font-size:13px;color:var(--mu)">種類</small></div>+'<div class="m">重複整理：'+dedup.before+'件 → '+dedup.after+'件（'+dedup.removed+'件を統合）</div>''+summary+'</div><div class="m" style="margin:10px 0">最近更新したカード（最大8件）</div>'+(list||'<div class="empty">まだマスター登録はありません</div>')+'<button class="btn" style="width:100%;margin-top:14px" onclick="masterRetryImages()">全カードの画像を厳密照合で再検索</button><div class="m" style="margin-top:12px">マイコレ登録カードだけを対象に、パック名・カード番号・カード名・レアリティを照合します。一致しない場合は画像を登録しません。保存先はこの端末のブラウザ内です。</div>';
  }catch(e){const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">カードマスターを利用できません。このブラウザの保存機能を確認してください。</div>'}
 }
 
@@ -303,7 +314,7 @@ function coll(){
  h+=sortbar();if(!a.length)return h+`<div class="empty">このジャンルのカードはまだありません</div>`;
  return h+a.map(c=>`<div class="card it"><div class="row">${c.img?`<img src="https://images.weserv.nl/?url=${encodeURIComponent(c.img)}" class="th" onclick="pvw(this.src)">`:''}<div><div class="t">${c.name}</div><div class="m"><span class="tag" style="color:${GN[c.g].c}">${GN[c.g].n}</span>${c.pack||c.series||''} ${c.rarity?'・'+c.rarity:''} ${c.no?'・'+c.no:''}</div>${(c.place||c.cond||c.paid!=null||c.memo)?`<div class="m">📝 ${[c.place,c.cond,c.paid!=null?'取得 '+yen(c.paid):'',c.memo].filter(Boolean).join(' / ')}</div>`:''}</div><div style="flex:none;text-align:right"><b style="font-size:17px">${yen(val(c))}</b><div class="m">${c.qty}枚 × 平均${yen(c.price)}</div><div style="font-size:12px">${pl(val(c),cost(c))}</div></div></div>
  <div class="row">${GN[c.g].s.map((s,i)=>`<div><div class="m" style="margin:0 0 3px;font-size:11px">${s[0]}</div><input type="number" inputmode="numeric" value="${pr3(c)[i]||''}" placeholder="¥" style="padding:8px;${best(c,i)}" onchange="upd('${c.id}',${i},+this.value)"></div>`).join('')}</div>
- <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row" style="align-items:center;justify-content:space-between;margin-top:8px"><button class="btn sm" onclick="changeQty('${c.id}',-1)" aria-label="所持数を1減らす">−</button><b style="font-size:13px">所持数：${c.qty}枚</b><button class="btn sm" onclick="changeQty('${c.id}',1)" aria-label="所持数を1増やす">＋</button><button class="btn sm" onclick="detail('${c.id}')">詳細登録</button></div><div class="row" style="margin-top:8px"><button class="btn sm" style="width:100%;border-color:var(--ac);color:var(--ac)" onclick="editCard('${c.id}')">✎ カード情報を編集</button></div></div>`).join('')}
+ <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row" style="align-items:center;justify-content:space-between;margin-top:8px"><button class="btn sm" onclick="changeQty('${c.id}',-1)" aria-label="所持数を1減らす">−</button><b style="font-size:13px">所持数：${c.qty}枚</b><button class="btn sm" onclick="changeQty('${c.id}',1)" aria-label="所持数を1増やす">＋</button><button class="btn sm" onclick="detail('${c.id}')">カード情報・詳細</button></div><div class="row" style="margin-top:8px"><button class="btn sm" style="width:100%;border-color:var(--ac);color:var(--ac)" onclick="editCard('${c.id}')">✎ カード情報を編集</button></div></div>`).join('')}
 function mk(){
  const G=GN[mg];return `<div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${mg==g?'on':''}" onclick="mg='${g}';render()">${GN[g].n}</button>`).join('')}</div>
  <div class="card"><b>${G.n} 相場検索</b><label>カード名・型番</label><input id="mq" placeholder="例：リザードンex SV2a 201"><div class="row" style="margin-top:12px">${G.s.map((s,i)=>`<button class="btn p" style="font-size:13px;padding:13px" onclick="msearch(${i})">${s[0]}</button>`).join('')}</div></div>
@@ -373,43 +384,38 @@ async function reg(){
 async function masterDeleteKey(key){
  try{const db=await masterDb();await new Promise((resolve,reject)=>{const tx=db.transaction(MASTER_STORE,'readwrite');tx.objectStore(MASTER_STORE).delete(key);tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)})}catch(e){console.warn('Card master key cleanup:',e)}
 }
-function editCard(id){
+function editCard(id){detail(id)}
+function detail(id){
  const c=S.cards.find(x=>x.id==id);if(!c)return;
- open_(`<div class="hd"><b>カード情報を編集</b><button class="ib" onclick="close_()">✕</button></div>
- <div class="m">カード番号やレアリティの入力間違いをここから修正できます。</div>
- <label>シリーズ・パック名</label><input id="ec_series" value="${masterEsc(c.series||c.pack||'')}" placeholder="収録パック">
- <label>レアリティ</label><input id="ec_rarity" value="${masterEsc(c.rarity||'')}" placeholder="例：SAR / シークレットレア（カラー）">
- <label>カード名</label><input id="ec_name" value="${masterEsc(c.name||'')}" placeholder="カード名">
- <label>カード番号</label><input id="ec_no" value="${masterEsc(c.no||c.cardNo||'')}" placeholder="カード番号">
- <div class="row"><div><label>枚数</label><input id="ec_qty" type="number" min="1" step="1" value="${Math.max(1,Number(c.qty)||1)}"></div><div><label>相場（1枚あたり）</label><input id="ec_price" type="number" min="0" value="${Number(c.price)||0}"></div></div>
- <button class="btn p" style="width:100%;margin-top:20px" onclick="saveCardEdit('${id}')">変更を保存</button>`);
+ const rarityOptions=[...new Set([...(GN[c.g]?.rr||[]),c.rarity||''].filter(Boolean))];
+ const rarityHtml=rarityOptions.map(r=>'<option value="'+masterEsc(r)+'" '+(r===(c.rarity||'')?'selected':'')+'>'+masterEsc(r)+'</option>').join('');
+ const imageHtml=c.img?'<img id="pv" class="th" src="'+masterEsc(c.img)+'">':'<img id="pv" class="th" style="display:none">';
+ open_('<div class="hd"><b>カード情報・入手情報</b><button class="ib" onclick="close_()">✕</button></div>'+
+ '<div class="m">カード情報の修正と入手情報の登録を、この画面でまとめて行えます。</div>'+
+ '<label>カード画像</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this,\''+id+'\')"></label>'+imageHtml+'</div>'+
+ '<label>収録パック</label><input id="ec_series" value="'+masterEsc(c.series||c.pack||'')+'" placeholder="収録パック">'+
+ '<label>カード名</label><input id="ec_name" value="'+masterEsc(c.name||'')+'" placeholder="カード名">'+
+ '<div class="row"><div><label>カード番号</label><input id="ec_no" value="'+masterEsc(c.no||c.cardNo||'')+'" placeholder="カード番号"></div><div><label>レアリティ</label><select id="ec_rarity">'+rarityHtml+'</select></div></div>'+
+ '<div class="row"><div><label>所持枚数</label><input id="ec_qty" type="number" min="1" step="1" value="'+Math.max(1,Number(c.qty)||1)+'"></div><div><label>相場（1枚あたり）</label><input id="ec_price" type="number" min="0" value="'+(Number(c.price)||0)+'"></div></div>'+
+ '<label>入手場所</label><input id="dp" value="'+masterEsc(c.place||'')+'" placeholder="例：カードショップ / パック / フリマ">'+
+ '<label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" value="'+(c.paid??'')+'" placeholder="損益の計算に使われます"></div>'+
+ '<label>状態</label><select id="dc"><option value="">未設定</option>'+opt(['PSA10','PSA9','美品','良品','傷あり','プレイ用'])+'</select>'+
+ '<label>メモ</label><textarea id="dn" rows="3">'+masterEsc(c.memo||'')+'</textarea>'+
+ '<button class="btn p" style="width:100%;margin-top:20px" onclick="sd(\''+id+'\')">変更を保存</button>'+
+ '<button class="btn" style="width:100%;margin-top:10px;color:var(--dn)" onclick="del(\''+id+'\')">このカードを削除</button>');
+ $('#dc').value=c.cond||'';
 }
-async function saveCardEdit(id){
+async function sd(id){
  const c=S.cards.find(x=>x.id==id);if(!c)return;
  const next={series:$('#ec_series').value.trim(),rarity:$('#ec_rarity').value.trim(),name:$('#ec_name').value.trim(),no:$('#ec_no').value.trim(),qty:Math.max(1,Math.floor(Number($('#ec_qty').value)||1)),price:Math.max(0,Number($('#ec_price').value)||0)};
  if(!next.name){toast('カード名を入力してください');$('#ec_name').focus();return}
  const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'');
- c.series=next.series;c.pack=next.series;c.rarity=next.rarity;c.name=next.name;c.no=next.no;c.cardNo=next.no;c.qty=next.qty;c.price=next.price;
- if(identityChanged){
-  if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}
-  c.imageLookupStatus='needs_recheck';
- }
- save();
- const newKey=masterKeyFor(c);
- if(oldKey!==newKey)await masterDeleteKey(oldKey);
- try{await masterPut(c,true);if(identityChanged)await masterFetchOne(c,true)}catch(e){console.warn('Card master edit sync:',e)}
- close_();render();toast('カード情報を更新しました');
+ Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value});
+ if(identityChanged){if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}c.imageLookupStatus='needs_recheck'}
+ save();const newKey=masterKeyFor(c);if(oldKey!==newKey)await masterDeleteKey(oldKey);
+ try{await masterPut(c,true);if(identityChanged)await masterFetchOne(c,true)}catch(e){console.warn('Card edit sync:',e)}
+ close_();render();toast('カード情報・入手情報を保存しました');
 }
-function detail(id){
- const c=S.cards.find(x=>x.id==id);
- open_(`<div class="hd"><b>詳細登録</b><button class="ib" onclick="close_()">✕</button></div><div class="m" style="color:var(--mu);font-size:13px">${c.name} ${c.no||''}</div><label>カード写真</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this,'${id}')"></label><img id="pv" class="th" ${c.img?`src="${c.img}"`:'style="display:none"'}></div>
- <label>入手場所</label><input id="dp" value="${c.place||''}" placeholder="例：カードショップ / パック / フリマ">
- <label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" value="${c.paid??''}" placeholder="損益の計算に使われます"></div>
- <label>状態</label><select id="dc"><option value="">未設定</option>${opt(['PSA10','PSA9','美品','良品','傷あり','プレイ用'])}</select>
- <label>メモ</label><textarea id="dn" rows="3">${c.memo||''}</textarea>
- <button class="btn p" style="width:100%;margin-top:20px" onclick="sd('${id}')">保存</button><button class="btn" style="width:100%;margin-top:10px;color:var(--dn)" onclick="del('${id}')">このカードを削除</button>`);
- $('#dc').value=c.cond||''}
-function sd(id){const c=S.cards.find(x=>x.id==id);c.place=$('#dp').value;c.paid=$('#dm').value===''?null:+$('#dm').value;c.cond=$('#dc').value;c.memo=$('#dn').value;save();close_();render();toast('✓ 詳細を保存しました')}
 function del(id){if(confirm('削除しますか？')){S.cards=S.cards.filter(x=>x.id!=id);save();close_();render()}}
 function demo(){
  const d=[['poke','リザードンex','SAR','201/165',1,12800,9000],['poke','ピカチュウ','AR','132/108',3,2400,1500],['ygo','ブラック・マジシャン','QCSE','QCCU-JP001',1,8800,5000],['mtg','Black Lotus','R','001',1,52000,50000],['op','モンキー・D・ルフィ','SEC','OP05-119',2,6400,4200],['dm','ボルメテウス','SR','001/098',1,3200,3800]];
