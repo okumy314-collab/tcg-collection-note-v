@@ -159,6 +159,25 @@ const masterEsc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;'
 
 function masterImageNorm(v){return String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\\s　・]/g,'')}
 function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
+function masterOPParallel(c){
+ const no=String(c?.no||c?.cardNo||'').normalize('NFKC').toLowerCase();
+ const rarity=String(c?.rarity||'').normalize('NFKC');
+ return Boolean(c?.parallel)||/_p\\d+(?:$|\\b)/i.test(no)||/パラレル|parallel/i.test(rarity);
+}
+function masterOPNumber(v){
+ return masterImageNorm(v).replace(/_p\\d+$/i,'');
+}
+function masterOPImageMatch(c,x){
+ const cardNo=masterImageNorm(c?.no||c?.cardNo||'');
+ const sourceNo=masterImageNorm(x?.no||'');
+ const exact=!!cardNo&&cardNo===sourceNo;
+ const base=masterOPNumber(cardNo)===masterOPNumber(sourceNo);
+ return (exact||base)&&masterImageNorm(x?.n)===masterImageNorm(c?.name)&&
+  masterImagePackMatches(c,x?.packName)&&
+  masterImageRarity(x?.rarity)===masterImageRarity(c?.rarity)&&
+  Boolean(x?.parallel)===masterOPParallel(c);
+}
+
 function masterImageRarity(v){
  const s=masterImageNorm(v);
  const base=s.replace(/[（(].*?[）)]/g,'');
@@ -183,7 +202,7 @@ async function masterFindImage(c){
  if(!name||!no||!pack)return null;
  if(c.g==='op'){
   const wantedRarity=masterImageRarity(c.rarity);
-  const hit=OPI.find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&masterImagePackMatches(c,x.packName)&&masterImageRarity(x.rarity)===wantedRarity&&Boolean(x.parallel)===Boolean(c.parallel)&&x.img);
+  const hit=OPI.find(x=>masterOPImageMatch(c,x)&&x.img);
   return hit?{url:hit.img,status:'official_card_data_exact_pack'}:null;
  }
  if(c.g==='ygo'){
@@ -547,8 +566,7 @@ function cardImageError(el,id){
  if(normalized&&normalized!==current&&!((el.dataset.tried||'').split('|').includes(normalized))){el.dataset.tried=(el.dataset.tried||'')+'|'+normalized;el.src=normalized;return}
  const candidates=[];const add=u=>{u=normalizeCardImageUrl(u);if(u&&u!==current&&!candidates.includes(u)&&!((el.dataset.tried||'').split('|').includes(u)))candidates.push(u)};
  if(c&&c.g==='op'){
-  const no=masterImageNorm(c.no||c.cardNo||'').split('/')[0],name=masterImageNorm(c.name),rarity=masterImageRarity(c.rarity),pack=c.series||c.pack||'';
-  const hit=(OPI||[]).find(x=>masterImageNorm(x.no)===no&&masterImageNorm(x.n)===name&&masterImagePackMatches(c,x.packName)&&masterImageRarity(x.rarity)===rarity&&Boolean(x.parallel)===Boolean(c.parallel)&&x.img);
+  const hit=(OPI||[]).find(x=>masterOPImageMatch(c,x)&&x.img);
   if(hit)add(hit.img);
  }
  if(c&&c.g==='ygo'){const no=masterImageNorm(c.no||c.cardNo||''),name=masterImageNorm(c.name),hit=(YGOI||[]).find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name);if(hit)add(hit.imageUrl||hit.img)}
