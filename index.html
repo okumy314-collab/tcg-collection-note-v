@@ -369,6 +369,7 @@ function add(){
  <div><label>① 収録パックを選択</label><select id="fs" onchange="togglePackCustom();clearCardSelection();cand()">${packOpts(F.g)}</select><input id="fs2" placeholder="商品名を入力" style="display:none;margin-top:6px" oninput="clearCardSelection();cand()"></div>
  <label>② カード名で検索（パックを選ぶと候補を絞り込めます）</label><input id="fn" placeholder="カード名を入力"><label>カード番号（候補選択後に自動入力）</label><input id="fo" placeholder="候補から選択すると自動入力" readonly>
  <label>③ レアリティを選択</label><select id="fr" onchange="F.r=this.value"><option value="">候補選択後に選んでください</option>${G.rr.map(r=>`<option value="${r}">${r}</option>`).join('')}</select>
+ ${F.g==='op'?`<label>カード仕様</label><div class="chips" id="opParallelChoice"><button type="button" class="chip ${F.opParallel?'':'on'}" onclick="F.opParallel=false;document.querySelectorAll('#opParallelChoice .chip').forEach((b,i)=>b.classList.toggle('on',i===0))">通常</button><button type="button" class="chip ${F.opParallel?'on':''}" onclick="F.opParallel=true;document.querySelectorAll('#opParallelChoice .chip').forEach((b,i)=>b.classList.toggle('on',i===1))">パラレル</button></div>`:''}
  <div id="cardSearchPreview" style="display:none;margin:10px 0"></div>
  <label>相場チェック（ショップ検索）</label><div class="row"><button class="btn" onclick="fq(0)">${G.s[0][0]}</button><button class="btn" onclick="fq(1)">${G.s[1][0]}</button></div>
  <label>相場（1枚あたり）</label><div class="pr"><span>¥</span><input id="fp" type="number" inputmode="numeric" placeholder="確認した相場を入力"></div>
@@ -398,12 +399,13 @@ function duplicateCardMatch(a,b){
  const nameMatch=nameA===nameB;
  const rarityKey=v=>{const x=norm(v);return ({sar:'specialillustrationrare',ar:'illustrationrare',sr:'superrare',sec:'secretrare',ur:'ultrarare',parallel:'parallel'}[x]||x)};
  const rarityA=rarityKey(a.rarity),rarityB=rarityKey(b.rarity),rarityMatch=!rarityA||!rarityB||rarityA===rarityB;
- return numberMatch&&(nameMatch||(!noA||!noB))&&rarityMatch;
+ const parallelMatch=String(a.g)==='op'?Boolean(a.parallel)===Boolean(b.parallel):true;
+ return numberMatch&&(nameMatch||(!noA||!noB))&&rarityMatch&&parallelMatch;
 }
 async function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
  const p=+$('#fp').value||0,selectedPack=currentSearchPack()||$('#fs').value,rarity=$('#fr').value||F.r||'';
- const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||'',cardMeta:F.cardMeta||null,variant:F.printVariant||'',parallel:F.cardMeta?.parallel||false};
+ const parallel=F.g==='op'?Boolean(F.opParallel):Boolean(F.cardMeta?.parallel);const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||'',cardMeta:F.cardMeta||null,variant:F.printVariant||'',parallel};
  const existing=S.cards.find(x=>duplicateCardMatch(x,c));
  if(existing){
   existing.name=c.name;existing.no=c.no||existing.no;existing.cardNo=existing.no;existing.series=c.series;existing.pack=c.pack;existing.rarity=c.rarity||existing.rarity;existing.variant=c.variant||existing.variant;existing.parallel=c.parallel||existing.parallel;existing.qty=Math.max(1,Number(existing.qty)||1)+Math.max(1,Number(c.qty)||1);existing.img=c.img||existing.img;existing.cardMeta=c.cardMeta||existing.cardMeta;if(p>0)existing.price=p;
@@ -428,6 +430,7 @@ function detail(id){
  '<label>収録パック</label><input id="ec_series" value="'+masterEsc(c.series||c.pack||'')+'" placeholder="収録パック">'+
  '<label>カード名</label><input id="ec_name" value="'+masterEsc(c.name||'')+'" placeholder="カード名">'+
  '<div class="row"><div><label>カード番号</label><input id="ec_no" value="'+masterEsc(c.no||c.cardNo||'')+'" placeholder="カード番号"></div><div><label>レアリティ</label><select id="ec_rarity">'+rarityHtml+'</select></div></div>'+
+ (c.g==='op'?'<label>カード仕様</label><select id="ec_parallel"><option value="0" '+(!c.parallel?'selected':'')+'>通常</option><option value="1" '+(c.parallel?'selected':'')+'>パラレル</option></select>':'')+
  '<div class="row"><div><label>所持枚数</label><input id="ec_qty" type="number" min="1" step="1" value="'+Math.max(1,Number(c.qty)||1)+'"></div><div><label>相場（1枚あたり）</label><input id="ec_price" type="number" min="0" value="'+(Number(c.price)||0)+'"></div></div>'+
  '<label>入手場所</label><input id="dp" value="'+masterEsc(c.place||'')+'" placeholder="例：カードショップ / パック / フリマ">'+
  '<label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" value="'+(c.paid??'')+'" placeholder="損益の計算に使われます"></div>'+
@@ -442,8 +445,8 @@ async function sd(id){
  const c=S.cards.find(x=>x.id==id);if(!c)return;
  const next={series:$('#ec_series').value.trim(),rarity:$('#ec_rarity').value.trim(),name:$('#ec_name').value.trim(),no:$('#ec_no').value.trim(),qty:Math.max(1,Math.floor(Number($('#ec_qty').value)||1)),price:Math.max(0,Number($('#ec_price').value)||0)};
  if(!next.name){toast('カード名を入力してください');$('#ec_name').focus();return}
- const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'');
- Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#ec_salePlanned').checked});
+ const nextParallel=c.g==='op'?$('#ec_parallel')?.value==='1':Boolean(c.parallel);const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'')||nextParallel!==Boolean(c.parallel);
+ Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,parallel:nextParallel,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#ec_salePlanned').checked});
  if(identityChanged){if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}c.imageLookupStatus='needs_recheck'}
  save();const newKey=masterKeyFor(c);if(oldKey!==newKey)await masterDeleteKey(oldKey);
  try{await masterPut(c,true);if(identityChanged)await masterFetchOne(c,true)}catch(e){console.warn('Card edit sync:',e)}
@@ -632,7 +635,7 @@ function selectedPricePanel(extra=''){
 }
 function pickOP(i){
  const x=OPR[i];if(!x)return;
- const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=opRarity(x.rarity)+(x.parallel?'（パラレル）':'');F.img=x.img||'';
+ const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=opRarity(x.rarity);F.opParallel=!!x.parallel;F.img=x.img||'';
  const ss=$('#fs');
  // Preserve the exact Japanese pack title from the master data, including newer sets
  // that are not yet listed in the app's manually maintained dropdown.
