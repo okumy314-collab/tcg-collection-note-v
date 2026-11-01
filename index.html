@@ -102,6 +102,8 @@ function normalizeCardImageUrl(value){
 }
 let imageUrlMigration=false;(S.cards||[]).forEach(c=>{const v=normalizeCardImageUrl(c.img);if(v&&v!==c.img){c.img=v;imageUrlMigration=true}});
 if(imageUrlMigration){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+let opParallelMigration=false;(S.cards||[]).forEach(c=>{if(c.g==='op'){const rarity=String(c.rarity||'');if(/（パラレル）|\\(パラレル\\)|parallel/i.test(rarity)){c.rarity=rarity.replace(/\\s*[（(]パラレル[）)]|\\s*parallel/ig,'').trim();c.parallel=true;opParallelMigration=true;}if(!c.parallel&&/_p\\d+$/i.test(String(c.no||c.cardNo||''))){c.parallel=true;opParallelMigration=true;}}});
+if(opParallelMigration){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
 const MASTER_DB_NAME='tcg-collection-master-v1',MASTER_STORE='cards';
 let masterDbPromise;
 const masterNorm=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
