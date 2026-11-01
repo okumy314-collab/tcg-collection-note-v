@@ -162,10 +162,10 @@ function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
 function masterOPParallel(c){
  const no=String(c?.no||c?.cardNo||'').normalize('NFKC').toLowerCase();
  const rarity=String(c?.rarity||'').normalize('NFKC');
- return Boolean(c?.parallel)||/_p\\d+(?:$|\\b)/i.test(no)||/パラレル|parallel/i.test(rarity);
+ return Boolean(c?.parallel)||/_p\d+(?:$|\b)/i.test(no)||/パラレル|parallel/i.test(rarity);
 }
 function masterOPNumber(v){
- return masterImageNorm(v).replace(/_p\\d+$/i,'');
+ return masterImageNorm(v).replace(/_p\d+$/i,'');
 }
 function masterOPImageMatch(c,x){
  const cardNo=masterImageNorm(c?.no||c?.cardNo||'');
