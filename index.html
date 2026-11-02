@@ -314,12 +314,14 @@ async function masterRetryImages(){
   const rows=await masterList();
   for(const r of rows){
    checked++;
+   const userImage=String(r.imageUrl||'').startsWith('data:image/')||r.imageSourceStatus==='user_upload'||r.imageStatus==='user_upload';
+   if(userImage){updated++;continue}
    const c={g:r.game||r.g,name:r.name,no:r.cardNo||r.no,series:r.series||r.pack,rarity:r.rarity,parallel:Boolean(r.parallel)};
    try{
     const found=await masterFindImage(c);
     if(found&&found.url){await masterSaveImageRecord(r,found);updated++;
      const saved=(S.cards||[]).find(x=>String(x.id)===String(r.collectionId));
-     if(saved){saved.img=found.url;saved.imageVerificationStatus=found.status||'source_matched';saved.imageSourceStatus=found.status||'official_exact_match'}
+     if(saved&&!String(saved.img||'').startsWith('data:image/')&&saved.imageSourceStatus!=='user_upload'){saved.img=found.url;saved.imageVerificationStatus=found.status||'source_matched';saved.imageSourceStatus=found.status||'official_exact_match'}
     }else failed++;
    }catch(e){failed++;console.warn('Master image retry:',r.cardNo,e)}
   }
@@ -612,7 +614,7 @@ let so='new';
 const pidx=c=>{const l=GN[c.g].pk?Object.values(GN[c.g].pk).flat():GN[c.g].sr,i=l.indexOf(c.pack||c.series);return i<0?999:i};
 const SORT={new:()=>0,val:(a,b)=>val(b)-val(a),unit:(a,b)=>b.price-a.price,pl:(a,b)=>(val(b)-cost(b))-(val(a)-cost(a)),series:(a,b)=>a.g.localeCompare(b.g)||pidx(a)-pidx(b)||a.name.localeCompare(b.name,'ja'),name:(a,b)=>a.name.localeCompare(b.name,'ja')};
 const sortbar=()=>`<div style="margin:0 0 10px"><select onchange="so=this.value;render()" style="padding:10px 12px;font-size:13px;font-weight:700">${[['new','並び替え：登録が新しい順'],['val','評価額が高い順'],['unit','相場（単価）が高い順'],['pl','損益が大きい順'],['series','シリーズ・パック順'],['name','名前順']].map(o=>`<option value="${o[0]}" ${so==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div>`;
-function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;save();masterPut(x).catch(e=>console.warn('Card master image update:',e));render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
+function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;x.imageVerificationStatus='user_upload';x.imageSourceStatus='user_upload';save();masterPut(x,true).catch(e=>console.warn('Card master image update:',e));render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
 function pvw(s){open_(`<div class="hd"><b>カード写真</b><button class="ib" onclick="close_()">✕</button></div><img src="${s}" style="width:100%;border-radius:12px">`)}
 let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
 let YGOI=[],YGO_READY=false,YGO_ERROR=false;fetch('data/ygo-oac.json').then(r=>{if(!r.ok)throw Error('data/ygo-oac.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.cards))YGOI=j.cards;else throw Error('invalid YGO data');YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()}).catch(()=>{YGO_ERROR=true;YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()});
