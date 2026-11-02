@@ -507,17 +507,28 @@ async function reg(){
  const packInput=$('#fs').value===SO?$('#fs2').value.trim():String($('#fs').selectedOptions?.[0]?.text||$('#fs').value||'').trim();
  const rarityInput=String(F.r||'').trim(),parallel=F.g==='op'&&Boolean(F.opParallel);
  if(selected){
-  const mismatch=(selected.game!==F.g)||(typedName!==selected.name)||(typedNo&&typedNo!==selected.cardNo)||(packInput&&selected.packName&&masterNorm(packInput)!==masterNorm(selected.packName));
+  const mismatch=selected.game!==F.g||typedName!==selected.name||(typedNo&&masterNorm(typedNo)!==masterNorm(selected.cardNo))||(packInput&&selected.packName&&masterNorm(packInput)!==masterNorm(selected.packName));
   if(mismatch){toast('選択カードの情報が変更されています。候補を選び直してください');return}
  }
- const name=selected?.name||typedName,no=selected?.cardNo||typedNo,series=selected?.packName||packInput,selectedPack=series,rarity=selected?.rarity||rarityInput;
- if(!series||!no||!rarity){toast('収録パック・カード番号・レアリティを確認してください');return}
+ // One canonical identity object is used by the collection and card master.
+ const identity=selected?{
+  game:F.g,name:String(selected.name||'').trim(),cardNo:String(selected.cardNo||'').trim(),
+  packName:String(selected.packName||'').trim(),rarity:String(selected.rarity||'').trim(),
+  parallel:F.g==='op'&&Boolean(selected.parallel),sourceId:String(selected.sourceId||selected.cardNo||''),
+  source:String(selected.source||'official_card_search'),imageUrl:String(selected.imageUrl||F.img||'')
+ }:{
+  game:F.g,name:typedName,cardNo:typedNo,packName:packInput,rarity:rarityInput,
+  parallel:F.g==='op'&&parallel,sourceId:'',source:'manual',imageUrl:String(F.img||'')
+ };
+ if(!identity.packName||!identity.cardNo||!identity.rarity){toast('収録パック・カード番号・レアリティを確認してください');return}
+ if(F.g==='op'&&selected&&identity.parallel!==Boolean(F.opParallel)){toast('通常版・パラレルの選択が一致しません。候補を選び直してください');return}
  const ps=[0,1,2].map(i=>+($('#fp'+i)?.value||0)),a=ps.filter(x=>x>0),price=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value;
- const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,img:F.img||'',rarity,name,no,cardNo:no,qty:F.q,prices:ps,price,base:price,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false,parallel:F.g==='op'&&Boolean(selected?selected.parallel:parallel),cardMeta:selected?{...selected}:null,sourceId:selected?.sourceId||'',source:'official_card_search'};
+ const canonicalMeta={game:identity.game,name:identity.name,cardNo:identity.cardNo,packName:identity.packName,rarity:identity.rarity,parallel:identity.parallel,sourceId:identity.sourceId,source:identity.source,imageUrl:identity.imageUrl};
+ const c={id:Date.now()+'',g:identity.game,series:identity.packName,pack:identity.packName,img:identity.imageUrl,rarity:identity.rarity,name:identity.name,no:identity.cardNo,cardNo:identity.cardNo,qty:F.q,prices:ps,price,base:price,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false,parallel:identity.parallel,cardMeta:canonicalMeta,sourceId:identity.sourceId,source:identity.source};
  S.cards.unshift(c);save();
  let masterSaved=false;try{await masterPut(c,true);if(!c.img)await masterFetchOne(c,true);masterSaved=true}catch(e){console.warn('Card master save:',e)}
  F={g:F.g,q:1,selectedCard:null,r:'',img:'',opParallel:false};close_();render();
- toast(masterSaved?'✓ 登録しました（カード情報をマスターに保存）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))
+ toast(masterSaved?'✓ 登録しました（検索元のカード情報をマスターに保存）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))
 }
 function msearch(i){window.open(u(mg,i)+encodeURIComponent($('#mq').value.trim()),'_blank')}
 function demo(){
