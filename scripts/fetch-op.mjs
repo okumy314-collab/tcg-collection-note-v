@@ -7,9 +7,9 @@ const API = `https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?r
 const RAW = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
 async function getJson(url) {
-  const response = await fetch(url, {
-    headers: { 'User-Agent': 'tcg-collection-note-data-updater' }
-  });
+  const headers = { 'User-Agent': 'tcg-collection-note-data-updater' };
+  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  const response = await fetch(url, { headers });
   if (!response.ok) throw new Error(`取得失敗 HTTP ${response.status}: ${url}`);
   return response.json();
 }
