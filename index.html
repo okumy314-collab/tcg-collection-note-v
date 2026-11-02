@@ -331,7 +331,7 @@ async function masterRetryImages(){
 async function masterInfo(){
  open_('<div class="hd"><b>カードマスター</b><button class="ib" onclick="close_()">✕</button></div><div id="masterInfoBody" class="empty">マスターデータを読み込み中…</div>');
  try{
-  await masterSyncPromise;const dedup=await masterDeduplicate();await masterAutoFetchAll();const rows=await masterList(),counts={};
+  await masterSyncPromise;if(OP_READY&&OPI.length)await masterReconcileOfficialRecords();const dedup=await masterDeduplicate();await masterAutoFetchAll();const rows=await masterList(),counts={};
   rows.forEach(r=>counts[r.game]=(counts[r.game]||0)+1);
   const summary=Object.keys(counts).map(g=>'<div class="row" style="justify-content:space-between;padding:6px 0"><span>'+masterEsc(GN[g]?.n||g)+'</span><b>'+counts[g]+' 種</b></div>').join('');
   const latest=rows.slice().sort((a,b)=>String(b.updatedAt||'').localeCompare(String(a.updatedAt||''))).slice(0,8);
