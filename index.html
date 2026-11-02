@@ -121,7 +121,7 @@ function masterDb(){
 }
 function masterRecordFromCollection(c){
  const image=String(c.img||''),isUrl=image.startsWith('https://')||image.startsWith('http://');
- return {key:masterKeyFor(c),variantKey:[c.g||'',c.no||c.cardNo||'',c.rarity||'',c.parallel||c.variant||c.artwork||''].map(masterNorm).join('|'),collectionId:c.id||'',game:c.g||'',name:c.name||'',cardNo:c.no||c.cardNo||'',series:c.series||c.pack||'',rarity:c.rarity||'',imageUrl:isUrl?image:'',localImageAvailable:image.startsWith('data:'),imageStatus:isUrl?(c.imageVerificationStatus||'url_saved'):(image?'local_photo_only':'not_set'),imageSourceStatus:c.imageSourceStatus||'',source:'app_search_or_manual',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
+ return {key:masterKeyFor(c),variantKey:[c.g||'',c.no||c.cardNo||'',c.rarity||'',c.parallel||c.variant||c.artwork||''].map(masterNorm).join('|'),parallel:Boolean(c.parallel),collectionId:c.id||'',game:c.g||'',name:c.name||'',cardNo:c.no||c.cardNo||'',series:c.series||c.pack||'',rarity:c.rarity||'',imageUrl:isUrl?image:'',localImageAvailable:image.startsWith('data:'),imageStatus:isUrl?(c.imageVerificationStatus||'url_saved'):(image?'local_photo_only':'not_set'),imageSourceStatus:c.imageSourceStatus||'',source:'app_search_or_manual',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
 }
 async function masterPut(c,replaceImage=false){
  const db=await masterDb(),incoming=masterRecordFromCollection(c);
@@ -146,11 +146,11 @@ async function masterReplace(records){
 async function masterDeduplicate(){
  const rows=await masterList(),groups=new Map(),norm=v=>masterNorm(v);
  for(const r of rows){
-  const no=norm(String(r.cardNo||'').split('/')[0]),name=norm(r.name),pack=norm(r.series||''),rarity=norm(r.rarity||''),variant=norm(r.variantKey||'');
+  const no=norm(String(r.cardNo||'').split('/')[0]),name=norm(r.name),pack=norm(r.series||''),rarity=norm(r.rarity||''),parallel=Boolean(r.parallel)||/(?:\\|)true(?:\\|)/i.test(String(r.variantKey||'')),variant=String(r.game||r.g)==='op'?(parallel?'parallel':'normal'):norm(r.variantKey||'');
   const fp=[norm(r.game||r.g),pack,no||name,rarity,variant].join('|');
   const prev=groups.get(fp);if(!prev){groups.set(fp,{...r});continue}
   const keepImage=prev.imageUrl||r.imageUrl,newer=String(r.updatedAt||'')>String(prev.updatedAt||'')?r:prev;
-  groups.set(fp,{...prev,...newer,key:masterKeyFor({g:newer.game||newer.g,series:newer.series,name:newer.name,no:newer.cardNo,rarity:newer.rarity}),imageUrl:keepImage||'',imageStatus:keepImage?(prev.imageUrl?prev.imageStatus:r.imageStatus):(newer.imageStatus||'not_set'),imageVerificationStatus:prev.imageVerificationStatus||r.imageVerificationStatus||'',imageSourceStatus:prev.imageSourceStatus||r.imageSourceStatus||'',createdAt:prev.createdAt||r.createdAt});
+  groups.set(fp,{...prev,...newer,key:masterKeyFor({g:newer.game||newer.g,series:newer.series,name:newer.name,no:newer.cardNo,rarity:newer.rarity,parallel:Boolean(newer.parallel)||/(?:\\|)true(?:\\|)/i.test(String(newer.variantKey||''))}),imageUrl:keepImage||'',imageStatus:keepImage?(prev.imageUrl?prev.imageStatus:r.imageStatus):(newer.imageStatus||'not_set'),imageVerificationStatus:prev.imageVerificationStatus||r.imageVerificationStatus||'',imageSourceStatus:prev.imageSourceStatus||r.imageSourceStatus||'',createdAt:prev.createdAt||r.createdAt});
  }
  const clean=[...groups.values()];await masterReplace(clean);return {before:rows.length,after:clean.length,removed:rows.length-clean.length};
 }
