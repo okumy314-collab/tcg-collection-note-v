@@ -476,13 +476,15 @@ function add(){const G=GN[F.g];
 
  <label>カード写真（任意）</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this)"></label><img id="pv" class="th" style="display:none"></div>
  <label>カード名</label><input id="fn" placeholder="カード名"><label>カード番号</label><input id="fo" placeholder="例：201/165">
- <label>レアリティ</label><div class="chips" style="flex-wrap:wrap" id="rr">${G.rr.map(r=>`<button class="chip ${F.r==r?'on':''}" onclick="F.r=F.r==='${r}'?'':'${r}';document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.textContent==F.r))">${r}</button>`).join('')}</div>
+ <label>レアリティ</label><div class="chips" style="flex-wrap:wrap" id="rr">${renderRarityChips(G)}</div>
  <label>相場チェック（タップで検索画面を開く）</label><div class="row">${G.s.map((s,i)=>`<button class="btn sm" onclick="fq(${i})">${s[0]}</button>`).join('')}</div>${G.o?`<button class="btn sm" style="width:100%;margin-top:8px" onclick="window.open(GN[F.g].o+encodeURIComponent($('#fn').value),'_blank')">📖 公式カードリストで調べる</button>`:''}
  <label>各店舗の相場（1枚あたり）</label><div class="row">${G.s.map((s,i)=>`<div><div class="m" style="color:var(--mu);font-size:11px;margin-bottom:4px">${s[0]}</div><input id="fp${i}" type="number" inputmode="numeric" placeholder="¥" style="padding:10px"></div>`).join('')}</div>
  <label>枚数</label><div class="stp"><button onclick="stp(-1)">−</button><b id="fq">${F.q}</b><button onclick="stp(1)">＋</button></div>
  <label>詳細設定（任意）</label><div class="card" style="padding:4px 14px 14px;margin:0"><label>入手場所</label><input id="dp" placeholder="例：カードショップ / パック / フリマ"><label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" placeholder="損益の計算に使われます"></div><label>状態</label><select id="dc"><option value="">未設定</option>${opt(['PSA10','PSA9','美品','良品','傷あり','プレイ用'])}</select><label style="display:flex;align-items:center;gap:8px;color:var(--tx);letter-spacing:0"><input id="salePlanned" type="checkbox" style="width:18px;height:18px;margin:0"> 売却予定にする</label><label>メモ</label><textarea id="dn" rows="2"></textarea></div>
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});setTimeout(()=>$('#fn').focus(),150)}
+function chooseRarity(r,p){F.r=r;F.opParallel=!!p;document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.dataset.rarity===(r+(p?'-P':''))))}
+function renderRarityChips(G){return G.rr.map(r=>'<button class="chip '+(F.r===r&&!F.opParallel?'on':'')+'" data-rarity="'+r+'" onclick="chooseRarity(\''+r+'\',false)">'+r+'</button>'+(F.g==='op'?'<button class="chip '+(F.r===r&&F.opParallel?'on':'')+'" data-rarity="'+r+'-P" onclick="chooseRarity(\''+r+'\',true)">'+r+'-P</button>':'')).join('')}
 function keep(){['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value})}
 function switchGame(g){
  if(!GN[g]||g===F.g)return;
@@ -503,7 +505,7 @@ function fq(i){
 async function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
  const ps=[0,1,2].map(i=>+$('#fp'+i).value||0),a=ps.filter(x=>x>0),p=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value,custom=$('#fs').value===SO?$('#fs2').value.trim():'',s=custom||$('#fs').value;
- const c={id:Date.now()+'',g:F.g,series:s,pack:s,img:F.img||'',rarity:F.r||'',name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false};
+ const c={id:Date.now()+'',g:F.g,series:s,pack:s,img:F.img||'',rarity:F.r||'',parallel:F.g==='op'&&Boolean(F.opParallel),name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false};
  S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();
  let masterSaved=false;try{await masterPut(c);await masterFetchOne(c);masterSaved=true}catch(e){console.warn('Card master save:',e)}
  toast(masterSaved?'✓ 登録しました（マスター保存済み）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))}
