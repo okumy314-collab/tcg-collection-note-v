@@ -275,12 +275,34 @@ async function masterAutoFetchAll(){
  const pending=(S.cards||[]).filter(c=>!String(c.img||'').startsWith('http'));
  for(const c of pending)await masterFetchOne(c);
 }
+async function masterSaveImageRecord(record,found){
+ const db=await masterDb();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction(MASTER_STORE,'readwrite'),store=tx.objectStore(MASTER_STORE),req=store.get(record.key);
+  req.onsuccess=()=>{const current=req.result;if(current){current.imageUrl=found.url;current.imageStatus='url_saved';current.imageVerificationStatus=found.status||'source_matched';current.imageSourceStatus=found.status||'official_exact_match';current.updatedAt=new Date().toISOString();store.put(current)}};
+  tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error||new Error('画像情報の保存に失敗しました'));tx.onabort=()=>reject(tx.error||new Error('画像情報の保存が中断されました'));
+ });
+}
 async function masterRetryImages(){
- const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">パック名・カード番号・カード名・レアリティを照合して画像を再検索中…</div>';
- for(const c of (S.cards||[]))await masterFetchOne(c,true);
- const el2=$('#masterInfoBody');
- if(el2)el2.innerHTML='<div class="empty">厳密照合による再検索が完了しました。カードマスター画面を閉じて、もう一度開くと結果を確認できます。</div>';
- toast('厳密照合による画像再検索が完了しました');
+ const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">カードマスター全件を、タイトル・収録パック・カード番号・レアリティ・版情報まで照合して再検索中…</div>';
+ let checked=0,updated=0,failed=0;
+ try{
+  const rows=await masterList();
+  for(const r of rows){
+   checked++;
+   const c={g:r.game||r.g,name:r.name,no:r.cardNo||r.no,series:r.series||r.pack,rarity:r.rarity,parallel:Boolean(r.parallel)};
+   try{
+    const found=await masterFindImage(c);
+    if(found&&found.url){await masterSaveImageRecord(r,found);updated++;
+     const saved=(S.cards||[]).find(x=>String(x.id)===String(r.collectionId));
+     if(saved){saved.img=found.url;saved.imageVerificationStatus=found.status||'source_matched';saved.imageSourceStatus=found.status||'official_exact_match'}
+    }else failed++;
+   }catch(e){failed++;console.warn('Master image retry:',r.cardNo,e)}
+  }
+  try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
+  const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">再検索完了：'+checked+'件を確認、'+updated+'件の画像URLを公式データと再照合して更新、'+failed+'件は一致する画像を確認できませんでした。画面を閉じて開き直すと結果を確認できます。</div>';
+  toast('カードマスター全件の画像再検索が完了しました');
+ }catch(e){const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">カードマスターの再検索に失敗しました。ブラウザの保存領域を確認してください。</div>';console.warn(e)}
 }
 async function masterInfo(){
  open_('<div class="hd"><b>カードマスター</b><button class="ib" onclick="close_()">✕</button></div><div id="masterInfoBody" class="empty">マスターデータを読み込み中…</div>');
