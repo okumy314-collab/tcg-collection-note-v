@@ -374,8 +374,7 @@ function add(){
  <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="F.g='${g}';keep();add()">${GN[g].n}</button>`).join('')}</div>
  <div><label>① 収録パックを選択</label><select id="fs" onchange="togglePackCustom();clearCardSelection();cand()">${packOpts(F.g)}</select><input id="fs2" placeholder="商品名を入力" style="display:none;margin-top:6px" oninput="clearCardSelection();cand()"></div>
  <label>② カード名で検索（パックを選ぶと候補を絞り込めます）</label><input id="fn" placeholder="カード名を入力"><label>カード番号（候補選択後に自動入力）</label><input id="fo" placeholder="候補から選択すると自動入力" readonly>
- <label>③ レアリティを選択</label><select id="fr" onchange="F.r=this.value"><option value="">候補選択後に選んでください</option>${G.rr.map(r=>`<option value="${r}">${r}</option>`).join('')}</select>
- ${F.g==='op'?`<label>カード仕様</label><div class="chips" id="opParallelChoice"><button type="button" class="chip ${F.opParallel?'':'on'}" onclick="F.opParallel=false;document.querySelectorAll('#opParallelChoice .chip').forEach((b,i)=>b.classList.toggle('on',i===0))">通常</button><button type="button" class="chip ${F.opParallel?'on':''}" onclick="F.opParallel=true;document.querySelectorAll('#opParallelChoice .chip').forEach((b,i)=>b.classList.toggle('on',i===1))">パラレル</button></div>`:''}
+ <label>③ レアリティを選択</label><select id="fr" onchange="setRegistrationRarity(this.value)"><option value="">候補選択後に選んでください</option>${G.rr.map(r=>`<option value="${r}">${r}</option>`).join('')}${F.g==='op'?G.rr.map(r=>`<option value="${r}__parallel">${r}（パラレル）</option>`).join(''):''}</select>
  <div id="cardSearchPreview" style="display:none;margin:10px 0"></div>
  <label>相場チェック（ショップ検索）</label><div class="row"><button class="btn" onclick="fq(0)">${G.s[0][0]}</button><button class="btn" onclick="fq(1)">${G.s[1][0]}</button></div>
  <label>相場（1枚あたり）</label><div class="pr"><span>¥</span><input id="fp" type="number" inputmode="numeric" placeholder="確認した相場を入力"></div>
@@ -385,7 +384,8 @@ function add(){
  togglePackCustom();if(F.fs!==undefined)$('#fs').value=F.fs;if(F.fs2!==undefined)$('#fs2').value=F.fs2;setTimeout(()=>$('#fn').focus(),150)}
 function togglePackCustom(){const s=$('#fs'),i=$('#fs2');if(!s||!i)return;const show=s.value===SO;i.style.display=show?'block':'none';if(!show)i.value=''}
 function currentSearchPack(){const s=$('#fs'),custom=$('#fs2');if(custom&&custom.style.display!=='none'&&custom.value.trim())return custom.value.trim();if(!s||!s.value||s.value===SO)return '';const o=s.options[s.selectedIndex];return o?String(o.text||o.value).trim():''}
-function syncRegistrationRarity(value){const el=$('#fr');if(!el)return;const v=String(value||'');if(v&&!Array.from(el.options).some(o=>o.value===v)){const op=document.createElement('option');op.value=v;op.textContent=v;el.appendChild(op)}el.value=v;F.r=v;}
+function setRegistrationRarity(value){const v=String(value||'');if(F.g==='op'&&v.endsWith('__parallel')){F.r=v.slice(0,-10);F.opParallel=true}else{F.r=v;F.opParallel=false}syncRegistrationRarity(F.opParallel?F.r+'__parallel':F.r)}
+function syncRegistrationRarity(value){const el=$('#fr');if(!el)return;const v=String(value||'');const combined=F.g==='op'&&F.opParallel?v+'__parallel':v;if(combined&&!Array.from(el.options).some(o=>o.value===combined)){const op=document.createElement('option');op.value=combined;op.textContent=F.opParallel?v+'（パラレル）':v;el.appendChild(op)}el.value=combined;F.r=v;}
 function clearCardSelection(){F.r='';F.img='';F.cardMeta=null;F.printVariant='';const p=$('#cardSearchPreview');if(p){p.innerHTML='';p.style.display='none'}const n=$('#fn'),no=$('#fo');if(n)n.value='';if(no)no.value='';syncRegistrationRarity('');}
 function keep(){['fs','fs2','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e&&e.offsetParent!==null)F[i]=e.value});F.fs=F.fr=F.fs2=undefined}
 function stp(d){F.q=Math.max(1,F.q+d);$('#fq').textContent=F.q}
@@ -574,6 +574,7 @@ function cardImageError(el,id){
  const normalized=normalizeCardImageUrl(current);
  if(normalized&&normalized!==current&&!((el.dataset.tried||'').split('|').includes(normalized))){el.dataset.tried=(el.dataset.tried||'')+'|'+normalized;el.src=normalized;return}
  const candidates=[];const add=u=>{u=normalizeCardImageUrl(u);if(u&&u!==current&&!candidates.includes(u)&&!((el.dataset.tried||'').split('|').includes(u)))candidates.push(u)};
+ if(current&&current.includes('?'))add(current.split('?')[0]);
  if(c&&c.g==='op'){
   const hit=(OPI||[]).find(x=>masterOPImageMatch(c,x)&&x.img);
   if(hit)add(hit.img);
