@@ -479,7 +479,7 @@ function add(){const G=GN[F.g];
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});setTimeout(()=>$('#fn').focus(),150)}
 function syncRarityChipSelection(){const selected=F.r+(F.g==='op'&&F.opParallel?'-P':'');document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.dataset.rarity===selected))}
-function chooseRarity(r,p){F.r=r;F.opParallel=F.g==='op'&&Boolean(p);syncRarityChipSelection()}
+function chooseRarity(r,p){F.r=r;F.opParallel=F.g==='op'&&Boolean(p);if(F.selectedCard){F.selectedCard.rarity=r;F.selectedCard.parallel=F.opParallel}syncRarityChipSelection()}
 function renderRarityChips(G){return G.rr.map(r=>'<button class="chip '+(F.r===r&&!F.opParallel?'on':'')+'" data-rarity="'+r+'" onclick="chooseRarity(\''+r+'\',false)">'+r+'</button>'+(F.g==='op'?'<button class="chip '+(F.r===r&&F.opParallel?'on':'')+'" data-rarity="'+r+'-P" onclick="chooseRarity(\''+r+'\',true)">'+r+'-P</button>':'')).join('')}
 function keep(){['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value})}
 function switchGame(g){
@@ -749,8 +749,8 @@ async function pickc(i){
  if(option){sel.value=option.value;$('#fs2').style.display='none'}else if(setName){sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=setName}
  if(F.g==='ygo'&&Array.isArray(detail.variants)&&detail.variants.length&&rr){
   F.r=detail.variants[0];
-  detail.variants.forEach((variant,index)=>{const chip=document.createElement('button');chip.className='chip'+(index===0?' on':'');chip.textContent=variant;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=variant;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)});
- }else if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
+  detail.variants.forEach((variant,index)=>{const chip=document.createElement('button');chip.className='chip'+(index===0?' on':'');chip.textContent=variant;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=variant;if(F.selectedCard)F.selectedCard.rarity=variant;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)});
+ }else if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;if(F.selectedCard)F.selectedCard.rarity=F.r;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
  F.img=detail.img||cimg(detail)||'';
  if(p&&F.img){p.src=F.img;p.style.display='block'}
  syncRegistrationRarity(F.r);
@@ -758,7 +758,7 @@ async function pickc(i){
  renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.img||detail.img||''});
  b.innerHTML=selectedPricePanel(setName);
 }
-const add0=add;add=function(){add0();const n=$('#fn'),fs=$('#fs'),fs2=$('#fs2');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{F.selectedCard=null;F.cardMeta=null;F.img='';$('#fo').value='';cand()};n.insertAdjacentHTML('afterend','<div id="cd"></div><div id="cardSearchPreview" style="display:none;margin:10px 0"></div>')}const no=$('#fo');if(no)no.oninput=()=>{F.selectedCard=null;cand()};if(fs)fs.onchange=()=>{clearCardSelection();cand()};if(fs2)fs2.oninput=()=>{clearCardSelection();cand()}};
+const add0=add;add=function(){add0();const n=$('#fn'),fs=$('#fs'),fs2=$('#fs2');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{F.selectedCard=null;F.cardMeta=null;F.img='';F.r='';F.opParallel=false;$('#fo').value='';syncRarityChipSelection();cand()};n.insertAdjacentHTML('afterend','<div id="cd"></div><div id="cardSearchPreview" style="display:none;margin:10px 0"></div>')}const no=$('#fo');if(no)no.oninput=()=>{F.selectedCard=null;cand()};if(fs)fs.onchange=()=>{clearCardSelection();cand()};if(fs2)fs2.oninput=()=>{clearCardSelection();cand()}};
 $('#fab').onclick=()=>add();
 render();
 </script></body></html>
