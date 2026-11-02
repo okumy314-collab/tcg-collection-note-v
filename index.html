@@ -177,11 +177,12 @@ function masterOPImageMatch(c,x){
  const cardNo=masterImageNorm(c?.no||c?.cardNo||'');
  const sourceNo=masterImageNorm(x?.no||'');
  const exact=!!cardNo&&cardNo===sourceNo;
- // Parallel printings sharing a base card number are different artworks; never fall back to the base number.
- return exact&&masterImageNorm(x?.n)===masterImageNorm(c?.name)&&
-  masterImagePackMatches(c,x?.packName)&&
-  masterImageRarity(x?.rarity)===masterImageRarity(c?.rarity)&&
-  Boolean(x?.parallel)===masterOPParallel(c);
+ // Full source card number, including _p1/_p2, is mandatory: never substitute another artwork.
+ if(!exact)return false;
+ if(masterImageNorm(x?.n)!==masterImageNorm(c?.name))return false;
+ if(!masterImagePackMatches(c,x?.packName))return false;
+ if(masterImageRarity(x?.rarity)!==masterImageRarity(c?.rarity))return false;
+ return Boolean(x?.parallel)===masterOPParallel(c);
 }
 
 function masterImageRarity(v){
@@ -196,12 +197,13 @@ function masterImagePackCode(v){
 function masterImagePackMatches(c,packName){
  const wanted=masterImagePack(c),actual=masterImageNorm(packName);
  if(wanted&&actual&&wanted===actual)return true;
- const cardCode=masterImagePackCode(c.no||c.cardNo),sourceCode=masterImagePackCode(packName);
- if(cardCode&&sourceCode&&cardCode===sourceCode){
-  const selectedCode=masterImagePackCode(c.series||c.pack||'');
-  return !selectedCode||selectedCode===sourceCode;
- }
- return false;
+ const cardCode=masterImagePackCode(c.no||c.cardNo),sourceCode=masterImagePackCode(packName),selectedCode=masterImagePackCode(c.series||c.pack||'');
+ // Exact full card numbers (including _p1/_p2 artwork suffixes) are the primary identity.
+ // Pack labels can differ between the selector and official feed; reject only a proven code conflict.
+ if(sourceCode&&selectedCode)return sourceCode===selectedCode;
+ if(cardCode&&sourceCode)return cardCode===sourceCode;
+ if(cardCode&&selectedCode)return cardCode===selectedCode;
+ return Boolean(cardCode||wanted||actual);
 }
 async function masterFindImage(c){
  const name=masterImageNorm(c.name),no=masterImageNorm(c.no||''),pack=masterImagePack(c);
