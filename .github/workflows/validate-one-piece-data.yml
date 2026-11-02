@@ -85,6 +85,9 @@ jobs:
       - name: Validate full card identity and parallel image mapping
         run: node scripts/validate-op-identities.mjs
 
+      - name: Verify official One Piece image responses
+        run: node scripts/validate-op-images.mjs
+
       - name: Validate generated data
         run: |
           node --input-type=module <<'NODE'
