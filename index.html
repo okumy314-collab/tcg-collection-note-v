@@ -285,10 +285,32 @@ async function masterSaveImageRecord(record,found){
   tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error||new Error('画像情報の保存に失敗しました'));tx.onabort=()=>reject(tx.error||new Error('画像情報の保存が中断されました'));
  });
 }
+async function masterReconcileOfficialRecords(){
+ if(!OP_READY||!Array.isArray(OPI)||!OPI.length)throw new Error('ワンピース公式カードデータが未読込です');
+ const rows=await masterList(),byNo=new Map();
+ for(const x of OPI){const k=masterImageNorm(x.no);if(!k)continue;const a=byNo.get(k)||[];a.push(x);byNo.set(k,a)}
+ let corrected=0,unmatched=0;
+ const updated=[];
+ for(const r of rows){
+  if(String(r.game||r.g)!=='op'){updated.push(r);continue}
+  const no=masterImageNorm(r.cardNo||r.no||''),hits=byNo.get(no)||[];
+  if(hits.length!==1){unmatched++;updated.push(r);continue}
+  const x=hits[0],fixed={...r,game:'op',g:'op',name:x.n,cardNo:x.no,no:x.no,series:x.packName,pack:x.packName,rarity:opRarity(x.rarity),parallel:Boolean(x.parallel),sourceId:x.no,source:'official_onepiece_cardlist',updatedAt:new Date().toISOString()};
+  if(['name','cardNo','series','rarity','parallel'].some(k=>String(r[k]??'')!==String(fixed[k]??'')))corrected++;
+  const saved=(S.cards||[]).find(c=>String(c.id)===String(r.collectionId));
+  if(saved){Object.assign(saved,{g:'op',name:fixed.name,no:fixed.cardNo,cardNo:fixed.cardNo,series:fixed.series,pack:fixed.pack,rarity:fixed.rarity,parallel:fixed.parallel,sourceId:fixed.sourceId,source:fixed.source,cardMeta:{game:'op',name:fixed.name,cardNo:fixed.cardNo,packName:fixed.pack,rarity:fixed.rarity,parallel:fixed.parallel,sourceId:fixed.sourceId,source:fixed.source}});if(!saved.img&&x.img)saved.img=x.img}
+  fixed.key=masterKeyFor({g:'op',name:fixed.name,no:fixed.cardNo,cardNo:fixed.cardNo,series:fixed.series,pack:fixed.pack,rarity:fixed.rarity,parallel:fixed.parallel});
+  updated.push(fixed);
+ }
+ await masterReplace(updated);
+ try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
+ return {checked:rows.filter(r=>String(r.game||r.g)==='op').length,corrected,unmatched};
+}
 async function masterRetryImages(){
  const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">カードマスター全件を、タイトル・収録パック・カード番号・レアリティ・版情報まで照合して再検索中…</div>';
- let checked=0,updated=0,failed=0;
+ let checked=0,updated=0,failed=0,reconciled={checked:0,corrected:0,unmatched:0};
  try{
+  reconciled=await masterReconcileOfficialRecords();
   const rows=await masterList();
   for(const r of rows){
    checked++;
@@ -302,7 +324,7 @@ async function masterRetryImages(){
    }catch(e){failed++;console.warn('Master image retry:',r.cardNo,e)}
   }
   try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
-  const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">再検索完了：'+checked+'件を確認、'+updated+'件の画像URLを公式データと再照合して更新、'+failed+'件は一致する画像を確認できませんでした。画面を閉じて開き直すと結果を確認できます。</div>';
+  const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">情報照合：'+reconciled.checked+'件中 '+reconciled.corrected+'件を公式データに合わせて修正（未一致 '+reconciled.unmatched+'件）。画像：'+checked+'件を確認、'+updated+'件を更新、'+failed+'件は一致する画像を確認できませんでした。画面を閉じて開き直すと結果を確認できます。</div>';
   toast('カードマスター全件の画像再検索が完了しました');
  }catch(e){const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">カードマスターの再検索に失敗しました。ブラウザの保存領域を確認してください。</div>';console.warn(e)}
 }
