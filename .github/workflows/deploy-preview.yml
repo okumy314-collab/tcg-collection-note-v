@@ -3,7 +3,7 @@ name: deploy-preview
 on:
   push:
     branches:
-      - feature/japanese-one-piece-card-data
+      - rebuild-card-pipeline-2026-11-03
     paths:
       - "index.html"
       - "data/**"
@@ -35,7 +35,7 @@ jobs:
       - name: Checkout latest development branch
         uses: actions/checkout@v4
         with:
-          ref: feature/japanese-one-piece-card-data
+          ref: rebuild-card-pipeline-2026-11-03
           path: preview-source
 
       - name: Add isolated preview under /preview/
