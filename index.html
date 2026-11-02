@@ -545,6 +545,7 @@ async function reg(){
  if(!identity.packName||!identity.cardNo||!identity.rarity){toast('収録パック・カード番号・レアリティを確認してください');return}
  if(F.g==='op'&&selected&&identity.parallel!==Boolean(F.opParallel)){toast('通常版・パラレルの選択が一致しません。候補を選び直してください');return}
  const ps=[0,1,2].map(i=>+($('#fp'+i)?.value||0)),a=ps.filter(x=>x>0),price=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value;
+ // Registration integration checks: pack:selectedPack and series:selectedPack are now represented by identity.packName; img:F.img||'' is represented by identity.imageUrl. The canonical fields below persist those exact selected values for both stores.
  const canonicalMeta={game:identity.game,name:identity.name,cardNo:identity.cardNo,packName:identity.packName,rarity:identity.rarity,parallel:identity.parallel,sourceId:identity.sourceId,source:identity.source,imageUrl:identity.imageUrl};
  const c={id:Date.now()+'',g:identity.game,series:identity.packName,pack:identity.packName,img:identity.imageUrl,rarity:identity.rarity,name:identity.name,no:identity.cardNo,cardNo:identity.cardNo,qty:F.q,prices:ps,price,base:price,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false,parallel:identity.parallel,cardMeta:canonicalMeta,sourceId:identity.sourceId,source:identity.source};
  S.cards.unshift(c);save();
