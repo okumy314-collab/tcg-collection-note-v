@@ -408,7 +408,7 @@ function togglePackCustom(){const s=$('#fs'),i=$('#fs2');if(!s||!i)return;const 
 function currentSearchPack(){const s=$('#fs'),custom=$('#fs2');if(custom&&custom.style.display!=='none'&&custom.value.trim())return custom.value.trim();if(!s||!s.value||s.value===SO)return '';const o=s.options[s.selectedIndex];return o?String(o.text||o.value).trim():''}
 function setRegistrationRarity(value){const v=String(value||'');if(F.g==='op'&&v.endsWith('__parallel')){F.r=v.slice(0,-10);F.opParallel=true}else{F.r=v;F.opParallel=false}syncRegistrationRarity(F.r)}
 function syncRegistrationRarity(value){const el=$('#fr');if(!el)return;const v=String(value||'');const combined=F.g==='op'&&F.opParallel?v+'__parallel':v;if(combined&&!Array.from(el.options).some(o=>o.value===combined)){const op=document.createElement('option');op.value=combined;op.textContent=F.opParallel?v+'（パラレル）':v;el.appendChild(op)}el.value=combined;F.r=v;}
-function clearCardSelection(){F.r='';F.img='';F.cardMeta=null;F.printVariant='';const p=$('#cardSearchPreview');if(p){p.innerHTML='';p.style.display='none'}const n=$('#fn'),no=$('#fo');if(n)n.value='';if(no)no.value='';syncRegistrationRarity('');}
+function clearCardSelection(){F.r='';F.img='';F.cardMeta=null;F.selectedCard=null;F.printVariant='';const p=$('#cardSearchPreview');if(p){p.innerHTML='';p.style.display='none'}const n=$('#fn'),no=$('#fo');if(n)n.value='';if(no)no.value='';syncRegistrationRarity('');}
 function keep(){['fs','fs2','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e&&e.offsetParent!==null)F[i]=e.value});F.fs=F.fr=F.fs2=undefined}
 function stp(d){F.q=Math.max(1,F.q+d);$('#fq').textContent=F.q}
 function fq(i){
@@ -525,13 +525,25 @@ function fq(i){
  const w=window.open(target,'_blank');
  if(!w) toast('ショップ画面を開けませんでした。Safariのポップアップ設定を確認してください');
 }
-async function reg(){
- const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const ps=[0,1,2].map(i=>+$('#fp'+i).value||0),a=ps.filter(x=>x>0),p=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value,custom=$('#fs').value===SO?$('#fs2').value.trim():'',s=custom||$('#fs').value;
- const c={id:Date.now()+'',g:F.g,series:s,pack:s,img:F.img||'',rarity:F.r||'',parallel:F.g==='op'&&Boolean(F.opParallel),name:n,no:$('#fo').value.trim(),qty:F.q,prices:ps,price:p,base:p,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false};
- S.cards.unshift(c);save();F={g:F.g,q:1};close_();render();
- let masterSaved=false;try{await masterPut(c);await masterFetchOne(c);masterSaved=true}catch(e){console.warn('Card master save:',e)}
- toast(masterSaved?'✓ 登録しました（マスター保存済み）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))}
+async async function reg(){
+ const selected=F.selectedCard||null;
+ const typedName=$('#fn').value.trim(),typedNo=$('#fo').value.trim();
+ if(!typedName){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
+ const packInput=$('#fs').value===SO?$('#fs2').value.trim():String($('#fs').selectedOptions?.[0]?.text||$('#fs').value||'').trim();
+ const rarityInput=String(F.r||'').trim(),parallel=F.g==='op'&&Boolean(F.opParallel);
+ if(selected){
+  const mismatch=(selected.game!==F.g)||(typedName!==selected.name)||(typedNo&&typedNo!==selected.cardNo)||(packInput&&selected.packName&&masterNorm(packInput)!==masterNorm(selected.packName));
+  if(mismatch){toast('選択カードの情報が変更されています。候補を選び直してください');return}
+ }
+ const name=selected?.name||typedName,no=selected?.cardNo||typedNo,series=selected?.packName||packInput,rarity=selected?.rarity||rarityInput;
+ if(!series||!no||!rarity){toast('収録パック・カード番号・レアリティを確認してください');return}
+ const ps=[0,1,2].map(i=>+($('#fp'+i)?.value||0)),a=ps.filter(x=>x>0),price=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value;
+ const c={id:Date.now()+'',g:F.g,series,pack:series,img:selected?.imageUrl||F.img||'',rarity,name,no,cardNo:no,qty:F.q,prices:ps,price,base:price,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false,parallel:F.g==='op'&&Boolean(selected?selected.parallel:parallel),cardMeta:selected?{...selected}:null,sourceId:selected?.sourceId||'',source:'official_card_search'};
+ S.cards.unshift(c);save();
+ let masterSaved=false;try{await masterPut(c,true);if(!c.img)await masterFetchOne(c,true);masterSaved=true}catch(e){console.warn('Card master save:',e)}
+ F={g:F.g,q:1,selectedCard:null,r:'',img:'',opParallel:false};close_();render();
+ toast(masterSaved?'✓ 登録しました（カード情報をマスターに保存）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))
+}
 function msearch(i){window.open(u(mg,i)+encodeURIComponent($('#mq').value.trim()),'_blank')}
 function demo(){
  const d=[['poke','リザードンex','SAR','201/165',1,12800,9000],['poke','ピカチュウ','AR','132/108',3,2400,1500],['ygo','ブラック・マジシャン','QCSE','QCCU-JP001',1,8800,5000],['op','モンキー・D・ルフィ','SEC','OP05-119',2,6400,4200],['rush','デモカード','SR','RD/001',1,1500,1800]];
@@ -668,7 +680,7 @@ function selectedPricePanel(extra=''){
 }
 function pickOP(i){
  const x=OPR[i];if(!x)return;
- const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=opRarity(x.rarity);F.opParallel=!!x.parallel;F.img=x.img||'';syncOPParallelChoice();
+ const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=opRarity(x.rarity);F.opParallel=!!x.parallel;F.img=x.img||'';F.selectedCard={game:'op',name:x.n,cardNo:x.no,rarity:F.r,packName:x.packName||'',parallel:!!x.parallel,imageUrl:x.img||'',sourceId:x.no,source:'official_onepiece_cardlist'};syncOPParallelChoice();
  const ss=$('#fs');
  // Preserve the exact Japanese pack title from the master data, including newer sets
  // that are not yet listed in the app's manually maintained dropdown.
@@ -769,11 +781,11 @@ async function pickc(i){
  F.img=detail.img||cimg(detail)||'';
  if(p&&F.img){p.src=F.img;p.style.display='block'}
  syncRegistrationRarity(F.r);
- F.cardMeta={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,rarity:detail.rarity||F.r||'',category:detail.category||'',hp:detail.hp??null,types:detail.types||[],stage:detail.stage||'',illustrator:detail.illustrator||'',regulationMark:detail.regulationMark||'',attacks:detail.attacks||[],variants:detail.variants||[]};
+ F.cardMeta={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,rarity:detail.rarity||F.r||'',category:detail.category||'',hp:detail.hp??null,types:detail.types||[],stage:detail.stage||'',illustrator:detail.illustrator||'',regulationMark:detail.regulationMark||'',attacks:detail.attacks||[],variants:detail.variants||[],setId:detail.setId||detail.id||'',imageUrl:F.img||''};F.selectedCard={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),rarity:detail.rarity||F.r||'',packName:setName||detail.setName||detail.set?.name||'ORIGINAL ARTWORK COLLECTION',parallel:false,imageUrl:F.img||'',sourceId:detail.setId||detail.id||detail.cardNumber||'',source:F.g==='ygo'?'official_ygo_oac_data':'tcgdex_card_data'};
  renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.img||detail.img||''});
  b.innerHTML=selectedPricePanel(setName);
 }
-const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{$('#fo').value='';cand()};$('#fo').oninput=cand;n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
+const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{F.selectedCard=null;F.cardMeta=null;F.img='';$('#fo').value='';cand()};$('#fo').oninput=()=>{F.selectedCard=null;cand()};n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
 $('#fab').onclick=()=>add();
 render();
 </script></body></html>
