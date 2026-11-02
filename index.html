@@ -145,12 +145,15 @@ async function masterReplace(records){
 }
 async function masterDeduplicate(){
  const rows=await masterList(),groups=new Map(),norm=v=>masterNorm(v);
+ const isParallel=r=>Boolean(r.parallel)||String(r.variantKey||'').split('|').some(v=>v==='true');
  for(const r of rows){
-  const no=norm(String(r.cardNo||'').split('/')[0]),name=norm(r.name),pack=norm(r.series||''),rarity=norm(r.rarity||''),parallel=Boolean(r.parallel)||/(?:\\|)true(?:\\|)/i.test(String(r.variantKey||'')),variant=String(r.game||r.g)==='op'?(parallel?'parallel':'normal'):norm(r.variantKey||'');
+  const no=norm(String(r.cardNo||'').split('/')[0]),name=norm(r.name),pack=norm(r.series||''),rarity=norm(r.rarity||'');
+  const parallel=isParallel(r),variant=String(r.game||r.g)==='op'?(parallel?'parallel':'normal'):norm(r.variantKey||'');
   const fp=[norm(r.game||r.g),pack,no||name,rarity,variant].join('|');
-  const prev=groups.get(fp);if(!prev){groups.set(fp,{...r});continue}
+  const prev=groups.get(fp);if(!prev){groups.set(fp,{...r,parallel});continue}
   const keepImage=prev.imageUrl||r.imageUrl,newer=String(r.updatedAt||'')>String(prev.updatedAt||'')?r:prev;
-  groups.set(fp,{...prev,...newer,key:masterKeyFor({g:newer.game||newer.g,series:newer.series,name:newer.name,no:newer.cardNo,rarity:newer.rarity,parallel:Boolean(newer.parallel)||/(?:\\|)true(?:\\|)/i.test(String(newer.variantKey||''))}),imageUrl:keepImage||'',imageStatus:keepImage?(prev.imageUrl?prev.imageStatus:r.imageStatus):(newer.imageStatus||'not_set'),imageVerificationStatus:prev.imageVerificationStatus||r.imageVerificationStatus||'',imageSourceStatus:prev.imageSourceStatus||r.imageSourceStatus||'',createdAt:prev.createdAt||r.createdAt});
+  const newerParallel=isParallel(newer);
+  groups.set(fp,{...prev,...newer,parallel:newerParallel,key:masterKeyFor({g:newer.game||newer.g,series:newer.series,name:newer.name,no:newer.cardNo,rarity:newer.rarity,parallel:newerParallel}),imageUrl:keepImage||'',imageStatus:keepImage?(prev.imageUrl?prev.imageStatus:r.imageStatus):(newer.imageStatus||'not_set'),imageVerificationStatus:prev.imageVerificationStatus||r.imageVerificationStatus||'',imageSourceStatus:prev.imageSourceStatus||r.imageSourceStatus||'',createdAt:prev.createdAt||r.createdAt});
  }
  const clean=[...groups.values()];await masterReplace(clean);return {before:rows.length,after:clean.length,removed:rows.length-clean.length};
 }
