@@ -384,7 +384,7 @@ function add(){
  togglePackCustom();if(F.fs!==undefined)$('#fs').value=F.fs;if(F.fs2!==undefined)$('#fs2').value=F.fs2;setTimeout(()=>$('#fn').focus(),150)}
 function togglePackCustom(){const s=$('#fs'),i=$('#fs2');if(!s||!i)return;const show=s.value===SO;i.style.display=show?'block':'none';if(!show)i.value=''}
 function currentSearchPack(){const s=$('#fs'),custom=$('#fs2');if(custom&&custom.style.display!=='none'&&custom.value.trim())return custom.value.trim();if(!s||!s.value||s.value===SO)return '';const o=s.options[s.selectedIndex];return o?String(o.text||o.value).trim():''}
-function setRegistrationRarity(value){const v=String(value||'');if(F.g==='op'&&v.endsWith('__parallel')){F.r=v.slice(0,-10);F.opParallel=true}else{F.r=v;F.opParallel=false}syncRegistrationRarity(F.opParallel?F.r+'__parallel':F.r)}
+function setRegistrationRarity(value){const v=String(value||'');if(F.g==='op'&&v.endsWith('__parallel')){F.r=v.slice(0,-10);F.opParallel=true}else{F.r=v;F.opParallel=false}syncRegistrationRarity(F.r)}
 function syncRegistrationRarity(value){const el=$('#fr');if(!el)return;const v=String(value||'');const combined=F.g==='op'&&F.opParallel?v+'__parallel':v;if(combined&&!Array.from(el.options).some(o=>o.value===combined)){const op=document.createElement('option');op.value=combined;op.textContent=F.opParallel?v+'（パラレル）':v;el.appendChild(op)}el.value=combined;F.r=v;}
 function clearCardSelection(){F.r='';F.img='';F.cardMeta=null;F.printVariant='';const p=$('#cardSearchPreview');if(p){p.innerHTML='';p.style.display='none'}const n=$('#fn'),no=$('#fo');if(n)n.value='';if(no)no.value='';syncRegistrationRarity('');}
 function keep(){['fs','fs2','fr','fn','fo','fp'].forEach(i=>{const e=$('#'+i);if(e&&e.offsetParent!==null)F[i]=e.value});F.fs=F.fr=F.fs2=undefined}
@@ -428,7 +428,7 @@ function editCard(id){detail(id)}
 function detail(id){
  const c=S.cards.find(x=>x.id==id);if(!c)return;
  const rarityOptions=[...new Set([...(GN[c.g]?.rr||[]),c.rarity||''].filter(Boolean))];
- const rarityHtml=rarityOptions.map(r=>'<option value="'+masterEsc(r)+'" '+(r===(c.rarity||'')?'selected':'')+'>'+masterEsc(r)+'</option>').join('');
+ const rarityHtml=rarityOptions.map(r=>'<option value="'+masterEsc(r)+'" '+(r===(c.rarity||'')&&!c.parallel?'selected':'')+'>'+masterEsc(r)+'</option>'+(c.g==='op'?'<option value="'+masterEsc(r)+'__parallel" '+(r===(c.rarity||'')&&c.parallel?'selected':'')+'>'+masterEsc(r)+'（パラレル）</option>':'')).join('');
  const imageHtml=c.img?'<img id="pv" class="th" src="'+masterEsc(c.img)+'" onerror="cardImageError(this,\''+id+'\')">':'<img id="pv" class="th" style="display:none">';
  open_('<div class="hd"><b>カード情報・入手情報</b><button class="ib" onclick="close_()">✕</button></div>'+
  '<div class="m">カード情報の修正と入手情報の登録を、この画面でまとめて行えます。</div>'+
@@ -436,7 +436,7 @@ function detail(id){
  '<label>収録パック</label><input id="ec_series" value="'+masterEsc(c.series||c.pack||'')+'" placeholder="収録パック">'+
  '<label>カード名</label><input id="ec_name" value="'+masterEsc(c.name||'')+'" placeholder="カード名">'+
  '<div class="row"><div><label>カード番号</label><input id="ec_no" value="'+masterEsc(c.no||c.cardNo||'')+'" placeholder="カード番号"></div><div><label>レアリティ</label><select id="ec_rarity">'+rarityHtml+'</select></div></div>'+
- (c.g==='op'?'<label>カード仕様</label><select id="ec_parallel"><option value="0" '+(!c.parallel?'selected':'')+'>通常</option><option value="1" '+(c.parallel?'selected':'')+'>パラレル</option></select>':'')+
+ 
  '<div class="row"><div><label>所持枚数</label><input id="ec_qty" type="number" min="1" step="1" value="'+Math.max(1,Number(c.qty)||1)+'"></div><div><label>相場（1枚あたり）</label><input id="ec_price" type="number" min="0" value="'+(Number(c.price)||0)+'"></div></div>'+
  '<label>入手場所</label><input id="dp" value="'+masterEsc(c.place||'')+'" placeholder="例：カードショップ / パック / フリマ">'+
  '<label>入手価格（1枚）</label><div class="pr"><span>¥</span><input id="dm" type="number" inputmode="numeric" value="'+(c.paid??'')+'" placeholder="損益の計算に使われます"></div>'+
@@ -449,9 +449,9 @@ function detail(id){
 }
 async function sd(id){
  const c=S.cards.find(x=>x.id==id);if(!c)return;
- const next={series:$('#ec_series').value.trim(),rarity:$('#ec_rarity').value.trim(),name:$('#ec_name').value.trim(),no:$('#ec_no').value.trim(),qty:Math.max(1,Math.floor(Number($('#ec_qty').value)||1)),price:Math.max(0,Number($('#ec_price').value)||0)};
+ const selectedRarity=$('#ec_rarity').value.trim(),nextParallel=c.g==='op'&&selectedRarity.endsWith('__parallel'),next={series:$('#ec_series').value.trim(),rarity:c.g==='op'&&nextParallel?selectedRarity.slice(0,-10):selectedRarity,name:$('#ec_name').value.trim(),no:$('#ec_no').value.trim(),qty:Math.max(1,Math.floor(Number($('#ec_qty').value)||1)),price:Math.max(0,Number($('#ec_price').value)||0)};
  if(!next.name){toast('カード名を入力してください');$('#ec_name').focus();return}
- const nextParallel=c.g==='op'?$('#ec_parallel')?.value==='1':Boolean(c.parallel);const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'')||nextParallel!==Boolean(c.parallel);
+ const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'')||nextParallel!==Boolean(c.parallel);
  Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,parallel:nextParallel,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#ec_salePlanned').checked});
  if(identityChanged){if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}c.imageLookupStatus='needs_recheck'}
  save();const newKey=masterKeyFor(c);if(oldKey!==newKey)await masterDeleteKey(oldKey);
