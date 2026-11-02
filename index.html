@@ -498,7 +498,7 @@ function fq(i){
  const w=window.open(target,'_blank');
  if(!w) toast('ショップ画面を開けませんでした。Safariのポップアップ設定を確認してください');
 }
-async async function reg(){
+async function reg(){
  const selected=F.selectedCard||null;
  const typedName=$('#fn').value.trim(),typedNo=$('#fo').value.trim();
  if(!typedName){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
