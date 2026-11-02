@@ -473,6 +473,10 @@ async function sd(id){
  const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'')||nextParallel!==Boolean(c.parallel);
  Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,parallel:nextParallel,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#ec_salePlanned').checked});
  if(identityChanged){if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}c.imageLookupStatus='needs_recheck'}
+ // Keep the editable card and its canonical metadata in lockstep.
+ const priorMeta=c.cardMeta&&typeof c.cardMeta==='object'?c.cardMeta:{};
+ c.cardMeta={...priorMeta,game:c.g,name:c.name,cardNo:c.no,packName:c.series,rarity:c.rarity,parallel:Boolean(c.parallel),sourceId:c.sourceId||priorMeta.sourceId||c.no,source:c.source||priorMeta.source||'manual',imageUrl:c.img||''};
+ c.sourceId=c.cardMeta.sourceId;c.source=c.cardMeta.source;
  save();const newKey=masterKeyFor(c);if(oldKey!==newKey)await masterDeleteKey(oldKey);
  try{await masterPut(c,true);if(identityChanged)await masterFetchOne(c,true)}catch(e){console.warn('Card edit sync:',e)}
  close_();render();toast('カード情報・入手情報を保存しました');
