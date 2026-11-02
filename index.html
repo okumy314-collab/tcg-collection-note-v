@@ -390,20 +390,6 @@ function open_(h){$('#sh').innerHTML=h;$('#ov').classList.add('on')}
 function close_(){$('#ov').classList.remove('on')}
 $('#ov').onclick=e=>{if(e.target.id=='ov')close_()};
 const opt=a=>a.map(x=>`<option>${x}</option>`).join('');
-function add(){
- const G=GN[F.g];
- open_(`<div class="hd"><b>カード登録</b><button class="ib" onclick="close_()">✕</button></div>
- <div class="chips">${Object.keys(GN).map(g=>`<button class="chip ${F.g==g?'on':''}" onclick="F.g='${g}';keep();add()">${GN[g].n}</button>`).join('')}</div>
- <div><label>① 収録パックを選択</label><select id="fs" onchange="togglePackCustom();clearCardSelection();cand()">${packOpts(F.g)}</select><input id="fs2" placeholder="商品名を入力" style="display:none;margin-top:6px" oninput="clearCardSelection();cand()"></div>
- <label>② カード名で検索（パックを選ぶと候補を絞り込めます）</label><input id="fn" placeholder="カード名を入力"><label>カード番号（候補選択後に自動入力）</label><input id="fo" placeholder="候補から選択すると自動入力" readonly>
- <label>③ レアリティを選択</label><select id="fr" onchange="setRegistrationRarity(this.value)"><option value="">候補選択後に選んでください</option>${G.rr.map(r=>`<option value="${r}">${r}</option>`).join('')}${F.g==='op'?G.rr.map(r=>`<option value="${r}__parallel">${r}-P</option>`).join(''):''}</select>
- <div id="cardSearchPreview" style="display:none;margin:10px 0"></div>
- <label>相場チェック（ショップ検索）</label><div class="row"><button class="btn" onclick="fq(0)">${G.s[0][0]}</button><button class="btn" onclick="fq(1)">${G.s[1][0]}</button></div>
- <label>相場（1枚あたり）</label><div class="pr"><span>¥</span><input id="fp" type="number" inputmode="numeric" placeholder="確認した相場を入力"></div>
- <label>枚数</label><div class="stp"><button onclick="stp(-1)">−</button><b id="fq">${F.q}</b><button onclick="stp(1)">＋</button></div>
- <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
- ['fs','fr','fn','fo','fp'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});
- togglePackCustom();if(F.fs!==undefined)$('#fs').value=F.fs;if(F.fs2!==undefined)$('#fs2').value=F.fs2;setTimeout(()=>$('#fn').focus(),150)}
 function togglePackCustom(){const s=$('#fs'),i=$('#fs2');if(!s||!i)return;const show=s.value===SO;i.style.display=show?'block':'none';if(!show)i.value=''}
 function currentSearchPack(){const s=$('#fs'),custom=$('#fs2');if(custom&&custom.style.display!=='none'&&custom.value.trim())return custom.value.trim();if(!s||!s.value||s.value===SO)return '';const o=s.options[s.selectedIndex];return o?String(o.text||o.value).trim():''}
 function setRegistrationRarity(value){const v=String(value||'');if(F.g==='op'&&v.endsWith('__parallel')){F.r=v.slice(0,-10);F.opParallel=true}else{F.r=v;F.opParallel=false}syncRegistrationRarity(F.r)}
@@ -429,19 +415,6 @@ function duplicateCardMatch(a,b){
  const rarityA=rarityKey(a.rarity),rarityB=rarityKey(b.rarity),rarityMatch=!rarityA||!rarityB||rarityA===rarityB;
  const parallelMatch=String(a.g)==='op'?Boolean(a.parallel)===Boolean(b.parallel):true;
  return numberMatch&&(nameMatch||(!noA||!noB))&&rarityMatch&&parallelMatch;
-}
-async function reg(){
- const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const p=+$('#fp').value||0,selectedPack=currentSearchPack()||$('#fs').value,selectedRarity=$('#fr').value||F.r||'',parallel=F.g==='op'?(selectedRarity.endsWith('__parallel')||Boolean(F.opParallel)):Boolean(F.cardMeta?.parallel),rarity=F.g==='op'&&selectedRarity.endsWith('__parallel')?selectedRarity.slice(0,-10):selectedRarity;
- F.r=rarity;F.opParallel=parallel;const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||'',cardMeta:F.cardMeta||null,variant:F.printVariant||'',parallel};
- const existing=S.cards.find(x=>duplicateCardMatch(x,c));
- if(existing){
-  existing.name=c.name;existing.no=c.no||existing.no;existing.cardNo=existing.no;existing.series=c.series;existing.pack=c.pack;existing.rarity=c.rarity||existing.rarity;existing.variant=c.variant||existing.variant;existing.parallel=c.parallel||existing.parallel;existing.qty=Math.max(1,Number(existing.qty)||1)+Math.max(1,Number(c.qty)||1);existing.img=c.img||existing.img;existing.cardMeta=c.cardMeta||existing.cardMeta;if(p>0)existing.price=p;
-  save();try{await masterPut(existing,true)}catch(e){console.warn('Duplicate card master sync:',e)}
-  F={g:F.g,q:1};close_();render();toast('✓ 登録済みカードに枚数を '+c.qty+' 枚追加しました','詳細を確認 ›',()=>detail(existing.id));return;
- }
- S.cards.unshift(c);save();try{await masterPut(c,true)}catch(e){console.warn('Card master registration sync:',e)}
- F={g:F.g,q:1};close_();render();toast('✓ 登録しました','詳細登録 ›',()=>detail(c.id))
 }
 async function masterDeleteKey(key){
  try{const db=await masterDb();await new Promise((resolve,reject)=>{const tx=db.transaction(MASTER_STORE,'readwrite');tx.objectStore(MASTER_STORE).delete(key);tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)})}catch(e){console.warn('Card master key cleanup:',e)}
@@ -512,7 +485,7 @@ function keep(){['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{co
 function switchGame(g){
  if(!GN[g]||g===F.g)return;
  keep();
- F.g=g;F.r='';F.img='';
+ F.g=g;F.r='';F.img='';F.selectedCard=null;F.cardMeta=null;F.opParallel=false;
  ['fn','fo','fs','fs2','fr','fp','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(k=>delete F[k]);
  add();
 }
@@ -785,7 +758,7 @@ async function pickc(i){
  renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.img||detail.img||''});
  b.innerHTML=selectedPricePanel(setName);
 }
-const add0=add;add=function(){add0();const n=$('#fn');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{F.selectedCard=null;F.cardMeta=null;F.img='';$('#fo').value='';cand()};$('#fo').oninput=()=>{F.selectedCard=null;cand()};n.insertAdjacentHTML('afterend','<div id="cd"></div>')}};
+const add0=add;add=function(){add0();const n=$('#fn'),fs=$('#fs'),fs2=$('#fs2');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{F.selectedCard=null;F.cardMeta=null;F.img='';$('#fo').value='';cand()};n.insertAdjacentHTML('afterend','<div id="cd"></div><div id="cardSearchPreview" style="display:none;margin:10px 0"></div>')}const no=$('#fo');if(no)no.oninput=()=>{F.selectedCard=null;cand()};if(fs)fs.onchange=()=>{clearCardSelection();cand()};if(fs2)fs2.oninput=()=>{clearCardSelection();cand()}};
 $('#fab').onclick=()=>add();
 render();
 </script></body></html>
