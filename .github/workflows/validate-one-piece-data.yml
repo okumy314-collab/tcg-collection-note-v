@@ -82,6 +82,9 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/fetch-op.mjs
 
+      - name: Validate full card identity and parallel image mapping
+        run: node scripts/validate-op-identities.mjs
+
       - name: Validate generated data
         run: |
           node --input-type=module <<'NODE'
