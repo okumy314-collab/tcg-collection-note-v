@@ -107,7 +107,7 @@ if(opParallelMigration){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
 const MASTER_DB_NAME='tcg-collection-master-v1',MASTER_STORE='cards';
 let masterDbPromise;
 const masterNorm=v=>String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'');
-const masterKeyFor=c=>{const no=masterNorm(c.no||c.cardNo||'');const pack=masterNorm(c.series||c.pack||'');const base=no?('no:'+no):('name:'+masterNorm(c.name));return [String(c.g||'other'),pack,base,masterNorm(c.rarity||''),masterNorm(c.variant||c.parallel||c.artwork||'')].join('|')};
+const masterKeyFor=c=>{const no=masterNorm(c.no||c.cardNo||'');const pack=masterNorm(c.series||c.pack||'');const base=no?('no:'+no):('name:'+masterNorm(c.name));const printKey=String(c.g)==='op'?(c.parallel?'parallel':'normal'):masterNorm(c.variant||c.artwork||'');return [String(c.g||'other'),pack,base,masterNorm(c.rarity||''),printKey].join('|')};
 function masterDb(){
  if(!('indexedDB' in window))return Promise.reject(new Error('このブラウザではIndexedDBを利用できません'));
  if(masterDbPromise)return masterDbPromise;
@@ -161,6 +161,7 @@ const masterEsc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;'
 
 function masterImageNorm(v){return String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'')}
 function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
+function syncOPParallelChoice(){const box=$('#opParallelChoice');if(!box)return;box.querySelectorAll('.chip').forEach((b,i)=>b.classList.toggle('on',i===(F.opParallel?1:0)));}
 function masterOPParallel(c){
  const no=String(c?.no||c?.cardNo||'').normalize('NFKC').toLowerCase();
  const rarity=String(c?.rarity||'').normalize('NFKC');
@@ -637,7 +638,7 @@ function selectedPricePanel(extra=''){
 }
 function pickOP(i){
  const x=OPR[i];if(!x)return;
- const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=opRarity(x.rarity);F.opParallel=!!x.parallel;F.img=x.img||'';
+ const b=$('#cd');$('#fn').value=x.n;$('#fo').value=x.no;F.r=opRarity(x.rarity);F.opParallel=!!x.parallel;F.img=x.img||'';syncOPParallelChoice();
  const ss=$('#fs');
  // Preserve the exact Japanese pack title from the master data, including newer sets
  // that are not yet listed in the app's manually maintained dropdown.
