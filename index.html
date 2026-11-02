@@ -121,7 +121,7 @@ function masterDb(){
 }
 function masterRecordFromCollection(c){
  const image=String(c.img||''),isUrl=image.startsWith('https://')||image.startsWith('http://');
- return {key:masterKeyFor(c),variantKey:[c.g||'',c.no||c.cardNo||'',c.rarity||'',c.parallel||c.variant||c.artwork||''].map(masterNorm).join('|'),parallel:Boolean(c.parallel),collectionId:c.id||'',game:c.g||'',name:c.name||'',cardNo:c.no||c.cardNo||'',series:c.series||c.pack||'',rarity:c.rarity||'',imageUrl:isUrl?image:'',localImageAvailable:image.startsWith('data:'),imageStatus:isUrl?(c.imageVerificationStatus||'url_saved'):(image?'local_photo_only':'not_set'),imageSourceStatus:c.imageSourceStatus||'',source:'app_search_or_manual',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
+ return {key:masterKeyFor(c),variantKey:[c.g||'',c.no||c.cardNo||'',c.rarity||'',Boolean(c.parallel)].map(masterNorm).join('|'),parallel:Boolean(c.parallel),collectionId:c.id||'',game:c.g||'',name:c.name||'',cardNo:c.no||c.cardNo||'',series:c.series||c.pack||'',rarity:c.rarity||'',sourceId:c.sourceId||c.cardMeta?.sourceId||c.cardMeta?.setId||'',source:c.source||c.cardMeta?.source||'manual',sourceMetadata:c.cardMeta||null,imageUrl:isUrl?image:'',localImageAvailable:image.startsWith('data:'),imageStatus:isUrl?(c.imageVerificationStatus||'url_saved'):(image?'local_photo_only':'not_set'),imageVerificationStatus:c.imageVerificationStatus||'',imageSourceStatus:c.imageSourceStatus||'',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
 }
 async function masterPut(c,replaceImage=false){
  const db=await masterDb(),incoming=masterRecordFromCollection(c);
@@ -177,8 +177,8 @@ function masterOPImageMatch(c,x){
  const cardNo=masterImageNorm(c?.no||c?.cardNo||'');
  const sourceNo=masterImageNorm(x?.no||'');
  const exact=!!cardNo&&cardNo===sourceNo;
- const base=masterOPNumber(cardNo)===masterOPNumber(sourceNo);
- return (exact||base)&&masterImageNorm(x?.n)===masterImageNorm(c?.name)&&
+ // Parallel printings sharing a base card number are different artworks; never fall back to the base number.
+ return exact&&masterImageNorm(x?.n)===masterImageNorm(c?.name)&&
   masterImagePackMatches(c,x?.packName)&&
   masterImageRarity(x?.rarity)===masterImageRarity(c?.rarity)&&
   Boolean(x?.parallel)===masterOPParallel(c);
