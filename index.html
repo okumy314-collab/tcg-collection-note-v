@@ -410,8 +410,8 @@ function duplicateCardMatch(a,b){
 }
 async function reg(){
  const n=$('#fn').value.trim();if(!n){$('#fn').focus();$('#fn').style.borderColor='var(--dn)';return}
- const p=+$('#fp').value||0,selectedPack=currentSearchPack()||$('#fs').value,rarity=$('#fr').value||F.r||'';
- const parallel=F.g==='op'?Boolean(F.opParallel):Boolean(F.cardMeta?.parallel);const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||'',cardMeta:F.cardMeta||null,variant:F.printVariant||'',parallel};
+ const p=+$('#fp').value||0,selectedPack=currentSearchPack()||$('#fs').value,selectedRarity=$('#fr').value||F.r||'',parallel=F.g==='op'?(selectedRarity.endsWith('__parallel')||Boolean(F.opParallel)):Boolean(F.cardMeta?.parallel),rarity=F.g==='op'&&selectedRarity.endsWith('__parallel')?selectedRarity.slice(0,-10):selectedRarity;
+ F.r=rarity;F.opParallel=parallel;const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,rarity,name:n,no:$('#fo').value.trim(),qty:F.q,price:p,base:p,img:F.img||'',cardMeta:F.cardMeta||null,variant:F.printVariant||'',parallel};
  const existing=S.cards.find(x=>duplicateCardMatch(x,c));
  if(existing){
   existing.name=c.name;existing.no=c.no||existing.no;existing.cardNo=existing.no;existing.series=c.series;existing.pack=c.pack;existing.rarity=c.rarity||existing.rarity;existing.variant=c.variant||existing.variant;existing.parallel=c.parallel||existing.parallel;existing.qty=Math.max(1,Number(existing.qty)||1)+Math.max(1,Number(c.qty)||1);existing.img=c.img||existing.img;existing.cardMeta=c.cardMeta||existing.cardMeta;if(p>0)existing.price=p;
