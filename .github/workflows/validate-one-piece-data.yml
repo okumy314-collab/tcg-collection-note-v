@@ -78,6 +78,8 @@ jobs:
           if (failed.length) throw new Error(failed.length + ' app integration checks failed');
           NODE
       - name: Generate Japanese One Piece card data
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/fetch-op.mjs
 
       - name: Validate generated data
