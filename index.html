@@ -537,10 +537,10 @@ async function reg(){
  if(selected){
   const ygoBaseName=v=>masterNorm(String(v||'').replace(/[（(](?:MANGA-STYLE|漫画版)[）)]/ig,''));
   const nameMatches=F.g==='ygo'?ygoBaseName(typedName)===ygoBaseName(selected.name):masterNorm(typedName)===masterNorm(selected.name);
-  const ygoOacPack=F.g==='ygo'&&String(selected.cardNo||'').toUpperCase().startsWith('YAC1-')&&/ORIGINAL\\s*ARTWORK\\s*COLLECTION/i.test(packInput)&&/ORIGINAL\\s*ARTWORK\\s*COLLECTION/i.test(selected.packName||'');
+  const ygoOacPack=F.g==='ygo'&&String(selected.cardNo||'').toUpperCase().startsWith('YAC1-')&&String(selected.packName||'').toUpperCase().includes('ORIGINAL ARTWORK COLLECTION');
   // For YAC1, the selected official card candidate is the authoritative pack identity.
   // The visible pack selector may use a localized label, so it must not invalidate a matching YAC1 card.
-  const ygoOacIdentity=F.g==='ygo'&&String(selected.cardNo||'').toUpperCase().startsWith('YAC1-')&&/ORIGINAL\\s*ARTWORK\\s*COLLECTION/i.test(String(selected.packName||''));
+  const ygoOacIdentity=F.g==='ygo'&&String(selected.cardNo||'').toUpperCase().startsWith('YAC1-')&&String(selected.packName||'').toUpperCase().includes('ORIGINAL ARTWORK COLLECTION');
   const packMatches=ygoOacIdentity||!packInput||!selected.packName||masterNorm(packInput)===masterNorm(selected.packName)||ygoOacPack;
   const mismatch=selected.game!==F.g||!nameMatches||(typedNo&&masterNorm(typedNo)!==masterNorm(selected.cardNo))||!packMatches;
   if(mismatch){toast('選択カードの名前・番号・パックが候補と一致しません。候補を選び直してください');return}
