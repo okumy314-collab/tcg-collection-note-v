@@ -535,8 +535,12 @@ async function reg(){
  const packInput=$('#fs').value===SO?$('#fs2').value.trim():String($('#fs').selectedOptions?.[0]?.text||$('#fs').value||'').trim();
  const rarityInput=String(F.r||'').trim(),parallel=F.g==='op'&&Boolean(F.opParallel);
  if(selected){
-  const mismatch=selected.game!==F.g||typedName!==selected.name||(typedNo&&masterNorm(typedNo)!==masterNorm(selected.cardNo))||(packInput&&selected.packName&&masterNorm(packInput)!==masterNorm(selected.packName));
-  if(mismatch){toast('選択カードの情報が変更されています。候補を選び直してください');return}
+  const ygoBaseName=v=>masterNorm(String(v||'').replace(/[（(](?:MANGA-STYLE|漫画版)[）)]/ig,''));
+  const nameMatches=F.g==='ygo'?ygoBaseName(typedName)===ygoBaseName(selected.name):masterNorm(typedName)===masterNorm(selected.name);
+  const ygoOacPack=F.g==='ygo'&&String(selected.cardNo||'').toUpperCase().startsWith('YAC1-')&&/ORIGINAL\\s*ARTWORK\\s*COLLECTION/i.test(packInput)&&/ORIGINAL\\s*ARTWORK\\s*COLLECTION/i.test(selected.packName||'');
+  const packMatches=!packInput||!selected.packName||masterNorm(packInput)===masterNorm(selected.packName)||ygoOacPack;
+  const mismatch=selected.game!==F.g||!nameMatches||(typedNo&&masterNorm(typedNo)!==masterNorm(selected.cardNo))||!packMatches;
+  if(mismatch){toast('選択カードの名前・番号・パックが候補と一致しません。候補を選び直してください');return}
  }
  // One canonical identity object is used by the collection and card master.
  const identity=selected?{
