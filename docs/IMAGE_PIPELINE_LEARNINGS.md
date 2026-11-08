@@ -30,3 +30,9 @@
 - Added exact-number image overrides for M6a 056/103 Mew, 057/103 Mew ex RR, 129/103 Mew ex SAR, and 135/103 Mew ex FUR. The four URLs returned HTTP 200 with image/jpeg and >1 KB in the GitHub Actions validator.
 - The app now reads an optional third array value as the explicit image URL. The remaining M6a cards continue to use the existing fallback; do not mark the whole set as image-complete.
 - Reusable lesson: manual/imported card rows need explicit image URL provenance; never assume an API-generated URL exists just because a set ID and collector number exist.
+
+## Confirmed Pokemon rarity success (2026-11-09)
+- User verified on iPhone that M6a 129/103 Mew ex now displays the correct card image and the app shows the Japanese rarity code SAR.
+- TCGdex returns the English rarity label "Special illustration rare". Normalize this source label to the app's canonical "SAR" code before showing the selected-card summary, saving collection metadata, or writing Card Master records.
+- Preserve the source label separately as source metadata when useful, but do not let it overwrite the canonical app rarity on later renders.
+- Regression test: the Pokemon rarity normalization workflow must pass before preview deployment.
