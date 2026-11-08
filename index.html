@@ -633,6 +633,7 @@ let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
 let YGOI=[],YGO_READY=false,YGO_ERROR=false;fetch('data/ygo-oac.json').then(r=>{if(!r.ok)throw Error('data/ygo-oac.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.cards))YGOI=j.cards;else throw Error('invalid YGO data');YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()}).catch(()=>{YGO_ERROR=true;YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()});
 fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),img:String(c[2]||''),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
 const cimg=x=>x.img||(x.s&&x.s.r?`https://assets.tcgdex.net/ja/${x.s.r}/${x.s.id}/${x.l}/low.webp`:'');
+function tcgRarityCode(v){const key=String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・_-]/g,'');const map={'specialillustrationrare':'SAR','specialartrare':'SAR','スペシャルアートレア':'SAR','sar':'SAR','illustrationrare':'AR','artrarefullart':'AR','イラストレーションレア':'AR','ar':'AR','doublerare':'RR','double rare':'RR','ダブルレア':'RR','rr':'RR','triplerare':'RRR','トリプルレア':'RRR','rrr':'RRR','ultrarare':'UR','ウルトラレア':'UR','ur':'UR','hyperrare':'HR','ハイパーレア':'HR','hr':'HR','megahyperrare':'MUR','メガハイパーレア':'MUR','mur':'MUR','acespecrarity':'ACE','acespecrar e':'ACE','acespec':'ACE','ace spec':'ACE','ace':'ACE'};return map[key]||String(v||'').trim()}
 function cardImageError(el,id){
  if(!el)return;const saved=id?(S.cards||[]).find(x=>String(x.id)===String(id)):null;const hasMasterData=!!(el.dataset.game||el.dataset.cardNo||el.dataset.cardName);const c=hasMasterData?{...(saved||{}),g:el.dataset.game||saved?.g,name:el.dataset.cardName||saved?.name,no:el.dataset.cardNo||saved?.no||saved?.cardNo,series:el.dataset.series||saved?.series||saved?.pack,rarity:el.dataset.rarity||saved?.rarity,parallel:el.dataset.parallel==='true'}:saved;
  const current=String(el.getAttribute('src')||el.src||'');
@@ -807,6 +808,7 @@ async function pickc(i){
    }
   }catch(e){/* Keep selected card data, never reuse another card's number or rarity. */}
  }
+ if(F.g==='poke'&&detail.rarity){const sourceRarity=detail.rarity;detail.sourceRarity=sourceRarity;detail.rarity=tcgRarityCode(sourceRarity)}
  $('#fn').value=detail.n||selectedName;
  $('#fo').value=detail.cardNo||String(detail.localId??detail.l??'');
  const sel=$('#fs');const setName=detail.setName||(detail.s&&detail.s.n)||'';
