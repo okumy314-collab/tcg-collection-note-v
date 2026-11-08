@@ -164,6 +164,9 @@ jobs:
           console.log('ポケモンデータ検証成功:', data.sets.length, 'シリーズ、', setsWithCards, 'シリーズにカード収録、', totalCards, '件');
           NODE
 
+      - name: Validate Pokemon rarity normalization
+        run: node scripts/validate-pokemon-rarity.mjs
+
       - name: Validate Yu-Gi-Oh ORIGINAL ARTWORK COLLECTION data
         run: |
           node --input-type=module <<'NODE'
