@@ -55,10 +55,20 @@ for (const meta of recentMetadata) {
   addedRecentMetadata++;
 }
 const m6a = sets.find(s => s.id === 'M6a');
+const m6aImageOverrides = {
+  // Exact collector-number images. These overrides are limited to individually identified M6a printings.
+  '056': 'https://i.ebayimg.com/images/g/lZMAAeSwP-hqqfQq/s-l960.jpg',
+  '057': 'https://totalcards.net/cdn/shop/files/39c4d1ebe37b899f428878d954eb35d9.jpg?v=1790065809',
+  '129': 'https://item-shopping.c.yimg.jp/i/n/card-museum_pmm06a-129-sar',
+  '135': 'https://i.ebayimg.com/images/g/0HoAAeSwAMdqqeF0/s-l1600.jpg'
+};
 if (m6a && m6a.c.length === 0) {
-  m6a.c = m6aCardNames.map((name, i) => [String(i + 1).padStart(3, '0'), name]);
-  m6a.dataStatus = 'card_names_imported_needs_image_and_official_crosscheck';
-  console.log('imported M6a card names:', m6a.c.length);
+  m6a.c = m6aCardNames.map((name, i) => {
+    const no = String(i + 1).padStart(3, '0');
+    return [no, name, m6aImageOverrides[no] || ''];
+  });
+  m6a.dataStatus = 'card_names_imported_with_verified_image_overrides_partial';
+  console.log('imported M6a card names:', m6a.c.length, 'image overrides:', Object.values(m6aImageOverrides).length);
 }
 sets.sort((a, b) => a.id.localeCompare(b.id));
 console.log('recent product metadata added:', addedRecentMetadata);
