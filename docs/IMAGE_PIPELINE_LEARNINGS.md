@@ -24,3 +24,9 @@
 ## Current known limitations
 - data/ygo-oac.json has no confirmed per-rarity imageVariants for most YAC1 records. Rarity alias normalization improves matching but cannot create missing source images.
 - An unverified generic image should remain unshown for YAC1 rather than displaying potentially incorrect artwork.
+
+## New verified M6a image case (2026-11-09)
+- The manual M6a card-name list had no image field. The app therefore constructed a TCGdex-style URL for all cards, even though the new M6a records were inserted as manual metadata. This can yield an unavailable image despite a valid card name/number.
+- Added exact-number image overrides for M6a 056/103 Mew, 057/103 Mew ex RR, 129/103 Mew ex SAR, and 135/103 Mew ex FUR. The four URLs returned HTTP 200 with image/jpeg and >1 KB in the GitHub Actions validator.
+- The app now reads an optional third array value as the explicit image URL. The remaining M6a cards continue to use the existing fallback; do not mark the whole set as image-complete.
+- Reusable lesson: manual/imported card rows need explicit image URL provenance; never assume an API-generated URL exists just because a set ID and collector number exist.
