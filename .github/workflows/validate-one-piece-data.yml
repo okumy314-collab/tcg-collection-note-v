@@ -110,6 +110,9 @@ jobs:
           console.log('サンプル:', card[0], card[1], card[2]);
           NODE
 
+      - name: Verify M6a exact card image overrides
+        run: node scripts/validate-m6a-image-overrides.mjs
+
       - name: Validate Pokemon card master data
         run: |
           node --input-type=module <<'NODE'
