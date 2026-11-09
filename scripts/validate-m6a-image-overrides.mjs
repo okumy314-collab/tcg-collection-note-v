@@ -1,4 +1,5 @@
 const samples = [
+  ['M6a 104/103 Alolan Exeggutor AR', 'https://tcgplayer-cdn.tcgplayer.com/product/716906_200w.jpg'],
   ['M6a 056/103 Mew', 'https://i.ebayimg.com/images/g/lZMAAeSwP-hqqfQq/s-l960.jpg'],
   ['M6a 057/103 Mew ex RR', 'https://totalcards.net/cdn/shop/files/39c4d1ebe37b899f428878d954eb35d9.jpg?v=1790065809'],
   ['M6a 129/103 Mew ex SAR', 'https://item-shopping.c.yimg.jp/i/n/card-museum_pmm06a-129-sar'],
