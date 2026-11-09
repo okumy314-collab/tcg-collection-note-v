@@ -116,6 +116,9 @@ jobs:
       - name: Inspect M6a image source markup
         run: node scripts/inspect-alternate-m6a-sources.mjs
 
+      - name: Inspect M6a secret image paths
+        run: node scripts/inspect-m6a-secret-image-paths.mjs
+
       - name: Validate M6a image source coverage
         run: node scripts/validate-m6a-tcgjournal-images.mjs
 
