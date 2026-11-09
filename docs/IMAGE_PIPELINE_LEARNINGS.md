@@ -49,3 +49,5 @@
 - M6a has 20 Illustration Rare, 10 Special Illustration Rare, 2 Futuristic Rare, and 3 RGB Rare cards, in addition to Classic Collection. TCG Journal source confirms these set counts.
 - The app previously normalized Illustration Rare and Special Illustration Rare, but did not normalize Futuristic Rare or RGB Rare. Add canonical `FUR` and `RGB` codes and include both in the Pokemon rarity selector so these printings can be selected and retained consistently.
 - This is a data/label fix, not proof that the corresponding artwork URLs are complete. Keep image coverage status separate from rarity metadata status.
+
+- Follow-up URL audit found the TCG Journal Mew B path returns 404 while G and R paths return image data. Removed the B URL from the master instead of keeping a broken link. The passing base/classic validator now checks 135/136 source paths (B excluded); the master audit explicitly lists B as pending.
