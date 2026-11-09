@@ -12,10 +12,25 @@ if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds)) {
   throw new Error('M6a IDs are not in canonical order: ' + JSON.stringify(actualIds.slice(-12)));
 }
 const missing = set.c.filter(c => !c[2]).map(c => c[0]);
-const expectedMissing = [...Array.from({length:25},(_,i)=>String(i+104).padStart(3,'0')),...Array.from({length:5},(_,i)=>String(i+130).padStart(3,'0')),'B','GRA','FIR','WAT','LIG','PSY','FIG','DAR','MET'];
+const expectedMissing = [...Array.from({length:25},(_,i)=>String(i+104).padStart(3,'0')),...Array.from({length:5},(_,i)=>String(i+130).padStart(3,'0')),'B'];
 if (JSON.stringify(missing) !== JSON.stringify(expectedMissing)) {
   throw new Error('Unexpected M6a missing image IDs: ' + JSON.stringify(missing));
 }
 console.log('PASS M6a 176 canonical card IDs');
 console.log('PASS M6a ' + (176-missing.length) + '/176 explicit image URLs');
 console.log('PENDING_SPECIAL_ART_AND_ENERGY_IMAGES ' + JSON.stringify(missing));
+const officialEnergyImages = {
+  GRA: 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050745_E_KIHONKUSAENERUGI.jpg',
+  FIR: 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050746_E_KIHONHONOOENERUGI.jpg',
+  WAT: 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050747_E_KIHONMIZUENERUGI.jpg',
+  LIG: 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050748_E_KIHONKAMINARIENERUGI.jpg',
+  PSY: 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050749_E_KIHONCHIXYOUENERUGI.jpg',
+  FIG: 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050750_E_KIHONTOUENERUGI.jpg',
+  DAR: 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050751_E_KIHONAKUENERUGI.jpg',
+  MET: 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050752_E_KIHONHAGANEENERUGI.jpg'
+};
+for (const [id, url] of Object.entries(officialEnergyImages)) {
+  const row = set.c.find(card => String(card[0]) === id);
+  if (!row || row[2] !== url) throw new Error('Official M6a energy image mapping mismatch: ' + id);
+}
+console.log('PASS M6a eight official YOSHIROTTEN energy image mappings');
