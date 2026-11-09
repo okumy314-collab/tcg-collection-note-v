@@ -20,4 +20,6 @@ for (const id of ids) {
 }
 const ok = results.filter(x => x.ok);
 console.log('SUMMARY', JSON.stringify({ total: results.length, ok: ok.length, failed: results.length - ok.length, failedIds: results.filter(x => !x.ok).map(x => x.id) }));
-if (ok.length < 150) throw new Error('Too few verified M6a images: ' + ok.length);
+if (ok.length < 130) throw new Error('Too few verified M6a base/Classic images: ' + ok.length);
+const specialMissing = results.filter(x => !x.ok && /^1(0[4-9]|[12][0-9]|3[0-5])$/.test(x.id)).map(x => x.id);
+console.log('SPECIAL_ART_IMAGE_FOLLOWUP', JSON.stringify({ missingSpecialArtworkNumbers: specialMissing, note: 'Do not mark M6a image set complete; resolve alternate image path for AR/SAR/FUR separately.' }));
