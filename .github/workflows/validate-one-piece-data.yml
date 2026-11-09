@@ -122,6 +122,9 @@ jobs:
       - name: Validate M6a image source coverage
         run: node scripts/validate-m6a-tcgjournal-images.mjs
 
+      - name: Validate M6a master card IDs and coverage
+        run: node scripts/validate-m6a-master.mjs
+
       - name: Validate Pokemon card master data
         run: |
           node --input-type=module <<'NODE'
