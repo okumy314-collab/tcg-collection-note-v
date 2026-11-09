@@ -12,7 +12,7 @@ if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds)) {
   throw new Error('M6a IDs are not in canonical order: ' + JSON.stringify(actualIds.slice(-12)));
 }
 const missing = set.c.filter(c => !c[2]).map(c => c[0]);
-const expectedMissing = ['B',...Array.from({length:25},(_,i)=>String(i+104).padStart(3,'0')),...Array.from({length:5},(_,i)=>String(i+130).padStart(3,'0')),'GRA','FIR','WAT','LIG','PSY','FIG','DAR','MET'];
+const expectedMissing = [...Array.from({length:25},(_,i)=>String(i+104).padStart(3,'0')),...Array.from({length:5},(_,i)=>String(i+130).padStart(3,'0')),'B','GRA','FIR','WAT','LIG','PSY','FIG','DAR','MET'];
 if (JSON.stringify(missing) !== JSON.stringify(expectedMissing)) {
   throw new Error('Unexpected M6a missing image IDs: ' + JSON.stringify(missing));
 }
