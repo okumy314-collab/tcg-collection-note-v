@@ -114,7 +114,7 @@ jobs:
         run: node scripts/validate-m6a-image-overrides.mjs
 
       - name: Inspect M6a image source markup
-        run: node scripts/inspect-m6a-image-source.mjs
+        run: node scripts/inspect-alternate-m6a-sources.mjs
 
       - name: Validate Pokemon card master data
         run: |
