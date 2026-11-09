@@ -36,3 +36,11 @@
 - TCGdex returns the English rarity label "Special illustration rare". Normalize this source label to the app's canonical "SAR" code before showing the selected-card summary, saving collection metadata, or writing Card Master records.
 - Preserve the source label separately as source metadata when useful, but do not let it overwrite the canonical app rarity on later renders.
 - Regression test: the Pokemon rarity normalization workflow must pass before preview deployment.
+
+## M6a image source audit and canonical IDs (2026-11-10)
+- TCG Journal's M6a catalogue lists 176 entries: 103 officially numbered cards, 62 secret-numbered cards 104/103–165/103, 8 basic energy cards, and 3 Mew RGB variants B/G/R. Source: https://tcgjournal.de/karten/pokemon/japanisch/m6a/.
+- Direct image paths under /kartenbilder/tpc/M6a/{id}/low.webp returned image bytes for numbered IDs 001–103 and 136–165 plus B/G/R. This gives 136 working TCG Journal image paths.
+- Paths 104–135 did not all resolve under that same URL pattern. Do not infer they are missing from the source page; inspect their exact <img> tags and resolve alternate path patterns. 129/103 and 135/103 retain individually checked image URLs.
+- The previous hand-built M6a list had 176 rows but assigned 166–168 to duplicate Mew rows and 169–176 to energies. Canonical collector IDs are B/G/R for the three Mew RGB variants, and GRA/FIR/WAT/LIG/PSY/FIG/DAR/MET for the eight basic energies. The data rows are now mapped to those IDs.
+- Current M6a master has 138 explicit image URLs: 134 TCG Journal paths plus 4 individually verified overrides. 38 rows remain without image URLs (30 special numbered artworks excluding 129, plus 8 energies). Do not call the set image-complete.
+- Added separate validation for canonical 176 IDs and current image coverage, and split base/classic URL checks from special-art follow-up so expected 404s do not mask successful coverage.
