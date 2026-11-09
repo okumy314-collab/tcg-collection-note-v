@@ -7978,7 +7978,7 @@
         [
           "B",
           "ミュウ",
-          "https://tcgjournal.de/kartenbilder/tpc/M6a/B/low.webp"
+          ""
         ],
         [
           "G",
@@ -8031,7 +8031,7 @@
           ""
         ]
       ],
-      "dataStatus": "partial_exact_number_images_verified_base_and_classic_printings_special_art_pending"
+      "dataStatus": "partial_exact_number_images_verified_B_rgb_variant_pending"
     },
     {
       "id": "MA",
