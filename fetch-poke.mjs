@@ -57,6 +57,7 @@ for (const meta of recentMetadata) {
 const m6a = sets.find(s => s.id === 'M6a');
 const m6aImageOverrides = {
   // Individually confirmed exact images for known special printings.
+  '104': 'https://tcgplayer-cdn.tcgplayer.com/product/716906_200w.jpg',
   '056': 'https://i.ebayimg.com/images/g/lZMAAeSwP-hqqfQq/s-l960.jpg',
   '057': 'https://totalcards.net/cdn/shop/files/39c4d1ebe37b899f428878d954eb35d9.jpg?v=1790065809',
   '129': 'https://item-shopping.c.yimg.jp/i/n/card-museum_pmm06a-129-sar',
