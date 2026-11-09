@@ -44,3 +44,8 @@
 - The previous hand-built M6a list had 176 rows but assigned 166–168 to duplicate Mew rows and 169–176 to energies. Canonical collector IDs are B/G/R for the three Mew RGB variants, and GRA/FIR/WAT/LIG/PSY/FIG/DAR/MET for the eight basic energies. The data rows are now mapped to those IDs.
 - Current M6a master has 138 explicit image URLs: 134 TCG Journal paths plus 4 individually verified overrides. 38 rows remain without image URLs (30 special numbered artworks excluding 129, plus 8 energies). Do not call the set image-complete.
 - Added separate validation for canonical 176 IDs and current image coverage, and split base/classic URL checks from special-art follow-up so expected 404s do not mask successful coverage.
+
+## M6a rarity support (2026-11-10)
+- M6a has 20 Illustration Rare, 10 Special Illustration Rare, 2 Futuristic Rare, and 3 RGB Rare cards, in addition to Classic Collection. TCG Journal source confirms these set counts.
+- The app previously normalized Illustration Rare and Special Illustration Rare, but did not normalize Futuristic Rare or RGB Rare. Add canonical `FUR` and `RGB` codes and include both in the Pokemon rarity selector so these printings can be selected and retained consistently.
+- This is a data/label fix, not proof that the corresponding artwork URLs are complete. Keep image coverage status separate from rarity metadata status.
