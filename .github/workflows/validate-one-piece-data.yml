@@ -116,6 +116,9 @@ jobs:
       - name: Inspect M6a image source markup
         run: node scripts/inspect-alternate-m6a-sources.mjs
 
+      - name: Validate M6a image source coverage
+        run: node scripts/validate-m6a-tcgjournal-images.mjs
+
       - name: Validate Pokemon card master data
         run: |
           node --input-type=module <<'NODE'
