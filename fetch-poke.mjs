@@ -56,19 +56,30 @@ for (const meta of recentMetadata) {
 }
 const m6a = sets.find(s => s.id === 'M6a');
 const m6aImageOverrides = {
-  // Exact collector-number images. These overrides are limited to individually identified M6a printings.
+  // Individually confirmed exact images for known special printings.
   '056': 'https://i.ebayimg.com/images/g/lZMAAeSwP-hqqfQq/s-l960.jpg',
   '057': 'https://totalcards.net/cdn/shop/files/39c4d1ebe37b899f428878d954eb35d9.jpg?v=1790065809',
   '129': 'https://item-shopping.c.yimg.jp/i/n/card-museum_pmm06a-129-sar',
   '135': 'https://i.ebayimg.com/images/g/0HoAAeSwAMdqqeF0/s-l1600.jpg'
 };
+const m6aIds = [
+  ...Array.from({length:165}, (_,i)=>String(i+1).padStart(3,'0')).slice(0,165),
+];
+m6aIds.splice(165, 0, 'B', 'G', 'R');
+m6aIds.splice(168, 0, 'GRA', 'FIR', 'WAT', 'LIG', 'PSY', 'FIG', 'DAR', 'MET');
+const m6aImageIds = new Set([
+  ...Array.from({length:103}, (_,i)=>String(i+1).padStart(3,'0')),
+  ...Array.from({length:30}, (_,i)=>String(i+136).padStart(3,'0')),
+  'B','G','R'
+]);
 if (m6a && m6a.c.length === 0) {
   m6a.c = m6aCardNames.map((name, i) => {
-    const no = String(i + 1).padStart(3, '0');
-    return [no, name, m6aImageOverrides[no] || ''];
+    const no = m6aIds[i];
+    const imageUrl = m6aImageOverrides[no] || (m6aImageIds.has(no) ? 'https://tcgjournal.de/kartenbilder/tpc/M6a/' + no + '/low.webp' : '');
+    return [no, name, imageUrl];
   });
-  m6a.dataStatus = 'card_names_imported_with_verified_image_overrides_partial';
-  console.log('imported M6a card names:', m6a.c.length, 'image overrides:', Object.values(m6aImageOverrides).length);
+  m6a.dataStatus = 'partial_exact_number_images_verified_base_and_classic_printings_special_art_pending';
+  console.log('imported M6a card names:', m6a.c.length, 'numbered image URLs:', m6aImageIds.size, 'special overrides:', Object.keys(m6aImageOverrides).length);
 }
 sets.sort((a, b) => a.id.localeCompare(b.id));
 console.log('recent product metadata added:', addedRecentMetadata);
