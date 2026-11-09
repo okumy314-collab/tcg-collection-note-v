@@ -2,7 +2,7 @@ const base = 'https://tcgjournal.de/kartenbilder/tpc/M6a/';
 const ids = [
   ...Array.from({ length: 103 }, (_, i) => String(i + 1).padStart(3, '0')),
   ...Array.from({ length: 30 }, (_, i) => String(i + 136).padStart(3, '0')),
-  'B', 'G', 'R'
+  'G', 'R'
 ];
 const results = [];
 for (const id of ids) {
