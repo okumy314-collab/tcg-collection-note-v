@@ -7,9 +7,9 @@ const API = `https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?r
 const RAW = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
 async function getJson(url) {
-  const response = await fetch(url, {
-    headers: { 'User-Agent': 'tcg-collection-note-data-updater' }
-  });
+  const headers = { 'User-Agent': 'tcg-collection-note-data-updater' };
+  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  const response = await fetch(url, { headers });
   if (!response.ok) throw new Error(`取得失敗 HTTP ${response.status}: ${url}`);
   return response.json();
 }
@@ -74,10 +74,16 @@ async function main() {
     results.push(...batch.flat());
   }
 
+  // A full card number (including _p1/_p2) is the canonical identity.
+  // Never silently keep two different images for the same number.
   const unique = new Map();
   for (const card of results) {
-    const key = [card[0], card[3]].join('|');
-    if (!unique.has(key)) unique.set(key, card);
+    const key = String(card[0]).trim().toUpperCase();
+    const previous = unique.get(key);
+    if (previous && JSON.stringify(previous) !== JSON.stringify(card)) {
+      throw new Error(`カード番号が重複し、内容が一致しません: ${key}`);
+    }
+    if (!previous) unique.set(key, card);
   }
   const cards = [...unique.values()];
 

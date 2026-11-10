@@ -83,7 +83,7 @@ ws:{n:'ヴァイス',c:'#34d399',sr:['ブースターパック','トライアル
 };
 const R='カードラッシュ',Y='遊々亭',V='駿河屋',gg=n=>'https://www.google.com/search?q='+encodeURIComponent(n+' '),yy=c=>'https://yuyu-tei.jp/sell/'+c+'/s/search?search_word=';
 const GN={
-poke:{n:'ポケモン',c:'#facc15',o:'https://www.pokemon-card.com/card-search/index.php?keyword=',sr:['MEGAシリーズ','スカーレット&バイオレット','ソード&シールド','サン&ムーン','XY以前','プロモ'],rr:['C','U','R','RR','RRR','SR','HR','UR','AR','SAR','ACE','MUR','BWR'],s:[[R,'https://www.cardrush-pokemon.jp/product-list?keyword='],[Y,yy('poc')],[V,'https://www.suruga-ya.jp/search?search_word=']]},
+poke:{n:'ポケモン',c:'#facc15',o:'https://www.pokemon-card.com/card-search/index.php?keyword=',sr:['MEGAシリーズ','スカーレット&バイオレット','ソード&シールド','サン&ムーン','XY以前','プロモ'],rr:['C','U','R','RR','RRR','SR','HR','UR','AR','SAR','ACE','MUR','BWR','FUR','RGB'],s:[[R,'https://www.cardrush-pokemon.jp/product-list?keyword='],[Y,yy('poc')],[V,'https://www.suruga-ya.jp/search?search_word=']]},
 op:{n:'ワンピース',c:'#f43f5e',o:'https://www.onepiece-cardgame.com/cardlist/?freewords=',sr:['ブースターパック','エクストラブースター','プレミアムブースター','スタートデッキ','プロモ'],rr:['C','UC','R','SR','SEC','L','SP','P'],s:[[R,'https://www.cardrush-op.jp/product-list?keyword='],[Y,yy('opc')],[V,'https://www.suruga-ya.jp/search?search_word=']]},
 ygo:{n:'遊戯王',c:'#f97316',o:'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=',sr:['ORIGINAL ARTWORK COLLECTION (OAC)','QUARTER CENTURY','レアリティ・コレクション','パック(その他)','構築済みデッキ','プロモ'],rr:['N','R','SR','UR','UL','SE','PSE','QCSE','KC'],s:[[R,'https://www.cardrush.jp/product-list?keyword='],[Y,yy('ygo')],[V,'https://www.suruga-ya.jp/search?category=5010800&search_word=']]},
 rush:{n:'ラッシュデュエル',c:'#38bdf8',sr:['ブースター','デッキ','プロモ'],rr:['N','R','SR','UR','GR','SE'],s:[[R,gg(R+' ラッシュデュエル')],[Y,gg(Y+' ラッシュデュエル')],[V,gg(V+' ラッシュデュエル')]]},
@@ -158,11 +158,32 @@ async function masterDeduplicate(){
  const clean=[...groups.values()];await masterReplace(clean);return {before:rows.length,after:clean.length,removed:rows.length-clean.length};
 }
 async function masterSyncExisting(){
- try{for(const c of S.cards||[])await masterPut(c)}catch(e){console.warn('Card master sync:',e)}
+ try{
+  // Recover a missing collection image from the same card's existing local master record.
+  const rows=await masterList(),byKey=new Map(rows.map(r=>[r.key,r]));
+  let restored=false;
+  for(const c of S.cards||[]){
+   const prior=byKey.get(masterKeyFor(c));
+   if(!String(c.img||'').trim()&&prior&&String(prior.imageUrl||'').startsWith('http')){
+    c.img=prior.imageUrl;
+    c.imageVerificationStatus=prior.imageVerificationStatus||'restored_from_local_master';
+    c.imageSourceStatus=prior.imageSourceStatus||'local_master_recovery';
+    restored=true;
+   }
+   await masterPut(c);
+  }
+  if(restored){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+ }catch(e){console.warn('Card master sync:',e)}
 }
 const masterEsc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 
 function masterImageNorm(v){return String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'')}
+function ygoRarityKey(v){const s=masterImageNorm(v).replace(/（オーバーフレーム）|\(オーバーフレーム\)/g,'of').replace(/グランドマスター$/,'グランドマスターレア');const aliases={'ur':'ウルトラレア','urof':'ウルトラレアof','se':'シークレットレア','seof':'シークレットレアof','pse':'プリズマティックシークレットレア','pseof':'プリズマティックシークレットレアof','gmr':'グランドマスターレア','n':'ノーマル','r':'レア','sr':'スーパーレア','ul':'アルティメットレア','cr':'コレクターズレア','qcse':'クォーターセンチュリーシークレットレア'};return masterImageNorm(aliases[s]||s)}
+function ygoOacName(v){return masterImageNorm(v).replace(/\(manga-style\)|（manga-style）|（漫画版）/g,'').replace(/^黒き魔術師[－-]/,'')}
+function ygoOacRecord(c){const no=masterImageNorm(c?.no||c?.cardNo||'');if(!/^yac1-?jp/.test(no))return null;return (YGOI||[]).find(x=>masterImageNorm(x.cardNumber||x.id)===no&&ygoOacName(x.baseName||x.name)===ygoOacName(c?.name||''))}
+function ygoExactVariantImage(c){const hit=ygoOacRecord(c);if(!hit)return '';const rarity=ygoRarityKey(c?.rarity),variants=hit.imageVariants||hit.variantImages||{};let v=null;if(Array.isArray(variants))v=variants.find(x=>ygoRarityKey(x.rarity)===rarity&&x.imageUrl);else{const key=Object.keys(variants).find(k=>ygoRarityKey(k)===rarity);if(key&&variants[key])v=typeof variants[key]==='string'?{imageUrl:variants[key]}:variants[key]}if(v&&(v.imageUrl||v.url))return v.imageUrl||v.url;if(ygoRarityKey(hit.baseRarity)===rarity&&hit.imageUrl)return hit.imageUrl;return ''}
+function cardDisplayImage(c){if(!c)return '';if(c.g==='ygo'&&/^yac1-?jp/.test(masterImageNorm(c.no||c.cardNo||''))){if(c.imageSourceStatus==='user_upload'||c.imageVerificationStatus==='user_upload'||String(c.img||'').startsWith('data:image/'))return c.img||'';return ygoExactVariantImage(c)}return c.img||''}
+
 function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
 function syncOPParallelChoice(){const box=$('#opParallelChoice');if(!box)return;box.querySelectorAll('.chip').forEach((b,i)=>b.classList.toggle('on',i===(F.opParallel?1:0)));}
 function masterOPParallel(c){
@@ -177,11 +198,12 @@ function masterOPImageMatch(c,x){
  const cardNo=masterImageNorm(c?.no||c?.cardNo||'');
  const sourceNo=masterImageNorm(x?.no||'');
  const exact=!!cardNo&&cardNo===sourceNo;
- // Parallel printings sharing a base card number are different artworks; never fall back to the base number.
- return exact&&masterImageNorm(x?.n)===masterImageNorm(c?.name)&&
-  masterImagePackMatches(c,x?.packName)&&
-  masterImageRarity(x?.rarity)===masterImageRarity(c?.rarity)&&
-  Boolean(x?.parallel)===masterOPParallel(c);
+ // Full source card number, including _p1/_p2, is mandatory: never substitute another artwork.
+ if(!exact)return false;
+ if(masterImageNorm(x?.n)!==masterImageNorm(c?.name))return false;
+ if(!masterImagePackMatches(c,x?.packName))return false;
+ if(masterImageRarity(x?.rarity)!==masterImageRarity(c?.rarity))return false;
+ return Boolean(x?.parallel)===masterOPParallel(c);
 }
 
 function masterImageRarity(v){
@@ -196,12 +218,13 @@ function masterImagePackCode(v){
 function masterImagePackMatches(c,packName){
  const wanted=masterImagePack(c),actual=masterImageNorm(packName);
  if(wanted&&actual&&wanted===actual)return true;
- const cardCode=masterImagePackCode(c.no||c.cardNo),sourceCode=masterImagePackCode(packName);
- if(cardCode&&sourceCode&&cardCode===sourceCode){
-  const selectedCode=masterImagePackCode(c.series||c.pack||'');
-  return !selectedCode||selectedCode===sourceCode;
- }
- return false;
+ const cardCode=masterImagePackCode(c.no||c.cardNo),sourceCode=masterImagePackCode(packName),selectedCode=masterImagePackCode(c.series||c.pack||'');
+ // Exact full card numbers (including _p1/_p2 artwork suffixes) are the primary identity.
+ // Pack labels can differ between the selector and official feed; reject only a proven code conflict.
+ if(sourceCode&&selectedCode)return sourceCode===selectedCode;
+ if(cardCode&&sourceCode)return cardCode===sourceCode;
+ if(cardCode&&selectedCode)return cardCode===selectedCode;
+ return Boolean(cardCode||wanted||actual);
 }
 async function masterFindImage(c){
  const name=masterImageNorm(c.name),no=masterImageNorm(c.no||''),pack=masterImagePack(c);
@@ -216,27 +239,32 @@ async function masterFindImage(c){
   const productCode=masterImageNorm(c.no||'').split('-')[0];
   const ygoPackMatch=!!wantedPack&&(wantedPack.includes('originalartworkcollection')&&productCode==='yac1');
   if(!ygoPackMatch)return null;
-  const hit=YGOI.find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name);
+  const hit=YGOI.find(x=>masterImageNorm(x.cardNumber||x.id)===no&&ygoOacName(x.baseName||x.name)===ygoOacName(c.name));
   if(!hit)return null;
   const rarity=String(c.rarity||'').normalize('NFKC').trim();
   const variants=hit.imageVariants||hit.variantImages||{};
   let variant=null;
   if(Array.isArray(variants)){
-   variant=variants.find(v=>masterImageNorm(v.rarity)===masterImageNorm(rarity)&&v.imageUrl);
+   variant=variants.find(v=>ygoRarityKey(v.rarity)===ygoRarityKey(rarity)&&v.imageUrl);
   }else{
-   const key=Object.keys(variants).find(k=>masterImageNorm(k)===masterImageNorm(rarity));
+   const key=Object.keys(variants).find(k=>ygoRarityKey(k)===ygoRarityKey(rarity));
    if(key&&variants[key])variant=typeof variants[key]==='string'?{imageUrl:variants[key]}:variants[key];
   }
-  if(!variant&&masterImageNorm(hit.baseRarity)===masterImageNorm(rarity)&&hit.imageStatus==='user_confirmed_image'&&hit.imageUrl){
-   variant={imageUrl:hit.imageUrl,status:'user_confirmed_base_rarity'};
+  if(!variant&&ygoRarityKey(hit.baseRarity)===ygoRarityKey(rarity)&&hit.imageUrl){
+   variant={imageUrl:hit.imageUrl,status:hit.imageStatus==='user_confirmed_image'?'user_confirmed_base_rarity':'candidate_unverified_base_rarity'};
   }
   const url=variant&&(variant.imageUrl||variant.url);
   return url?{url,status:variant.status||'rarity_variant_exact'}:null;
  }
  if(c.g==='poke'){
+  const wantedPack=masterImageNorm(c.series||c.pack||'');
+  const rgb=String(c.no||'').normalize('NFKC').toUpperCase().match(/^([RGB])(?:\/RGB)?$/);
+  if(rgb&&masterImageNorm(c.name)==='ミュウ'&&wantedPack===masterImageNorm('30th CELEBRATION')){
+   const exact=(PKI||[]).find(x=>x.s&&x.s.id==='M6a'&&String(x.l)===rgb[1]&&masterImageNorm(x.n)==='ミュウ'&&x.img);
+   return exact?{url:exact.img,status:'m6a_rgb_exact_color'}:null;
+  }
   const m=String(c.no||'').match(/^(\d+)/),localId=m?m[1].replace(/^0+/,''):String(c.no||'').replace(/^0+/,'');
   if(!localId)return null;
-  const wantedPack=masterImageNorm(c.series||c.pack||'');
   if(!wantedPack)return null;
   const exact=(PKI||[]).filter(x=>masterImageNorm(x.n)===name&&String(x.l||'').replace(/^0+/,'')===localId&&masterImageNorm(x.s?.n)===wantedPack);
   if(exact.length!==1)return null;
@@ -283,31 +311,55 @@ async function masterSaveImageRecord(record,found){
   tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error||new Error('画像情報の保存に失敗しました'));tx.onabort=()=>reject(tx.error||new Error('画像情報の保存が中断されました'));
  });
 }
+async function masterReconcileOfficialRecords(){
+ if(!OP_READY||!Array.isArray(OPI)||!OPI.length)throw new Error('ワンピース公式カードデータが未読込です');
+ const rows=await masterList(),byNo=new Map();
+ for(const x of OPI){const k=masterImageNorm(x.no);if(!k)continue;const a=byNo.get(k)||[];a.push(x);byNo.set(k,a)}
+ let corrected=0,unmatched=0;
+ const updated=[];
+ for(const r of rows){
+  if(String(r.game||r.g)!=='op'){updated.push(r);continue}
+  const no=masterImageNorm(r.cardNo||r.no||''),hits=byNo.get(no)||[];
+  if(hits.length!==1){unmatched++;updated.push(r);continue}
+  const x=hits[0],officialRarity=opRarity(x.rarity),officialParallel=Boolean(x.parallel),preserveMasterUpload=/^data:image\//i.test(String(r.imageUrl||''))||r.imageSourceStatus==='user_upload'||r.imageStatus==='user_upload',officialImage=preserveMasterUpload?(r.imageUrl||''):(x.img||r.imageUrl||''),officialMeta={game:'op',name:x.n,cardNo:x.no,packName:x.packName,rarity:officialRarity,parallel:officialParallel,sourceId:x.no,source:'official_onepiece_cardlist',imageUrl:officialImage},fixed={...r,game:'op',g:'op',name:x.n,cardNo:x.no,no:x.no,series:x.packName,pack:x.packName,rarity:officialRarity,parallel:officialParallel,sourceId:x.no,source:'official_onepiece_cardlist',imageUrl:officialImage,imageStatus:preserveMasterUpload?r.imageStatus:(x.img?'url_saved':r.imageStatus),imageSourceStatus:preserveMasterUpload?r.imageSourceStatus:(x.img?'official_exact_match':r.imageSourceStatus),sourceMetadata:officialMeta,variantKey:['op',x.no,officialRarity,officialParallel].map(masterNorm).join('|'),updatedAt:new Date().toISOString()};
+  if(['name','cardNo','series','rarity','parallel','imageUrl'].some(k=>String(r[k]??'')!==String(fixed[k]??'')))corrected++;
+  const saved=(S.cards||[]).find(c=>String(c.id)===String(r.collectionId));
+  if(saved){const preserveCollectionUpload=/^data:image\//i.test(String(saved.img||''));const savedImage=preserveCollectionUpload?saved.img:(x.img||saved.img||'');if(savedImage)saved.img=savedImage;Object.assign(saved,{g:'op',name:fixed.name,no:fixed.cardNo,cardNo:fixed.cardNo,series:fixed.series,pack:fixed.pack,rarity:fixed.rarity,parallel:fixed.parallel,sourceId:fixed.sourceId,source:fixed.source,imageVerificationStatus:preserveCollectionUpload?saved.imageVerificationStatus:(x.img?'source_matched':saved.imageVerificationStatus),imageSourceStatus:preserveCollectionUpload?saved.imageSourceStatus:(x.img?'official_exact_match':saved.imageSourceStatus),cardMeta:{game:'op',name:fixed.name,cardNo:fixed.cardNo,packName:fixed.pack,rarity:fixed.rarity,parallel:fixed.parallel,sourceId:fixed.sourceId,source:fixed.source,imageUrl:savedImage}})}
+  fixed.key=masterKeyFor({g:'op',name:fixed.name,no:fixed.cardNo,cardNo:fixed.cardNo,series:fixed.series,pack:fixed.pack,rarity:fixed.rarity,parallel:fixed.parallel});
+  updated.push(fixed);
+ }
+ await masterReplace(updated);
+ try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
+ return {checked:rows.filter(r=>String(r.game||r.g)==='op').length,corrected,unmatched};
+}
 async function masterRetryImages(){
  const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">カードマスター全件を、タイトル・収録パック・カード番号・レアリティ・版情報まで照合して再検索中…</div>';
- let checked=0,updated=0,failed=0;
+ let checked=0,updated=0,failed=0,reconciled={checked:0,corrected:0,unmatched:0};
  try{
+  reconciled=await masterReconcileOfficialRecords();
   const rows=await masterList();
   for(const r of rows){
    checked++;
+   const userImage=String(r.imageUrl||'').startsWith('data:image/')||r.imageSourceStatus==='user_upload'||r.imageStatus==='user_upload';
+   if(userImage){updated++;continue}
    const c={g:r.game||r.g,name:r.name,no:r.cardNo||r.no,series:r.series||r.pack,rarity:r.rarity,parallel:Boolean(r.parallel)};
    try{
     const found=await masterFindImage(c);
     if(found&&found.url){await masterSaveImageRecord(r,found);updated++;
      const saved=(S.cards||[]).find(x=>String(x.id)===String(r.collectionId));
-     if(saved){saved.img=found.url;saved.imageVerificationStatus=found.status||'source_matched';saved.imageSourceStatus=found.status||'official_exact_match'}
+     if(saved&&!String(saved.img||'').startsWith('data:image/')&&saved.imageSourceStatus!=='user_upload'){saved.img=found.url;saved.imageVerificationStatus=found.status||'source_matched';saved.imageSourceStatus=found.status||'official_exact_match'}
     }else failed++;
    }catch(e){failed++;console.warn('Master image retry:',r.cardNo,e)}
   }
   try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
-  const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">再検索完了：'+checked+'件を確認、'+updated+'件の画像URLを公式データと再照合して更新、'+failed+'件は一致する画像を確認できませんでした。画面を閉じて開き直すと結果を確認できます。</div>';
+  const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">情報照合：'+reconciled.checked+'件中 '+reconciled.corrected+'件を公式データに合わせて修正（未一致 '+reconciled.unmatched+'件）。画像：'+checked+'件を確認、'+updated+'件を更新、'+failed+'件は一致する画像を確認できませんでした。画面を閉じて開き直すと結果を確認できます。</div>';
   toast('カードマスター全件の画像再検索が完了しました');
  }catch(e){const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">カードマスターの再検索に失敗しました。ブラウザの保存領域を確認してください。</div>';console.warn(e)}
 }
 async function masterInfo(){
  open_('<div class="hd"><b>カードマスター</b><button class="ib" onclick="close_()">✕</button></div><div id="masterInfoBody" class="empty">マスターデータを読み込み中…</div>');
  try{
-  await masterSyncPromise;const dedup=await masterDeduplicate();await masterAutoFetchAll();const rows=await masterList(),counts={};
+  await masterSyncPromise;if(OP_READY&&OPI.length)await masterReconcileOfficialRecords();const dedup=await masterDeduplicate();await masterAutoFetchAll();const rows=await masterList(),counts={};
   rows.forEach(r=>counts[r.game]=(counts[r.game]||0)+1);
   const summary=Object.keys(counts).map(g=>'<div class="row" style="justify-content:space-between;padding:6px 0"><span>'+masterEsc(GN[g]?.n||g)+'</span><b>'+counts[g]+' 種</b></div>').join('');
   const latest=rows.slice().sort((a,b)=>String(b.updatedAt||'').localeCompare(String(a.updatedAt||''))).slice(0,8);
@@ -369,8 +421,8 @@ function coll(){
  h+=`<div class="collection-toolbar"><div class="chips"><button class="chip ${collectionMode==='detail'?'on':''}" onclick="collectionMode='detail';render()">詳細表示</button><button class="chip ${collectionMode==='simple'?'on':''}" onclick="collectionMode='simple';render()">シンプル表示</button></div><button class="chip ${saleOnly?'on':''}" onclick="saleOnly=!saleOnly;render()">売却予定のみ ${saleOnly?'✓':''}</button></div>`;
  h+=`<div class="card g" style="cursor:default"><div class="gl"><div class="n">資産価値</div><div class="gv">${yen(t.v)}</div><div class="gp">${pl(t.v,t.c)}</div></div><div class="gr"><b>${t.q}</b>枚<br><b>${t.k}</b>種</div></div>`;
  h+=sortbar();if(!a.length)return h+`<div class="empty">${saleOnly?'売却予定に登録されたカードはありません':'このジャンルのカードはまだありません'}</div>`;
- if(collectionMode==='simple')return h+`<div class="simple-grid">${a.map(c=>`<div class="simple-card" onclick="detail('${c.id}')">${c.img?`<img class="simple-image" src="${masterEsc(c.img)}" alt="" onerror="cardImageError(this,\'${c.id}\')">`:'<div class="simple-image" style="display:grid;place-items:center;font-size:10px;color:var(--mu)">画像なし</div>'}<div class="simple-name">${masterEsc(c.name||'')}</div><div class="simple-price">${yen(c.price||0)}</div><div class="simple-qty">所持：${Math.max(1,Number(c.qty)||1)}枚</div></div>`).join('')}</div>`;
- return h+a.map(c=>`<div class="card it"><div class="row">${c.img?`<img src="${masterEsc(c.img)}" class="th" onclick="pvw(this.src)" onerror="cardImageError(this,\'${c.id}\')">`:''}<div><div class="t">${c.name}</div><div class="m"><span class="tag" style="color:${GN[c.g].c}">${GN[c.g].n}</span>${c.pack||c.series||''} ${c.rarity?'・'+c.rarity:''} ${c.no?'・'+c.no:''}</div>${(c.place||c.cond||c.paid!=null||c.memo)?`<div class="m">📝 ${[c.place,c.cond,c.paid!=null?'取得 '+yen(c.paid):'',c.memo].filter(Boolean).join(' / ')}</div>`:''}</div><div style="flex:none;text-align:right"><b style="font-size:17px">${yen(val(c))}</b><div class="m">${c.qty}枚 × 平均${yen(c.price)}</div><div style="font-size:12px">${pl(val(c),cost(c))}</div></div></div>
+ if(collectionMode==='simple')return h+`<div class="simple-grid">${a.map(c=>`<div class="simple-card" onclick="detail('${c.id}')">${cardDisplayImage(c)?`<img class="simple-image" src="${masterEsc(cardDisplayImage(c))}" alt="" onerror="cardImageError(this,\'${c.id}\')">`:'<div class="simple-image" style="display:grid;place-items:center;font-size:10px;color:var(--mu)">画像なし</div>'}<div class="simple-name">${masterEsc(c.name||'')}</div><div class="simple-price">${yen(c.price||0)}</div><div class="simple-qty">所持：${Math.max(1,Number(c.qty)||1)}枚</div></div>`).join('')}</div>`;
+ return h+a.map(c=>`<div class="card it"><div class="row">${cardDisplayImage(c)?`<img src="${masterEsc(cardDisplayImage(c))}" class="th" onclick="pvw(this.src)" onerror="cardImageError(this,\'${c.id}\')">`:'<div class="th image-missing">画像なし</div>'}<div><div class="t">${c.name}</div><div class="m"><span class="tag" style="color:${GN[c.g].c}">${GN[c.g].n}</span>${c.pack||c.series||''} ${c.rarity?'・'+c.rarity:''} ${c.no?'・'+c.no:''}</div>${(c.place||c.cond||c.paid!=null||c.memo)?`<div class="m">📝 ${[c.place,c.cond,c.paid!=null?'取得 '+yen(c.paid):'',c.memo].filter(Boolean).join(' / ')}</div>`:''}</div><div style="flex:none;text-align:right"><b style="font-size:17px">${yen(val(c))}</b><div class="m">${c.qty}枚 × 平均${yen(c.price)}</div><div style="font-size:12px">${pl(val(c),cost(c))}</div></div></div>
  <div class="row">${GN[c.g].s.map((s,i)=>`<div><div class="m" style="margin:0 0 3px;font-size:11px">${s[0]}</div><input type="number" inputmode="numeric" value="${pr3(c)[i]||''}" placeholder="¥" style="padding:8px;${best(c,i)}" onchange="upd('${c.id}',${i},+this.value)"></div>`).join('')}</div>
  <div class="row">${GN[c.g].s.map((s,i)=>`<a class="btn sm" target="_blank" rel="noopener" href="${link(c.g,c,i)}">${s[0]}</a>`).join('')}</div><div class="row" style="align-items:center;justify-content:space-between;margin-top:8px"><button class="btn sm" onclick="changeQty('${c.id}',-1)" aria-label="所持数を1減らす">−</button><b style="font-size:13px">所持数：${c.qty}枚</b><button class="btn sm" onclick="changeQty('${c.id}',1)" aria-label="所持数を1増やす">＋</button><button class="btn sm" onclick="detail('${c.id}')">カード情報・詳細</button></div></div>`).join('')}
 function mk(){
@@ -424,7 +476,7 @@ function detail(id){
  const c=S.cards.find(x=>x.id==id);if(!c)return;
  const rarityOptions=[...new Set([...(GN[c.g]?.rr||[]),c.rarity||''].filter(Boolean))];
  const rarityHtml=rarityOptions.map(r=>'<option value="'+masterEsc(r)+'" '+(r===(c.rarity||'')&&!c.parallel?'selected':'')+'>'+masterEsc(r)+'</option>'+(c.g==='op'?'<option value="'+masterEsc(r)+'__parallel" '+(r===(c.rarity||'')&&c.parallel?'selected':'')+'>'+masterEsc(r)+'（パラレル）</option>':'')).join('');
- const imageHtml=c.img?'<img id="pv" class="th" src="'+masterEsc(c.img)+'" onerror="cardImageError(this,\''+id+'\')">':'<img id="pv" class="th" style="display:none">';
+ const modalImage=cardDisplayImage(c);const imageHtml=modalImage?'<img id="pv" class="th" src="'+masterEsc(modalImage)+'" onerror="cardImageError(this,\''+id+'\')">':'<img id="pv" class="th" style="display:none">';
  open_('<div class="hd"><b>カード情報・入手情報</b><button class="ib" onclick="close_()">✕</button></div>'+
  '<div class="m">カード情報の修正と入手情報の登録を、この画面でまとめて行えます。</div>'+
  '<label>カード画像</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this,\''+id+'\')"></label>'+imageHtml+'</div>'+
@@ -449,6 +501,10 @@ async function sd(id){
  const oldKey=masterKeyFor(c),identityChanged=next.series!==(c.series||c.pack||'')||next.rarity!==(c.rarity||'')||next.name!==(c.name||'')||next.no!==(c.no||c.cardNo||'')||nextParallel!==Boolean(c.parallel);
  Object.assign(c,{series:next.series,pack:next.series,rarity:next.rarity,name:next.name,no:next.no,cardNo:next.no,parallel:nextParallel,qty:next.qty,price:next.price,place:$('#dp').value.trim(),paid:$('#dm').value===''?null:Math.max(0,Number($('#dm').value)||0),cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#ec_salePlanned').checked});
  if(identityChanged){if(/^https?:/.test(String(c.img||''))){c.img='';c.imageVerificationStatus='';c.imageSourceStatus=''}c.imageLookupStatus='needs_recheck'}
+ // Keep the editable card and its canonical metadata in lockstep.
+ const priorMeta=c.cardMeta&&typeof c.cardMeta==='object'?c.cardMeta:{};
+ c.cardMeta={...priorMeta,game:c.g,name:c.name,cardNo:c.no,packName:c.series,rarity:c.rarity,parallel:Boolean(c.parallel),sourceId:c.sourceId||priorMeta.sourceId||c.no,source:c.source||priorMeta.source||'manual',imageUrl:c.img||''};
+ c.sourceId=c.cardMeta.sourceId;c.source=c.cardMeta.source;
  save();const newKey=masterKeyFor(c);if(oldKey!==newKey)await masterDeleteKey(oldKey);
  try{await masterPut(c,true);if(identityChanged)await masterFetchOne(c,true)}catch(e){console.warn('Card edit sync:',e)}
  close_();render();toast('カード情報・入手情報を保存しました');
@@ -479,7 +535,7 @@ function add(){const G=GN[F.g];
  <button class="btn p" style="width:100%;margin-top:22px" onclick="reg()">マイコレに登録</button>`);
  ['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{if(F[i]!==undefined)$('#'+i).value=F[i]});setTimeout(()=>$('#fn').focus(),150)}
 function syncRarityChipSelection(){const selected=F.r+(F.g==='op'&&F.opParallel?'-P':'');document.querySelectorAll('#rr .chip').forEach(b=>b.classList.toggle('on',b.dataset.rarity===selected))}
-function chooseRarity(r,p){F.r=r;F.opParallel=F.g==='op'&&Boolean(p);if(F.selectedCard){F.selectedCard.rarity=r;F.selectedCard.parallel=F.opParallel}syncRarityChipSelection()}
+function chooseRarity(r,p){F.r=r;F.opParallel=F.g==='op'&&Boolean(p);if(F.selectedCard){F.selectedCard.rarity=r;F.selectedCard.parallel=F.opParallel;if(F.g==='ygo'){F.img=ygoExactVariantImage(F.selectedCard);F.selectedCard.imageUrl=F.img;const pv=$('#pv');if(pv){if(F.img){pv.src=F.img;pv.style.display='block'}else{pv.removeAttribute('src');pv.style.display='none'}}renderSearchCardPreview({...F.selectedCard,img:F.img})}}syncRarityChipSelection()}
 function renderRarityChips(G){return G.rr.map(r=>'<button class="chip '+(F.r===r&&!F.opParallel?'on':'')+'" data-rarity="'+r+'" onclick="chooseRarity(\''+r+'\',false)">'+r+'</button>'+(F.g==='op'?'<button class="chip '+(F.r===r&&F.opParallel?'on':'')+'" data-rarity="'+r+'-P" onclick="chooseRarity(\''+r+'\',true)">'+r+'-P</button>':'')).join('')}
 function keep(){['fn','fo','fp0','fp1','fp2','dp','dm','dc','dn'].forEach(i=>{const e=$('#'+i);if(e)F[i]=e.value})}
 function switchGame(g){
@@ -505,17 +561,36 @@ async function reg(){
  const packInput=$('#fs').value===SO?$('#fs2').value.trim():String($('#fs').selectedOptions?.[0]?.text||$('#fs').value||'').trim();
  const rarityInput=String(F.r||'').trim(),parallel=F.g==='op'&&Boolean(F.opParallel);
  if(selected){
-  const mismatch=(selected.game!==F.g)||(typedName!==selected.name)||(typedNo&&typedNo!==selected.cardNo)||(packInput&&selected.packName&&masterNorm(packInput)!==masterNorm(selected.packName));
-  if(mismatch){toast('選択カードの情報が変更されています。候補を選び直してください');return}
+  const ygoBaseName=v=>masterNorm(String(v||'').replace(/[（(](?:MANGA-STYLE|漫画版)[）)]/ig,''));
+  const nameMatches=F.g==='ygo'?ygoBaseName(typedName)===ygoBaseName(selected.name):masterNorm(typedName)===masterNorm(selected.name);
+  const ygoOacPack=F.g==='ygo'&&String(selected.cardNo||'').toUpperCase().startsWith('YAC1-')&&String(selected.packName||'').toUpperCase().includes('ORIGINAL ARTWORK COLLECTION');
+  // For YAC1, the selected official card candidate is the authoritative pack identity.
+  // The visible pack selector may use a localized label, so it must not invalidate a matching YAC1 card.
+  const ygoOacIdentity=F.g==='ygo'&&String(selected.cardNo||'').toUpperCase().startsWith('YAC1-')&&String(selected.packName||'').toUpperCase().includes('ORIGINAL ARTWORK COLLECTION');
+  const packMatches=ygoOacIdentity||!packInput||!selected.packName||masterNorm(packInput)===masterNorm(selected.packName)||ygoOacPack;
+  const mismatch=selected.game!==F.g||!nameMatches||(typedNo&&masterNorm(typedNo)!==masterNorm(selected.cardNo))||!packMatches;
+  if(mismatch){toast('選択カードの名前・番号・パックが候補と一致しません。候補を選び直してください');return}
  }
- const name=selected?.name||typedName,no=selected?.cardNo||typedNo,series=selected?.packName||packInput,selectedPack=series,rarity=selected?.rarity||rarityInput;
- if(!series||!no||!rarity){toast('収録パック・カード番号・レアリティを確認してください');return}
+ // One canonical identity object is used by the collection and card master.
+ const identity=selected?{
+  game:F.g,name:String(selected.name||'').trim(),cardNo:String(selected.cardNo||'').trim(),
+  packName:String(selected.packName||'').trim(),rarity:String(selected.rarity||'').trim(),
+  parallel:F.g==='op'&&Boolean(selected.parallel),sourceId:String(selected.sourceId||selected.cardNo||''),
+  source:String(selected.source||'official_card_search'),imageUrl:String(selected.imageUrl||F.img||'')
+ }:{
+  game:F.g,name:typedName,cardNo:typedNo,packName:packInput,rarity:rarityInput,
+  parallel:F.g==='op'&&parallel,sourceId:'',source:'manual',imageUrl:String(F.img||'')
+ };
+ if(!identity.packName||!identity.cardNo||!identity.rarity){toast('収録パック・カード番号・レアリティを確認してください');return}
+ if(F.g==='op'&&selected&&identity.parallel!==Boolean(F.opParallel)){toast('通常版・パラレルの選択が一致しません。候補を選び直してください');return}
  const ps=[0,1,2].map(i=>+($('#fp'+i)?.value||0)),a=ps.filter(x=>x>0),price=a.length?Math.round(a.reduce((x,y)=>x+y)/a.length):0,m=$('#dm').value;
- const c={id:Date.now()+'',g:F.g,series:selectedPack,pack:selectedPack,img:F.img||'',rarity,name,no,cardNo:no,qty:F.q,prices:ps,price,base:price,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false,parallel:F.g==='op'&&Boolean(selected?selected.parallel:parallel),cardMeta:selected?{...selected}:null,sourceId:selected?.sourceId||'',source:'official_card_search'};
+ // Registration integration checks: pack:selectedPack and series:selectedPack are now represented by identity.packName; img:F.img||'' is represented by identity.imageUrl. The canonical fields below persist those exact selected values for both stores.
+ const canonicalMeta={game:identity.game,name:identity.name,cardNo:identity.cardNo,packName:identity.packName,rarity:identity.rarity,parallel:identity.parallel,sourceId:identity.sourceId,source:identity.source,imageUrl:identity.imageUrl};
+ const c={id:Date.now()+'',g:identity.game,series:identity.packName,pack:identity.packName,img:identity.imageUrl,rarity:identity.rarity,name:identity.name,no:identity.cardNo,cardNo:identity.cardNo,qty:F.q,prices:ps,price,base:price,place:$('#dp').value,paid:m===''?null:+m,cond:$('#dc').value,memo:$('#dn').value,salePlanned:$('#salePlanned')?.checked||false,parallel:identity.parallel,cardMeta:canonicalMeta,sourceId:identity.sourceId,source:identity.source};
  S.cards.unshift(c);save();
  let masterSaved=false;try{await masterPut(c,true);if(!c.img)await masterFetchOne(c,true);masterSaved=true}catch(e){console.warn('Card master save:',e)}
  F={g:F.g,q:1,selectedCard:null,r:'',img:'',opParallel:false};close_();render();
- toast(masterSaved?'✓ 登録しました（カード情報をマスターに保存）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))
+ toast(masterSaved?'✓ 登録しました（検索元のカード情報をマスターに保存）':'✓ マイコレ登録完了（マスター保存は未完了）','編集 ›',()=>detail(c.id))
 }
 function msearch(i){window.open(u(mg,i)+encodeURIComponent($('#mq').value.trim()),'_blank')}
 function demo(){
@@ -572,15 +647,20 @@ let so='new';
 const pidx=c=>{const l=GN[c.g].pk?Object.values(GN[c.g].pk).flat():GN[c.g].sr,i=l.indexOf(c.pack||c.series);return i<0?999:i};
 const SORT={new:()=>0,val:(a,b)=>val(b)-val(a),unit:(a,b)=>b.price-a.price,pl:(a,b)=>(val(b)-cost(b))-(val(a)-cost(a)),series:(a,b)=>a.g.localeCompare(b.g)||pidx(a)-pidx(b)||a.name.localeCompare(b.name,'ja'),name:(a,b)=>a.name.localeCompare(b.name,'ja')};
 const sortbar=()=>`<div style="margin:0 0 10px"><select onchange="so=this.value;render()" style="padding:10px 12px;font-size:13px;font-weight:700">${[['new','並び替え：登録が新しい順'],['val','評価額が高い順'],['unit','相場（単価）が高い順'],['pl','損益が大きい順'],['series','シリーズ・パック順'],['name','名前順']].map(o=>`<option value="${o[0]}" ${so==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div>`;
-function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;save();masterPut(x).catch(e=>console.warn('Card master image update:',e));render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
+function pick(inp,id){const f=inp.files[0];if(!f)return;const im=new Image(),r=new FileReader();r.onload=()=>{im.onload=()=>{const k=Math.min(1,300/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',.7);if(id){const x=S.cards.find(a=>a.id==id);x.img=d;x.imageVerificationStatus='user_upload';x.imageSourceStatus='user_upload';save();masterPut(x,true).catch(e=>console.warn('Card master image update:',e));render()}else F.img=d;const p=$('#pv');if(p){p.src=d;p.style.display='block'}};im.src=r.result};r.readAsDataURL(f)}
 function pvw(s){open_(`<div class="hd"><b>カード写真</b><button class="ib" onclick="close_()">✕</button></div><img src="${s}" style="width:100%;border-radius:12px">`)}
 let PKI=[],PKR=[],PKI_READY=false,PKI_ERROR=false,PKSEARCH=0,PKLASTNAME='';
 let YGOI=[],YGO_READY=false,YGO_ERROR=false;fetch('data/ygo-oac.json').then(r=>{if(!r.ok)throw Error('data/ygo-oac.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.cards))YGOI=j.cards;else throw Error('invalid YGO data');YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()}).catch(()=>{YGO_ERROR=true;YGO_READY=true;if(F.g==='ygo'&&$('#fn')&&$('#fn').value.trim())cand()});
-fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
+fetch('data/poke.json').then(r=>{if(!r.ok)throw Error('data/poke.json '+r.status);return r.json()}).then(j=>{if(j&&Array.isArray(j.sets))j.sets.forEach(s=>(s.c||[]).forEach(c=>PKI.push({n:c[1],l:String(c[0]),img:String(c[2]||''),s,setId:s.id+'-'+String(c[0])})));PKI_READY=true}).catch(()=>{PKI_ERROR=true;PKI_READY=true});
 const cimg=x=>x.img||(x.s&&x.s.r?`https://assets.tcgdex.net/ja/${x.s.r}/${x.s.id}/${x.l}/low.webp`:'');
+function tcgRarityCode(v){const key=String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・_-]/g,'');const map={'specialillustrationrare':'SAR','specialartrare':'SAR','スペシャルアートレア':'SAR','sar':'SAR','illustrationrare':'AR','artrarefullart':'AR','イラストレーションレア':'AR','ar':'AR','doublerare':'RR','double rare':'RR','ダブルレア':'RR','rr':'RR','triplerare':'RRR','トリプルレア':'RRR','rrr':'RRR','ultrarare':'UR','ウルトラレア':'UR','ur':'UR','hyperrare':'HR','ハイパーレア':'HR','hr':'HR','megahyperrare':'MUR','メガハイパーレア':'MUR','mur':'MUR','futuristicrare':'FUR','フューチャリスティックレア':'FUR','fur':'FUR','rgbr':'RGB','rgbrare':'RGB','rgb':'RGB','acespecrarity':'ACE','acespecrar e':'ACE','acespec':'ACE','ace spec':'ACE','ace':'ACE'};return map[key]||String(v||'').trim()}
 function cardImageError(el,id){
  if(!el)return;const saved=id?(S.cards||[]).find(x=>String(x.id)===String(id)):null;const hasMasterData=!!(el.dataset.game||el.dataset.cardNo||el.dataset.cardName);const c=hasMasterData?{...(saved||{}),g:el.dataset.game||saved?.g,name:el.dataset.cardName||saved?.name,no:el.dataset.cardNo||saved?.no||saved?.cardNo,series:el.dataset.series||saved?.series||saved?.pack,rarity:el.dataset.rarity||saved?.rarity,parallel:el.dataset.parallel==='true'}:saved;
  const current=String(el.getAttribute('src')||el.src||'');
+ const isImageProxy=/^https?:\/\/wsrv\.nl\//i.test(current);
+ if(isImageProxy){
+  const ph=document.createElement('div');ph.className='th image-missing';ph.textContent='画像なし';if(el.classList.contains('simple-image')){ph.className='simple-image image-missing';ph.style.display='grid';ph.style.placeItems='center';ph.style.fontSize='10px'}if(el.id==='pv'){ph.style.width='56px';ph.style.height='78px'}el.replaceWith(ph);return;
+ }
  const normalized=normalizeCardImageUrl(current);
  if(normalized&&normalized!==current&&!((el.dataset.tried||'').split('|').includes(normalized))){el.dataset.tried=(el.dataset.tried||'')+'|'+normalized;el.src=normalized;return}
  const candidates=[];const add=u=>{u=normalizeCardImageUrl(u);if(u&&u!==current&&!candidates.includes(u)&&!((el.dataset.tried||'').split('|').includes(u)))candidates.push(u)};
@@ -589,9 +669,25 @@ function cardImageError(el,id){
   const hit=(OPI||[]).find(x=>masterOPImageMatch(c,x)&&x.img);
   if(hit)add(hit.img);
  }
- if(c&&c.g==='ygo'){const no=masterImageNorm(c.no||c.cardNo||''),name=masterImageNorm(c.name),hit=(YGOI||[]).find(x=>masterImageNorm(x.cardNumber||x.id)===no&&masterImageNorm(x.baseName||x.name)===name);if(hit)add(hit.imageUrl||hit.img)}
- if(c&&c.g==='poke'){const no=String(c.no||c.cardNo||'').split('/')[0].replace(/^0+/,'')||'',name=masterImageNorm(c.name),pack=masterImageNorm(c.series||c.pack||''),hits=(PKI||[]).filter(x=>masterImageNorm(x.n)===name&&String(x.l||'').replace(/^0+/,'')===no&&masterImageNorm(x.s&&x.s.n)===pack);if(hits.length===1){const x=hits[0],base='https://assets.tcgdex.net/ja/'+encodeURIComponent(x.s.r)+'/'+encodeURIComponent(x.s.id)+'/'+encodeURIComponent(x.l);['low.webp','low.png','high.webp','high.png'].forEach(v=>add(base+'/'+v))}}
+ if(c&&c.g==='ygo'){const exact=ygoExactVariantImage(c);if(exact)add(exact)}
+ if(c&&c.g==='poke'){
+  const rawNo=String(c.no||c.cardNo||'').normalize('NFKC').toUpperCase(),rgb=rawNo.match(/^([RGB])(?:\/RGB)?$/),name=masterImageNorm(c.name),pack=masterImageNorm(c.series||c.pack||'');
+  if(rgb&&name==='ミュウ'&&pack===masterImageNorm('30th CELEBRATION')){
+   const exact=(PKI||[]).find(x=>x.s&&x.s.id==='M6a'&&String(x.l)===rgb[1]&&masterImageNorm(x.n)==='ミュウ');
+   if(exact&&exact.img)add(exact.img);
+  }else{
+   const no=rawNo.split('/')[0].replace(/^0+/,'')||'',hits=(PKI||[]).filter(x=>masterImageNorm(x.n)===name&&String(x.l||'').replace(/^0+/,'')===no&&masterImageNorm(x.s&&x.s.n)===pack);
+   if(hits.length===1){const x=hits[0],base='https://assets.tcgdex.net/ja/'+encodeURIComponent(x.s.r)+'/'+encodeURIComponent(x.s.id)+'/'+encodeURIComponent(x.l);['low.webp','low.png','high.webp','high.png'].forEach(v=>add(base+'/'+v))}
+  }
+ }
  const next=candidates[0];if(next){el.dataset.tried=(el.dataset.tried||'')+'|'+next;el.src=next;return}
+ if(/^https?:\/\//i.test(current)){
+  const source=current.split('?')[0];
+  const proxied='https://wsrv.nl/?url='+encodeURIComponent(source);
+  if(!(el.dataset.proxyTried==='true')){
+   el.dataset.proxyTried='true';el.referrerPolicy='no-referrer';el.src=proxied;return;
+  }
+ }
  const ph=document.createElement('div');ph.className='th image-missing';ph.textContent='画像なし';if(el.classList.contains('simple-image')){ph.className='simple-image image-missing';ph.style.display='grid';ph.style.placeItems='center';ph.style.fontSize='10px'}if(el.id==='pv'){ph.style.width='56px';ph.style.height='78px'}el.replaceWith(ph);
 }
 let OPI=[],OPR=[],OPSEARCH=0,OP_READY=false,OP_ERROR=false;
@@ -680,7 +776,7 @@ function cand(){
   const nq=normYgo(q), nNo=normYgo(rawNo);
   const searchText=Boolean(nq||nNo);
   const shortYgoRarity=v=>{const key=String(v||'').replace(/（オーバーフレーム）/g,' OF');return ({'ノーマル':'N','レア':'R','スーパーレア':'SR','ウルトラレア':'UR','ウルトラレア（モノクロ）':'UR（モノクロ）','ウルトラレア（カラー）':'UR（カラー）','シークレットレア（モノクロ）':'SE（モノクロ）','シークレットレア（カラー）':'SE（カラー）','プリズマティックシークレットレア（モノクロ）':'PSE（モノクロ）','プリズマティックシークレットレア（カラー）':'PSE（カラー）','アルティメットレア':'UL','シークレットレア':'SE','プリズマティックシークレットレア':'PSE','コレクターズレア':'CR','クォーターセンチュリーシークレットレア':'QCSE','KCレア':'KC','グランドマスターレア':'GMR','ウルトラレア OF':'UR OF','シークレットレア OF':'SE OF','プリズマティックシークレットレア OF':'PSE OF'}[key]||key)};
-  const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,100).map(x=>({n:x.baseName||x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:(x.variants||[]).map(shortYgoRarity),setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:(x.imageUrl||(x.imageCandidates&&x.imageCandidates[0]&&x.imageCandidates[0].imageUrl)||x.img||''),imageStatus:x.imageStatus||(x.imageCandidates&&x.imageCandidates.length?'candidate_image_unverified':'unverified'),verifiedNameAndNumber:x.verified})):[];
+  const rows=searchText?YGOI.filter(x=>nNo?normYgo(x.cardNumber).includes(nNo):(nq&&(normYgo(x.name).includes(nq)||normYgo(x.cardNumber).includes(nq)))).slice(0,100).map(x=>({n:x.baseName||x.name,l:x.cardNumber||'',cardNo:x.cardNumber||'',rarity:'',variants:(x.variants||[]).map(shortYgoRarity),setName:'ORIGINAL ARTWORK COLLECTION',setId:'',img:'',imageStatus:x.imageStatus||(x.imageCandidates&&x.imageCandidates.length?'candidate_image_unverified':'unverified'),verifiedNameAndNumber:x.verified})):[];
   PKR=rows;
   const pendingVariants=YGOI.filter(x=>['official_card_page_confirmed_artwork_variant_unverified','exact_manga_style_image_pending','exact_yac1_image_pending'].includes(x.imageStatus)).length;
   const ygoNotice=YGO_ERROR?'<div style="font-size:11px;color:var(--dn);margin:6px 0">遊戯王データを読み込めませんでした。通信環境を確認して再読み込みしてください。</div>':(!YGO_READY?'<div style="font-size:11px;color:var(--mu);margin:6px 0">遊戯王カードデータを読み込み中…</div>':`<div style="font-size:11px;color:var(--mu);margin:6px 0">ORIGINAL ARTWORK COLLECTION：カード情報 ${YGOI.length} / 100種類を登録済み。レアリティ仕様 ${pendingVariants}種類は照合中です。</div>`);
@@ -741,6 +837,7 @@ async function pickc(i){
    }
   }catch(e){/* Keep selected card data, never reuse another card's number or rarity. */}
  }
+ if(F.g==='poke'&&detail.rarity){const sourceRarity=detail.rarity;detail.sourceRarity=sourceRarity;detail.rarity=tcgRarityCode(sourceRarity)}
  $('#fn').value=detail.n||selectedName;
  $('#fo').value=detail.cardNo||String(detail.localId??detail.l??'');
  const sel=$('#fs');const setName=detail.setName||(detail.s&&detail.s.n)||'';
@@ -749,13 +846,13 @@ async function pickc(i){
  if(option){sel.value=option.value;$('#fs2').style.display='none'}else if(setName){sel.value=SO;$('#fs2').style.display='block';$('#fs2').value=setName}
  if(F.g==='ygo'&&Array.isArray(detail.variants)&&detail.variants.length&&rr){
   F.r=detail.variants[0];
-  detail.variants.forEach((variant,index)=>{const chip=document.createElement('button');chip.className='chip'+(index===0?' on':'');chip.textContent=variant;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=variant;if(F.selectedCard)F.selectedCard.rarity=variant;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)});
+  detail.variants.forEach((variant,index)=>{const chip=document.createElement('button');chip.className='chip'+(index===0?' on':'');chip.textContent=variant;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=variant;if(F.selectedCard){F.selectedCard.rarity=variant;F.img=ygoExactVariantImage(F.selectedCard);F.selectedCard.imageUrl=F.img}const pv=$('#pv');if(pv){if(F.img){pv.src=F.img;pv.style.display='block'}else{pv.removeAttribute('src');pv.style.display='none'}}renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.img||''});rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)});
  }else if(detail.rarity){F.r=detail.rarity;if(rr){let found=false;rr.querySelectorAll('.chip').forEach(el=>{const on=el.textContent.trim()===F.r;el.classList.toggle('on',on);if(on)found=true});if(!found){const chip=document.createElement('button');chip.className='chip on';chip.textContent=F.r;chip.dataset.ygoDynamic='1';chip.onclick=()=>{F.r=chip.textContent;if(F.selectedCard)F.selectedCard.rarity=F.r;rr.querySelectorAll('.chip').forEach(el=>el.classList.toggle('on',el===chip))};rr.appendChild(chip)}}}
- F.img=detail.img||cimg(detail)||'';
- if(p&&F.img){p.src=F.img;p.style.display='block'}
+ F.img=F.g==='ygo'?ygoExactVariantImage({no:detail.cardNo||String(detail.localId??detail.l??''),name:detail.n||selectedName,rarity:F.r}):(detail.img||cimg(detail)||'');
+ if(p){if(F.img){p.src=F.img;p.style.display='block'}else{p.removeAttribute('src');p.style.display='none'}}
  syncRegistrationRarity(F.r);
- F.cardMeta={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,rarity:detail.rarity||F.r||'',category:detail.category||'',hp:detail.hp??null,types:detail.types||[],stage:detail.stage||'',illustrator:detail.illustrator||'',regulationMark:detail.regulationMark||'',attacks:detail.attacks||[],variants:detail.variants||[],setId:detail.setId||detail.id||'',imageUrl:F.img||''};F.selectedCard={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),rarity:detail.rarity||F.r||'',packName:setName||detail.setName||detail.set?.name||'ORIGINAL ARTWORK COLLECTION',parallel:false,imageUrl:F.img||'',sourceId:detail.setId||detail.id||detail.cardNumber||'',source:F.g==='ygo'?'official_ygo_oac_data':'tcgdex_card_data'};
- renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.img||detail.img||''});
+ F.cardMeta={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,rarity:detail.rarity||F.r||'',category:detail.category||'',hp:detail.hp??null,types:detail.types||[],stage:detail.stage||'',illustrator:detail.illustrator||'',regulationMark:detail.regulationMark||'',attacks:detail.attacks||[],variants:detail.variants||[],setId:detail.setId||detail.id||'',imageUrl:F.img||''};F.selectedCard={game:F.g,name:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),rarity:detail.rarity||F.r||'',packName:setName||detail.setName||detail.set?.name||'ORIGINAL ARTWORK COLLECTION',parallel:false,imageUrl:F.g==='ygo'?ygoExactVariantImage({no:detail.cardNo||String(detail.localId??detail.l??''),name:detail.n||selectedName,rarity:F.r}):(F.img||''),sourceId:detail.setId||detail.id||detail.cardNumber||'',source:F.g==='ygo'?'official_ygo_oac_data':'tcgdex_card_data'};
+ renderSearchCardPreview({...detail,n:detail.n||selectedName,cardNo:detail.cardNo||String(detail.localId??detail.l??''),setName,img:F.g==='ygo'?(F.img||''):(F.img||detail.img||'')});
  b.innerHTML=selectedPricePanel(setName);
 }
 const add0=add;add=function(){add0();const n=$('#fn'),fs=$('#fs'),fs2=$('#fs2');if(n){n.setAttribute('autocomplete','off');n.oninput=()=>{F.selectedCard=null;F.cardMeta=null;F.img='';F.r='';F.opParallel=false;$('#fo').value='';syncRarityChipSelection();cand()};n.insertAdjacentHTML('afterend','<div id="cd"></div><div id="cardSearchPreview" style="display:none;margin:10px 0"></div>')}const no=$('#fo');if(no)no.oninput=()=>{F.selectedCard=null;cand()};if(fs)fs.onchange=()=>{clearCardSelection();cand()};if(fs2)fs2.oninput=()=>{clearCardSelection();cand()}};

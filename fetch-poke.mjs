@@ -55,10 +55,52 @@ for (const meta of recentMetadata) {
   addedRecentMetadata++;
 }
 const m6a = sets.find(s => s.id === 'M6a');
+const m6aImageOverrides = {
+  // Individually confirmed exact images for known special printings.
+  '104': 'https://tcgplayer-cdn.tcgplayer.com/product/716906_200w.jpg',
+  // Exact RGB Mew artwork by color (R/G/B), not interchangeable variants.
+  'R': 'https://media.on-gacha.com/wp-content/uploads/2026/09/mew-r-rgb.webp',
+  'G': 'https://media.on-gacha.com/wp-content/uploads/2026/09/mew-g-rgb.webp',
+  'B': 'https://media.on-gacha.com/wp-content/uploads/2026/09/mew-b-rgb.webp',
+  '056': 'https://i.ebayimg.com/images/g/lZMAAeSwP-hqqfQq/s-l960.jpg',
+  '057': 'https://totalcards.net/cdn/shop/files/39c4d1ebe37b899f428878d954eb35d9.jpg?v=1790065809',
+  '129': 'https://item-shopping.c.yimg.jp/i/n/card-museum_pmm06a-129-sar',
+  '135': 'https://i.ebayimg.com/images/g/0HoAAeSwAMdqqeF0/s-l1600.jpg',
+  // Official Pokémon card database images for the eight M6a YOSHIROTTEN energy cards.
+  'GRA': 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050745_E_KIHONKUSAENERUGI.jpg',
+  'FIR': 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050746_E_KIHONHONOOENERUGI.jpg',
+  'WAT': 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050747_E_KIHONMIZUENERUGI.jpg',
+  'LIG': 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050748_E_KIHONKAMINARIENERUGI.jpg',
+  'PSY': 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050749_E_KIHONCHIXYOUENERUGI.jpg',
+  'FIG': 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050750_E_KIHONTOUENERUGI.jpg',
+  'DAR': 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050751_E_KIHONAKUENERUGI.jpg',
+  'MET': 'https://www.pokemon-card.com/assets/images/card_images/large/M6a/050752_E_KIHONHAGANEENERUGI.jpg'
+};
+const m6aIds = [
+  ...Array.from({length:165}, (_,i)=>String(i+1).padStart(3,'0')).slice(0,165),
+];
+m6aIds.splice(165, 0, 'B', 'G', 'R');
+m6aIds.splice(168, 0, 'GRA', 'FIR', 'WAT', 'LIG', 'PSY', 'FIG', 'DAR', 'MET');
+const m6aImageIds = new Set([
+  ...Array.from({length:103}, (_,i)=>String(i+1).padStart(3,'0')),
+  ...Array.from({length:30}, (_,i)=>String(i+136).padStart(3,'0')),
+  'B','G','R'
+]);
+// Apply exact overrides to both freshly imported and already populated M6a rows.
+if (m6a && Array.isArray(m6a.c)) {
+  for (const card of m6a.c) {
+    const override = m6aImageOverrides[String(card[0] || '')];
+    if (override) card[2] = override;
+  }
+}
 if (m6a && m6a.c.length === 0) {
-  m6a.c = m6aCardNames.map((name, i) => [String(i + 1).padStart(3, '0'), name]);
-  m6a.dataStatus = 'card_names_imported_needs_image_and_official_crosscheck';
-  console.log('imported M6a card names:', m6a.c.length);
+  m6a.c = m6aCardNames.map((name, i) => {
+    const no = m6aIds[i];
+    const imageUrl = m6aImageOverrides[no] || (m6aImageIds.has(no) ? 'https://tcgjournal.de/kartenbilder/tpc/M6a/' + no + '/low.webp' : '');
+    return [no, name, imageUrl];
+  });
+  m6a.dataStatus = 'partial_exact_number_images_verified_base_and_classic_printings_special_art_pending';
+  console.log('imported M6a card names:', m6a.c.length, 'numbered image URLs:', m6aImageIds.size, 'special overrides:', Object.keys(m6aImageOverrides).length);
 }
 sets.sort((a, b) => a.id.localeCompare(b.id));
 console.log('recent product metadata added:', addedRecentMetadata);

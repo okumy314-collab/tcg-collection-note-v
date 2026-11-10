@@ -57,6 +57,9 @@ jobs:
           NODE
           node --check /tmp/tcg-app-check.js
 
+      - name: Validate YAC1 base and variant image fallback rules
+        run: node scripts/validate-ygo-oac-images.mjs
+
       - name: Validate shared search, pack dropdown, and registration wiring
         run: |
           node --input-type=module <<'NODE'
@@ -78,7 +81,15 @@ jobs:
           if (failed.length) throw new Error(failed.length + ' app integration checks failed');
           NODE
       - name: Generate Japanese One Piece card data
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/fetch-op.mjs
+
+      - name: Validate full card identity and parallel image mapping
+        run: node scripts/validate-op-identities.mjs
+
+      - name: Verify official One Piece image responses
+        run: node scripts/validate-op-images.mjs
 
       - name: Validate generated data
         run: |
@@ -101,6 +112,24 @@ jobs:
           console.log('検証成功:', data.cards.length, '件');
           console.log('サンプル:', card[0], card[1], card[2]);
           NODE
+
+      - name: Verify M6a exact card image overrides
+        run: node scripts/validate-m6a-image-overrides.mjs
+
+      - name: Inspect M6a image source markup
+        run: node scripts/inspect-alternate-m6a-sources.mjs
+
+      - name: Inspect M6a secret image paths
+        run: node scripts/inspect-m6a-secret-image-paths.mjs
+
+      - name: Audit exact M6a special artwork image sources
+        run: node scripts/audit-m6a-special-source-images.mjs
+
+      - name: Validate M6a image source coverage
+        run: node scripts/validate-m6a-tcgjournal-images.mjs
+
+      - name: Validate M6a master card IDs and coverage
+        run: node scripts/validate-m6a-master.mjs
 
       - name: Validate Pokemon card master data
         run: |
@@ -152,6 +181,9 @@ jobs:
           }
           console.log('ポケモンデータ検証成功:', data.sets.length, 'シリーズ、', setsWithCards, 'シリーズにカード収録、', totalCards, '件');
           NODE
+
+      - name: Validate Pokemon rarity normalization
+        run: node scripts/validate-pokemon-rarity.mjs
 
       - name: Validate Yu-Gi-Oh ORIGINAL ARTWORK COLLECTION data
         run: |
