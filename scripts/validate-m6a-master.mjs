@@ -12,7 +12,7 @@ if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds)) {
   throw new Error('M6a IDs are not in canonical order: ' + JSON.stringify(actualIds.slice(-12)));
 }
 const missing = set.c.filter(c => !c[2]).map(c => c[0]);
-const expectedMissing = [...Array.from({length:24},(_,i)=>String(i+105).padStart(3,'0')),...Array.from({length:5},(_,i)=>String(i+130).padStart(3,'0')),'B'];
+const expectedMissing = [...Array.from({length:24},(_,i)=>String(i+105).padStart(3,'0')),...Array.from({length:5},(_,i)=>String(i+130).padStart(3,'0'))];
 if (JSON.stringify(missing) !== JSON.stringify(expectedMissing)) {
   throw new Error('Unexpected M6a missing image IDs: ' + JSON.stringify(missing));
 }
@@ -34,3 +34,14 @@ for (const [id, url] of Object.entries(officialEnergyImages)) {
   if (!row || row[2] !== url) throw new Error('Official M6a energy image mapping mismatch: ' + id);
 }
 console.log('PASS M6a eight official YOSHIROTTEN energy image mappings');
+const rgbImages = {
+  R: "https://media.on-gacha.com/wp-content/uploads/2026/09/mew-r-rgb.webp",
+  G: "https://media.on-gacha.com/wp-content/uploads/2026/09/mew-g-rgb.webp",
+  B: "https://media.on-gacha.com/wp-content/uploads/2026/09/mew-b-rgb.webp"
+};
+for (const [id, url] of Object.entries(rgbImages)) {
+  const row = set.c.find(card => String(card[0]) === id);
+  if (!row || row[2] !== url) throw new Error('M6a RGB Mew artwork mapping mismatch: ' + id);
+}
+console.log('PASS M6a exact R/G/B RGB Mew artwork mappings');
+
