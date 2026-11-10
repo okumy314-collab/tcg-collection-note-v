@@ -57,6 +57,9 @@ jobs:
           NODE
           node --check /tmp/tcg-app-check.js
 
+      - name: Validate YAC1 base and variant image fallback rules
+        run: node scripts/validate-ygo-oac-images.mjs
+
       - name: Validate shared search, pack dropdown, and registration wiring
         run: |
           node --input-type=module <<'NODE'
