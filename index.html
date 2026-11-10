@@ -258,12 +258,12 @@ async function masterFindImage(c){
  }
  if(c.g==='poke'){
   const wantedPack=masterImageNorm(c.series||c.pack||'');
-  const rgb=String(c.no||'').normalize('NFKC').toUpperCase().match(/^([RGB])(?:\\/RGB)?$/);
+  const rgb=String(c.no||'').normalize('NFKC').toUpperCase().match(/^([RGB])(?:\/RGB)?$/);
   if(rgb&&masterImageNorm(c.name)==='ミュウ'&&wantedPack===masterImageNorm('30th CELEBRATION')){
    const exact=(PKI||[]).find(x=>x.s&&x.s.id==='M6a'&&String(x.l)===rgb[1]&&masterImageNorm(x.n)==='ミュウ'&&x.img);
    return exact?{url:exact.img,status:'m6a_rgb_exact_color'}:null;
   }
-  const m=String(c.no||'').match(/^(\\d+)/),localId=m?m[1].replace(/^0+/,''):String(c.no||'').replace(/^0+/,'');
+  const m=String(c.no||'').match(/^(\d+)/),localId=m?m[1].replace(/^0+/,''):String(c.no||'').replace(/^0+/,'');
   if(!localId)return null;
   if(!wantedPack)return null;
   const exact=(PKI||[]).filter(x=>masterImageNorm(x.n)===name&&String(x.l||'').replace(/^0+/,'')===localId&&masterImageNorm(x.s?.n)===wantedPack);
@@ -671,7 +671,7 @@ function cardImageError(el,id){
  }
  if(c&&c.g==='ygo'){const exact=ygoExactVariantImage(c);if(exact)add(exact)}
  if(c&&c.g==='poke'){
-  const rawNo=String(c.no||c.cardNo||'').normalize('NFKC').toUpperCase(),rgb=rawNo.match(/^([RGB])(?:\\/RGB)?$/),name=masterImageNorm(c.name),pack=masterImageNorm(c.series||c.pack||'');
+  const rawNo=String(c.no||c.cardNo||'').normalize('NFKC').toUpperCase(),rgb=rawNo.match(/^([RGB])(?:\/RGB)?$/),name=masterImageNorm(c.name),pack=masterImageNorm(c.series||c.pack||'');
   if(rgb&&name==='ミュウ'&&pack===masterImageNorm('30th CELEBRATION')){
    const exact=(PKI||[]).find(x=>x.s&&x.s.id==='M6a'&&String(x.l)===rgb[1]&&masterImageNorm(x.n)==='ミュウ');
    if(exact&&exact.img)add(exact.img);
