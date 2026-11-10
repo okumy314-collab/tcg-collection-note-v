@@ -179,9 +179,9 @@ const masterEsc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;'
 
 function masterImageNorm(v){return String(v||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s　・]/g,'')}
 function ygoRarityKey(v){const s=masterImageNorm(v).replace(/（オーバーフレーム）|\(オーバーフレーム\)/g,'of').replace(/グランドマスター$/,'グランドマスターレア');const aliases={'ur':'ウルトラレア','urof':'ウルトラレアof','se':'シークレットレア','seof':'シークレットレアof','pse':'プリズマティックシークレットレア','pseof':'プリズマティックシークレットレアof','gmr':'グランドマスターレア','n':'ノーマル','r':'レア','sr':'スーパーレア','ul':'アルティメットレア','cr':'コレクターズレア','qcse':'クォーターセンチュリーシークレットレア'};return masterImageNorm(aliases[s]||s)}
-function ygoOacName(v){return masterImageNorm(v).replace(/\(manga-style\)|（manga-style）|（漫画版）/g,'')}
+function ygoOacName(v){return masterImageNorm(v).replace(/\(manga-style\)|（manga-style）|（漫画版）/g,'').replace(/^黒き魔術師[－-]/,'')}
 function ygoOacRecord(c){const no=masterImageNorm(c?.no||c?.cardNo||'');if(!/^yac1-?jp/.test(no))return null;return (YGOI||[]).find(x=>masterImageNorm(x.cardNumber||x.id)===no&&ygoOacName(x.baseName||x.name)===ygoOacName(c?.name||''))}
-function ygoExactVariantImage(c){const hit=ygoOacRecord(c);if(!hit)return '';const rarity=ygoRarityKey(c?.rarity),variants=hit.imageVariants||hit.variantImages||{};let v=null;if(Array.isArray(variants))v=variants.find(x=>ygoRarityKey(x.rarity)===rarity&&x.imageUrl);else{const key=Object.keys(variants).find(k=>ygoRarityKey(k)===rarity);if(key&&variants[key])v=typeof variants[key]==='string'?{imageUrl:variants[key]}:variants[key]}if(v&&(v.imageUrl||v.url))return v.imageUrl||v.url;if(ygoRarityKey(hit.baseRarity)===rarity&&hit.imageStatus==='user_confirmed_image'&&hit.imageUrl)return hit.imageUrl;return ''}
+function ygoExactVariantImage(c){const hit=ygoOacRecord(c);if(!hit)return '';const rarity=ygoRarityKey(c?.rarity),variants=hit.imageVariants||hit.variantImages||{};let v=null;if(Array.isArray(variants))v=variants.find(x=>ygoRarityKey(x.rarity)===rarity&&x.imageUrl);else{const key=Object.keys(variants).find(k=>ygoRarityKey(k)===rarity);if(key&&variants[key])v=typeof variants[key]==='string'?{imageUrl:variants[key]}:variants[key]}if(v&&(v.imageUrl||v.url))return v.imageUrl||v.url;if(ygoRarityKey(hit.baseRarity)===rarity&&hit.imageUrl)return hit.imageUrl;return ''}
 function cardDisplayImage(c){if(!c)return '';if(c.g==='ygo'&&/^yac1-?jp/.test(masterImageNorm(c.no||c.cardNo||''))){if(c.imageSourceStatus==='user_upload'||c.imageVerificationStatus==='user_upload'||String(c.img||'').startsWith('data:image/'))return c.img||'';return ygoExactVariantImage(c)}return c.img||''}
 
 function masterImagePack(c){return masterImageNorm(c.series||c.pack||'')}
@@ -250,8 +250,8 @@ async function masterFindImage(c){
    const key=Object.keys(variants).find(k=>ygoRarityKey(k)===ygoRarityKey(rarity));
    if(key&&variants[key])variant=typeof variants[key]==='string'?{imageUrl:variants[key]}:variants[key];
   }
-  if(!variant&&ygoRarityKey(hit.baseRarity)===ygoRarityKey(rarity)&&hit.imageStatus==='user_confirmed_image'&&hit.imageUrl){
-   variant={imageUrl:hit.imageUrl,status:'user_confirmed_base_rarity'};
+  if(!variant&&ygoRarityKey(hit.baseRarity)===ygoRarityKey(rarity)&&hit.imageUrl){
+   variant={imageUrl:hit.imageUrl,status:hit.imageStatus==='user_confirmed_image'?'user_confirmed_base_rarity':'candidate_unverified_base_rarity'};
   }
   const url=variant&&(variant.imageUrl||variant.url);
   return url?{url,status:variant.status||'rarity_variant_exact'}:null;
