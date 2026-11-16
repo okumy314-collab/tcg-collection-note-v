@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 const html = readFileSync('index.html', 'utf8');
+const updaterWorkflow = readFileSync('.github/workflows/update-data.yml', 'utf8');
 const checks = [
+  ['scheduled data updater pushes to its triggering branch', updaterWorkflow.includes('HEAD:$GITHUB_REF_NAME') && updaterWorkflow.includes('git rebase "origin/$GITHUB_REF_NAME"') && !updaterWorkflow.includes('origin/feature/japanese-one-piece-card-data')],
   ['backup menu is exposed', html.includes('全データをバックアップ（JSON）')],
   ['existing shop links, card master, and CSV tools remain available', html.includes('onclick="links()"') && html.includes('onclick="masterInfo()"') && html.includes('onclick="csv()"')],
   ['legacy version 2 backups remain restorable', html.includes('(payload?.version===2)')],
