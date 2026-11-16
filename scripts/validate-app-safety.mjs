@@ -11,6 +11,7 @@ const checks = [
   ['opening master does not run destructive official reconciliation', !html.includes('await masterSyncPromise;if(OP_READY&&OPI.length)await masterReconcileOfficialRecords()')],
   ['retry counts protected user images separately', html.includes('if(userImage){skippedUser++;continue}') && html.includes('ユーザー画像のため保護')],
   ['candidate image provenance is not marked as confirmed', html.includes("current.imageStatus=candidate?'candidate_unverified':'url_saved'")],
+  ['user-confirmed images survive official reconciliation', html.includes("String(r.imageVerificationStatus||'').startsWith('user_confirmed')") && html.includes("String(saved.imageVerificationStatus||'').startsWith('user_confirmed')")],
   ['candidate image status is visible in master', html.includes("String(r.imageVerificationStatus||'').startsWith('candidate_unverified')")]
 ];
 let failed = 0;
