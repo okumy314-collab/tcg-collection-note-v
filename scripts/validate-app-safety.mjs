@@ -14,6 +14,7 @@ const checks = [
   ['retry counts protected user images separately', html.includes('if(userImage){skippedUser++;continue}') && html.includes('ユーザー画像のため保護')],
   ['candidate image provenance is not marked as confirmed', html.includes("current.imageStatus=candidate?'candidate_unverified':'url_saved'")],
   ['user-confirmed images survive official reconciliation', html.includes("String(r.imageVerificationStatus||'').startsWith('user_confirmed')") && html.includes("String(saved.imageVerificationStatus||'').startsWith('user_confirmed')")],
+  ['shop price updater has one three-argument implementation', (html.match(/function upd\(id,i,p\)/g)||[]).length===1 && !html.includes('function upd(id,p)')],
   ['candidate image status is visible in master', html.includes("String(r.imageVerificationStatus||'').startsWith('candidate_unverified')")]
 ];
 let failed = 0;
