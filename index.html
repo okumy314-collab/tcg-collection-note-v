@@ -307,7 +307,7 @@ async function masterSaveImageRecord(record,found){
  const db=await masterDb();
  return new Promise((resolve,reject)=>{
   const tx=db.transaction(MASTER_STORE,'readwrite'),store=tx.objectStore(MASTER_STORE),req=store.get(record.key);
-  req.onsuccess=()=>{const current=req.result;if(current){current.imageUrl=found.url;current.imageStatus='url_saved';current.imageVerificationStatus=found.status||'source_matched';current.imageSourceStatus=found.status||'official_exact_match';current.updatedAt=new Date().toISOString();store.put(current)}};
+  req.onsuccess=()=>{const current=req.result;if(current){const status=String(found.status||'source_matched'),candidate=status.startsWith('candidate_unverified');current.imageUrl=found.url;current.imageStatus=candidate?'candidate_unverified':'url_saved';current.imageVerificationStatus=status;current.imageSourceStatus=status;current.updatedAt=new Date().toISOString();store.put(current)}};
   tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error||new Error('画像情報の保存に失敗しました'));tx.onabort=()=>reject(tx.error||new Error('画像情報の保存が中断されました'));
  });
 }
@@ -334,14 +334,14 @@ async function masterReconcileOfficialRecords(){
 }
 async function masterRetryImages(){
  const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">カードマスター全件を、タイトル・収録パック・カード番号・レアリティ・版情報まで照合して再検索中…</div>';
- let checked=0,updated=0,failed=0,reconciled={checked:0,corrected:0,unmatched:0};
+ let checked=0,updated=0,failed=0,skippedUser=0,reconciled={checked:0,corrected:0,unmatched:0};
  try{
   reconciled=await masterReconcileOfficialRecords();
   const rows=await masterList();
   for(const r of rows){
    checked++;
    const userImage=String(r.imageUrl||'').startsWith('data:image/')||r.imageSourceStatus==='user_upload'||r.imageStatus==='user_upload';
-   if(userImage){updated++;continue}
+   if(userImage){skippedUser++;continue}
    const c={g:r.game||r.g,name:r.name,no:r.cardNo||r.no,series:r.series||r.pack,rarity:r.rarity,parallel:Boolean(r.parallel)};
    try{
     const found=await masterFindImage(c);
@@ -352,18 +352,18 @@ async function masterRetryImages(){
    }catch(e){failed++;console.warn('Master image retry:',r.cardNo,e)}
   }
   try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
-  const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">情報照合：'+reconciled.checked+'件中 '+reconciled.corrected+'件を公式データに合わせて修正（未一致 '+reconciled.unmatched+'件）。画像：'+checked+'件を確認、'+updated+'件を更新、'+failed+'件は一致する画像を確認できませんでした。画面を閉じて開き直すと結果を確認できます。</div>';
+  const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">情報照合：'+reconciled.checked+'件中 '+reconciled.corrected+'件を公式データに合わせて修正（未一致 '+reconciled.unmatched+'件）。画像：'+checked+'件を確認、'+updated+'件を更新、'+skippedUser+'件はユーザー画像のため保護、'+failed+'件は一致する画像を確認できませんでした。画面を閉じて開き直すと結果を確認できます。</div>';
   toast('カードマスター全件の画像再検索が完了しました');
  }catch(e){const el2=$('#masterInfoBody');if(el2)el2.innerHTML='<div class="empty">カードマスターの再検索に失敗しました。ブラウザの保存領域を確認してください。</div>';console.warn(e)}
 }
 async function masterInfo(){
  open_('<div class="hd"><b>カードマスター</b><button class="ib" onclick="close_()">✕</button></div><div id="masterInfoBody" class="empty">マスターデータを読み込み中…</div>');
  try{
-  await masterSyncPromise;if(OP_READY&&OPI.length)await masterReconcileOfficialRecords();const dedup=await masterDeduplicate();await masterAutoFetchAll();const rows=await masterList(),counts={};
+  await masterSyncPromise;const dedup=await masterDeduplicate();await masterAutoFetchAll();const rows=await masterList(),counts={};
   rows.forEach(r=>counts[r.game]=(counts[r.game]||0)+1);
   const summary=Object.keys(counts).map(g=>'<div class="row" style="justify-content:space-between;padding:6px 0"><span>'+masterEsc(GN[g]?.n||g)+'</span><b>'+counts[g]+' 種</b></div>').join('');
   const latest=rows.slice().sort((a,b)=>String(b.updatedAt||'').localeCompare(String(a.updatedAt||''))).slice(0,8);
-  const list=latest.map(r=>'<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)">'+(r.imageUrl?'<img src="'+masterEsc(r.imageUrl)+'" style="width:48px;height:66px;object-fit:contain;border-radius:6px;background:var(--sf2)" loading="lazy" data-cid="'+masterEsc(r.collectionId)+'" data-game="'+masterEsc(r.game||r.g||'')+'" data-card-name="'+masterEsc(r.name||'')+'" data-card-no="'+masterEsc(r.cardNo||r.no||'')+'" data-series="'+masterEsc(r.series||r.pack||'')+'" data-rarity="'+masterEsc(r.rarity||'')+'" data-parallel="'+(r.parallel?'true':'false')+'" onerror="cardImageError(this,this.dataset.cid)">':'<div style="width:48px;height:66px;border-radius:6px;background:var(--sf2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--mu)">画像なし</div>')+'<div><b>'+masterEsc(r.name)+'</b><div class="m">'+masterEsc(r.cardNo)+' ・ '+masterEsc(r.rarity||'レアリティ未設定')+'</div><div class="m">'+(r.imageUrl?(r.imageVerificationStatus==='candidate_unverified'||String(r.imageSourceStatus||'').includes('needs_user_review')?'画像候補（要確認）':'画像URL登録済み（表示未確認）'):'画像未取得')+'</div></div></div>').join('');
+  const list=latest.map(r=>'<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)">'+(r.imageUrl?'<img src="'+masterEsc(r.imageUrl)+'" style="width:48px;height:66px;object-fit:contain;border-radius:6px;background:var(--sf2)" loading="lazy" data-cid="'+masterEsc(r.collectionId)+'" data-game="'+masterEsc(r.game||r.g||'')+'" data-card-name="'+masterEsc(r.name||'')+'" data-card-no="'+masterEsc(r.cardNo||r.no||'')+'" data-series="'+masterEsc(r.series||r.pack||'')+'" data-rarity="'+masterEsc(r.rarity||'')+'" data-parallel="'+(r.parallel?'true':'false')+'" onerror="cardImageError(this,this.dataset.cid)">':'<div style="width:48px;height:66px;border-radius:6px;background:var(--sf2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--mu)">画像なし</div>')+'<div><b>'+masterEsc(r.name)+'</b><div class="m">'+masterEsc(r.cardNo)+' ・ '+masterEsc(r.rarity||'レアリティ未設定')+'</div><div class="m">'+(r.imageUrl?(String(r.imageVerificationStatus||'').startsWith('candidate_unverified')||String(r.imageSourceStatus||'').includes('needs_user_review')?'画像候補（要確認）':'画像URL登録済み（表示未確認）'):'画像未取得')+'</div></div></div>').join('');
   const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="card" style="margin:0 0 10px"><div class="m">登録済みカードマスター</div><div style="font-size:30px;font-weight:800">'+rows.length+' <small style="font-size:13px;color:var(--mu)">種類</small></div><div class="m">重複整理：'+dedup.before+'件 → '+dedup.after+'件（'+dedup.removed+'件を統合）</div>'+summary+'</div><div class="m" style="margin:10px 0">最近更新したカード（最大8件）</div>'+(list||'<div class="empty">まだマスター登録はありません</div>')+'<button class="btn" style="width:100%;margin-top:14px" onclick="masterRetryImages()">全カードの画像を厳密照合で再検索</button><div class="m" style="margin-top:12px">マイコレ登録カードだけを対象に、パック名・カード番号・カード名・レアリティを照合します。一致しない場合は画像を登録しません。保存先はこの端末のブラウザ内です。</div>';
  }catch(e){const el=$('#masterInfoBody');if(el)el.innerHTML='<div class="empty">カードマスターを利用できません。このブラウザの保存機能を確認してください。</div>'}
 }
@@ -515,9 +515,42 @@ function demo(){
  d.forEach((x,i)=>S.cards.push({id:'d'+i,g:x[0],series:GN[x[0]].sr[0],rarity:x[2],name:x[1],no:x[3],qty:x[4],price:x[5],base:x[6]}));
  const T=tot(S.cards).v;S.hist=[];for(let i=29;i>0;i--){const dt=new Date(Date.now()-i*864e5).toISOString().slice(0,10);S.hist.push({d:dt,v:T*(0.72+0.28*(30-i)/30)*(1+Math.sin(i)*0.02)})}
  save();render()}
+async function exportFullBackup(){
+ try{
+  const master=await masterList();
+  const payload={format:'tcg-collection-note-backup',version:1,createdAt:new Date().toISOString(),appState:{cards:S.cards,hist:S.hist},cardMaster:master};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='tcg-collection-note-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+  toast('✓ コレクションとカードマスターをバックアップしました');
+ }catch(e){console.warn('Backup export:',e);toast('バックアップを作成できませんでした')}
+}
+async function restoreFullBackup(input){
+ const file=input?.files?.[0];if(!file)return;
+ try{
+  const payload=JSON.parse(await file.text());
+  const state=payload?.appState,master=payload?.cardMaster;
+  const valid=payload?.format==='tcg-collection-note-backup'&&payload?.version===1&&Array.isArray(state?.cards)&&Array.isArray(state?.hist)&&Array.isArray(master)&&state.cards.every(c=>c&&c.id&&GN[c.g]&&c.name)&&master.every(r=>r&&typeof r.key==='string'&&r.name&&(r.game||r.g));
+  if(!valid)throw new Error('バックアップ形式またはデータ項目が一致しません');
+  if(!confirm('現在のコレクションとカードマスターを、バックアップの内容に置き換えます。続行しますか？')){input.value='';return}
+  const previousState={cards:S.cards,hist:S.hist},previousMaster=await masterList();
+  try{
+   await masterReplace(master);
+   S.cards=state.cards;S.hist=state.hist;
+   localStorage.setItem(K,JSON.stringify(S));
+  }catch(e){
+   S.cards=previousState.cards;S.hist=previousState.hist;
+   try{localStorage.setItem(K,JSON.stringify(S));await masterReplace(previousMaster)}catch(rollback){console.error('Backup restore rollback:',rollback)}
+   throw e;
+  }
+  close_();render();toast('✓ バックアップを復元しました');input.value='';
+ }catch(e){console.warn('Backup restore:',e);toast('復元できませんでした。元のデータは変更していません');input.value=''}
+}
+
 $('#fab').onclick=add;
 $('#th').onclick=()=>{const r=document.documentElement,l=r.dataset.theme==='light'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:light)').matches);r.dataset.theme=l?'dark':'light'};
-$('#more').onclick=()=>open_(`<div class="hd"><b>その他</b><button class="ib" onclick="close_()">✕</button></div><button class="btn" style="width:100%;margin-bottom:10px" onclick="demo();close_()">デモデータを追加</button><button class="btn" style="width:100%;color:var(--dn)" onclick="if(confirm('全データを削除しますか？')){S={cards:[],hist:[]};save();close_();render()}">全データを削除</button>`);
+$('#more').onclick=()=>open_(`<div class="hd"><b>その他</b><button class="ib" onclick="close_()">✕</button></div><button class="btn" style="width:100%;margin-bottom:10px" onclick="exportFullBackup()">全データをバックアップ（JSON）</button><label>バックアップから復元</label><input type="file" accept="application/json,.json" onchange="restoreFullBackup(this)"><div class="m" style="margin:8px 0 14px">コレクション・入手情報・価格履歴・カードマスターをまとめて保存／復元します。復元すると現在のデータは置き換わります。</div><button class="btn" style="width:100%;margin-bottom:10px" onclick="demo();close_()">デモデータを追加</button><button class="btn" style="width:100%;color:var(--dn)" onclick="if(confirm('全データを削除しますか？')){S={cards:[],hist:[]};save();close_();render()}">全データを削除</button>`);margin-bottom:10px" onclick="demo();close_()">デモデータを追加</button><button class="btn" style="width:100%;color:var(--dn)" onclick="if(confirm('全データを削除しますか？')){S={cards:[],hist:[]};save();close_();render()}">全データを削除</button>`);
 S.cards=S.cards.filter(c=>GN[c.g]);
 const SO='その他(手入力)';
 function add(){const G=GN[F.g];
