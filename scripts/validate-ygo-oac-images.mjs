@@ -2,10 +2,12 @@ import { readFileSync } from 'node:fs';
 const html = readFileSync('index.html', 'utf8');
 const data = JSON.parse(readFileSync('data/ygo-oac.json', 'utf8'));
 const confirmedImages = data.cards.filter(x => x.imageStatus === 'user_confirmed_image').length;
+const userConfirmed = data.cards.filter(x => x.imageCandidateStatus === 'user_confirmed_by_user').length;
 const reviewNeeded = data.cards.filter(x => x.imageCandidateStatus === 'needs_user_review' || x.imageStatus === 'direct_image_endpoint_available_artwork_needs_user_review').length;
-if (confirmedImages < 21) throw new Error('YAC1 confirmed image count unexpectedly dropped: ' + confirmedImages);
-if (reviewNeeded < 79) throw new Error('YAC1 review-needed image count unexpectedly dropped: ' + reviewNeeded);
-console.log('YAC1 image review status:', confirmedImages, 'confirmed;', reviewNeeded, 'still require artwork review');
+if (confirmedImages !== 100) throw new Error('YAC1 base image confirmations must remain at 100: ' + confirmedImages);
+if (userConfirmed !== 100) throw new Error('YAC1 user review confirmations must remain at 100: ' + userConfirmed);
+if (reviewNeeded !== 0) throw new Error('YAC1 base image review queue should be empty: ' + reviewNeeded);
+console.log('YAC1 base image review status:', confirmedImages, 'confirmed;', reviewNeeded, 'pending; variant-specific image assets remain separately validated.');
 
 const checks = [
   ['YAC1 has 100 unique numbered records', Array.isArray(data.cards) && data.cards.length === 100 && new Set(data.cards.map(x => x.cardNumber || x.id)).size === 100],
