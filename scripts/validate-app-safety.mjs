@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 const html = readFileSync('index.html', 'utf8');
 const checks = [
   ['backup menu is exposed', html.includes('全データをバックアップ（JSON）')],
+  ['existing shop links, card master, and CSV tools remain available', html.includes('onclick="links()"') && html.includes('onclick="masterInfo()"') && html.includes('onclick="csv()"')],
+  ['legacy version 2 backups remain restorable', html.includes('(payload?.version===2)')],
   ['restore file input is exposed', html.includes('onchange="restoreFullBackup(this)"')],
   ['backup contains collection and card master', html.includes("appState:{cards:S.cards,hist:S.hist},cardMaster:master")],
   ['backup format and version are explicit', html.includes("format:'tcg-collection-note-backup',version:1")],
