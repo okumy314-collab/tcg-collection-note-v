@@ -4,10 +4,22 @@ const data = JSON.parse(readFileSync('data/ygo-oac.json', 'utf8'));
 const confirmedImages = data.cards.filter(x => x.imageStatus === 'user_confirmed_image').length;
 const userConfirmed = data.cards.filter(x => x.imageCandidateStatus === 'user_confirmed_by_user').length;
 const reviewNeeded = data.cards.filter(x => x.imageCandidateStatus === 'needs_user_review' || x.imageStatus === 'direct_image_endpoint_available_artwork_needs_user_review').length;
+const declaredVariants = data.cards.flatMap(x => Array.isArray(x.variants) ? x.variants.map(rarity => ({ card: x, rarity })) : []);
+const rarityLabels = new Set(declaredVariants.map(x => x.rarity));
+const exactVariantImages = data.cards.reduce((n, x) => {
+  const variants = x.imageVariants || x.variantImages || {};
+  return n + (Array.isArray(variants)
+    ? variants.filter(v => v && typeof (v.imageUrl || v.url) === 'string' && /^https:\/\//.test(v.imageUrl || v.url)).length
+    : Object.values(variants).filter(v => /^https:\/\//.test(typeof v === 'string' ? v : (v?.imageUrl || v?.url || ''))).length);
+}, 0);
 if (confirmedImages !== 100) throw new Error('YAC1 base image confirmations must remain at 100: ' + confirmedImages);
 if (userConfirmed !== 100) throw new Error('YAC1 user review confirmations must remain at 100: ' + userConfirmed);
 if (reviewNeeded !== 0) throw new Error('YAC1 base image review queue should be empty: ' + reviewNeeded);
 console.log('YAC1 base image review status:', confirmedImages, 'confirmed;', reviewNeeded, 'pending; variant-specific image assets remain separately validated.');
+if (declaredVariants.length !== 346 || rarityLabels.size !== 14) throw new Error('YAC1 rarity declarations changed unexpectedly: ' + declaredVariants.length + ' entries across ' + rarityLabels.size + ' labels');
+if (data.cards.some(x => !Array.isArray(x.variants) || !x.variants.includes(x.baseRarity))) throw new Error('Every YAC1 card must declare its base rarity in variants');
+console.log('YAC1 rarity declarations:', declaredVariants.length, 'card/rarity combinations across', rarityLabels.size, 'labels;', exactVariantImages, 'direct variant image assets registered.');
+
 
 const checks = [
   ['YAC1 has 100 unique numbered records', Array.isArray(data.cards) && data.cards.length === 100 && new Set(data.cards.map(x => x.cardNumber || x.id)).size === 100],
