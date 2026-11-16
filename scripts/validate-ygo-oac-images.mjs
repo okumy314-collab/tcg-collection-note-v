@@ -50,7 +50,10 @@ const checks = [
   ['master retry marks unreviewed base image as candidate, not verified', html.includes("status:hit.imageStatus==='user_confirmed_image'?'user_confirmed_base_rarity':'candidate_unverified_base_rarity'")],
   ['special rarity still requires its own exact variant image', html.includes('const variants=hit.imageVariants||hit.variantImages||{}')],
   ['black magician official title alias is normalized', html.includes("replace(/^黒き魔術師[－-]/,'')")],
-  ['YAC1 matching retains exact collector number', html.includes('masterImageNorm(x.cardNumber||x.id)===no')]
+  ['YAC1 matching retains exact collector number', html.includes('masterImageNorm(x.cardNumber||x.id)===no')],
+  ['YAC1 edit form uses card-specific rarity variants', html.includes('...(oacRecord?.variants||[])')],
+  ['YAC1 rarity changes refresh the exact image preview', html.includes('onchange="previewRarityImage(') && html.includes('function previewRarityImage(id,rarity)')],
+  ['missing YAC1 variant image is hidden rather than substituted', html.includes('このレアリティの個別画像は未登録です。誤った画像を表示しないよう非表示にしています。')]
 ];
 let failed = 0;
 for (const [name, ok] of checks) {
