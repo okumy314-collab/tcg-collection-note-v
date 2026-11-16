@@ -60,6 +60,9 @@ jobs:
       - name: Validate backup, restore, and image safety
         run: node scripts/validate-app-safety.mjs
 
+      - name: Validate backup, restore, and image safety
+        run: node scripts/validate-app-safety.mjs
+
       - name: Validate YAC1 base and variant image fallback rules
         run: node scripts/validate-ygo-oac-images.mjs
 
