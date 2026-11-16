@@ -17,7 +17,9 @@ if (userConfirmed !== 100) throw new Error('YAC1 user review confirmations must 
 if (reviewNeeded !== 0) throw new Error('YAC1 base image review queue should be empty: ' + reviewNeeded);
 console.log('YAC1 base image review status:', confirmedImages, 'confirmed;', reviewNeeded, 'pending; variant-specific image assets remain separately validated.');
 if (declaredVariants.length !== 346 || rarityLabels.size !== 14) throw new Error('YAC1 rarity declarations changed unexpectedly: ' + declaredVariants.length + ' entries across ' + rarityLabels.size + ' labels');
-if (data.cards.some(x => !Array.isArray(x.variants) || !x.variants.includes(x.baseRarity))) throw new Error('Every YAC1 card must declare its base rarity in variants');
+const mangaVariantLabels = ['ウルトラレア（モノクロ）', 'ウルトラレア（カラー）', 'シークレットレア（モノクロ）', 'シークレットレア（カラー）'];
+if (data.cards.some(x => !Array.isArray(x.variants) || (!String(x.baseRarity || '').includes('MANGA-STYLE') && !x.variants.includes(x.baseRarity)))) throw new Error('Every non-MANGA YAC1 card must declare its base rarity in variants');
+if (data.cards.filter(x => String(x.baseRarity || '').includes('MANGA-STYLE')).some(x => mangaVariantLabels.some(label => !x.variants.includes(label)))) throw new Error('Every MANGA-STYLE card must declare all four color/monochrome rarity variants');
 console.log('YAC1 rarity declarations:', declaredVariants.length, 'card/rarity combinations across', rarityLabels.size, 'labels;', exactVariantImages, 'direct variant image assets registered.');
 
 
