@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TCG画像表示テスト 3パターン</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:16px;background:#f4f5f7;color:#17191d;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif}
+h1{font-size:20px;margin:4px 0 8px}.lead{font-size:13px;line-height:1.7;color:#555;margin:0 0 18px}
+.case{background:#fff;border:1px solid #ddd;border-radius:14px;padding:13px;margin:12px 0}
+.case h2{font-size:16px;margin:0 0 5px}.desc{font-size:12px;color:#666;margin:0 0 12px;line-height:1.5}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{min-width:0;background:#f7f7f8;border-radius:10px;padding:8px}
+.card b{display:block;font-size:12px;margin-bottom:6px}.card img{width:100%;height:190px;object-fit:contain;background:#eee;border-radius:7px;display:block}
+.status{font-size:11px;line-height:1.5;margin-top:6px;overflow-wrap:anywhere}.ok{color:#087b42}.ng{color:#bd2525}.pending{color:#555}
+.note{font-size:12px;line-height:1.7;color:#555;margin-top:18px}.stamp{font-size:11px;color:#777}
+</style>
+</head>
+<body>
+<h1>画像表示テスト｜3パターン</h1>
+<p class="lead">同じ公式カード画像を3通りの方法で読み込みます。画像が表示されたか、各カードの結果を確認してください。通常版とパラレル版は別画像です。</p>
+<div id="tests"></div>
+<p class="note">判定はこの端末のブラウザ上で行います。画像が見えているのに「失敗」と出る場合、または画像が見えないのに「成功」と出る場合は、その状態も教えてください。</p>
+<div class="stamp">テスト対象：OP05-098 / OP05-098_p1 / OP05-100_p2</div>
+<script>
+const cards=[
+ {no:'OP05-098',name:'エネル（通常版）',url:'https://www.onepiece-cardgame.com/images/cardlist/card/OP05-098.png?2602273'},
+ {no:'OP05-098_p1',name:'エネル（パラレル版）',url:'https://www.onepiece-cardgame.com/images/cardlist/card/OP05-098_p1.png?2602273'},
+ {no:'OP05-100_p2',name:'別カード（パラレル版）',url:'https://www.onepiece-cardgame.com/images/cardlist/card/OP05-100_p2.png?2602273'}
+];
+const methods=[
+ {title:'A｜公式URLをそのまま',desc:'現在の公式画像URLをそのまま読み込みます。',url:c=>c.url,referrer:'no-referrer'},
+ {title:'B｜公式URL・クエリなし',desc:'URL末尾の更新用クエリを外して読み込みます。',url:c=>c.url.split('?')[0],referrer:'strict-origin-when-cross-origin'},
+ {title:'C｜画像プロキシ経由',desc:'wsrv.nlを経由して画像を配信します。',url:c=>'https://wsrv.nl/?url='+encodeURIComponent(c.url.split('?')[0]),referrer:'no-referrer'}
+];
+const root=document.getElementById('tests');
+methods.forEach((m,mi)=>{
+ const section=document.createElement('section');section.className='case';
+ section.innerHTML='<h2>'+m.title+'</h2><p class="desc">'+m.desc+'</p><div class="cards"></div>';
+ const grid=section.querySelector('.cards');
+ cards.forEach((c,ci)=>{
+  const box=document.createElement('div');box.className='card';
+  const label=document.createElement('b');label.textContent=c.name+'｜'+c.no;
+  const img=document.createElement('img');img.alt=c.name;img.referrerPolicy=m.referrer;
+  const status=document.createElement('div');status.className='status pending';status.textContent='読み込み中…';
+  img.onload=()=>{status.className='status ok';status.textContent='読み込み成功（画像 '+img.naturalWidth+'×'+img.naturalHeight+'）'};
+  img.onerror=()=>{status.className='status ng';status.textContent='読み込み失敗'};
+  box.append(label,img,status);grid.append(box);img.src=m.url(c);
+ });
+ root.append(section);
+});
+</script>
+</body>
+</html>
