@@ -471,9 +471,17 @@ async function masterDeleteKey(key){
  try{const db=await masterDb();await new Promise((resolve,reject)=>{const tx=db.transaction(MASTER_STORE,'readwrite');tx.objectStore(MASTER_STORE).delete(key);tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)})}catch(e){console.warn('Card master key cleanup:',e)}
 }
 function editCard(id){detail(id)}
+function previewRarityImage(id,rarity){
+ const c=S.cards.find(x=>x.id==id);if(!c)return;
+ const img=$('#pv'),note=$('#ec_rarity_image_note');if(!img)return;
+ const url=cardDisplayImage({...c,rarity});
+ if(url){img.src=url;img.style.display='';if(note)note.textContent='選択中のレアリティに対応する画像';}
+ else{img.removeAttribute('src');img.style.display='none';if(note)note.textContent='このレアリティの個別画像は未登録です。誤った画像を表示しないよう非表示にしています。';}
+}
 function detail(id){
  const c=S.cards.find(x=>x.id==id);if(!c)return;
- const rarityOptions=[...new Set([...(GN[c.g]?.rr||[]),c.rarity||''].filter(Boolean))];
+ const oacRecord=c.g==='ygo'?ygoOacRecord(c):null;
+ const rarityOptions=[...new Set([...(GN[c.g]?.rr||[]),...(oacRecord?.variants||[]),c.rarity||''].filter(Boolean))];
  const rarityHtml=rarityOptions.map(r=>'<option value="'+masterEsc(r)+'" '+(r===(c.rarity||'')&&!c.parallel?'selected':'')+'>'+masterEsc(r)+'</option>'+(c.g==='op'?'<option value="'+masterEsc(r)+'__parallel" '+(r===(c.rarity||'')&&c.parallel?'selected':'')+'>'+masterEsc(r)+'（パラレル）</option>':'')).join('');
  const modalImage=cardDisplayImage(c);const imageHtml=modalImage?'<img id="pv" class="th" src="'+masterEsc(modalImage)+'" onerror="cardImageError(this,\''+id+'\')">':'<img id="pv" class="th" style="display:none">';
  open_('<div class="hd"><b>カード情報・入手情報</b><button class="ib" onclick="close_()">✕</button></div>'+
@@ -481,7 +489,7 @@ function detail(id){
  '<label>カード画像</label><div class="row" style="align-items:center;gap:12px"><label class="btn sm" style="margin:0;flex:none;padding:11px 16px;font-size:12px">📷 撮影・選択<input type="file" accept="image/*" hidden onchange="pick(this,\''+id+'\')"></label>'+imageHtml+'</div>'+
  '<label>収録パック</label><input id="ec_series" value="'+masterEsc(c.series||c.pack||'')+'" placeholder="収録パック">'+
  '<label>カード名</label><input id="ec_name" value="'+masterEsc(c.name||'')+'" placeholder="カード名">'+
- '<div class="row"><div><label>カード番号</label><input id="ec_no" value="'+masterEsc(c.no||c.cardNo||'')+'" placeholder="カード番号"></div><div><label>レアリティ</label><select id="ec_rarity">'+rarityHtml+'</select></div></div>'+
+ '<div class="row"><div><label>カード番号</label><input id="ec_no" value="'+masterEsc(c.no||c.cardNo||'')+'" placeholder="カード番号"></div><div><label>レアリティ</label><select id="ec_rarity" onchange="previewRarityImage(\''+id+'\',this.value)">'+rarityHtml+'</select></div></div>'+ '<div id="ec_rarity_image_note" class="m" style="margin-top:6px">'+(modalImage?'選択中のレアリティに対応する画像':'このレアリティの個別画像は未登録です。誤った画像を表示しないよう非表示にしています。')+'</div>'+
  
  '<div class="row"><div><label>所持枚数</label><input id="ec_qty" type="number" min="1" step="1" value="'+Math.max(1,Number(c.qty)||1)+'"></div><div><label>相場（1枚あたり）</label><input id="ec_price" type="number" min="0" value="'+(Number(c.price)||0)+'"></div></div>'+
  '<label>入手場所</label><input id="dp" value="'+masterEsc(c.place||'')+'" placeholder="例：カードショップ / パック / フリマ">'+
