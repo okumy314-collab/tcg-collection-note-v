@@ -530,8 +530,10 @@ async function restoreFullBackup(input){
  const file=input?.files?.[0];if(!file)return;
  try{
   const payload=JSON.parse(await file.text());
-  const state=payload?.appState,master=payload?.cardMaster;
-  const valid=payload?.format==='tcg-collection-note-backup'&&payload?.version===1&&Array.isArray(state?.cards)&&Array.isArray(state?.hist)&&Array.isArray(master)&&state.cards.every(c=>c&&c.id&&GN[c.g]&&c.name)&&master.every(r=>r&&typeof r.key==='string'&&r.name&&(r.game||r.g));
+  const state=payload?.appState||{cards:payload?.cards,hist:payload?.hist};
+  const master=payload?.cardMaster;
+  const supported=(payload?.format==='tcg-collection-note-backup'&&payload?.version===1)||(payload?.version===2);
+  const valid=supported&&Array.isArray(state?.cards)&&Array.isArray(state?.hist)&&Array.isArray(master)&&state.cards.every(c=>c&&c.id&&GN[c.g]&&c.name)&&master.every(r=>r&&typeof r.key==='string'&&r.name&&(r.game||r.g));
   if(!valid)throw new Error('バックアップ形式またはデータ項目が一致しません');
   if(!confirm('現在のコレクションとカードマスターを、バックアップの内容に置き換えます。続行しますか？')){input.value='';return}
   const previousState={cards:S.cards,hist:S.hist},previousMaster=await masterList();
@@ -550,7 +552,7 @@ async function restoreFullBackup(input){
 
 $('#fab').onclick=add;
 $('#th').onclick=()=>{const r=document.documentElement,l=r.dataset.theme==='light'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:light)').matches);r.dataset.theme=l?'dark':'light'};
-$('#more').onclick=()=>open_(`<div class="hd"><b>その他</b><button class="ib" onclick="close_()">✕</button></div><button class="btn" style="width:100%;margin-bottom:10px" onclick="exportFullBackup()">全データをバックアップ（JSON）</button><label>バックアップから復元</label><input type="file" accept="application/json,.json" onchange="restoreFullBackup(this)"><div class="m" style="margin:8px 0 14px">コレクション・入手情報・価格履歴・カードマスターをまとめて保存／復元します。復元すると現在のデータは置き換わります。</div><button class="btn" style="width:100%;margin-bottom:10px" onclick="demo();close_()">デモデータを追加</button><button class="btn" style="width:100%;color:var(--dn)" onclick="if(confirm('全データを削除しますか？')){S={cards:[],hist:[]};save();close_();render()}">全データを削除</button>`);
+$('#more').onclick=()=>open_(`<div class="hd"><b>その他</b><button class="ib" onclick="close_()">✕</button></div><button class="btn" style="width:100%;margin-bottom:10px" onclick="links()">🔗 ショップ・公式サイトへ移動</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="masterInfo()">🗂 カードマスターを確認</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="exportFullBackup()">💾 全データをバックアップ（JSON）</button><label>バックアップから復元</label><input type="file" accept="application/json,.json" onchange="restoreFullBackup(this)"><div class="m" style="margin:8px 0 14px">コレクション・入手情報・価格履歴・カードマスターをまとめて保存／復元します。復元すると現在のデータは置き換わります。</div><button class="btn" style="width:100%;margin-bottom:10px" onclick="csv()">📄 CSV出力（Excel用）</button><button class="btn" style="width:100%;margin-bottom:10px" onclick="demo();close_()">デモデータを追加</button><button class="btn" style="width:100%;color:var(--dn)" onclick="if(confirm('マイコレとカードマスターをすべて削除しますか？')){S={cards:[],hist:[]};save();masterReplace([]).catch(()=>{});close_();render()}">全データを削除</button>`);
 S.cards=S.cards.filter(c=>GN[c.g]);
 const SO='その他(手入力)';
 function add(){const G=GN[F.g];
