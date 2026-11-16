@@ -20,6 +20,26 @@ if (declaredVariants.length !== 346 || rarityLabels.size !== 14) throw new Error
 const mangaVariantLabels = ['ウルトラレア（モノクロ）', 'ウルトラレア（カラー）', 'シークレットレア（モノクロ）', 'シークレットレア（カラー）'];
 if (data.cards.some(x => !Array.isArray(x.variants) || (!String(x.baseRarity || '').includes('MANGA-STYLE') && !x.variants.includes(x.baseRarity)))) throw new Error('Every non-MANGA YAC1 card must declare its base rarity in variants');
 if (data.cards.filter(x => String(x.baseRarity || '').includes('MANGA-STYLE')).some(x => mangaVariantLabels.some(label => !x.variants.includes(label)))) throw new Error('Every MANGA-STYLE card must declare all four color/monochrome rarity variants');
+const baseRarityCount = label => data.cards.filter(x => x.baseRarity === label).length;
+const variantCount = label => data.cards.filter(x => (x.variants || []).includes(label)).length;
+const officialCounts = [
+  ['base Ultra Rare', baseRarityCount('ウルトラレア'), 25],
+  ['base Super Rare', baseRarityCount('スーパーレア'), 45],
+  ['base MANGA-STYLE Ultra Rare', baseRarityCount('ウルトラレア（MANGA-STYLE）'), 30],
+  ['Ultra Rare Overframe', variantCount('ウルトラレア（オーバーフレーム）'), 10],
+  ['Prismatic Secret Rare', variantCount('プリズマティックシークレットレア'), 28],
+  ['Prismatic Secret Rare Overframe', variantCount('プリズマティックシークレットレア（オーバーフレーム）'), 10],
+  ['Grand Master Rare (both registered labels)', data.cards.filter(x => (x.variants || []).some(v => v === 'グランドマスターレア' || v === 'グランドマスター')).length, 10],
+  ['Ultimate Rare', variantCount('アルティメットレア'), 14],
+  ['Collectors Rare', variantCount('コレクターズレア'), 14],
+  ['MANGA Ultra Rare monochrome', variantCount('ウルトラレア（モノクロ）'), 30],
+  ['MANGA Ultra Rare color', variantCount('ウルトラレア（カラー）'), 30],
+  ['MANGA Secret Rare monochrome', variantCount('シークレットレア（モノクロ）'), 30],
+  ['MANGA Secret Rare color', variantCount('シークレットレア（カラー）'), 30]
+];
+for (const [label, actual, expected] of officialCounts) {
+  if (actual !== expected) throw new Error('YAC1 official rarity count mismatch for ' + label + ': expected ' + expected + ', got ' + actual);
+}
 console.log('YAC1 rarity declarations:', declaredVariants.length, 'card/rarity combinations across', rarityLabels.size, 'labels;', exactVariantImages, 'direct variant image assets registered.');
 
 
